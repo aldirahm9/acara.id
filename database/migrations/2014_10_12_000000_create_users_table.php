@@ -19,7 +19,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('role');         //admin,organizer,attendee
+            $table->unsignedInteger('role');         //role jadinya cuma ada user, sama admin
+            $table->unsignedBigInteger('organizer_id')->nullable();
+            $table->foreign('organizer_id')->references('id')->on('organizers')->onDelete('set null');
+            $table->boolean('accepted')->nullable();
+            $table->boolean('admin')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

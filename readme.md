@@ -1,3 +1,12 @@
+## Update Notice :
+
+### 30/10/2019
+-User jadinya ada 2 role, user sama admin aja, organizer atau bukan diliat dari dia terdaftar ke salah satu organization ga
+ 
+
+
+
+<hr>
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
