@@ -28,6 +28,19 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/aboutus', function () {
+    return view('aboutus');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+
 Auth::routes();
 
 Route::get('/404', function() {
