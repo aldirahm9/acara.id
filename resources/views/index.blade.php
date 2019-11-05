@@ -70,25 +70,10 @@
                 <nav>
                   <ul class="nav topnav">
                     <li class="active">
-                      <a href="index.html">Home</a>
+                      <a href="/">Home</a>
                     </li>
-                    <li class="dropdown">
-                      <a href="#">Features <i class="icon-angle-down"></i></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="typography.html">Typography</a></li>
-                        <li><a href="components.html">Components</a></li>
-                        <li><a href="icons.html">Icons</a></li>
-                        <li><a href="icon-variations.html">Icon variations</a></li>
-
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#">About Us <i class="icon-angle-down"></i></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="pricingbox.html">Pricing boxes</a></li>
-                        <li><a href="404.html">404</a></li>
-                      </ul>
+                    <li>
+                      <a href="/aboutus">About Us </a>
                     </li>
                     <li class="dropdown">
                       <a href="#">Blog <i class="icon-angle-down"></i></a>
@@ -100,13 +85,13 @@
                       </ul>
                     </li>
                     <li>
-                      <a href="contact.html">Contact </a>
+                      <a href="/contact">Contact </a>
                     </li>
                     <li class="dropdown">
-                        <a href="#"><img src="../../img/acc.png" width="27"></a>
+                        <a href="#"><img src="../../img/acc.png" width="27"><i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="blog-left-sidebar.html">Sign In</a></li>
-                            <li><a href="blog-right-sidebar.html">Log In</a></li>
+                            <li><a href="/register">Sign In</a></li>
+                            <li><a href="/login">Log In</a></li>
                         </ul>
                     </li>
                   </ul>

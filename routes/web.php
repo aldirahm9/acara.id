@@ -15,9 +15,18 @@ Route::get('/home', function () {
     return view('dashboard/pages/index');
 });
 
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/aboutus', function () {
+    return view('aboutus');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 
 Auth::routes();
 
