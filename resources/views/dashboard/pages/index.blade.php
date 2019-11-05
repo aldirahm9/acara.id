@@ -5,7 +5,7 @@
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
         <!-- BEGIN PAGE HEADER-->
-        <!-- BEGIN PAGE BAR -->
+        <!--  BEGIN PAGE BAR -->
         <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
@@ -22,7 +22,7 @@
             </ul>
 
         </div>
-        <!-- END PAGE BAR -->
+        <!--  END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title"> Blank Page Layout
             <small>blank page layout</small>

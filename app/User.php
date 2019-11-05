@@ -75,10 +75,29 @@ class User extends Authenticatable
             return false;
     }
 
+    public function isInvitedBy($organizer) {
+        if($this->organizer_id == $organizer && $this->accepted != 1)
+            return true;
+        else
+            return false;
+    }
+
+    public function isMemberOf($organizer) {
+        if($this->organizer_id == $organizer && $this->accepted == 1)
+        return true;
+        else return false;
+    }
+
     public function setAsAdmin() {
         $this->role = 1;
     }
 
-    
+    public static function getAllMembersOf($organizer) {
+        return User::where('organizer_id', $organizer);
+    }
+
+
+
+
 
 }

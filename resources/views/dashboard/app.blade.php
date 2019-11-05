@@ -42,7 +42,12 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                 </div>
                 <!-- END LOGO -->
-
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                    <span></span>
+                </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
                 <!-- BEGIN TOP NAVIGATION MENU -->
                 <div class="top-menu">
                     <ul class="nav navbar-nav pull-right">
@@ -52,7 +57,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                                 data-close-others="true">
                                 <img alt="" class="img-circle" src="../assets/layouts/layout/img/avatar3_small.jpg" />
-                                <span class="username username-hide-on-mobile"> Nick </span>
+                                <span class="username username-hide-on-mobile"> {{Auth::user()->name}} </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
@@ -61,7 +66,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <i class="icon-user"></i> My Profile </a>
                                 </li>
                                 <li>
-                                    <a href="page_user_login_1.html">
+                                    <a href="{{ action('Auth\LoginController@logout') }}">
                                         <i class="icon-key"></i> Log Out </a>
                                 </li>
                             </ul>
@@ -106,12 +111,12 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END FOOTER -->
     </div>
 
-    @include('dashboard/partials/_script')
 
+
+    @include('dashboard/partials/_script')
 </body>
 
 
 
 <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_1/layout_blank_page.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jan 2018 07:52:41 GMT -->
-
 </html>

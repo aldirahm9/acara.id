@@ -302,7 +302,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         // adjust some values to take into account differences between
         // CSS and IE rotations.
         if (this.position == 'top') {
-            // FIXME: not sure why, but placing this exactly at the top causes
+            // fixme: not sure why, but placing this exactly at the top causes
             // the top axis label to flip to the bottom...
             offsets.y = box.top + 1;
         } else if (this.position == 'left') {

@@ -10,11 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::group(['middleware' => ['organizer']], function () {
+
+        Route::get('dashboard', "DashboardController@index")->name('dashboard');
+        Route::get('dashboard/members', 'MemberController@index')->name('members');
+    });
+
+    Route::get('logout', 'Auth\LoginController@logout');
+
+
+});
+
 
 Route::get('/home', function () {
-    return view('dashboard/pages/index');
+    return view('home');
 });
 
 Auth::routes();
+
+Route::get('/404', function() {
+    return view('404');
+});
+
+Route::get('/500', function() {
+    return view('500');
+});
 
 // Route::get('/home', 'HomeController@index')->name('home');
