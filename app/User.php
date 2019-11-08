@@ -76,7 +76,7 @@ class User extends Authenticatable
     }
 
     public function isInvitedBy($organizer) {
-        if($this->organizer_id == $organizer && $this->accepted != 1)
+        if($this->organizer_id == $organizer && ($this->accepted != 1 || $this->accepted ==null))
             return true;
         else
             return false;

@@ -21,11 +21,11 @@ class UserSeeder extends Seeder
         //         'role' => $faker->numberBetween(0,2)
         //     ]);
         // }
-        $default = App\Organizer::create([
-            'name' => 'DEFAULT',
-            'picture' => 'ceritanya gambar',
-            'desc' => 'desc aja'
-        ]);
+        // $default = App\Organizer::create([
+        //     'name' => 'DEFAULT',
+        //     'picture' => 'ceritanya gambar',
+        //     'desc' => 'desc aja'
+        // ]);
         $user = App\User::create([
             'name' => 'aldi',
             'email' => 'aldi@aldi.aldi',
@@ -44,12 +44,12 @@ class UserSeeder extends Seeder
             'organizer_id' => 1
         ]);
 
-        App\User::create([
-            'name' => 'admin',
-            'email' => 'admin@admin.admin',
-            'password' => bcrypt('123123'),
-            'role' => 1
-        ]);
+        // App\User::create([
+        //     'name' => 'admin',
+        //     'email' => 'admin@admin.admin',
+        //     'password' => bcrypt('123123'),
+        //     'role' => 1
+        // ]);
 
         App\User::create([
             'name' => 'apid',
@@ -57,7 +57,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('123123'),
             'role' => 0,
             'organizer_id' => 1,
-            'accept' => 1
+            'accepted' => 1
         ]);
 
     }

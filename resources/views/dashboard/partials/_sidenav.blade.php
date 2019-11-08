@@ -17,68 +17,55 @@
 
         </li>
         {{-- SECTION SIDENAV ORGANIZER --}}
-        @if (Auth::user()->isorganizer())
+        @if (Auth::user()->isOrganizer())
         <li class="heading">
             <h3 class="uppercase">{{Auth::user()->organizer->name}}</h3>
         </li>
-        <li class="nav-item {{ request()->routeIs('members') ? 'active' : ''}} ">
-            <a href={{route('members')}} class="nav-link nav-toggle">
+        <li class="nav-item {{ request()->routeIs('dashboard.member.index') ? 'active' : ''}} ">
+            <a href={{route('dashboard.member.index')}} class="nav-link nav-toggle">
                 <i class="icon-diamond"></i>
                 <span class="title">Members</span>
             </a>
         </li>
-        <li class="nav-item  ">
+        <li class="nav-item  {{request()->routeIs('dashboard.event*') ? 'open active' : ''}}">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-puzzle"></i>
-                <span class="title">Events</span>
-                <span class="arrow"></span>
+                <span class="title ">Events</span>
+                <span class="arrow {{request()->routeIs('dashboard.event*') ? 'open' : ''}}"></span>
             </a>
-            <ul class="sub-menu">
 
-                <li class="nav-item  ">
-                    <a href="components_bootstrap_multiselect_dropdown.html" class="nav-link ">
-                        <span class="title">BINER 4.0</span>
+            <ul class="sub-menu" {{request()->routeIs('dashboard.event*') ? 'style=display:block;' : ''}}>
+                {{-- TODO: pisahin event yang udah finished sama belom --}}
+                {{-- @foreach(Auth::user()->organizer->events->where('finished',0) as $event) --}}
+                @foreach(Auth::user()->organizer->events as $each)
+                <li class="nav-item {{ (request()->is('dashboard/event/' . $each->id)) ? 'active' : '' }} ">
+                    <a href="{{route('dashboard.event.show',['event' => $each->id])}}" class="nav-link ">
+                        <span class="title">{{$each->name}}</span>
                     </a>
                 </li>
-                <li class="nav-item  ">
-                    <a href="components_bootstrap_select_splitter.html" class="nav-link ">
-                        <span class="title">PELANGI</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="components_clipboard.html" class="nav-link ">
-                        <span class="title">....</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="components_typeahead.html" class="nav-link ">
-                        <span class="title">Create Event</span>
+                @endforeach
+
+
+                <li class="nav-item {{ (request()->is('dashboard/event/create')) ? 'active' : '' }} ">
+                    <a href="{{route('dashboard.event.create')}}" class="nav-link ">
+                        <i class="fa fa-plus"></i><span class="title">New Event</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                        <a href="javascript:;" class="nav-link nav-toggle">
-                            Finished Event
-                            <span class="arrow"></span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li class="nav-item">
-                                <a href="#" target="_blank" class="nav-link">
-                                    BINER 0010
-                                </a>
-
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                   BINER 3.0
-                                </a>
-                            </li>
-                         
-                        </ul>
-                    </li>
-
-
-
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        Finished Event
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        {{-- TODO: bikin foreach --}}
+                        <li class="nav-item">
+                            <a href="#" target="_blank" class="nav-link">
+                                BINER 0010
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
 
             </ul>
@@ -103,6 +90,47 @@
                 </li>
             </ul>
         </li>
+
+        @if(request()->routeIs('dashboard.event*') && !request()->routeIs('dashboard.event.create'))
+
+        <li class="heading">
+            <h3 class="uppercase">{{$event->name}}</h3>
+        </li>
+        <li class="nav-item  ">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="icon-diamond"></i>
+                <span class="title">Ticket</span>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a href="#" class="nav-link nav-toggle">
+                <i class="icon-puzzle"></i>
+                <span class="title">Attendee</span>
+
+            </a>
+
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-settings"></i>
+                <span class="title">Setting</span>
+                {{-- <span class="arrow"></span> --}}
+            </a>
+            {{-- <ul class="sub-menu">
+
+                <li class="nav-item  ">
+                    <a href="form_fileupload.html" class="nav-link ">
+                        <span class="title">Multiple File Upload</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="form_dropzone.html" class="nav-link ">
+                        <span class="title">Dropzone File Upload</span>
+                    </a>
+                </li>
+            </ul> --}}
+        </li>
+        @endif
         @endif
         {{-- !SECTION  --}}
         {{-- SECTION SIDENAV ADMIN --}}
@@ -170,208 +198,9 @@
         </li>
         @endif
         {{-- !SECTION  --}}
-        <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-bulb"></i>
-                <span class="title">Elements</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="elements_steps.html" class="nav-link ">
-                        <span class="title">Steps</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="elements_lists.html" class="nav-link ">
-                        <span class="title">Lists</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="elements_ribbons.html" class="nav-link ">
-                        <span class="title">Ribbons</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="elements_overlay.html" class="nav-link ">
-                        <span class="title">Overlays</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="elements_cards.html" class="nav-link ">
-                        <span class="title">User Cards</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-briefcase"></i>
-                <span class="title">Tables</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="table_static_basic.html" class="nav-link ">
-                        <span class="title">Basic Tables</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="table_static_responsive.html" class="nav-link ">
-                        <span class="title">Responsive Tables</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="table_bootstrap.html" class="nav-link ">
-                        <span class="title">Bootstrap Tables</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="javascript:;" class="nav-link nav-toggle">
-                        <span class="title">Datatables</span>
-                        <span class="arrow"></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="nav-item ">
-                            <a href="table_datatables_managed.html" class="nav-link "> Managed Datatables </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="table_datatables_buttons.html" class="nav-link "> Buttons Extension </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="table_datatables_colreorder.html" class="nav-link "> Colreorder Extension </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="table_datatables_rowreorder.html" class="nav-link "> Rowreorder Extension </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="table_datatables_scroller.html" class="nav-link "> Scroller Extension </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="table_datatables_fixedheader.html" class="nav-link "> FixedHeader Extension </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="table_datatables_responsive.html" class="nav-link "> Responsive Extension </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="table_datatables_editable.html" class="nav-link "> Editable Datatables </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="table_datatables_ajax.html" class="nav-link "> Ajax Datatables </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item  ">
-            <a href="layout_blank_page8a36.html?p=" class="nav-link nav-toggle">
-                <i class="icon-wallet"></i>
-                <span class="title">Portlets</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="portlet_boxed.html" class="nav-link ">
-                        <span class="title">Boxed Portlets</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="portlet_light.html" class="nav-link ">
-                        <span class="title">Light Portlets</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="portlet_solid.html" class="nav-link ">
-                        <span class="title">Solid Portlets</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="portlet_ajax.html" class="nav-link ">
-                        <span class="title">Ajax Portlets</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="portlet_draggable.html" class="nav-link ">
-                        <span class="title">Draggable Portlets</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-bar-chart"></i>
-                <span class="title">Charts</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="charts_amcharts.html" class="nav-link ">
-                        <span class="title">amChart</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="charts_flotcharts.html" class="nav-link ">
-                        <span class="title">Flot Charts</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="charts_flowchart.html" class="nav-link ">
-                        <span class="title">Flow Charts</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="charts_google.html" class="nav-link ">
-                        <span class="title">Google Charts</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="charts_echarts.html" class="nav-link ">
-                        <span class="title">eCharts</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="charts_morris.html" class="nav-link ">
-                        <span class="title">Morris Charts</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="javascript:;" class="nav-link nav-toggle">
-                        <span class="title">HighCharts</span>
-                        <span class="arrow"></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="nav-item ">
-                            <a href="charts_highcharts.html" class="nav-link "> HighCharts </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="charts_highstock.html" class="nav-link "> HighStock </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="charts_highmaps.html" class="nav-link "> HighMaps </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-pointer"></i>
-                <span class="title">Maps</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="maps_google.html" class="nav-link ">
-                        <span class="title">Google Maps</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="maps_vector.html" class="nav-link ">
-                        <span class="title">Vector Maps</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
+
+
+
 
     </ul>
     <!-- END SIDEBAR MENU -->

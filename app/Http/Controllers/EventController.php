@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Event;
 use Illuminate\Http\Request;
 use Auth;
 
-class MemberController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,7 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $organizer = Auth::user()->organizer;
-        $members = User::getAllMembersOf($organizer->id)->get();
-
-        return view('dashboard/pages/members', ['members'=> $members]);
+        //
     }
 
     /**
@@ -26,11 +23,9 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function invite(Request $request)
+    public function create()
     {
-        $organizerid = Auth::user()->organizer->id;
-        User::where('email', $request->email)->update(['organizer_id', $organizerid]);
-        return redirect('dashboard/member');
+        return view('dashboard/pages/event_create');
     }
 
     /**
@@ -47,21 +42,24 @@ class MemberController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Event $event)
     {
-        //
+        if($event->organizer_id != Auth::user()->organizer->id)
+        return redirect('404');
+
+        return view('dashboard/pages/event',['event'=>$event]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Event $event)
     {
         //
     }
@@ -70,10 +68,10 @@ class MemberController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Event $event)
     {
         //
     }
@@ -81,10 +79,10 @@ class MemberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Event $event)
     {
         //
     }

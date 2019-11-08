@@ -20,6 +20,6 @@ class OrganizerMiddleware
         return $next($request);
         if($user->isOrganizer())
         return $next($request);
-        return abort(404, 'Unauthorized action.');
+        return abort(401, 'Unauthorized action.');
     }
 }

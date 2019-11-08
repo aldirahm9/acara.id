@@ -21,6 +21,7 @@ class CreateEventsTable extends Migration
             $table->foreign('organizer_id')->references('id')->on('organizers')->onDelete('cascade');
             $table->unsignedBigInteger('feature_id');
             $table->foreign('feature_id')->references('id')->on('feature_groups');  //features_group
+            $table->boolean('finished');
             $table->timestamps();
         });
     }
