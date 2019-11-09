@@ -1,5 +1,9 @@
 @extends('dashboard/app')
 
+@section('title')
+ | Dashboard
+@endsection
+
 @section('content')
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->

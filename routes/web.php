@@ -20,6 +20,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('dashboard/member', 'MemberController@invite')->name('dashboard.member.invite');
         Route::get('dashboard/event/create', 'EventController@create')->name('dashboard.event.create');
         Route::get('dashboard/event/{event}', 'EventController@show')->name('dashboard.event.show');
+        Route::get('dashboard/event/ticket', 'EventController@show_ticket');
     });
 
     Route::get('logout', 'Auth\LoginController@logout');
