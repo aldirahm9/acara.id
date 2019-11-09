@@ -33,6 +33,14 @@ class MemberController extends Controller
         return redirect('dashboard/member');
     }
 
+    public function organizerprof()
+    {
+        $organizer = Auth::user()->organizer;
+        $members = User::getAllMembersOf($organizer->id)->get();
+
+        return view('dashboard/pages/organizerprof', ['members'=> $members]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

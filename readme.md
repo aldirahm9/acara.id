@@ -1,5 +1,8 @@
 ## Update Notice :
 
+### 09/11/2019
+Nambah view doang sih yg di organizer, sama beberapa fungsi di controller sama routes
+
 ### 30/10/2019
 -User jadinya ada 2 role, user sama admin aja, organizer atau bukan diliat dari dia terdaftar ke salah satu organization ga
  

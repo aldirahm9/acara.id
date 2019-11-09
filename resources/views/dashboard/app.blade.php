@@ -35,8 +35,9 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="page-header-inner ">
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
-                    <a href="index-2.html">
-                        <img src="{{asset('assets/layouts/layout/img/logo.png')}}" alt="logo" class="logo-default" /> </a>
+                    <a href="index-2.html"><img src="{{asset('../../img/logooo.png')}}" alt="logo" class="logo-default" width="130" /> </a>
+                    {{-- <a href="index-2.html"><img src="{{asset('../../img/a.png')}}" alt="logo" class="logo-default" width="28" /> </a> <h3 style="color:#4694CA"><b>acara.id</b></h3> --}}
+                    </a>
                     <div class="menu-toggler sidebar-toggler">
                         <span></span>
                     </div>
@@ -56,7 +57,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                                 data-close-others="true">
-                                <img alt="" class="img-circle" src="{{asset('assets/layouts/layout/img/avatar3_small.jpg')}}" />
+                                <img alt="" class="img-circle" src="{{asset('../../img/acc.png')}}" />
                                 <span class="username username-hide-on-mobile"> {{Auth::user()->name}} </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
