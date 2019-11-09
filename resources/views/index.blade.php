@@ -61,7 +61,7 @@
         <div class="row nomargin">
           <div class="span4">
             <div class="logo">
-              <h2><a href="index.html" style="color: #3E96D3"><img src="../../img/a.png" height="42" width="42"> acara.<strong>id</strong></a></h2>
+              <h2><a href="index.html" style="color: #4694CA"><img src="../../img/a.png" height="42" width="42"> acara.<strong>id</strong></a></h2>
             </div>
           </div>
           <div class="span8">

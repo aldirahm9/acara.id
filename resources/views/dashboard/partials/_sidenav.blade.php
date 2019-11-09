@@ -19,17 +19,23 @@
         {{-- SECTION SIDENAV ORGANIZER --}}
         @if (Auth::user()->isOrganizer())
         <li class="heading">
-            <h3 class="uppercase">{{Auth::user()->organizer->name}}</h3>
+            <h3 class="uppercase" style="color:snow"><b>{{Auth::user()->organizer->name}}</b></h3>
         </li>
+        <li class="nav-item {{ request()->routeIs('dashboard.member.organizerprof') ? 'active' : ''}} ">
+                <a href={{route('dashboard.member.organizerprof')}} class="nav-link nav-toggle">
+                    <i class="fa fa-institution"></i>
+                <span class="title">{{Auth::user()->organizer->name}}'s Profile</span>
+                </a>
+            </li>
         <li class="nav-item {{ request()->routeIs('dashboard.member.index') ? 'active' : ''}} ">
             <a href={{route('dashboard.member.index')}} class="nav-link nav-toggle">
-                <i class="icon-diamond"></i>
+                <i class="fa fa-group"></i>
                 <span class="title">Members</span>
             </a>
         </li>
         <li class="nav-item  {{request()->routeIs('dashboard.event*') ? 'open active' : ''}}">
             <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-puzzle"></i>
+                <i class="fa fa-tasks"></i>
                 <span class="title ">Events</span>
                 <span class="arrow {{request()->routeIs('dashboard.event*') ? 'open' : ''}}"></span>
             </a>
@@ -74,9 +80,9 @@
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-settings"></i>
                 <span class="title">Settings</span>
-                <span class="arrow"></span>
+                {{-- <span class="arrow"></span> --}}
             </a>
-            <ul class="sub-menu">
+            {{-- <ul class="sub-menu">
 
                 <li class="nav-item  ">
                     <a href="form_fileupload.html" class="nav-link ">
@@ -88,7 +94,7 @@
                         <span class="title">Dropzone File Upload</span>
                     </a>
                 </li>
-            </ul>
+            </ul> --}}
         </li>
 
         @if(request()->routeIs('dashboard.event*') && !request()->routeIs('dashboard.event.create'))
@@ -97,14 +103,14 @@
             <h3 class="uppercase">{{$event->name}}</h3>
         </li>
         <li class="nav-item  ">
-            <a href="#" class="nav-link nav-toggle">
-                <i class="icon-diamond"></i>
+            <a href="ticket" class="nav-link nav-toggle">
+                <i class="fa fa-ticket"></i>
                 <span class="title">Ticket</span>
             </a>
         </li>
         <li class="nav-item  ">
             <a href="#" class="nav-link nav-toggle">
-                <i class="icon-puzzle"></i>
+                <i class="icon-user"></i>
                 <span class="title">Attendee</span>
 
             </a>
