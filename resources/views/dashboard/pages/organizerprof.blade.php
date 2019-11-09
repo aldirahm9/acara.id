@@ -28,7 +28,7 @@
                             <div class="row">
                                 <div class="col-md-3" style="text-align:center;">
                                     <p style="color:white">aaaaaa</p>
-                                    <img src="../../img/default.png" width="50%"/>
+                                    <img src="{{asset('img/default.png')}}" width="50%"/>
                                 </div>
                                 <div>
                                     <div class="row">

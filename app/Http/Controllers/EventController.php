@@ -53,10 +53,6 @@ class EventController extends Controller
         return view('dashboard/pages/event',['event'=>$event]);
     }
 
-    public function show_ticket()
-    {
-        return view('dashboard/pages/ticket');
-    }
 
     /**
      * Show the form for editing the specified resource.

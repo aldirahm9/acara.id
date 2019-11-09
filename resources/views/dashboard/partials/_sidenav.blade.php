@@ -21,10 +21,10 @@
         <li class="heading">
             <h3 class="uppercase" style="color:snow"><b>{{Auth::user()->organizer->name}}</b></h3>
         </li>
-        <li class="nav-item {{ request()->routeIs('dashboard.member.organizerprof') ? 'active' : ''}} ">
-                <a href={{route('dashboard.member.organizerprof')}} class="nav-link nav-toggle">
+        <li class="nav-item {{ request()->routeIs('dashboard.member.organizer') ? 'active' : ''}} ">
+                <a href={{route('dashboard.member.organizer')}} class="nav-link nav-toggle">
                     <i class="fa fa-institution"></i>
-                <span class="title">{{Auth::user()->organizer->name}}'s Profile</span>
+                <span class="title"> Organizer Profile</span>
                 </a>
             </li>
         <li class="nav-item {{ request()->routeIs('dashboard.member.index') ? 'active' : ''}} ">
@@ -44,7 +44,7 @@
                 {{-- TODO: pisahin event yang udah finished sama belom --}}
                 {{-- @foreach(Auth::user()->organizer->events->where('finished',0) as $event) --}}
                 @foreach(Auth::user()->organizer->events as $each)
-                <li class="nav-item {{ (request()->is('dashboard/event/' . $each->id)) ? 'active' : '' }} ">
+                <li class="nav-item {{ (request()->is('dashboard/event/' . $each->id . '*')) ? 'active' : '' }} ">
                     <a href="{{route('dashboard.event.show',['event' => $each->id])}}" class="nav-link ">
                         <span class="title">{{$each->name}}</span>
                     </a>
@@ -103,7 +103,7 @@
             <h3 class="uppercase">{{$event->name}}</h3>
         </li>
         <li class="nav-item  ">
-            <a href="ticket" class="nav-link nav-toggle">
+            <a href="{{route('dashboard.event.ticket.index', ['event' => $event->id])}}" class="nav-link nav-toggle">
                 <i class="fa fa-ticket"></i>
                 <span class="title">Ticket</span>
             </a>
