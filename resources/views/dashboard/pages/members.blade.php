@@ -7,6 +7,7 @@ $user = Auth::user()
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
+            @include('dashboard/partials/_messages')
         <!-- BEGIN PAGE HEADER-->
         <!--  BEGIN PAGE BAR -->
 

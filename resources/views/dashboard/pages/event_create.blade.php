@@ -4,6 +4,7 @@
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
+            @include('dashboard/partials/_messages')
         <!-- BEGIN PAGE HEADER-->
         <!--  BEGIN PAGE BAR -->
         {{-- <div class="page-bar">
@@ -31,14 +32,14 @@
         <!-- END PAGE HEADER-->
         <div class="container">
         <div class="row">
-            <div class="col-md-6">
+                <div class="col-md-6">
 
             </div>
             <div class="col-md-6">
 
-                
+
+                </div>
             </div>
-        </div>
         </div>
     </div>
     <!-- END CONTENT BODY -->

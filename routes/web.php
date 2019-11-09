@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/member', 'MemberController@index')->name('dashboard.member.index');
         Route::post('dashboard/member', 'MemberController@invite')->name('dashboard.member.invite');
         Route::get('dashboard/event/create', 'EventController@create')->name('dashboard.event.create');
+        Route::post('dashboard/event/store', 'EventController@store')->name('dashboard.event.store');
         Route::get('dashboard/event/{event}', 'EventController@show')->name('dashboard.event.show');
     });
 
