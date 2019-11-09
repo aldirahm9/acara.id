@@ -17,7 +17,7 @@
         </div>
         <!--  END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title" style="color:steelblue"> <b>Selamat datang, {{Auth::user()->name}}!</b></h1>
+        <h1 class="page-title" style="color:steelblue"> <b>Hello, {{Auth::user()->name}}!</b></h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <div class="portlet-body">
