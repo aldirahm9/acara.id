@@ -17,7 +17,6 @@
                     <a href="index-2.html">Dashboard</a>
                 </li>
             </ul>
-
         </div>
         <!--  END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->

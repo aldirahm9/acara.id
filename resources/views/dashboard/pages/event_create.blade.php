@@ -77,11 +77,18 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <label class="col-md-2 control-label">Time
+                                        <label class="col-md-1 control-label">Time
                                             <span class="required"> * </span>
                                         </label>
-                                        <div class="col-md-2">
-                                                <input type="time" name="location" class="form-control">
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control timepicker timepicker-24">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn default" type="button">
+                                                            <i class="fa fa-clock-o"></i>
+                                                        </button>
+                                                    </span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -96,12 +103,19 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <label class="col-md-2 control-label">Time
-                                            <span class="required"> * </span>
-                                        </label>
-                                        <div class="col-md-2">
-                                                <input type="time" name="location" class="form-control">
-                                        </div>
+                                        <label class="col-md-1 control-label">Time
+                                                <span class="required"> * </span>
+                                            </label>
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control timepicker timepicker-24">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default" type="button">
+                                                                <i class="fa fa-clock-o"></i>
+                                                            </button>
+                                                        </span>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">Event Image
@@ -188,6 +202,7 @@
 <script src="{{asset('assets/global/plugins/ckeditor/ckeditor.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/global/plugins/bootstrap-markdown/lib/markdown.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <script>
         $(document).ready(function()
