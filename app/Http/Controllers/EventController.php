@@ -54,9 +54,9 @@ class EventController extends Controller
     }
 
 
-    public function show_attendee()
+    public function show_attendee(Event $event)
     {
-        return view('dashboard/pages/attendee');
+        return view('dashboard/pages/attendee', ['event'=>$event]);
     }
 
     /**

@@ -13,12 +13,21 @@
         <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
+                    <a href="index-2.html">Dashboard</a>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
                     <a href="index-2.html">Event</a>
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <a href="index-2.html">Ticket</a>
+                    <a href="index-2.html">{{$event->name}}</a>
+                    <i class="fa fa-circle"></i>
                 </li>
+                <li>
+                        <a href="index-2.html">Ticket</a>
+
+                    </li>
             </ul>
         </div>
         <!--  END PAGE BAR -->
@@ -67,14 +76,14 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <div class="mt-card-item">
                                         <div class="mt-card-avatar mt-overlay-1">
-                                            <img src="../../img/ticket.jpg"/>
+                                            <img src="{{asset('img/ticket.jpg')}}"/>
                                         </div>
                                         <div class="mt-card-content">
                                             <h3 class="mt-card-name">VVIP Ticket</h3>
                                             <p class="mt-card-desc font-grey-mint">
                                                 <ul style="text-align:left;">
-                                                    <li><b>Approved :</b><br>12</li>
-                                                    <li><b>Need To Approved : </b><br>100</li>
+                                                    <li><b style="color:green">Approved :</b><br>12</li>
+                                                    <li><b style="color:red">Need Approval : </b><br>100</li>
                                                 </ul>
                                             </p>
                                         </div>
@@ -83,7 +92,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <div class="mt-card-item">
                                         <div class="mt-card-avatar mt-overlay-1">
-                                            <img src="../../img/ticket.jpg"/>
+                                            <img src="{{asset('img/ticket.jpg')}}"/>
                                         </div>
                                         <div class="mt-card-content">
                                             <h3 class="mt-card-name">Yellow Ticket</h3>
@@ -99,7 +108,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <div class="mt-card-item">
                                         <div class="mt-card-avatar mt-overlay-1">
-                                            <img src="../../img/ticket.jpg"/>
+                                            <img src="{{asset('img/ticket.jpg')}}"/>
                                         </div>
                                         <div class="mt-card-content">
                                             <h3 class="mt-card-name">Red Ticket</h3>
@@ -115,13 +124,13 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <div class="mt-card-item">
                                         <div class="mt-card-avatar mt-overlay-1">
-                                            <img src="../../img/ticket.jpg"/>
+                                            <img src="{{asset('img/ticket.jpg')}}"/>
                                         </div>
                                         <div class="mt-card-content">
                                             <h3 class="mt-card-name">Green Ticket</h3>
                                             <p class="mt-card-desc font-grey-mint">
                                                 <ul style="text-align:left;">
-                                                    <li><b>Approved :</b><br>12</li>
+                                                    <li><b >Approved :</b><br>12</li>
                                                     <li><b>Need To Approved : </b><br>100</li>
                                                 </ul>
                                             </p>

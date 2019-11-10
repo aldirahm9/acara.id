@@ -9,7 +9,7 @@
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
         <!-- BEGIN PAGE HEADER-->
-        <h1 class="page-title" style="color:steelblue"><strong>Organizer Profile</strong></h1>
+        <h1 class="page-title" style="color:steelblue"><strong>Event Profile</strong></h1>
             <!-- END PAGE TITLE-->
             <!-- END PAGE HEADER-->
             <div class="row">
@@ -229,15 +229,6 @@
  <!-- BEGIN PAGE LEVEL PLUGINS -->
  <script src="{{asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript"></script>
  <script src="{{asset('assets/global/plugins/jquery.sparkline.min.js')}}" type="text/javascript"></script>
- <script src="{{('assets/pages/scripts/profile.min.js" type="text/javascript')}}"></script>
  <!-- END PAGE LEVEL PLUGINS -->
-<script>
-        $(document).ready(function()
-        {
-            $('#clickmewow').click(function()
-            {
-                $('#radio1003').attr('checked', 'checked');
-            });
-        })
-    </script>
+
 @endsection

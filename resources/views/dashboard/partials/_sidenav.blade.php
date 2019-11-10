@@ -102,14 +102,14 @@
         <li class="heading">
             <h3 class="uppercase">{{$event->name}}</h3>
         </li>
-        <li class="nav-item  ">
+        <li class="nav-item  {{ request()->routeIs('dashboard.event.ticket') ? 'active' : '' }}">
             <a href="{{route('dashboard.event.ticket.index', ['event' => $event->id])}}" class="nav-link nav-toggle">
                 <i class="fa fa-ticket"></i>
                 <span class="title">Ticket</span>
             </a>
         </li>
-        <li class="nav-item  ">
-            <a href="#" class="nav-link nav-toggle">
+        <li class="nav-item {{ request()->routeIs('dashboard.event.attendee') ? 'active' : '' }} ">
+            <a href="{{route('dashboard.event.attendee', ['event' => $event->id])}}" class="nav-link nav-toggle">
                 <i class="icon-user"></i>
                 <span class="title">Attendee</span>
 
