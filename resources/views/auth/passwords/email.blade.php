@@ -1,13 +1,22 @@
-@extends('layouts.app')
+@extends('layouts.app1')
+
+@section('action_acc')
+active
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<section id="content">
+        <div class="container">
+                <div class="row justify-content-center">
+                    <div class="span4">
+                        <div class="pricing-box-plain" hidden>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="pricing-box-plain">
+                            <h4 class="heading" style="color:steelblue">Reset Password</h4>
 
-                <div class="card-body">
+                <div class="desc">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
