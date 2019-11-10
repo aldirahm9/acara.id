@@ -18,10 +18,6 @@ class TicketController extends Controller
         return view('dashboard/pages/ticket', ['event' => $event]);
     }
 
-    public function attendee(Event $event)
-    {
-        return view('dashboard/pages/attendee', ['event' => $event]);
-    }
 
     /**
      * Show the form for creating a new resource.
