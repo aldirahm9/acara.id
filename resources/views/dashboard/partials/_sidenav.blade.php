@@ -109,7 +109,7 @@
             </a>
         </li>
         <li class="nav-item  ">
-            <a href="#" class="nav-link nav-toggle">
+            <a href="{{route('dashboard.event.attendee.index', ['event' => $event->id])}}" class="nav-link nav-toggle">
                 <i class="icon-user"></i>
                 <span class="title">Attendee</span>
 

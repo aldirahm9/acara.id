@@ -67,7 +67,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <div class="mt-card-item">
                                         <div class="mt-card-avatar mt-overlay-1">
-                                            <img src="../../img/ticket.jpg"/>
+                                            <img src="../../../img/ticket.jpg"/>
                                         </div>
                                         <div class="mt-card-content">
                                             <h3 class="mt-card-name">VVIP Ticket</h3>
@@ -83,7 +83,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <div class="mt-card-item">
                                         <div class="mt-card-avatar mt-overlay-1">
-                                            <img src="../../img/ticket.jpg"/>
+                                            <img src="../../../img/ticket.jpg"/>
                                         </div>
                                         <div class="mt-card-content">
                                             <h3 class="mt-card-name">Yellow Ticket</h3>
@@ -99,7 +99,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <div class="mt-card-item">
                                         <div class="mt-card-avatar mt-overlay-1">
-                                            <img src="../../img/ticket.jpg"/>
+                                            <img src="../../../img/ticket.jpg"/>
                                         </div>
                                         <div class="mt-card-content">
                                             <h3 class="mt-card-name">Red Ticket</h3>
@@ -115,7 +115,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <div class="mt-card-item">
                                         <div class="mt-card-avatar mt-overlay-1">
-                                            <img src="../../img/ticket.jpg"/>
+                                            <img src="../../../img/ticket.jpg"/>
                                         </div>
                                         <div class="mt-card-content">
                                             <h3 class="mt-card-name">Green Ticket</h3>

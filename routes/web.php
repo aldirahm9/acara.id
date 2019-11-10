@@ -18,12 +18,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/member', 'MemberController@index')->name('dashboard.member.index');
         Route::get('dashboard/organizer', 'DashboardController@organizer')->name('dashboard.member.organizer');
         Route::post('dashboard/member', 'MemberController@invite')->name('dashboard.member.invite');
-        Route::get('dashboard/event/ticket', 'EventController@show_ticket');
         Route::get('dashboard/event/attendee', 'EventController@show_attendee');
         Route::get('dashboard/event/create', 'EventController@create')->name('dashboard.event.create');
         Route::post('dashboard/event/store', 'EventController@store')->name('dashboard.event.store');
         Route::get('dashboard/event/{event}', 'EventController@show')->name('dashboard.event.show');
         Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
+        Route::get('dashboard/event/{event}/attendee', 'TicketController@attendee')->name('dashboard.event.attendee.index');
     });
 
     Route::get('logout', 'Auth\LoginController@logout');
