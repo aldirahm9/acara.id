@@ -12,6 +12,10 @@
 */
 Route::group(['middleware' => ['auth']], function () {
 
+    Route::get('main', 'HomeController@main');
+    Route::get('event', 'HomeController@event');
+
+
     Route::group(['middleware' => ['organizer']], function () {
         Route::post('dashboard/members/invite','MemberController@invite')->name('members.invite');
         Route::get('dashboard', "DashboardController@index")->name('dashboard');
@@ -32,19 +36,23 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::get('/home', function () {
-    return view('home');
+    return view('landing/home');
 });
 
 Route::get('/', function () {
-    return view('index');
+    return view('landing/index');
 });
 
-Route::get('/aboutus', function () {
-    return view('aboutus');
+Route::get('/howit', function () {
+    return view('landing/howit');
+});
+
+Route::get('/event', function () {
+    return view('landing/event');
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('landing/contact');
 });
 
 

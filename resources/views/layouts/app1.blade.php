@@ -73,10 +73,10 @@
                       <a href="/">Home</a>
                     </li>
                     <li @yield('action_how')>
-                      <a href="/aboutus">How It Works</a>
+                      <a href="/howit">How It Works</a>
                     </li>
                     <li @yield('action_event')>
-                      <a href="#">Event</a>
+                      <a href="/event">Event</a>
                     </li>
                     <li @yield('action_con')>
                       <a href="/contact">Contact </a>
@@ -93,13 +93,13 @@
                             <a href="/home1">Home</a>
                     </li>
                     <li @yield('action_how')>
-                        <a href="/aboutus">How It Works</a>
+                        <a href="/howit">How It Works</a>
                     </li>
                     <li @yield('action_event')>
-                        <a href="#">Event</a>
+                        <a href="/event">Event</a>
                     </li>
                     <li @yield('action_org')>
-                        <a href="">Organizer Dashboard</a>
+                        <a data-toggle="modal" data-target="#exampleModalCenter" href="">Organizer Dashboard</a>
                         {{-- bikin if dia organizer ke dashboard kalo ngga bikin organizer, ini baru modal nya doang --}}
                     </li>
                     <li @yield('action_con')>
@@ -130,6 +130,29 @@
 
     @yield('content')
 
+    <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="text-align:center;">
+              <h5 class="modal-title" id="exampleModalLongTitle" style="color:dimgrey">Organizer Dashboard</h5>
+              </button>
+            </div>
+            <div class="modal-body" style="text-align:center;">
+                {{-- <label>Let's build and grow your organization here to reach all of the targets and goals!</label>
+              <button class="btn btn-rounded btn-large btn-info"><i class="icon-plus-sign" style="color:azure"></i>  Create New Organization</button> --}}
+              <h6>You are invited by DEFAULT FMIPA UNJ</h6>
+              <button class="btn btn-rounded btn-large btn-success"><i class="icon-check" style="color:azure"></i>  Accept</button>
+              <button class="btn btn-rounded btn-large btn-danger"><i class="icon-remove-sign" style="color:azure"></i>  Decline</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <footer>
       <div class="container">
         <div class="row">
@@ -143,7 +166,7 @@
   							Jl. Rawamangun Muka, No. 20<br>
   							Jakarta 13426 Indonesia
   						</address>
-              <p>
+              <ph6
                 <i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891 <br>
                 <i class="icon-envelope-alt"></i> info@acara.id
               </p>
