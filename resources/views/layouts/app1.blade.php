@@ -20,6 +20,9 @@
 
   <!-- Fav and touch icons -->
   <link rel="shortcut icon" href="../../img/a.png">
+  <link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
 
   <!-- =======================================================
     Theme Name: Remember
@@ -166,7 +169,6 @@
   							Jl. Rawamangun Muka, No. 20<br>
   							Jakarta 13426 Indonesia
   						</address>
-              <ph6
                 <i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891 <br>
                 <i class="icon-envelope-alt"></i> info@acara.id
               </p>
