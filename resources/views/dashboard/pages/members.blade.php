@@ -85,20 +85,21 @@ $user = Auth::user()
                                                 data-toggle="dropdown" aria-expanded="false"> Actions
                                                 <i class="fa fa-angle-down"></i>
                                             </button>
+                                            {{-- TODO: tambahin alert confirm --}}
                                             <ul class="dropdown-menu pull-left" role="menu">
                                                 @if($member->isOrganizerAdmin())
                                                 <li>
-                                                    <a href="javascript:;">
+                                                    <a href="{{route('revoke.admin', ['user' => $member->id])}}">
                                                         <i class="icon-docs"></i> Revoke Admin </a>
                                                 </li>
                                                 @elseif($member->isMemberOf($user->organizer->id))
                                                 <li>
-                                                    <a href="javascript:;">
+                                                    <a href="{{route('set.admin', ['user' => $member->id])}}">
                                                         <i class="icon-star"></i> Set as Admin </a>
                                                 </li>
                                                 @endif
                                                 <li>
-                                                    <a href="javascript:;">
+                                                <a href="{{route('kick', ['user' => $member->id])}}">
                                                         <i class="icon-close"></i> Kick </a>
                                                 </li>
                                                 {{-- <li class="divider"> </li>

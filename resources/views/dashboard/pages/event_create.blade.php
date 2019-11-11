@@ -30,17 +30,17 @@
                     <div class="portlet light portlet-fit portlet-form bordered">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="icon-settings font-dark"></i>
+                                {{-- <i class="icon-settings font-dark"></i> --}}
                                 <span class="caption-subject font-dark sbold uppercase">Create New Event</span>
                             </div>
-                            <div class="actions">
-                                <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                    <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
-                                        <input type="radio" name="options" class="toggle" id="option1">Edit</label>
-                                    <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
-                                        <input type="radio" name="options" class="toggle" id="option2">Preview</label>
-                                </div>
-                            </div>
+                                {{-- <div class="actions">
+                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                        <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
+                                            <input type="radio" name="options" class="toggle" id="option1">Edit</label>
+                                        <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
+                                            <input type="radio" name="options" class="toggle" id="option2">Preview</label>
+                                    </div>
+                            </div> --}}
                         </div>
                         <div class="portlet-body">
                             <!-- BEGIN FORM-->
@@ -204,22 +204,7 @@
 <script src="{{asset('assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
-<script>
-        $(document).ready(function()
-        {
-            $('#clickmewow').click(function()
-            {
-                $('#radio1003').attr('checked', 'checked');
-            });
-        })
-    </script>
+
 <!-- Google Code for Universal Analytics -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','../../../../../www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-37564768-1', 'auto');
-ga('send', 'pageview');
-</script>
+
 @endsection

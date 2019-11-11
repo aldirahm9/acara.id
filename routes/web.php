@@ -13,7 +13,10 @@
 Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['middleware' => ['organizer']], function () {
-        Route::post('dashboard/members/invite','MemberController@invite')->name('members.invite');
+        Route::get('dashboard/member/kick/{user}', 'MemberController@kick')->name('kick');
+        Route::get('dashboard/member/revoke/{user}', 'MemberController@revokeAdmin')->name('revoke.admin');
+        Route::get('dashboard/member/admin/{user}', 'MemberController@setAdmin')->name('set.admin');
+        Route::post('dashboard/member/invite','MemberController@invite')->name('members.invite');
         Route::get('dashboard', "DashboardController@index")->name('dashboard');
         Route::get('dashboard/member', 'MemberController@index')->name('dashboard.member.index');
         Route::get('dashboard/organizer', 'DashboardController@organizer')->name('dashboard.member.organizer');
@@ -23,6 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/event/{event}', 'EventController@show')->name('dashboard.event.show');
         Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
         Route::get('dashboard/event/{event}/attendee', 'EventController@show_attendee')->name('dashboard.event.attendee.index');
+
     });
 
     Route::get('logout', 'Auth\LoginController@logout');
