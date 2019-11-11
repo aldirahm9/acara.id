@@ -12,6 +12,10 @@
 */
 Route::group(['middleware' => ['auth']], function () {
 
+    Route::get('main', 'HomeController@main');
+    Route::get('event', 'HomeController@event');
+
+
     Route::group(['middleware' => ['organizer']], function () {
         Route::get('dashboard/member/kick/{user}', 'MemberController@kick')->name('kick');
         Route::get('dashboard/member/revoke/{user}', 'MemberController@revokeAdmin')->name('revoke.admin');
@@ -24,6 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/event/create', 'EventController@create')->name('dashboard.event.create');
         Route::post('dashboard/event/store', 'EventController@store')->name('dashboard.event.store');
         Route::get('dashboard/event/{event}', 'EventController@show')->name('dashboard.event.show');
+        Route::get('dashboard/event/{event}/edit', 'EventController@edit')->name('dashboard.event.edit');
         Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
         Route::get('dashboard/event/{event}/attendee', 'EventController@show_attendee')->name('dashboard.event.attendee.index');
 
@@ -36,19 +41,23 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::get('/home', function () {
-    return view('home');
+    return view('landing/home');
 });
 
 Route::get('/', function () {
-    return view('index');
+    return view('landing/index');
 });
 
-Route::get('/aboutus', function () {
-    return view('aboutus');
+Route::get('/howit', function () {
+    return view('landing/howit');
+});
+
+Route::get('/event', function () {
+    return view('landing/event');
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('landing/contact');
 });
 
 

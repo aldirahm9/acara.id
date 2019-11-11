@@ -68,8 +68,8 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-2">Start</label>
                                         <div class="col-md-3">
-                                            <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
-                                                <input type="text" class="form-control" readonly name="datepicker">
+                                            <div class="input-group date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                <input type="text" class="form-control" readonly>
                                                 <span class="input-group-btn">
                                                     <button class="btn default" type="button">
                                                         <i class="fa fa-calendar"></i>
@@ -121,9 +121,21 @@
                                             <label class="col-md-2 control-label">Event Image
                                             <span class="required"> * </span>
                                         </label>
-                                        <div class="col-md-2">
-                                            <input type="file" name="files[]" multiple="">
-                                        </div>
+                                        <div class="col-md-4">
+                                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                    <div class="input-group input-large">
+                                                        <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                                                            <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                                            <span class="fileinput-filename"> </span>
+                                                        </div>
+                                                        <span class="input-group-addon btn default btn-file">
+                                                            <span class="fileinput-new"> Select file </span>
+                                                            <span class="fileinput-exists"> Change </span>
+                                                            <input type="file" name="..."> </span>
+                                                        <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-2">Event Description</label>
@@ -191,6 +203,37 @@
 </div>
 @endsection
 
+
+
+@section('style')
+<link href="{{asset('assets/global/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}"
+rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/pages/css/profile.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="{{('assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{('assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{('assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{('assets/global/plugins/clockface/css/clockface.css')}}" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL STYLES -->
+<link href="{{('assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+<link href="{{('assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- END THEME GLOBAL STYLES -->
+<!-- BEGIN THEME LAYOUT STYLES -->
+<link href="{{('assets/layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{('assets/layouts/layout/css/themes/darkblue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
+<link href="{{('assets/layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="../../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('script')
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="{{asset('assets/global/plugins/select2/js/select2.full.min.js')}}" type="text/javascript"></script>
@@ -203,8 +246,12 @@
 <script src="{{asset('assets/global/plugins/bootstrap-markdown/lib/markdown.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}" type="text/javascript"></script>
-<!-- END PAGE LEVEL PLUGINS -->
-
-<!-- Google Code for Universal Analytics -->
-
+<script src="{{asset('assets/global/plugins/moment.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/clockface/js/clockface.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/components-date-time-pickers.min.js')}}" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
 @endsection
