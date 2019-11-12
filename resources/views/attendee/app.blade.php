@@ -90,7 +90,7 @@
                             @endif
                     @else
                     <li @yield('action_home')>
-                            <a href="/home">Home</a>
+                            <a href="/">Home</a>
                     </li>
                     <li @yield('action_how')>
                         <a href="/howit">How It Works</a>
