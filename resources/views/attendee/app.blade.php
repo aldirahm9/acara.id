@@ -140,15 +140,15 @@
             </div>
             <div class="modal-body" style="text-align:center;">
                 <label>Let's build and grow your organization here to reach all of the targets and goals!</label>
-              <a class="btn btn-rounded btn-large btn-info" href="/make_org"><i class="icon-plus-sign" style="color:azure"></i>  Create New Organization</a>
+              <a class="btn btn-rounded btn-large btn-info" href="{{route('organizer.create')}}"><i class="icon-plus-sign" style="color:azure"></i>  Create New Organization</a>
               {{-- <h6>You are invited by DEFAULT FMIPA UNJ</h6>
               <button class="btn btn-rounded btn-large btn-success"><i class="icon-check" style="color:azure"></i>  Accept</button>
               <button class="btn btn-rounded btn-large btn-danger"><i class="icon-remove-sign" style="color:azure"></i>  Decline</button> --}}
             </div>
-            <div class="modal-footer">
+            {{-- <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>

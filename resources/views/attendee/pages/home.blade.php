@@ -1,4 +1,4 @@
-@extends('layouts/app1')
+@extends('attendee/app')
 
 @section('content')
     <!-- section intro -->
