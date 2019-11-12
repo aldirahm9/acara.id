@@ -13,10 +13,10 @@ class CreateFeatureGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('feature_groups', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-        });
+        // Schema::create('feature_groups', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -26,6 +26,6 @@ class CreateFeatureGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feature_groups');
+        // Schema::dropIfExists('feature_groups');
     }
 }

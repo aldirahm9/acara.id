@@ -17,21 +17,23 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::group(['middleware' => ['organizer']], function () {
+        Route::get('dashboard', "DashboardController@index")->name('dashboard');
+        Route::get('dashboard/organizer', 'DashboardController@organizer')->name('dashboard.member.organizer');
+
         Route::get('dashboard/member/kick/{user}', 'MemberController@kick')->name('kick');
         Route::get('dashboard/member/revoke/{user}', 'MemberController@revokeAdmin')->name('revoke.admin');
         Route::get('dashboard/member/admin/{user}', 'MemberController@setAdmin')->name('set.admin');
         Route::post('dashboard/member/invite','MemberController@invite')->name('members.invite');
-        Route::get('dashboard', "DashboardController@index")->name('dashboard');
         Route::get('dashboard/member', 'MemberController@index')->name('dashboard.member.index');
-        Route::get('dashboard/organizer', 'DashboardController@organizer')->name('dashboard.member.organizer');
         Route::post('dashboard/member', 'MemberController@invite')->name('dashboard.member.invite');
+
         Route::get('dashboard/event/create', 'EventController@create')->name('dashboard.event.create');
         Route::post('dashboard/event/store', 'EventController@store')->name('dashboard.event.store');
         Route::get('dashboard/event/{event}', 'EventController@show')->name('dashboard.event.show');
         Route::get('dashboard/event/{event}/edit', 'EventController@edit')->name('dashboard.event.edit');
-        Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
         Route::get('dashboard/event/{event}/attendee', 'EventController@show_attendee')->name('dashboard.event.attendee.index');
 
+        Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
     });
 
     Route::get('logout', 'Auth\LoginController@logout');
@@ -41,23 +43,23 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::get('/home', function () {
-    return view('landing/home');
+    return view('attendee/home');
 });
 
 Route::get('/', function () {
-    return view('landing/index');
+    return view('attendee/index');
 });
 
 Route::get('/howit', function () {
-    return view('landing/howit');
+    return view('attendee/howit');
 });
 
 Route::get('/event', function () {
-    return view('landing/event');
+    return view('attendee/event');
 });
 
 Route::get('/contact', function () {
-    return view('landing/contact');
+    return view('attendee/contact');
 });
 
 

@@ -59,7 +59,7 @@ $user = Auth::user()
                                     <td>{{$i}}</td>
                                     <td> {{$member->name}} </td>
                                     <td>
-                                        <a href="mailto:shuxer@gmail.com"> {{$member->email}} </a>
+                                        <a> {{$member->email}} </a>
                                     </td>
                                     <td>
 

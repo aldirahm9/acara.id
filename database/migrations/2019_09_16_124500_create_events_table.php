@@ -17,11 +17,16 @@ class CreateEventsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('description');
+            $table->string('location');
+            $table->string('image');
+            $table->date('date');
+            $table->time('timeStart');
+            $table->time('timeEnd')->nullable();
             $table->unsignedBigInteger('organizer_id');
             $table->foreign('organizer_id')->references('id')->on('organizers')->onDelete('cascade');
-            $table->unsignedBigInteger('feature_id');
-            $table->foreign('feature_id')->references('id')->on('feature_groups');  //features_group
-            $table->boolean('finished');
+            // $table->unsignedBigInteger('feature_id');
+            // $table->foreign('feature_id')->references('id')->on('feature_groups');  //features_group
+            $table->boolean('finished')->nullable();
             $table->timestamps();
         });
     }
