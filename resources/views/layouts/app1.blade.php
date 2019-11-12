@@ -9,20 +9,17 @@
   <meta name="author" content="" />
 
   <!-- css -->
-  <link href="../../css/bootstrap.css" rel="stylesheet" />
-  <link href="../../css/bootstrap-responsive.css" rel="stylesheet" />
-  <link href="../../css/prettyPhoto.css" rel="stylesheet" />
+  <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" />
+  <link href="{{asset('css/bootstrap-responsive.css')}}" rel="stylesheet" />
+  <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-  <link href="../../css/style.css" rel="stylesheet">
+  <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
-  <!-- Theme skin --> 
+  <!-- Theme skin -->
   <link id="t-colors" href="color/default.css" rel="stylesheet" />
 
   <!-- Fav and touch icons -->
   <link rel="shortcut icon" href="../../img/a.png">
-  <link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
 
   <!-- =======================================================
     Theme Name: Remember
@@ -93,7 +90,7 @@
                             @endif
                     @else
                     <li @yield('action_home')>
-                            <a href="/home1">Home</a>
+                            <a href="/home">Home</a>
                     </li>
                     <li @yield('action_how')>
                         <a href="/howit">How It Works</a>
@@ -134,19 +131,19 @@
     @yield('content')
 
     <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header" style="text-align:center;">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align:center;">
               <h5 class="modal-title" id="exampleModalLongTitle" style="color:dimgrey">Organizer Dashboard</h5>
               </button>
             </div>
             <div class="modal-body" style="text-align:center;">
-                {{-- <label>Let's build and grow your organization here to reach all of the targets and goals!</label>
-              <button class="btn btn-rounded btn-large btn-info"><i class="icon-plus-sign" style="color:azure"></i>  Create New Organization</button> --}}
-              <h6>You are invited by DEFAULT FMIPA UNJ</h6>
+                <label>Let's build and grow your organization here to reach all of the targets and goals!</label>
+              <a class="btn btn-rounded btn-large btn-info" href="/make_org"><i class="icon-plus-sign" style="color:azure"></i>  Create New Organization</a>
+              {{-- <h6>You are invited by DEFAULT FMIPA UNJ</h6>
               <button class="btn btn-rounded btn-large btn-success"><i class="icon-check" style="color:azure"></i>  Accept</button>
-              <button class="btn btn-rounded btn-large btn-danger"><i class="icon-remove-sign" style="color:azure"></i>  Decline</button>
+              <button class="btn btn-rounded btn-large btn-danger"><i class="icon-remove-sign" style="color:azure"></i>  Decline</button> --}}
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -230,16 +227,16 @@
   <!-- javascript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/modernizr.custom.js"></script>
-  <script src="js/toucheffects.js"></script>
-  <script src="js/google-code-prettify/prettify.js"></script>
-  <script src="js/jquery.prettyPhoto.js"></script>
-  <script src="js/portfolio/jquery.quicksand.js"></script>
-  <script src="js/portfolio/setting.js"></script>
-  <script src="js/animate.js"></script>
+  <script src="{{asset('js/jquery.js')}}"></script>
+  <script src="{{asset('js/jquery.easing.1.3.js')}}"></script>
+  <script src="{{asset('js/bootstrap.js')}}"></script>
+  <script src="{{asset('js/modernizr.custom.js')}}"></script>
+  <script src="{{asset('js/toucheffects.js')}}"></script>
+  <script src="{{asset('js/google-code-prettify/prettify.js')}}"></script>
+  <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
+  <script src="{{asset('js/portfolio/jquery.quicksand.js')}}"></script>
+  <script src="{{asset('js/portfolio/setting.js')}}"></script>
+  <script src="{{asset('js/animate.js')}}"></script>
 
   <!-- Template Custom JavaScript File -->
   <script src="js/custom.js"></script>

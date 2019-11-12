@@ -12,8 +12,9 @@
 */
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('main', 'HomeController@main');
-    Route::get('event', 'HomeController@event');
+    Route::get('/make_org', function () {
+        return view('attendee/make_org');
+    });
 
 
     Route::group(['middleware' => ['organizer']], function () {
