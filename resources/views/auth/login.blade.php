@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('attendee.app')
 
 @section('action_acc')
 active

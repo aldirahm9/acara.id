@@ -42,7 +42,7 @@ class OrganizerController extends Controller
 
         $picture= null;
         if($request->picture != null) {
-            $picture = $request->picture->getClientOriginalName(). '.png';
+            $picture = $request->picture->getClientOriginalName(). '.png'; 
             $request->file('picture')->storeAs('public/upload', $picture);
         }
         $organizer = Organizer::create([

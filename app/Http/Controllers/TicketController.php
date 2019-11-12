@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ticket;
 use Illuminate\Http\Request;
 use App\Event;
+use Auth;
 
 class TicketController extends Controller
 {
@@ -15,7 +16,8 @@ class TicketController extends Controller
      */
     public function index(Event $event)
     {
-        return view('dashboard/pages/ticket', ['event' => $event]);
+        $tickets = Ticket::where('event_id', $event->id)->get();
+        return view('dashboard/pages/ticket', ['event' => $event, 'tickets'=>$tickets]);
     }
 
 
@@ -35,9 +37,29 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Event $event)
     {
-        //
+        $user = Auth::user();
+        if(!$user->isOrganizerAdmin()) {
+            return abort(401,'Unauthorized Action');
+        }
+
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'price' => 'required|numeric',
+            'limit' => 'required|numeric',
+        ]);
+
+
+        $ticket = Ticket::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'limit' => $request->limit,
+            'onsale' => 0,
+            'event_id' => $event->id
+
+        ]);
+        return redirect('dashboard/event/' . $event->id . 'ticket');
     }
 
     /**

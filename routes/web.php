@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/event/{event}/attendee', 'EventController@show_attendee')->name('dashboard.event.attendee.index');
 
         Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
+        Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');
     });
 
     Route::get('logout', 'Auth\LoginController@logout');

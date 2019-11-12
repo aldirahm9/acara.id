@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     protected $fillable = [
-        'user_id', 'url'
+        'name','price','limit','onsale', 'event_id'
     ];
 
     public function user() {
-        return $this->belongsTo('App\User');
+        return $this->belongsToMany('App\User');
     }
 
     public function event() {
