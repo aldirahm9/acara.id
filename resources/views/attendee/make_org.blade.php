@@ -25,7 +25,7 @@ class="active"
                                 </div>
                                 <div class="inline">
                                     <label for="">Description</label>
-                                    <input type="text" class="form-control" name="description" id="description" value="" required placeholder="" autofocus>
+                                    <textarea rows="2" name="description" id="description" class="input-block-level" data-rule="required" data-msg="Please write something"></textarea>
                                 </div>
                                 <div class="inline">
                                         <label for="">Logo</label>
