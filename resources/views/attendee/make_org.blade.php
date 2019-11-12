@@ -17,19 +17,19 @@ class="active"
                         <h4 class="heading" style="color:steelblue">Create New Organization</h4>
 
                         <div class="desc">
-                            <form method="POST" action="">
+                        <form class="form" method="POST" action="/make_org/{{ Auth::user()->id }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="inline">
                                     <label for="">Name</label>
-                                        <input type="text" class="form-control" name="" value="" required placeholder="" autofocus>
+                                        <input type="text" class="form-control" name="name" id="name" value="" required placeholder="" autofocus>
                                 </div>
                                 <div class="inline">
                                     <label for="">Description</label>
-                                    <input type="text" class="form-control" name="" value="" required placeholder="" autofocus>
+                                    <input type="text" class="form-control" name="description" id="description" value="" required placeholder="" autofocus>
                                 </div>
                                 <div class="inline">
                                         <label for="">Logo</label>
-                                        <input type="file" class="form-control" name="" value="" required placeholder="" autofocus>
+                                        <input type="file" class="form-control-file" type="file" name="picture" id="picture">
                                 </div>
                                 <br>
                                 <div>

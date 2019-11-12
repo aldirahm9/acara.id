@@ -98,10 +98,6 @@
                     <li @yield('action_event')>
                         <a href="/event">Event</a>
                     </li>
-                    <li @yield('action_org')>
-                        <a data-toggle="modal" data-target="#exampleModalCenter" href="">Organizer Dashboard</a>
-                        {{-- bikin if dia organizer ke dashboard kalo ngga bikin organizer, ini baru modal nya doang --}}
-                    </li>
                     <li @yield('action_con')>
                     <a href="/contact">Contact </a>
                         </li>
@@ -109,6 +105,10 @@
                         <a href="#">{{ Auth::user()->name }} <i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">My Profile</a></li>
+                            <li @yield('action_org')>
+                                    <a data-toggle="modal" data-target="#exampleModalCenter" href="">Organizer Dashboard</a>
+                                    {{-- bikin if dia organizer ke dashboard kalo ngga bikin organizer, ini baru modal nya doang --}}
+                                </li>
                             <li><a href="/logout" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Logout</a></li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
