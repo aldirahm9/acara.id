@@ -19,19 +19,22 @@
                     <div class="tab-pane active">
                         <div class="row">
                             <div class="col-md-3" style="text-align:center;">
-                                <img src="{{asset('img/biner.jpeg')}}" width="80%"/>
+                                <img src="{{asset('storage/upload/' . $event->image)}}" width="80%"/>
                             </div>
                             <div>
                                 <div class="row">
                                     <div class="col-md-8 profile-info">
-                                        <h1 class="font-green sbold uppercase">BINER</h1>
-                                        <p> “Developing Future and Unyielding Learn of Technology” atau yang di singkat dengan DEFAULT merupakan kelompok studi yang bergerak di bidang pengembangan teknologi seperti pada bidang arsitektur, website, animasi, dan juga aplikasi. Kelompok studi ini di dirikan oleh angkatan pertama program studi ilmu komputer pada tahun 2013. </p>
+                                        <h1 class="font-green sbold uppercase">{{$event->name}}</h1>
+                                        @markdown
+                                        {{$event->description}}
+                                        @endmarkdown
+                                        {{-- <p> “Developing Future and Unyielding Learn of Technology” atau yang di singkat dengan DEFAULT merupakan kelompok studi yang bergerak di bidang pengembangan teknologi seperti pada bidang arsitektur, website, animasi, dan juga aplikasi. Kelompok studi ini di dirikan oleh angkatan pertama program studi ilmu komputer pada tahun 2013. </p>
                                         <p>
                                             <a href="javascript:;"> www.defaultunj.com </a>
-                                        </p>
+                                        </p> --}}
                                         <ul class="list-inline">
                                             <li>
-                                                <i class="fa fa-map-marker"></i>Rawamangun Muka, Jakarta Timur</li>
+                                                <i class="fa fa-map-marker"></i>{{$event->location}}</li>
                                             {{-- <li>
                                                 <i class="fa fa-calendar"></i> 18 January 2014 </li>
                                             <li>

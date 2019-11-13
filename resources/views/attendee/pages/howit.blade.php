@@ -1,4 +1,4 @@
-@extends('layouts/app1')
+@extends('attendee/app')
 
 @section('title')
 | How It Works

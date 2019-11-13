@@ -40,7 +40,7 @@ class User extends Authenticatable
 
 
     public function tickets() {
-        return $this->hasMany('App\Ticket');
+        return $this->belongsToMany('App\Ticket');
     }
 
     public function organizer() {

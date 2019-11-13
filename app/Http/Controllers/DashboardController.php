@@ -43,31 +43,7 @@ class DashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store_org(Request $request, $id)
-    {
-        $this->validate(request(), [
-            'picture' => 'mimes:jpeg,jpg,png|max:1000'
-        ]);
 
-        $picture= null;
-        if($request->picture != null) {
-            $picture = $request->picture->getClientOriginalName(). '.png';
-            $request->file('picture')->storeAs('public/upload', $picture);
-        }
-        $organize = Organizer::create([
-            'name'=>$request->name,
-            'description' => $request->description,
-            'picture'=> $picture
-        ]);
-
-        $attendee = User::findOrFail($id);
-
-        $attendee->update([
-            'organizer_id'=>$organize->id
-        ]);
-        
-        return redirect('dashboard');
-    }
 
     /**
      * Display the specified resource.

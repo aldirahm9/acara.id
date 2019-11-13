@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/event/{event}/attendee', 'EventController@show_attendee')->name('dashboard.event.attendee.index');
 
         Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
+        Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');
     });
 
     Route::get('logout', 'Auth\LoginController@logout');
@@ -46,19 +47,19 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::get('/', function () {
-    return view('attendee/index');
+    return view('attendee/pages/index');
 });
 
 Route::get('/howit', function () {
-    return view('attendee/howit');
+    return view('attendee/pages/howit');
 });
 
 Route::get('/event', function () {
-    return view('attendee/event');
+    return view('attendee/pages/event');
 });
 
 Route::get('/contact', function () {
-    return view('attendee/contact');
+    return view('attendee/pages/contact');
 });
 
 
