@@ -58,6 +58,7 @@
                     </a>
                 </li>
 
+                @if(Auth::user()->organizer->events->where('finished',1)->count() >0)
                 <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         Finished Event
@@ -65,13 +66,16 @@
                     </a>
                     <ul class="sub-menu">
                         {{-- TODO: bikin foreach --}}
-                        <li class="nav-item">
-                            <a href="#" target="_blank" class="nav-link">
-                                BINER 0010
+                        @foreach(Auth::user()->organizer->events->where('finished', 1) as $ea)
+                        <li class="nav-item" {{ (request()->is('dashboard/event/' . $each->id . '*')) ? 'active' : '' }}>
+                            <a href="{{route('dashboard.event.show',['event'=> $ea->id])}}" target="_blank" class="nav-link">
+                                {{$ea->name}}
                             </a>
                         </li>
+                        @endforeach
                     </ul>
                 </li>
+                @endif
 
 
             </ul>

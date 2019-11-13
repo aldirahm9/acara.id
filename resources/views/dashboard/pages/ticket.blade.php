@@ -80,6 +80,9 @@
                                                     <ul style="text-align:left;">
                                                         <li><b style="color:green">Approved :</b><br>12</li>
                                                         <li><b style="color:red">Need Approval : </b><br>100</li>
+                                                        @if($ticket->limit != null)
+                                                        <li><b>Limit : </b><br>{{$ticket->limit}}</li>
+                                                        @endif
                                                         @if($ticket->onsale == 1)
                                                         <li><b >Status : </b><br><span style="color:green">ON SALE</span></li>
                                                         @else

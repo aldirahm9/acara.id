@@ -27,6 +27,20 @@
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
   ======================================================= -->
+  <style>
+      .no-arrow {
+        -moz-appearance: textfield;
+    }
+
+    .no-arrow::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    .no-arrow::-webkit-outer-spin-button,
+    .no-arrow::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }</style>
 </head>
 
 <body>
@@ -237,7 +251,6 @@
   <script src="{{asset('js/portfolio/jquery.quicksand.js')}}"></script>
   <script src="{{asset('js/portfolio/setting.js')}}"></script>
   <script src="{{asset('js/animate.js')}}"></script>
-
   <!-- Template Custom JavaScript File -->
   <script src="js/custom.js"></script>
 
