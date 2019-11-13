@@ -166,11 +166,11 @@
                                                         <input type="text" class="form-control" /> </div>
                                                      <div class="col-md-4">
                                                         <label class="control-label">Number</label>
-                                                        <input type="text" class="form-control" /> </div>
+                                                        <input type="text" class="form-control" />
+                                                    </div>
                                                     <div class="col-md-1">
                                                         <label class="control-label">&nbsp;</label>
-                                                        <a href="javascript:;" data-repeater-delete class="btn btn-danger">
-                                                            <i class="fa fa-close"></i>
+                                                        <a href="javascript:;" class="btn btn-danger" data-repeater-delete><i class="fa fa-close"></i>
                                                         </a>
                                                     </div>
                                                 </div>
