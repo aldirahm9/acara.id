@@ -12,8 +12,11 @@
 */
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('/createOrganizer', 'OrganizerController@create')->name('organizer.create');
-    Route::post('/createOrganizer', 'OrganizerControlle@store')->name('organizer.store');
+    Route::get('/make_org', function () {
+        return view('attendee/make_org');
+    });
+    Route::post('/make_org/{id}', 'DashboardController@store_org')->name('dashboard');
+    Route::get('/mytickets/{id}', 'TicketController@show');
 
 
     Route::group(['middleware' => ['organizer']], function () {
@@ -42,10 +45,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
-
-Route::get('/home', function () {
-    return view('attendee/pages/home');
-});
 
 Route::get('/', function () {
     return view('attendee/pages/index');

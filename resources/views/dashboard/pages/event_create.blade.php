@@ -152,6 +152,36 @@
                                         <div id="editor_error"> </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Payment</label>
+                                    <div class="col-md-9">
+                                        <div class="mt-repeater">
+                                            <div data-repeater-list="group-b">
+                                                <div data-repeater-item class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">Bank</label>
+                                                        <input type="text" class="form-control" /> </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label">Account Name</label>
+                                                        <input type="text" class="form-control" /> </div>
+                                                     <div class="col-md-4">
+                                                        <label class="control-label">Number</label>
+                                                        <input type="text" class="form-control" /> </div>
+                                                    <div class="col-md-1">
+                                                        <label class="control-label">&nbsp;</label>
+                                                        <a href="javascript:;" data-repeater-delete class="btn btn-danger">
+                                                            <i class="fa fa-close"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <a href="javascript:;" data-repeater-create class="btn btn-info mt-repeater-add">
+                                                <i class="fa fa-plus"></i> Add More</a>
+                                            <br>
+                                            <br> </div>
+                                    </div>
+                                </div>
                                 {{-- <div class="form-group">
                                             <label class="control-label col-md-2">Event Type
                                                 <span class="required"> * </span>
@@ -285,4 +315,8 @@
 <script src="{{asset('assets/pages/scripts/components-date-time-pickers.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript">
 </script>
+<script src="{{asset('assets/global/plugins/jquery-repeater/jquery.repeater.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/form-repeater.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/components-date-time-pickers.min.js')}}" type="text/javascript"></script>
 @endsection
