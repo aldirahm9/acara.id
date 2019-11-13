@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ticket;
 use Illuminate\Http\Request;
 use App\Event;
+use App\User;
 
 class TicketController extends Controller
 {
@@ -46,9 +47,10 @@ class TicketController extends Controller
      * @param  \App\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function show(Ticket $ticket)
+    public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('attendee/mytickets', compact('user'));
     }
 
     /**

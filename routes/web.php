@@ -16,6 +16,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('attendee/make_org');
     });
     Route::post('/make_org/{id}', 'DashboardController@store_org')->name('dashboard');
+    Route::get('/mytickets/{id}', 'TicketController@show');
 
 
     Route::group(['middleware' => ['organizer']], function () {
@@ -43,10 +44,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
-
-Route::get('/home', function () {
-    return view('attendee/home');
-});
 
 Route::get('/', function () {
     return view('attendee/index');

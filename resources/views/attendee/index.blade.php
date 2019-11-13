@@ -135,7 +135,7 @@ class = "active"
                       <div><img src="img/dummies/works/1.jpg" alt=""></div>
                       <figcaption>
                         <h3>Portfolio name</h3>
-                        <p>aaaaaaaaaaaaaaaa
+                        <p>
                           <a href="img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
                           <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
                         </p>

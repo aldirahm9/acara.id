@@ -45,19 +45,13 @@
                                     <div class="col-md-12">
                                         <h4>Name</h4>
                                         <p>
-                                            <input class="form-control" type="text"> </p>
+                                            <input class="form-control" type="text" name="name" id="name" required> </p>
                                         <h4>Price</h4>
                                         <p>
-                                            <input class="form-control" type="text"> </p>
-                                        <h4>Location</h4>
-                                        <p>
-                                            <input class="form-control" type="text"> </p>
-                                        <h4>Time</h4>
-                                        <p>
-                                            <input class="form-control" type="text"> </p>
+                                            <input class="form-control" type="text" name="price" id="price"  required> </p>
                                         <h4>Limit</h4>
                                         <p>
-                                            <input class="form-control" type="text"> </p>
+                                            <input class="form-control" type="text" name="limit" id="limit"> </p>
                                     </div>
                                 </div>
                             </div>

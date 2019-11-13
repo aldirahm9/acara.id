@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>acara.id</title>
+  <title>acara.id @yield('title')</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Your page description here" />
   <meta name="author" content="" />
@@ -16,7 +16,7 @@
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
   <!-- Theme skin -->
-  <link id="t-colors" href="color/default.css" rel="stylesheet" />
+  <link id="t-colors" href="../../color/default.css" rel="stylesheet" />
 
   <!-- Fav and touch icons -->
   <link rel="shortcut icon" href="../../img/a.png">
@@ -82,7 +82,7 @@
                       <a href="/contact">Contact </a>
                     </li>
                     <li class="dropdown @yield('action_acc')">
-                        <a href="#"><img src="../../img/acc.png" width="27"><i class="icon-angle-down"></i></a>
+                        <a href=""><img src="../../img/acc.png" width="27"><i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="/login">Login</a></li>
                             @if (Route::has('register'))
@@ -99,12 +99,12 @@
                         <a href="/event">Event</a>
                     </li>
                     <li @yield('action_con')>
-                    <a href="/contact">Contact </a>
-                        </li>
+                        <a href="/contact">Contact </a>
+                    </li>
                     <li class="dropdown @yield('action_acc')">
-                        <a href="#">{{ Auth::user()->name }} <i class="icon-angle-down"></i></a>
+                        <a href="">{{ Auth::user()->name }} <i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">My Profile</a></li>
+                            <li><a href="/mytickets/{{ Auth::user()->id }}">My Tickets (3)</a></li>
                             <li @yield('action_org')>
                                     <a data-toggle="modal" data-target="#exampleModalCenter" href="">Organizer Dashboard</a>
                                     {{-- bikin if dia organizer ke dashboard kalo ngga bikin organizer, ini baru modal nya doang --}}
