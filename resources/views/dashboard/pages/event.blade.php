@@ -32,9 +32,13 @@
                                         <p>
                                             <a href="javascript:;"> www.defaultunj.com </a>
                                         </p> --}}
-                                        <ul class="list-inline">
+                                        <ul class="list-unstyled">
                                             <li>
                                                 <i class="fa fa-map-marker"></i>{{$event->location}}</li>
+                                            @foreach ($event->paymentMethods as $method)
+                                            <li>
+                                            <i class="fa fa-credit-card"></i>{{$method->bank}} {{$method->bankAccountNumber}} a/n {{$method->bankAccountName}}</li>
+                                            @endforeach
                                             {{-- <li>
                                                 <i class="fa fa-calendar"></i> 18 January 2014 </li>
                                             <li>

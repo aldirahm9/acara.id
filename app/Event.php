@@ -29,4 +29,9 @@ class Event extends Model
     {
         return $this->hasMany('App\Tag');
     }
+
+    public function paymentMethods()
+    {
+        return $this->hasMany('App\PaymentMethod');
+    }
 }
