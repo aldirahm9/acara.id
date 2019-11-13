@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email','phone'. 'password', 'role','organizer_id','accepted', 'admin'
+        'name', 'email','phone', 'password', 'role','organizer_id','accepted', 'admin'
     ];
 
     /**
@@ -61,7 +61,15 @@ class User extends Authenticatable
     }
 
     public function isOrganizer() {
-        if($this->organizer_id!=null)
+        if($this->organizer_id!=null && $this->accepted==1)
+            return true;
+        else
+            return false;
+
+    }
+
+    public function hasInvitation() {
+        if($this->organizer_id!=null && $this->accepted!=1)
             return true;
         else
             return false;

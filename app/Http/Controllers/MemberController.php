@@ -28,7 +28,7 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
     public function invite(Request $request)
     {
         Log::info('masuk');
@@ -38,7 +38,7 @@ class MemberController extends Controller
             Session::flash('failed', 'User ' . $request->email . ' tidak terdaftar.');
             return redirect('dashboard/member');
         }
-        if($user->isOrganizer()) {
+        if($user->isOrganizer() || $user->hasInvitation()) {
             Session::flash('failed', 'User ' . $request->email . ' sudah berada di dalam Organizer.');
             return redirect('dashboard/member');
         }
@@ -94,6 +94,20 @@ class MemberController extends Controller
         Session::flash('failed', 'User ' . $user->email . ' tidak terdaftar di dalam Organizer');
         Log::info('failed');
         return redirect('dashboard/member');
+    }
+
+    public function accept() {
+        Auth::user()->update([
+            'accepted'=> 1
+        ]);
+        return redirect('dashboard');
+    }
+
+    public function decline() {
+        Auth::user()->update([
+            'organizer_id'=> null
+        ]);
+        return redirect('');
     }
 
 

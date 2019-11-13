@@ -19,12 +19,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/mytickets/{id}', 'TicketController@show');
     Route::get('/biner', 'EventController@show1');
     Route::get('/default', 'OrganizerController@show');
+    Route::post('invitation/accept', 'MemberController@accept')->name('member.invite.accept');
+    Route::post('invitation/decline', 'MemberController@decline')->name('member.invite.decline');
 
 
     Route::group(['middleware' => ['organizer']], function () {
         Route::get('dashboard', "DashboardController@index")->name('dashboard');
         Route::get('dashboard/organizer', 'DashboardController@organizer')->name('dashboard.member.organizer');
 
+        // TODO: 3 dibawah ini harusnya post
         Route::get('dashboard/member/kick/{user}', 'MemberController@kick')->name('kick');
         Route::get('dashboard/member/revoke/{user}', 'MemberController@revokeAdmin')->name('revoke.admin');
         Route::get('dashboard/member/admin/{user}', 'MemberController@setAdmin')->name('set.admin');
