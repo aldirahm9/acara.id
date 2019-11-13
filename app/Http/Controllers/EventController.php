@@ -108,6 +108,11 @@ class EventController extends Controller
         return view('dashboard/pages/attendee', ['event'=>$event]);
     }
 
+    public function show1()
+    {
+        return view('attendee/pages/event_profile');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

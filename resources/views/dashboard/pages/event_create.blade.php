@@ -169,8 +169,7 @@
                                                         <input type="text" class="form-control" name="bankAccountNumber"/> </div>
                                                     <div class="col-md-1">
                                                         <label class="control-label">&nbsp;</label>
-                                                        <a href="javascript:;" data-repeater-delete class="btn btn-danger">
-                                                            <i class="fa fa-close"></i>
+                                                        <a href="javascript:;" class="btn btn-danger" data-repeater-delete><i class="fa fa-close"></i>
                                                         </a>
                                                     </div>
                                                 </div>

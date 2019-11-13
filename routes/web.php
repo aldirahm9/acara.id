@@ -17,6 +17,8 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::post('/make_org/{id}', 'DashboardController@store_org')->name('dashboard');
     Route::get('/mytickets/{id}', 'TicketController@show');
+    Route::get('/biner', 'EventController@show1');
+    Route::get('/default', 'OrganizerController@show');
 
 
     Route::group(['middleware' => ['organizer']], function () {

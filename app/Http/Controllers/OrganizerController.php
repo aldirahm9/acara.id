@@ -42,7 +42,7 @@ class OrganizerController extends Controller
 
         $picture= null;
         if($request->picture != null) {
-            $picture = $request->picture->getClientOriginalName(). '.png'; 
+            $picture = $request->picture->getClientOriginalName(). '.png';
             $request->file('picture')->storeAs('public/upload', $picture);
         }
         $organizer = Organizer::create([
@@ -66,9 +66,9 @@ class OrganizerController extends Controller
      * @param  \App\Organizer  $organizer
      * @return \Illuminate\Http\Response
      */
-    public function show(Organizer $organizer)
+    public function show()
     {
-        //
+        return view('attendee/pagess/org_profile');
     }
 
     /**
