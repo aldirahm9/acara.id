@@ -68,7 +68,7 @@ class OrganizerController extends Controller
      */
     public function show()
     {
-        return view('attendee/pagess/org_profile');
+        return view('attendee/pages/org_profile');
     }
 
     /**
