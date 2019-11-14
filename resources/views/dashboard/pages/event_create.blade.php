@@ -153,21 +153,20 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Payment</label>
+                                    <label class="col-md-2 control-label">Payment Method</label>
                                     <div class="col-md-9">
                                         <div class="mt-repeater">
-                                            <div data-repeater-list="group-b">
+                                            <div data-repeater-list="payment">
                                                 <div data-repeater-item class="row">
                                                     <div class="col-md-2">
                                                         <label class="control-label">Bank</label>
-                                                        <input type="text" class="form-control" /> </div>
+                                                        <input type="text" class="form-control" name="bank" /> </div>
                                                     <div class="col-md-3">
                                                         <label class="control-label">Account Name</label>
-                                                        <input type="text" class="form-control" /> </div>
+                                                        <input type="text" class="form-control" name="bankAccountName"/> </div>
                                                      <div class="col-md-4">
                                                         <label class="control-label">Number</label>
-                                                        <input type="text" class="form-control" />
-                                                    </div>
+                                                        <input type="text" class="form-control" name="bankAccountNumber"/> </div>
                                                     <div class="col-md-1">
                                                         <label class="control-label">&nbsp;</label>
                                                         <a href="javascript:;" class="btn btn-danger" data-repeater-delete><i class="fa fa-close"></i>

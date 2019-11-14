@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\PaymentMethod;
 use Illuminate\Http\Request;
 use Auth;
 use Log;
@@ -74,6 +75,16 @@ class EventController extends Controller
             'organizer_id' => $user->organizer_id,
             'finished' => 0
         ]);
+
+
+        foreach($request->payment as $each) {
+            $method = PaymentMethod::create([
+                'bank' => $each['bank'],
+                'bankAccountName' => $each['bankAccountName'],
+                'bankAccountNumber' => $each['bankAccountNumber'],
+                'event_id' => $event->id
+            ]);
+        }
         return redirect('dashboard/event/' . $event->id);
     }
 
@@ -122,7 +133,7 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        //NOTE: nanti untuk yang payment methodnya, delete semua dulu, baru save yang baru dari request
     }
 
     /**

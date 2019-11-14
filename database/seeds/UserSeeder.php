@@ -29,6 +29,7 @@ class UserSeeder extends Seeder
         $user = App\User::create([
             'name' => 'aldi',
             'email' => 'aldi@aldi.aldi',
+            'phone'=> '0123',
             'password' => bcrypt('123123123'),
             'role' => 0,
             'organizer_id' => $default->id,
@@ -39,6 +40,7 @@ class UserSeeder extends Seeder
         App\User::create([
             'name' => 'anjar',
             'email' => 'anjar@anjar.anjar',
+            'phone'=> '0123',
             'password' => bcrypt('123123123'),
             'role' => 0,
             'organizer_id' => $default->id
@@ -47,6 +49,7 @@ class UserSeeder extends Seeder
         App\User::create([
             'name' => 'admin',
             'email' => 'admin@admin.admin',
+            'phone'=> '0123',
             'password' => bcrypt('123123123'),
             'role' => 1
         ]);
@@ -54,6 +57,7 @@ class UserSeeder extends Seeder
         App\User::create([
             'name' => 'apid',
             'email' => 'apid@apid.apid',
+            'phone'=> '0123',
             'password' => bcrypt('123123123'),
             'role' => 0,
             'organizer_id' => $default->id,
