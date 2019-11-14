@@ -1,7 +1,7 @@
 @extends('dashboard/app')
 
 @section('title')
- | BINER
+| BINER
 @endsection
 
 @section('content')
@@ -35,9 +35,20 @@
                                         <ul class="list-unstyled">
                                             <li>
                                                 <i class="fa fa-map-marker"></i>{{$event->location}}</li>
+                                            <li>
+                                                <i
+                                                    class="fa fa-calendar"></i>{{DateTime::createFromFormat('Y-m-d', $event->date)->format('d-m-Y')}}
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-clock-o"></i>{{
+                                                DateTime::createFromFormat('H:i:s', $event->timeStart)->format('H:i')
+                                                }}
+                                                {{$event->timeEnd != null ? ' - ' . DateTime::createFromFormat('H:i:s', $event->timeEnd)->format('H:i') : ''}}
+                                            </li>
                                             @foreach ($event->paymentMethods as $method)
                                             <li>
-                                            <i class="fa fa-credit-card"></i>{{$method->bank}} {{$method->bankAccountNumber}} a/n {{$method->bankAccountName}}</li>
+                                                <i class="fa fa-credit-card"></i> {{$method->bank}}
+                                                {{$method->bankAccountNumber}} a/n {{$method->bankAccountName}}</li>
                                             @endforeach
                                             {{-- <li>
                                                 <i class="fa fa-calendar"></i> 18 January 2014 </li>
@@ -61,6 +72,6 @@
         </div>
     </div>
 </div>
-        <!-- END CONTENT BODY -->
+<!-- END CONTENT BODY -->
 @endsection
 
