@@ -41,9 +41,7 @@ class="active"
             </div>
             <div class="span2"><label for="">Description * :</label></div>
             <div class="span8 margintop10 field form-group">
-            <textarea rows="12" name="description" id="description" class="input-block-level" data-provide="markdown" data-rule="required"></textarea>
-            <div id="editor_error"> </div>
-            </div>
+            <textarea rows="12" name="description" id="description" class="input-block-level" data-rule="required"></textarea></div>
             <div class="span2"><label for="">Logo * :</label></div>
             <div class="span8 field form-group">
             <input type="file" name="picture" id="picture"/>

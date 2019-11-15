@@ -14,7 +14,6 @@
     <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- Theme skin -->
     <link id="t-colors" href="../../color/default.css" rel="stylesheet" />
@@ -301,9 +300,6 @@
     <script src="{{asset('js/animate.js')}}"></script>
     <!-- Template Custom JavaScript File -->
     <script src="js/custom.js"></script>
-    <script src="{{asset('assets/global/plugins/ckeditor/ckeditor.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/global/plugins/bootstrap-markdown/lib/markdown.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript">
 
 </body>
 
