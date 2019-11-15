@@ -66,9 +66,10 @@ class OrganizerController extends Controller
      * @param  \App\Organizer  $organizer
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Organizer $organizer)
     {
-        return view('attendee/pages/org_profile');
+        
+        return view('attendee/pages/org_profile', ["organizer"=>$organizer]);
     }
 
     /**
