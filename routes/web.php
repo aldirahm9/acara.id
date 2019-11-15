@@ -12,13 +12,11 @@
 */
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('/make_org', function () {
-        return view('attendee/make_org');
-    });
-    Route::post('/make_org/{id}', 'DashboardController@store_org');
-    Route::get('/mytickets/{id}', 'TicketController@show');
-    Route::get('/biner', 'EventController@show1');
-    Route::get('/default', 'OrganizerController@show');
+    Route::get('/createOrganizer', 'OrganizerController@create')->name('organizer.create');
+    Route::post('/createOrganizer', 'OrganizerController@store')->name('organizer.store');
+    Route::get('/myTickets', 'TicketController@show')->name('mytickets');
+    Route::get('/event/{event}', 'EventController@show1')->name('attendee.event.show');
+    Route::get('/organizer/{organizer}', 'OrganizerController@show')->name('attendee.organizer.show ');
     Route::post('invitation/accept', 'MemberController@accept')->name('member.invite.accept');
     Route::post('invitation/decline', 'MemberController@decline')->name('member.invite.decline');
 
