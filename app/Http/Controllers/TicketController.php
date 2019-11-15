@@ -72,7 +72,7 @@ class TicketController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('attendee/mytickets', compact('user'));
+        return view('attendee/pages/mytickets', compact('user'));
     }
 
     /**
