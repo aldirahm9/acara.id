@@ -20,6 +20,7 @@
 
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="../../img/a.png">
+    @yield('style')
 
     <!-- =======================================================
     Theme Name: Remember
@@ -172,7 +173,7 @@
                     <div class="modal-body" style="text-align:center;">
                         <label>Let's build and grow your organization here to reach all of the targets and
                             goals!</label>
-                        <a class="btn btn-rounded btn-large btn-info" href="/make_org"><i class="icon-plus-sign"
+                        <a class="btn btn-rounded btn-large btn-info" href="{{route('organizer.create')}}"><i class="icon-plus-sign"
                                 style="color:azure"></i> Create New Organization</a>
 
                     </div>
@@ -299,6 +300,7 @@
     <script src="{{asset('js/portfolio/setting.js')}}"></script>
     <script src="{{asset('js/animate.js')}}"></script>
     <!-- Template Custom JavaScript File -->
+    @yield('script')
     <script src="js/custom.js"></script>
 
 </body>
