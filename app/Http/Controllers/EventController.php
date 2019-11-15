@@ -56,7 +56,7 @@ class EventController extends Controller
 
         $fileName= null;
         if($request->image != null) {
-            $fileName = $user->organizer->name . '.jpg';
+            $fileName = $user->organizer->name . '-' . $request->name . '.jpg';
             $request->file('image')->storeAs('public/upload', $fileName);
         }
 
@@ -78,6 +78,7 @@ class EventController extends Controller
 
 
         foreach($request->payment as $each) {
+            if($each['bank']==null) continue;
             $method = PaymentMethod::create([
                 'bank' => $each['bank'],
                 'bankAccountName' => $each['bankAccountName'],
