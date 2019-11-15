@@ -9,17 +9,16 @@
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
         <!-- BEGIN PAGE HEADER-->
-        <!--  BEGIN PAGE BAR -->
-        <div class="page-bar">
-            <ul class="page-breadcrumb">
-                <li>
-                    <i class="fa fa-circle"></i>
-                    <a href="index-2.html">Organizer Profile</a>
-                </li>
-            </ul>
+        <div class="col-md-6">
+                <h2 style="color:steelblue"><strong>Organizer Profile</strong></h2>
+            </div>
+            <div class="col-md-6" style="text-align:right">
+                <br>
+            <a href="organizer/{{$organizer->id}}/edit" class="btn btn-large btn-info"><strong>Edit</strong></a>
+            </div><br><br><br>
 
-        </div>
-        <!--  END PAGE BAR -->
+            <div class="page-title"></div>
+            <!-- END PAGE TITLE-->
         <!-- BEGIN PAGE TITLE-->
         <div class="profile">
                 <div class="tabbable-line tabbable-full-width">

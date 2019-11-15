@@ -1,112 +1,197 @@
 @extends('dashboard/app')
 
 @section('title')
- | BINER - edit
+| Edit Event
 @endsection
 
 @section('content')
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
+        @include('dashboard/partials/_messages')
         <!-- BEGIN PAGE HEADER-->
-        <h1 class="page-title" style="color:steelblue"><strong>Event Profile</strong></h1>
-            <!-- END PAGE TITLE-->
-            <!-- END PAGE HEADER-->
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- BEGIN PROFILE SIDEBAR -->
-                    <div class="profile-sidebar">
-                        <!-- PORTLET MAIN -->
-                        <div class="portlet light profile-sidebar-portlet ">
-                            <!-- SIDEBAR USERPIC -->
-                            <div>
-                                <img src="../../img/biner.jpeg" class="img-responsive"> </div>
-                            <!-- END SIDEBAR USERPIC -->
-                            <!-- SIDEBAR USER TITLE -->
-                            <div class="profile-usertitle">
-                                <div class="profile-usertitle-name"> BINER </div>
-                                <div class="profile-usertitle-job">Be Innovative and Educated Researcher</div>
-                            </div>
-                            <!-- END SIDEBAR USER TITLE -->
-                            <!-- END MENU -->
+        <!--  BEGIN PAGE BAR -->
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <a href="index-2.html">Home</a>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
+                    <a href="#">Edit Event</a>
+                </li>
+            </ul>
+        </div>
+        <!--  END PAGE BAR -->
+        <!-- END PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 col-xl-10">
+                <!-- BEGIN VALIDATION STATES-->
+                <div class="portlet light portlet-fit portlet-form bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            {{-- <i class="icon-settings font-dark"></i> --}}
+                        <span class="caption-subject font-dark sbold uppercase">Edit {{$event->name}}</span>
                         </div>
-                        <!-- END PORTLET MAIN -->
+                        {{-- <div class="actions">
+                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                        <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
+                                            <input type="radio" name="options" class="toggle" id="option1">Edit</label>
+                                        <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
+                                            <input type="radio" name="options" class="toggle" id="option2">Preview</label>
+                                    </div>
+                            </div> --}}
                     </div>
-                    <!-- END BEGIN PROFILE SIDEBAR -->
-                    <!-- BEGIN PROFILE CONTENT -->
-                    <div class="profile-content">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="portlet light ">
-                                    <div class="portlet-title tabbable-line">
-                                        <div class="caption caption-md">
-                                            <i class="icon-globe theme-font hide"></i>
-                                            <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
+                    <div class="portlet-body">
+                        <!-- BEGIN FORM-->
+                        <form action="{{route('dashboard.event.store')}}" method="POST" id="form_sample_3" enctype="multipart/form-data"
+                            data-parsley-validate="" class="form-horizontal">
+                            {{csrf_field()}}
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Event Title
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" name="name" required="" class="form-control" value={{$event->name}} /> </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Location
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" name="location" required="" class="form-control" value={{$event->location}}>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Date
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-3">
+                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy"
+                                            data-date-start-date="+0d">
+                                    <input type="text" name="date" class="form-control" required="" value="{{$event->date}}">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
                                         </div>
                                     </div>
-                        <div class="portlet-body">
-                            <div class="tab-content">
-                                <!-- PERSONAL INFO TAB -->
-                                <div class="tab-pane active">
-                                    <form role="form" action="#">
-                                        <div class="form-group">
-                                            <label class="control-label">Event Title</label>
-                                            <input type="text" placeholder="BINER" class="form-control" /> </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Location</label>
-                                            <input type="text" placeholder="Rawamangun Muka, Jakarta Timur" class="form-control" /> </div>
-                                        <div class="form-group" style="text-align:left;">
-                                                <label class="control-label col-md-1">Start</label>
-                                                <div class="col-md-5">
-                                                    <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
-                                                        <input type="text" class="form-control" readonly name="datepicker">
-                                                        <span class="input-group-btn">
-                                                            <button class="btn default" type="button">
-                                                                <i class="fa fa-calendar"></i>
-                                                            </button>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <label class="col-md-2 control-label">Time
-                                                </label>
-                                                <div class="col-md-4">
-                                                        <input type="time" name="location" class="form-control">
-                                                </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Start
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <input type="text" required="" name="timeStart"
+                                        class="form-control timepicker timepicker-24" value="{{$event->timeStart}}">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-clock-o"></i>
+                                                </button>
+                                            </span>
                                         </div>
-                                        <br><br><br>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-1">End</label>
-                                            <div class="col-md-5">
-                                                <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
-                                                    <input type="text" class="form-control" readonly name="datepicker">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn default" type="button">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </button>
-                                                    </span>
+                                    </div>
+                                    {{-- <label class="control-label col-md-2">End</label>
+                                        <div class="col-md-3">
+                                            <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
+                                                <input type="text" class="form-control"  name="datepicker">
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div> --}}
+                                    <label class="col-md-1 control-label">End
+                                    </label>
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <input type="text" name="timeEnd" class="form-control timepicker timepicker-24"
+                                            value="{{$event->timeEnd}}">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button">
+                                                    <i class="fa fa-clock-o"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Event Image
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <img src="/storage/upload/{{$event->image}}" alt="">
+                                            <div class="input-group input-large">
+                                                <div class="form-control uneditable-input input-fixed input-medium"
+                                                    data-trigger="fileinput">
+                                                    <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                                    <span class="fileinput-filename"> </span>
+                                                </div>
+                                                <span class="input-group-addon btn default btn-file">
+                                                    <span class="fileinput-new"> Select file </span>
+                                                    <span class="fileinput-exists"> Change </span>
+                                                    <input type="file" required name="image"> </span>
+                                                <a href="javascript:;"
+                                                    class="input-group-addon btn red fileinput-exists"
+                                                    data-dismiss="fileinput"> Remove </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Event Description
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-9">
+                                        <textarea name="description" data-provide="markdown" rows="10" required
+                                    data-error-container="#editor_error" aria-valuetext="{{$event->description}}"></textarea>
+                                        <div id="editor_error"> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Payment Method</label>
+                                    <div class="col-md-9">
+                                        <div class="mt-repeater">
+                                            <div data-repeater-list="payment">
+                                                <div data-repeater-item class="row">
+                                                    @foreach ($event->paymentMethods as $pay)
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">Bank</label>
+                                                    <input type="text" class="form-control" name="bank" value="{{$pay->bank}}"/> </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label">Account Name</label>
+                                                        <input type="text" class="form-control" name="bankAccountName" value="{{$pay->bankAccountName}}"/> </div>
+                                                     <div class="col-md-4">
+                                                        <label class="control-label">Number</label>
+                                                     <input type="text" class="form-control" name="bankAccountNumber" value="{{$pay->bankAccountNumber}}"/> </div>
+                                                    <div class="col-md-1">
+                                                        <label class="control-label">&nbsp;</label>
+                                                        <a href="javascript:;" class="btn btn-danger" data-repeater-delete><i class="fa fa-close"></i>
+                                                        </a>
+                                                    </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
-                                            <label class="col-md-2 control-label">Time
+                                            <hr>
+                                            <a href="javascript:;" data-repeater-create class="btn btn-info mt-repeater-add">
+                                                <i class="fa fa-plus"></i> Add More</a>
+                                            <br>
+                                            <br> </div>
+                                    </div>
+                                </div>
+                                {{-- <div class="form-group">
+                                            <label class="control-label col-md-2">Event Type
+                                                <span class="required"> * </span>
                                             </label>
                                             <div class="col-md-4">
-                                                    <input type="time" name="location" class="form-control">
-                                            </div>
-                                        </div>
-                                        <br><br><br>
-                                        <div class="form-group">
-                                            <label class="control-label">Event Image</label><br>
-                                            <img src="../../img/biner.jpeg" width="100"><br><br>
-                                            <input type="file" name="files[]" multiple="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Event Description</label>
-                                            <textarea class="form-control" rows="3" placeholder="Merupakan rangkaian agenda teknologi informasi di Universitas Negeri Jakarta yang diadakan setiap tahun. Kini Biner sudah diadakan untuk ke-4 kalinya"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Event Type
-                                            </label>
-                                            <div>
                                                 <select class="form-control select2me" name="options2">
+                                                    <option value="">Select the type of the event</option>
                                                     <option value="Option 1">Appearance or Signing</option>
                                                     <option value="Option 2">Attraction</option>
                                                     <option value="Option 3">Camp, Trip, or Retreat</option>
@@ -125,45 +210,116 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label">Event Topic
+                                            <label class="control-label col-md-2">Event Topic
+                                                <span class="required"> * </span>
                                             </label>
+                                            <div class="col-md-4">
                                                 <select class="form-control select2me" name="options2">
+                                                    <option value="">Select...</option>
                                                     <option value="Option 1">Business</option>
                                                     <option value="Option 2">Technology</option>
                                                     <option value="Option 3">Family</option>
                                                     <option value="Option 4">Music</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="margiv-top-10">
-                                            <a href="javascript:;" class="btn green"> Save Changes </a>
-                                            <a href="javascript:;" class="btn default"> Cancel </a>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- END PERSONAL INFO TAB -->
+                                        </div> --}}
                             </div>
-                        </div>
+                            <div class="form-actions">
+                                <div class="row" style="text-align:center;">
+                                    <div class="col-md-offset-1 col-md-9">
+                                        <button type="submit" class="btn green">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END FORM-->
                     </div>
+                    <!-- END VALIDATION STATES-->
                 </div>
             </div>
         </div>
-        <!-- END PROFILE CONTENT -->
     </div>
 </div>
+<!-- END CONTENT BODY -->
 </div>
-        <!-- END CONTENT BODY -->
 @endsection
 
+
+
 @section('style')
-<link href="../../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
-<link href="../../assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet"
+    type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet"
+    type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet"
+    type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css')}}" rel="stylesheet"
+    type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}" rel="stylesheet"
+    type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet"
+    type="text/css" />
+<link href="{{asset('assets/pages/css/profile.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css')}}" rel="stylesheet"
+    type="text/css" />
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="{{asset('assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css')}}" rel="stylesheet"
+    type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet"
+    type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css')}}" rel="stylesheet"
+    type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css')}}"
+    rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/clockface/css/clockface.css')}}" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL STYLES -->
+<link href="{{asset('assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+<link href="{{asset('assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- END THEME GLOBAL STYLES -->
+<!-- BEGIN THEME LAYOUT STYLES -->
+<link href="{{asset('assets/layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/layouts/layout/css/themes/darkblue.min.css')}}" rel="stylesheet" type="text/css"
+    id="style_color" />
+<link href="{{asset('assets/layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet"
+    type="text/css" />
 @endsection
 
 @section('script')
- <!-- BEGIN PAGE LEVEL PLUGINS -->
- <script src="{{asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript"></script>
- <script src="../../assets/pages/scripts/profile.min.js" type="text/javascript"></script>
- <!-- END PAGE LEVEL PLUGINS -->
-
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="{{asset('assets/global/plugins/select2/js/select2.full.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/jquery-validation/js/jquery.validate.min.js')}}" type="text/javascript">
+</script>
+<script src="{{asset('assets/global/plugins/jquery-validation/js/additional-methods.min.js')}}" type="text/javascript">
+</script>
+<script src="{{asset('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"
+    type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js')}}" type="text/javascript">
+</script>
+<script src="{{asset('assets/global/plugins/ckeditor/ckeditor.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-markdown/lib/markdown.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript">
+</script>
+<script src="{{asset('assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}"
+    type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/moment.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js')}}"
+    type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"
+    type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}"
+    type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js')}}"
+    type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/clockface/js/clockface.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/components-date-time-pickers.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript">
+</script>
+<script src="{{asset('assets/global/plugins/jquery-repeater/jquery.repeater.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/form-repeater.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/components-date-time-pickers.min.js')}}" type="text/javascript"></script>
 @endsection

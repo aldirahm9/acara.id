@@ -25,7 +25,7 @@
         <!--  END PAGE BAR -->
         <!-- END PAGE HEADER-->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-xl-10">
                 <!-- BEGIN VALIDATION STATES-->
                 <div class="portlet light portlet-fit portlet-form bordered">
                     <div class="portlet-title">

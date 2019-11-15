@@ -9,8 +9,15 @@
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
         <!-- BEGIN PAGE HEADER-->
-        <h1 class="page-title" style="color:steelblue"><strong>Event Profile</strong></h1>
-        <button href="/">Edit</button>
+        <div class="col-md-6">
+            <h1 style="color:steelblue"><strong>Event Profile</strong></h1>
+        </div>
+        <div class="col-md-6" style="text-align:right">
+            <br>
+        <a href="{{$event->id}}/edit" class="btn btn-large btn-info"><strong>Edit</strong></a>
+        </div><br><br><br>
+
+        <div class="page-title"></div>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <div class="profile">
@@ -18,7 +25,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active">
                         <div class="row">
-                            <div class="col-md-3" style="text-align:center;">
+                            <div class="col-md-3" style="text-align:left;">
                                 <img src="{{asset('storage/upload/' . $event->image)}}" width="80%"/>
                             </div>
                             <div>

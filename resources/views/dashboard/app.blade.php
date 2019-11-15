@@ -1,25 +1,6 @@
 <!DOCTYPE html>
-<!--
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
-Version: 4.7.5
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 
 <html lang="en">
-<!--<![endif]-->
-<!-- BEGIN HEAD -->
-
-
-<!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_1/layout_blank_page.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jan 2018 07:52:40 GMT -->
-<!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
@@ -65,6 +46,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li>
                                     <a href="page_user_profile_1.html">
                                         <i class="icon-user"></i> My Profile </a>
+                                </li>
+                                <li>
+                                    <a href="/">
+                                        <i class="icon-home"></i> Landing Page </a>
                                 </li>
                                 <li>
                                     <a href="{{ action('Auth\LoginController@logout') }}">

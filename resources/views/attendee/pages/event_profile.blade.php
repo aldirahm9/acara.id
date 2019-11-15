@@ -56,10 +56,10 @@
         </div>
         <div class="modal-body" style="text-align:center;">
             <p>
-                <a href="#" class="btn btn-rounded btn-large btn-primary"><i class="icon-ticket" style="color:azure"></i>  Green</a><br><br>
-                <a href="#" class="btn btn-rounded btn-large btn-primary"><i class="icon-ticket" style="color:azure"></i>  Yellow</a><br><br>
-                <a href="#" class="btn btn-rounded btn-large btn-primary"><i class="icon-ticket" style="color:azure"></i>  Green</a><br><br>
-                <a href="#" class="btn btn-rounded btn-large btn-primary"><i class="icon-ticket" style="color:azure"></i>  Yellow</a>
+                <a href="/mytickets/{{Auth::user()->id}}" class="btn btn-rounded btn-large btn-primary"><i class="icon-ticket" style="color:azure"></i>  Green</a><br><br>
+                <a href="/mytickets/{{Auth::user()->id}}" class="btn btn-rounded btn-large btn-primary"><i class="icon-ticket" style="color:azure"></i>  Yellow</a><br><br>
+                <a href="/mytickets/{{Auth::user()->id}}" class="btn btn-rounded btn-large btn-primary"><i class="icon-ticket" style="color:azure"></i>  Green</a><br><br>
+                <a href="/mytickets/{{Auth::user()->id}}" class="btn btn-rounded btn-large btn-primary"><i class="icon-ticket" style="color:azure"></i>  Yellow</a>
             </p>
 
         </div>

@@ -79,7 +79,7 @@ class OrganizerController extends Controller
      */
     public function edit(Organizer $organizer)
     {
-        //
+        return view('dashboard/pages/edit_org', ["organizer"=>$organizer]);
     }
 
     /**

@@ -25,7 +25,7 @@ class DashboardController extends Controller
         $organizer = Auth::user()->organizer;
         $members = User::getAllMembersOf($organizer->id)->get();
 
-        return view('dashboard/pages/organizerprof', ['members'=> $members]);
+        return view('dashboard/pages/organizerprof', ['organizer'=>$organizer,'members'=> $members]);
     }
 
     /**

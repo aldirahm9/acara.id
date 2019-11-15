@@ -15,7 +15,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/make_org', function () {
         return view('attendee/make_org');
     });
-    Route::post('/make_org/{id}', 'DashboardController@store_org')->name('dashboard');
+    Route::post('/make_org/{id}', 'DashboardController@store_org');
     Route::get('/mytickets/{id}', 'TicketController@show');
     Route::get('/biner', 'EventController@show1');
     Route::get('/default', 'OrganizerController@show');
@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['organizer']], function () {
         Route::get('dashboard', "DashboardController@index")->name('dashboard');
         Route::get('dashboard/organizer', 'DashboardController@organizer')->name('dashboard.member.organizer');
+        Route::get('dashboard/organizer/{organizer}/edit', "OrganizerController@edit");
 
         // TODO: 3 dibawah ini harusnya post
         Route::get('dashboard/member/kick/{user}', 'MemberController@kick')->name('kick');
