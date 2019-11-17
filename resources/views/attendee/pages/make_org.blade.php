@@ -32,7 +32,7 @@ class="active"
     <div class="row">
     <div class="span10">
         <h4>Create New Organization</h4>
-        <form class="form" method="POST" action="/make_org" enctype="multipart/form-data">
+    <form class="form" method="POST" action="{{route('organizer.store')}}" enctype="multipart/form-data">
         <div class="row">
             @csrf
             <div class="span2"><label for="">Name * :</label></div>

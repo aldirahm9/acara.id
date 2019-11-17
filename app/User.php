@@ -40,7 +40,7 @@ class User extends Authenticatable
 
 
     public function tickets() {
-        return $this->belongsToMany('App\Ticket');
+        return $this->belongsToMany('App\Ticket')->withPivot('approved','receipt')->withTimestamps();
     }
 
     public function organizer() {
