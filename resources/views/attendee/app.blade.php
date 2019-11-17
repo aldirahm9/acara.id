@@ -197,8 +197,8 @@
                             class="btn btn-rounded btn-large btn-success"><i class="icon-check" style="color:azure"></i>
                             Accept</button>
 
-                        <button onclick="event.preventDefault();
-                        document.getElementById('declineForm').submit();" type="submit"
+                                <button onclick="event.preventDefault();
+                                document.getElementById('declineForm').submit();" type="submit"
                             class="btn btn-rounded btn-large btn-danger"><i class="icon-remove-sign"
                                 style="color:azure"></i> Decline</button>
                         {!! Form::open(['route'=>

@@ -46,7 +46,9 @@ $user = Auth::user()
                                     <th> Name </th>
                                     <th> Email </th>
                                     <th> Status </th>
+                                    @if(Auth::user()->isOrganizerAdmin())
                                     <th> Actions </th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -78,7 +80,7 @@ $user = Auth::user()
                                         @endif
 
                                     </td>
-
+                                    @if(Auth::user()->isOrganizerAdmin())
                                     <td>
                                         <div class="btn-group">
                                             <button class="btn btn-xs green dropdown-toggle" type="button"
@@ -89,17 +91,26 @@ $user = Auth::user()
                                             <ul class="dropdown-menu pull-left" role="menu">
                                                 @if($member->isOrganizerAdmin())
                                                 <li>
-                                                    <a href="{{route('revoke.admin', ['user' => $member->id])}}">
+                                                    {!! Form::open(['route'=> ['revoke.admin','user'=> $member->id], 'style'=>'display:none','method'=>'POST','id'=>'revoke'.$member->id]) !!}
+                                                    {!! Form::close() !!}
+                                                    <a onclick="event.preventDefault();
+                                                    document.getElementById('revoke' + {{$member->id}}).submit();">
                                                         <i class="icon-docs"></i> Revoke Admin </a>
                                                 </li>
                                                 @elseif($member->isMemberOf($user->organizer->id))
                                                 <li>
-                                                    <a href="{{route('set.admin', ['user' => $member->id])}}">
+                                                    {!! Form::open(['route'=> ['set.admin','user'=> $member->id], 'style'=>'display:none','method'=>'POST','id'=>'set'.$member->id]) !!}
+                                                    {!! Form::close() !!}
+                                                    <a onclick="event.preventDefault();
+                                                    document.getElementById('set' + {{$member->id}}).submit();">
                                                         <i class="icon-star"></i> Set as Admin </a>
                                                 </li>
                                                 @endif
                                                 <li>
-                                                <a href="{{route('kick', ['user' => $member->id])}}">
+                                                        {!! Form::open(['route'=> ['kick','user'=> $member->id], 'style'=>'display:none','method'=>'POST','id'=>'kick'.$member->id]) !!}
+                                                        {!! Form::close() !!}
+                                                <a onclick="event.preventDefault();
+                                                document.getElementById('kick' + {{$member->id}}).submit();">
                                                         <i class="icon-close"></i> Kick </a>
                                                 </li>
                                                 {{-- <li class="divider"> </li>
@@ -112,6 +123,7 @@ $user = Auth::user()
                                             </ul>
                                         </div>
                                     </td>
+                                    @endif
                                 </tr>
                                 @php
                                 $i++;

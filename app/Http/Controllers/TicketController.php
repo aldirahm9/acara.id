@@ -80,6 +80,32 @@ class TicketController extends Controller
         return view('attendee/pages/mytickets');
     }
 
+    public function approveAttendee(Ticket $ticket, User $user)
+    {
+        $ticket->users->where('id',$user->id)->first()->pivot->approved = 1;
+        $ticket->users->where('id',$user->id)->first()->pivot->save();
+        return redirect('/dashboard/event/' . $ticket->event->id . '/attendee');
+    }
+
+    public function declineAttendee(Ticket $ticket, User $user)
+    {
+        $ticket->users->where('id',$user->id)->first()->pivot->receipt = null;
+        $ticket->users->where('id',$user->id)->first()->pivot->save();
+        return redirect('/dashboard/event/' . $ticket->event->id . '/attendee');
+    }
+
+    public function removeAttendee(Ticket $ticket, User $user)
+    {
+        $ticket->users->where('id',$user->id)->first()->pivot->delete();
+        return redirect('/dashboard/event/' . $ticket->event->id . '/attendee');
+    }
+
+
+
+    public function indexCheckin(Event $event)
+    {
+        return view('dashboard/pages/checkin',['event'=>$event]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

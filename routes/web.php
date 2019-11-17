@@ -30,9 +30,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/organizer/{organizer}/edit', "OrganizerController@edit");
 
         // TODO: 3 dibawah ini harusnya post
-        Route::get('dashboard/member/kick/{user}', 'MemberController@kick')->name('kick');
-        Route::get('dashboard/member/revoke/{user}', 'MemberController@revokeAdmin')->name('revoke.admin');
-        Route::get('dashboard/member/admin/{user}', 'MemberController@setAdmin')->name('set.admin');
+        Route::post('dashboard/member/kick/{user}', 'MemberController@kick')->name('kick');
+        Route::post('dashboard/member/revoke/{user}', 'MemberController@revokeAdmin')->name('revoke.admin');
+        Route::post('dashboard/member/admin/{user}', 'MemberController@setAdmin')->name('set.admin');
         Route::post('dashboard/member/invite','MemberController@invite')->name('members.invite');
         Route::get('dashboard/member', 'MemberController@index')->name('dashboard.member.index');
         Route::post('dashboard/member', 'MemberController@invite')->name('dashboard.member.invite');
@@ -45,6 +45,11 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
         Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');
+        Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');
+        Route::get('dashboard/event/{event}/checkin', 'TicketController@indexCheckin')->name('dashboard.event.checkin.index');
+        Route::post('dashboard/ticket/{ticket}/attendee/{user}/remove', 'TicketController@removeAttendee')->name('user.ticket.remove');
+        Route::post('dashboard/ticket/{ticket}/attendee/{user}/approve', 'TicketController@approveAttendee')->name('user.ticket.approve');
+        Route::post('dashboard/ticket/{ticket}/attendee/{user}/decline', 'TicketController@declineAttendee')->name('user.ticket.decline');
     });
 
     Route::get('logout', 'Auth\LoginController@logout');

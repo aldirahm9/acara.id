@@ -40,7 +40,7 @@ class User extends Authenticatable
 
 
     public function tickets() {
-        return $this->belongsToMany('App\Ticket')->withPivot('approved','receipt')->withTimestamps();
+        return $this->belongsToMany('App\Ticket')->withPivot('approved','receipt','checkin')->withTimestamps();
     }
 
     public function organizer() {
@@ -104,6 +104,16 @@ class User extends Authenticatable
         return User::where('organizer_id', $organizer);
     }
 
+    public function getTicketStatus()
+    {
+        if($this->pivot->receipt == null) {
+            return 1;   //NOTE: 1 itu dia belom ngasih bukti
+        }elseif($this->pivot->approved != 1) {
+            return 2;   //NOTE: 2 itu dia udah ngasih bukti tapi belom di approve
+        }elseif($this->pivot->approved == 1) {
+            return 3;   //NOTE: 3 itu berarti tiket udah approved fix
+        }
+    }
 
 
 
