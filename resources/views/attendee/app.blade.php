@@ -101,7 +101,7 @@
                                             <a href="/contact">Contact </a>
                                         </li>
                                         <li class="dropdown @yield('action_acc')">
-                                            <a href="javascript:;"><img src="../../img/acc.png" width="27"><i
+                                            <a href="javascript:;" class="thumbnail"><img src="../../img/acc.png" ><i
                                                     class="icon-angle-down"></i></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="/login">Login</a></li>
@@ -125,7 +125,7 @@
                                                     <a href="javasript:;">{{ Auth::user()->name }} <i
                                                             class="icon-angle-down"></i></a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a href="/mytickets/{{ Auth::user()->id }}">My Tickets
+                                                        <li><a href="/myTickets/{{ Auth::user()->id }}">My Tickets
                                                                 (3)</a></li>
                                                         <li @yield('action_org')>
                                                             @if(!Auth::user()->isOrganizer())

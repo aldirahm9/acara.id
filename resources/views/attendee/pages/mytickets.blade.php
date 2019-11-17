@@ -26,6 +26,32 @@
 
   <section id="content">
         <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="cta-box">
+                    <div class="row">
+                        <div class="span8">
+                        <div class="cta-text">
+                            <h2>Special price in very <span>limited</span> times</h2>
+                        </div>
+                        </div>
+                        <div class="span4">
+                        <div class="cta-btn">
+                            <a href="#" class="btn btn-color">Call Action <i class="icon-caret-right"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-author">
+                <a href="#" class="thumbnail align-left"><img src="../../img/avatar.png" alt="" /></a>
+                <h5><strong><a href="#">John doe</a></strong></h5>
+                <p>
+                    Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper ad qui, est rebum nulla argumentum ei.
+                </p>
+            </div>
 
           <div class="row">
               <div class="span12">

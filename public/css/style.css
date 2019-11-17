@@ -676,7 +676,6 @@ ul.lush-slider {
 
 .img-border {
     margin: 20px;
-    text-align: right;
     border-width: 5px;
     border-style: solid;
     border-color: grey;
@@ -2589,7 +2588,6 @@ ul.the-icons {
 
     .cta-text-modif {
 		margin:0;
-		text-align: left;
 	}
 
 	.features .feat {
