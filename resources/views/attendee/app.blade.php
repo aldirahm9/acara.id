@@ -125,7 +125,7 @@
                                                     <a href="javasript:;">{{ Auth::user()->name }} <i
                                                             class="icon-angle-down"></i></a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a href="/myTickets/{{ Auth::user()->id }}">My Tickets
+                                                        <li><a href="/mytickets">My Tickets
                                                                 (3)</a></li>
                                                         <li @yield('action_org')>
                                                             @if(!Auth::user()->isOrganizer())

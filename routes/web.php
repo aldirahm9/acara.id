@@ -15,7 +15,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/createOrganizer', 'OrganizerController@create')->name('organizer.create');
     Route::post('/createOrganizer', 'OrganizerController@store')->name('organizer.store');
-    Route::get('/myTickets/{ID}', 'TicketController@show')->name('mytickets');
+    Route::get('/mytickets', 'TicketController@mytickets')->name('mytickets');
     Route::get('/event/{event}', 'EventController@show1')->name('attendee.event.show');
     Route::get('/organizer/{organizer}', 'OrganizerController@show')->name('attendee.organizer.show ');
 
