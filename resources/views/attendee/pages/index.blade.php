@@ -1,224 +1,107 @@
-@extends('attendee/app')
-
-@section('action_home')
-class = "active"
-@endsection
+@extends('attendee/partials/app')
 
 @section('content')
-    <!-- section intro -->
-    <section id="intro">
-      <div class="intro-content">
-        <h2>Welcome to acara <strong>.id</strong>!</h2>
-        <h3>Get ready for great events!</h3>
-      </div>
-    </section>
-    <!-- /section intro -->
-
-    <section id="content">
-      <div class="container">
-        <div class="row">
-          <div class="span14">
-            <h3 style="text-align:center;">How It Works</h3>
-            <br>
-            <div class="row">
-              <div class="span4">
-                <div class="box aligncenter">
-                  <div class="icon">
-                    <span class="badge badge-info badge-circled">1</span>
-                    <i class="ico icon-group icon-5x"></i>
-                  </div>
-                  <div class="text">
-                    <h4><strong>Create Organizer</strong></h4>
-                    <p>
-                      Register your organization for the first step
-                    </p>
-                    <a href="#"></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="span4">
-                <div class="box aligncenter">
-                  <div class="icon">
-                    <span class="badge badge-success badge-circled">2</span>
-                    <i class="ico icon-tasks icon-5x"></i>
-                  </div>
-                  <div class="text">
-                    <h4><strong>Create Event</strong></h4>
-                    <p>
-                      Complete the details then publish your event here
-                    </p>
-                    <a href="#"></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="span4">
-                <div class="box aligncenter">
-                  <div class="icon">
-                    <span class="badge badge-warning badge-circled">3</span>
-                    <i class="ico icon-ticket icon-5x"></i>
-                  </div>
-                  <div class="text">
-                    <h4><strong>Create Ticket</strong></h4>
-                    <p>
-                      Make many types of ticket that you want to
-                    </p>
-                    <a href="#"></a>
-                  </div>
-                </div>
-              </div>
-              <br>
-              <div class="span4">
-                <div class="box aligncenter">
-                  <div class="icon">
-                    <span class="badge badge-important badge-circled">4</span>
-                    <i class="ico icon-shopping-cart icon-5x"></i>
-                  </div>
-                  <div class="text">
-                    <h4><strong>Start Selling</strong></h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                    </p>
-                    <a href="#"></a>
-                  </div>
-                </div>
-              </div>
-              <br>
-              <div class="span4">
-                <div class="box aligncenter">
-                    <div class="icon">
-                    <span class="badge badge-warning badge-circled">5</span>
-                    <i class="ico font-icon-ok-circle icon-5x"></i>
-                    </div>
-                    <div class="text">
-                    <h4><strong>Check In Ticket</strong></h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                    </p>
-                    <a href="#"></a>
+<div class="page-wrapper-row full-height">
+    <div class="page-wrapper-middle">
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <!-- BEGIN PAGE HEAD-->
+                <div class="page-head">
+                    <div class="container">
+                        <!-- END PAGE TOOLBAR -->
                     </div>
                 </div>
-              </div>
-              <div class="span4">
-                  <div class="box aligncenter">
-                      <div class="icon">
-                      <span class="badge badge-info badge-circled">6</span>
-                      <i class="ico icon-money icon-5x"></i>
-                      </div>
-                      <div class="text">
-                      <h4><strong>Earn Money</strong></h4>
-                      <p>
-                          Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                      </p>
-                      <a href="#"></a>
-                      </div>
-                  </div>
+                <!-- END PAGE HEAD-->
+                <!-- BEGIN PAGE CONTENT BODY -->
+                <div class="page-content">
+                    <div class="container">
+                        <!-- BEGIN PAGE CONTENT INNER -->
+                        <div class="page-content-inner">
+                            <!-- BEGIN CONTENT HEADER -->
+                            <div class="row margin-bottom-40 about-header">
+                                <div class="col-md-12">
+                                    <h1>Welcome to <strong>acara.id</strong></h1>
+                                    <h2>Get ready for great events!</h2>
+                                </div>
+                            </div>
+                            <!-- END CONTENT HEADER -->
+                            <!-- BEGIN MEMBERS SUCCESS STORIES -->
+                            <div class="row margin-bottom-40 stories-header" data-auto-height="true">
+                                <div class="col-md-12">
+                                    <h1>Coming Events</h1>
+                                </div>
+                            </div>
+                            <div class="row margin-bottom-20 stories-cont">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="portlet light">
+                                        <div class="photo">
+                                            <img src="../assets/pages/media/users/teambg1.jpg" alt="" class="img-responsive" /> </div>
+                                        <div class="title">
+                                            <span> Mark Wahlberg </span>
+                                        </div>
+                                        <div class="desc">
+                                            <span> We are at our very best, and we are happiest, when we are fully engaged in work we enjoy on the journey toward the goal we've established for ourselves. </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="portlet light">
+                                        <div class="photo">
+                                            <img src="../assets/pages/media/users/teambg2.jpg" alt="" class="img-responsive" /> </div>
+                                        <div class="title">
+                                            <span> Lindsay Lohan </span>
+                                        </div>
+                                        <div class="desc">
+                                            <span> Do what you love to do and give it your very best. Whether it's business or baseball, or the theater, or any field. If you don't love what you're doing and you can't give it your best, get out of
+                                                it. </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="portlet light">
+                                        <div class="photo">
+                                            <img src="../assets/pages/media/users/teambg5.jpg" alt="" class="img-responsive" /> </div>
+                                        <div class="title">
+                                            <span> John Travolta </span>
+                                        </div>
+                                        <div class="desc">
+                                            <span> To be nobody but yourself in a world which is doing its best, to make you everybody else means to fight the hardest battle which any human being can fight; and never stop fighting. </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="portlet light">
+                                        <div class="photo">
+                                            <img src="../assets/pages/media/users/teambg8.jpg" alt="" class="img-responsive" /> </div>
+                                        <div class="title">
+                                            <span> Tom Brady </span>
+                                        </div>
+                                        <div class="desc">
+                                            <span> You have to accept whatever comes and the only important thing is that you meet it with courage and with the best that you have to give. Never give up, never surrender. Go all out or gain nothing.
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row margin-bottom-40 stories-footer">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-danger">SEE MORE STORIES</button>
+                                </div>
+                            </div>
+                            <!-- END MEMBERS SUCCESS STORIES -->
+                        </div>
+                        <!-- END PAGE CONTENT INNER -->
+                    </div>
                 </div>
-              <br>
+                <!-- END PAGE CONTENT BODY -->
+                <!-- END CONTENT BODY -->
             </div>
-          </div>
+            <!-- END CONTENT -->
         </div>
-      </div>
-    </section>
-    <section id="works" class="cta-box">
-      <div class="container">
-        <div class="row">
-          <div class="span12">
-            <h3 style="text-align:center;">Recent works</h3>
-            <br>
-            <div class="row">
-              <div class="grid cs-style-3">
-                <div class="span3">
-                  <div class="item">
-                    <figure>
-                      <div><img src="img/dummies/works/1.jpg" alt=""></div>
-                      <figcaption>
-                        <h3>Portfolio name</h3>
-                        <p>
-                          <a href="img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
-                          <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
-                        </p>
-                      </figcaption>
-                    </figure><br>
-                    <div style="text-align:center;">
-                        <h6><strong>BINER</strong></h6>
-                        <p>
-                            Biner adalah suatu rangkaian acara teknologi terbesar di Fakultas MIPA UNJ
-                        </p>
-                        <a href="#" style="color:grey"><b><u>Read More</u></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="span3">
-                  <div class="item">
-                    <figure>
-                      <div><img src="img/dummies/works/2.jpg" alt=""></div>
-                      <figcaption>
-                        <h3>Portfolio name</h3>
-                        <p>
-                          <a href="img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
-                          <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
-                        </p>
-                      </figcaption>
-                    </figure><br>
-                    <div style="text-align:center;">
-                        <h6><strong>BINER</strong></h6>
-                        <p>
-                            Biner adalah suatu rangkaian acara teknologi terbesar di Fakultas MIPA UNJ
-                        </p>
-                        <a href="#" style="color:grey"><b><u>Read More</u></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="span3">
-                  <div class="item">
-                    <figure>
-                      <div><img src="img/dummies/works/3.jpg" alt=""></div>
-                      <figcaption>
-                        <h3>Portfolio name</h3>
-                        <p>
-                          <a href="img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
-                          <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
-                        </p>
-                      </figcaption>
-                    </figure><br>
-                    <div style="text-align:center;">
-                        <h6><strong>BINER</strong></h6>
-                        <p>
-                            Biner adalah suatu rangkaian acara teknologi terbesar di Fakultas MIPA UNJ
-                        </p>
-                        <a href="#" style="color:grey"><b><u>Read More</u></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="span3">
-                  <div class="item">
-                    <figure>
-                      <div><img src="img/dummies/works/4.jpg" alt=""></div>
-                      <figcaption>
-                        <h3>Portfolio name</h3>
-                        <p>
-                          <a href="img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
-                          <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
-                        </p>
-                      </figcaption>
-                    </figure><br>
-                    <div style="text-align:center;">
-                        <h6><strong>BINER</strong></h6>
-                        <p>
-                            Biner adalah suatu rangkaian acara teknologi terbesar di Fakultas MIPA UNJ
-                        </p>
-                        <a href="#" style="color:grey"><b><u>Read More</u></b></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+        <!-- END CONTAINER -->
+    </div>
+</div>
 @endsection
