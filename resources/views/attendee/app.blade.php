@@ -74,8 +74,6 @@
                 </div>
             </div>
             <div class="container">
-
-
                 <div class="row nomargin">
                     <div class="span4">
                         <div class="logo">
@@ -134,7 +132,6 @@
                                                             @else
                                                             <a href="{{route('dashboard')}}">Organizer Dashboard</a>
                                                             @endif
-                                                            {{-- bikin if dia organizer ke dashboard kalo ngga bikin organizer, ini baru modal nya doang --}}
                                                         </li>
                                                         <li><a href="/logout" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Logout</a></li>
