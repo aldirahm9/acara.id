@@ -1,88 +1,81 @@
-@extends('attendee/app')
-
-@section('title')
-| Contact
-@endsection
-
-@section('active_con')
-class="active"
-@endsection
+@extends('attendee/partials/app')
 
 @section('content')
-<section id="inner-headline">
-<div class="container">
-    <div class="row">
-    <div class="span4">
-        <div class="inner-heading">
-        <h2>Get in touch</h2>
-        </div>
-    </div>
-    <div class="span8">
-        <ul class="breadcrumb">
-        <li><a href="index.html">Home</a> <i class="icon-angle-right"></i></li>
-        <li class="active">Contact</li>
-        </ul>
-    </div>
-    </div>
-</div>
-</section>
-
-<section id="content">
-<div class="container">
-    <div class="row">
-    <div class="span8">
-        <h4>Get in touch with us by filling contact form below</h4>
-
-
-
-        <form id="contactform" action="" method="post" role="form" class="contactForm">
-
-        <div id="sendmessage">Your message has been sent. Thank you!</div>
-        <div id="errormessage"></div>
-
-        <div class="row">
-            <div class="span4 field form-group">
-            <input type="text" name="name" placeholder="* Enter your full name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-            <div class="validation"></div>
+<div class="page-wrapper-row full-height">
+                <div class="page-wrapper-middle">
+                    <!-- BEGIN CONTAINER -->
+                    <div class="page-container">
+                        <!-- BEGIN CONTENT -->
+                        <div class="page-content-wrapper">
+                            <!-- BEGIN CONTENT BODY -->
+                            <!-- BEGIN PAGE HEAD-->
+                            <div class="page-head">
+                                <div class="container">
+                                    <!-- BEGIN PAGE TITLE -->
+                                    <div class="page-title">
+                                        <h1>Contact Us
+                                            <small>contact us page</small>
+                                        </h1>
+                                    </div>
+                                    <!-- END PAGE TITLE -->
+                                </div>
+                            </div>
+                            <!-- END PAGE HEAD-->
+                            <!-- BEGIN PAGE CONTENT BODY -->
+                            <div class="page-content">
+                                <div class="container">
+                                    <!-- BEGIN PAGE BREADCRUMBS -->
+                                    <ul class="page-breadcrumb breadcrumb">
+                                        <li>
+                                            <a href="index-2.html">Home</a>
+                                            <i class="fa fa-circle"></i>
+                                        </li>
+                                        <li>
+                                            <a href="#">Pages</a>
+                                            <i class="fa fa-circle"></i>
+                                        </li>
+                                        <li>
+                                            <span>General</span>
+                                        </li>
+                                    </ul>
+                                    <!-- END PAGE BREADCRUMBS -->
+                                    <!-- BEGIN PAGE CONTENT INNER -->
+                                    <div class="page-content-inner">
+                                        <div class="c-content-feedback-1 c-option-1">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="c-contact">
+                                                        <div class="c-content-title-1">
+                                                            <h3 class="uppercase">Keep in touch</h3>
+                                                            <div class="c-line-left bg-dark"></div>
+                                                            <p class="c-font-lowercase">Our helpline is always open to receive any inquiry or feedback. Please feel free to drop us an email from the form below and we will get back to you as soon as we can.</p>
+                                                        </div>
+                                                        <form action="#">
+                                                            <div class="form-group">
+                                                                <input type="text" placeholder="Your Name" class="form-control input-md"> </div>
+                                                            <div class="form-group">
+                                                                <input type="text" placeholder="Your Email" class="form-control input-md"> </div>
+                                                            <div class="form-group">
+                                                                <input type="text" placeholder="Contact Phone" class="form-control input-md"> </div>
+                                                            <div class="form-group">
+                                                                <textarea rows="8" name="message" placeholder="Write comment here ..." class="form-control input-md"></textarea>
+                                                            </div>
+                                                            <button type="submit" class="btn grey">Submit</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END PAGE CONTENT INNER -->
+                                </div>
+                            </div>
+                            <!-- END PAGE CONTENT BODY -->
+                            <!-- END CONTENT BODY -->
+                        </div>
+                        <!-- END CONTENT -->
+                    </div>
+                    <!-- END CONTAINER -->
+                </div>
             </div>
-            <div class="span4 field form-group">
-            <input type="text" name="email" placeholder="* Enter your email address" data-rule="email" data-msg="Please enter a valid email" />
-            <div class="validation"></div>
-            </div>
-            <div class="span8 margintop10 field form-group">
-            <input type="text" name="subject" placeholder="Enter your subject" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-            <div class="validation"></div>
-            </div>
-            <div class="span8 margintop10 field form-group">
-            <textarea rows="12" name="message" class="input-block-level" placeholder="* Your message here..." data-rule="required" data-msg="Please write something"></textarea>
-            <div class="validation"></div>
-
-            <p>
-                <button class="btn btn-color margintop10 pull-left" type="submit">Send message</button>
-                <span class="pull-right margintop20">* Please fill all required form field, thanks!</span>
-            </p>
-            </div>
-        </div>
-        </form>
-    </div>
-    <div class="span4">
-        <div class="clearfix"></div>
-        <aside class="right-sidebar">
-
-        <div class="widget">
-            <h5 class="widgetheading">Contact information<span></span></h5>
-
-            <ul class="contact-info">
-            <li><label>Address :</label> Tinggi sekali tower Jl.Kemacetan timur<br /> Jakarta selatan - Indonesia</li>
-            <li><label>Phone :</label>+62 123 456 78 / +62 123 456 79</li>
-            <li><label>Fax : </label>+62 123 456 10 / +62 123 456 11</li>
-            <li><label>Email : </label> info@yourdomain.com</li>
-            </ul>
-
-        </div>
-        </aside>
-    </div>
-    </div>
-</div>
-</section>
 @endsection

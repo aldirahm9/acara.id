@@ -1,77 +1,162 @@
-@extends('attendee/partials/app1')
+@extends('attendee/partials/app')
+
+@section('style')
+<link href="../assets/pages/css/profile-2.min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
+@endsection
 
 @section('content')
-<div class="content">
-    <!-- BEGIN LOGIN FORM -->
-    <form class="login-form" method="POST"  action="{{ route('register') }}">
-        @csrf
-        <h3>Sign Up</h3>
-        <p> Enter your personal details below: </p>
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Name</label>
-            <div class="input-icon">
-                <i class="fa fa-user"></i>
-                <input class="form-control placeholder-no-fix @error('name') is-invalid @enderror" type="text" autocomplete="name" placeholder="Name" id="name" name="name"  value="{{ old('name') }}"/>
-                @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+<div class="page-wrapper-row full-height">
+        <div class="page-wrapper-middle">
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN CONTENT BODY -->
+                    <!-- BEGIN PAGE HEAD-->
+                    <div class="page-head">
+                        <div class="container">
+                            <!-- BEGIN PAGE TITLE -->
+                            <div class="page-title">
+                                <h1>My Ticket
+                                </h1>
+                            </div>
+                            <!-- END PAGE TITLE -->
+                        </div>
+                    </div>
+                    <!-- END PAGE HEAD-->
+                    <!-- BEGIN PAGE CONTENT BODY -->
+                    <div class="page-content">
+                        <div class="container">
+                            <!-- BEGIN PAGE BREADCRUMBS -->
+                            <ul class="page-breadcrumb breadcrumb">
+                                <li>
+                                    <a href="index-2.html">Home</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <a href="#">Event</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span>My Ticket</span>
+                                </li>
+                            </ul>
+                            <!-- END PAGE BREADCRUMBS -->
+                            <!-- BEGIN PAGE CONTENT INNER -->
+                            <div class="page-content-inner">
+                                <div class="profile">
+                                    <div class="tabbable-line tabbable-full-width">
+                                        <div class="tab-content">
+                                            <div class="tab-pane active">
+                                                <div class="row">
+                                                    <div class="col-md-4" style="text-align:center">
+                                                        <ul class="list-unstyled profile-nav">
+                                                            <li>
+                                                                <img src="../../img/biner.jpeg" width="200" alt="" />
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-8 profile-info" style="text-align:center">
+                                                                <br>
+                                                                <h1 class="font-green sbold uppercase">BINER</h1>
+                                                                    <p>
+                                                                        <i class="fa fa-map-marker"></i> Kampus A, UNJ, Jakarta Timur
+                                                                    <br>
+                                                                        <i class="fa fa-calendar"></i> 18 Januari 2010
+                                                                    <br>
+                                                                        <i class="fa fa-money"></i> Rp.80.000</p>
+                                                                <div><br>
+                                                                <h5><strong>Status</strong></h5>
+                                                                <a class="btn btn-md btn-success">Approved</a></div>
+                                                            </div>
+                                                            <!--end col-md-8-->
+                                                            <div class="col-md-4" style="text-align:center">
+                                                                <!-- BEGIN PROFILE SIDEBAR -->
+                                                                <div class="profile-sidebar">
+                                                                        <!-- PORTLET MAIN -->
+                                                                        <div class="portlet light profile-sidebar-portlet ">
+                                                                            <!-- SIDEBAR BUTTONS -->
+                                                                            <div class="profile-userbuttons">
+                                                                                <br>
+                                                                                <a data-toggle="modal" href="#upload" class="btn btn-circle green btn-md"> <i class="fa fa-upload"></i> Upload Receipt Payment</a><br><br>
+                                                                                <a class="btn btn-circle blue btn-md" data-toggle="modal" href="#qrcode"> <i class="fa fa-ticket"></i> See Ticket</a>
+                                                                            </div>
+                                                                            <!-- END SIDEBAR BUTTONS -->
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-md-4-->
+                                                        </div>
+                                                        <!--end row-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END PAGE CONTENT INNER -->
+                        </div>
+                    </div>
+                    <!-- END PAGE CONTENT BODY -->
+                    <!-- END CONTENT BODY -->
+                </div>
+                <!-- END CONTENT -->
             </div>
+            <!-- END CONTAINER -->
+        </div>
+    </div>
+
+    <!--modal -->
+    <div class="modal fade" id="qrcode" tabindex="-1" role="basic" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">See Ticket</h4>
+                    </div>
+                    <div class="modal-body" style="text-align:center">
+                            <img src="../../img/qr.png" width="250">
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
         </div>
 
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Email</label>
-            <div class="input-icon">
-                <i class="fa fa-envelope"></i>
-                <input class="form-control placeholder-no-fix @error('email') is-invalid @enderror" type="email" autocomplete="email" placeholder="Email" id="email" name="email"  value="{{ old('email') }}" />
-                @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+        <!--modal -->
+    <div class="modal fade" id="upload" tabindex="-1" role="basic" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Upload Your Receipt
+                                Payment</h4>
+                    </div>
+                    <div class="modal-body">
+                            <p>Please transfer the payment to <strong>Mandiri</strong> with account name of <strong>Trisna
+                                    Hastuti P.N</strong> and account number <strong>0495868605</strong> </p>
+                            <input type="file" class="btn btn-color" />
+                         </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn green">Save changes</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
             </div>
+            <!-- /.modal-dialog -->
         </div>
+@endsection
 
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Phone</label>
-            <div class="input-icon">
-                <i class="fa fa-phone"></i>
-                <input class="form-control placeholder-no-fix @error('phone') is-invalid @enderror" type="number" autocomplete="phone" placeholder="Phone" id="phone" name="phone"  value="{{ old('phone') }}" />
-                @error('phone')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Password</label>
-            <div class="input-icon">
-                <i class="fa fa-lock"></i>
-                <input class="form-control placeholder-no-fix @error('password') is-invalid @enderror" type="password" autocomplete="password" placeholder="Password" id="password" name="password" />
-                @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Re-type Password</label>
-            <div class="input-icon">
-                <i class="fa fa-check"></i>
-                <input class="form-control placeholder-no-fix" type="password" autocomplete="new-password" placeholder="Re-type Password" id="password-confirm" name="password_confirmation" />
-            </div>
-        </div>
-        <br>
-        <div class="form-actions">
-            <button id="register-back-btn" type="button" class="btn grey-salsa btn-outline"> Back </button>
-            <button type="submit" id="register-submit-btn" class="btn green pull-right"> Sign Up </button>
-        </div>
-    </form>
-    <!-- END LOGIN FORM -->
-</div>
+@section('style')
+<script src="../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="../assets/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
 @endsection
