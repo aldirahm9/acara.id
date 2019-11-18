@@ -106,6 +106,17 @@ class TicketController extends Controller
     {
         return view('dashboard/pages/checkin',['event'=>$event]);
     }
+
+    public function postCheckin(Request $request, Event $event)
+    {
+        foreach($event->tickets as $ticket) {
+            if($ticket->users()->wherePivot('id',6)->first() != null)
+            $ticket->users()->wherePivot('id',6)->first()->pivot->checkin = 1;
+        }
+        $ticket->users->where('id',$request->userid)->first()->pivot->checkin = 1;
+        $ticket->users()->wherePivot('id',3)->first();
+        return redirect('dashboard/event/' . $ticket->event->id . '/checkin');
+    }
     /**
      * Show the form for editing the specified resource.
      *

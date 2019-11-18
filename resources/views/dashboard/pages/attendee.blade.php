@@ -80,7 +80,7 @@
                                     </button>
                                     {{-- TODO: tambahin alert confirm --}}
                                     <ul class="dropdown-menu pull-left" role="menu">
-                                        @if($user->getTicketStatus() == 2)
+
                                         <li>
                                             {!! Form::open(['route'=> ['user.ticket.remove','user'=>
                                             $user->id,'ticket'=>$ticket->id],
@@ -104,7 +104,7 @@
                                                     document.getElementById('decline' + {{$user->id}} +'t'+ {{$ticket->id}}).submit();">
                                                 <i class="icon-docs"></i> Decline Payment </a>
                                         </li>
-                                        @endif
+                                        
 
 
                                         <li>

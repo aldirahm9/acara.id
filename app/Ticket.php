@@ -11,7 +11,7 @@ class Ticket extends Model
     ];
 
     public function users() {
-        return $this->belongsToMany('App\User')->withPivot('approved','receipt','checkin')->withTimestamps();
+        return $this->belongsToMany('App\User')->withPivot('approved','receipt','checkin','id')->withTimestamps();
     }
 
     public function event() {
