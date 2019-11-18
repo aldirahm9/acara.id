@@ -42,19 +42,19 @@ class="active"
 
         <div class="span3">
           <div class="team-box">
-            <a href="/biner" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
+            <a href="/event/1" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
             <div class="roles aligncenter">
               <p class="lead"><strong>BINER UNJ</strong></p>
               <a><i class="icon-home"></i> Kampus A, Rawamangun Muka</a><br>
               <a><i class="icon-calendar"></i> Sabtu, 13/11/2019</a><br>
               <a><i class="icon-time"></i> 09.00 s/d 12.00</a><br><br>
-              <a href="/biner"><strong>>>See All<<</strong></a>
+              <a href="/event/1"><strong>>>See All<<</strong></a>
             </div>
           </div>
         </div>
         <div class="span3">
             <div class="team-box">
-              <a href="/biner" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
+              <a href="/event/1" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
               <div class="roles aligncenter">
                 <p class="lead"><strong>BINER UNJ</strong></p>
                 <a><i class="icon-home"></i> Kampus A, Rawamangun Muka</a><br>
@@ -100,19 +100,19 @@ class="active"
 
         <div class="span3">
           <div class="team-box">
-            <a href="/biner" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
+            <a href="/event/1" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
             <div class="roles aligncenter">
               <p class="lead"><strong>BINER UNJ</strong></p>
               <a><i class="icon-home"></i> Kampus A, Rawamangun Muka</a><br>
               <a><i class="icon-calendar"></i> Sabtu, 13/11/2019</a><br>
               <a><i class="icon-time"></i> 09.00 s/d 12.00</a><br><br>
-              <a href="/biner"><strong>>>See All<<</strong></a>
+              <a href="/event/1"><strong>>>See All<<</strong></a>
             </div>
           </div>
         </div>
         <div class="span3">
             <div class="team-box">
-              <a href="/biner" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
+              <a href="/event/1" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
               <div class="roles aligncenter">
                 <p class="lead"><strong>BINER UNJ</strong></p>
                 <a><i class="icon-home"></i> Kampus A, Rawamangun Muka</a><br>
@@ -158,19 +158,19 @@ class="active"
 
         <div class="span3">
           <div class="team-box">
-            <a href="/biner" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
+            <a href="/event/1" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
             <div class="roles aligncenter">
               <p class="lead"><strong>BINER UNJ</strong></p>
               <a><i class="icon-home"></i> Kampus A, Rawamangun Muka</a><br>
               <a><i class="icon-calendar"></i> Sabtu, 13/11/2019</a><br>
               <a><i class="icon-time"></i> 09.00 s/d 12.00</a><br><br>
-              <a href="/biner"><strong>>>See All<<</strong></a>
+              <a href="/event/1"><strong>>>See All<<</strong></a>
             </div>
           </div>
         </div>
         <div class="span3">
             <div class="team-box">
-              <a href="/biner" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
+              <a href="/event/1" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
               <div class="roles aligncenter">
                 <p class="lead"><strong>BINER UNJ</strong></p>
                 <a><i class="icon-home"></i> Kampus A, Rawamangun Muka</a><br>

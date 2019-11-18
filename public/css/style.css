@@ -629,6 +629,12 @@ ul.lush-slider {
 	margin-top:10px;
 }
 
+.cta-btn1 {
+	float:center;
+	padding:20px;
+	margin-top:10px;
+}
+
 .cta-box .cta-btn a.btn {
 	padding: 15px 20px;
 	font-size:28px;
@@ -675,12 +681,12 @@ ul.lush-slider {
 }
 
 .img-border {
+    padding: 10px;
     margin: 20px;
-    text-align: right;
     border-width: 5px;
     border-style: solid;
-    border-color: grey;
-    width: 200px;
+    border-color:white;
+    text-align: center;
 }
 
 /* ---- features ---- */
@@ -2586,11 +2592,6 @@ ul.the-icons {
 		margin:0 auto;
 		text-align:center;
     }
-
-    .cta-text-modif {
-		margin:0;
-		text-align: left;
-	}
 
 	.features .feat {
 		width:100%;

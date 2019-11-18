@@ -60,16 +60,16 @@
                             </td>
                             {{-- TODO: bikin show modal yang nunjukin bukti bayar--}}
                             @if($user->pivot->receipt!= null)
-                            <td><a href="javascript:;">Transfer Receipt</a></td>
+                            <td><a class="label label-medium label-info" data-toggle="modal" href="#receipt">Transfer Receipt</a></td>
                             @else
                             <td>Waiting for receipt</td>
                             @endif
                             @if($user->getTicketStatus() == 3)
-                            <td>Approved</td>
+                            <td ><span class="label label-medium label-success"> Approved </span></td>
                             @elseif($user->getTicketStatus() ==2)
-                            <td>Waiting for Approval</td>
+                            <td><span class="label label-medium label-warning"> Waiting for Approval </span></td>
                             @elseif($user->getTicketStatus() == 1)
-                            <td>Waiting for Payment</td>
+                            <td><span class="label label-medium label-danger">Waiting for Payment</span></td>
                             @endif
                             <td style="text-align: left">
                                 <div class="btn-group">
@@ -118,13 +118,6 @@
                                                     document.getElementById('remove' + {{$user->id}} +'t'+ {{$ticket->id}}).submit();">
                                                 <i class="icon-docs"></i> Remove </a>
                                         </li>
-                                        {{-- <li class="divider"> </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="icon-flag"></i> Comments
-                                                <span class="badge badge-success">4</span>
-                                            </a>
-                                        </li> --}}
                                     </ul>
                                     @endif
                                 </div>
@@ -132,41 +125,38 @@
                         </tr>
                         @endforeach
                         @endforeach
-                        {{-- <tr>
-                                    <td>{{ $i++ }}</td>
-                        <td>Trisnapspt</td>
-                        <td>trisna@gmail.com</td>
-                        <td>082261162639</td>
-                        <td style="text-align: left">
-                            <button class="btn btn-primary">Edit</button>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>{{ $i++ }}</td>
-                            <td>Trisnapspt</td>
-                            <td>trisna@gmail.com</td>
-                            <td>082261162639</td>
-                            <td style="text-align: left">
-                                <button class="btn btn-primary">Edit</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>{{ $i++ }}</td>
-                            <td>Trisnapspt</td>
-                            <td>trisna@gmail.com</td>
-                            <td>082261162639</td>
-                            <td style="text-align: left">
-                                <button class="btn btn-primary">Edit</button>
-                            </td>
-                        </tr> --}}
                     </tbody>
                 </table>
+                <!-- responsive -->
+                <div id="receipt" class="modal fade" tabindex="-1" data-width="760">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <h4 class="modal-title"><b>See Receipt</b></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                    <div class="col-md-12" style="text-align: center">
+                                        <img src="/../../img/receipt.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+                            </div>
+                    </div>
+                    <!--End Modal-->
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
     <!-- END CONTENT BODY -->
 </div>
+@endsection
+
+@section('style')
+<link href="{{asset('../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('script')
@@ -179,4 +169,14 @@
     type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <script src="{{asset('../../assets/pages/scripts/table-datatables-buttons.min.js')}}" type="text/javascript"></script>
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="{{asset('assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js')}}" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<script src="{{asset('assets/pages/scripts/ui-extended-modals.min.js')}}" type="text/javascript"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{{asset('assets/pages/scripts/ui-extended-modals.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/ui-sweetalert.min.js')}}" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
 @endsection

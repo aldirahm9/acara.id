@@ -121,8 +121,8 @@
 
         <li class="nav-item {{ request()->routeIs('dashboard.event.checkin*') ? 'active' : '' }} ">
             <a href="{{route('dashboard.event.checkin.index', ['event' => $event->id])}}" class="nav-link nav-toggle">
-                <i class="icon-user"></i>
-                <span class="title">Check In</span>
+                <i class="icon-check"></i>
+                <span class="title">Checkin</span>
             </a>
         </li>
 

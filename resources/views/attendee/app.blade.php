@@ -14,7 +14,6 @@
     <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- Theme skin -->
     <link id="t-colors" href="../../color/default.css" rel="stylesheet" />
@@ -102,7 +101,7 @@
                                             <a href="/contact">Contact </a>
                                         </li>
                                         <li class="dropdown @yield('action_acc')">
-                                            <a href="javascript:;"><img src="../../img/acc.png" width="27"><i
+                                            <a href="javascript:;"><img src="../../img/acc.png" width="25"><i
                                                     class="icon-angle-down"></i></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="/login">Login</a></li>
@@ -126,7 +125,7 @@
                                                     <a href="javasript:;">{{ Auth::user()->name }} <i
                                                             class="icon-angle-down"></i></a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a href="/mytickets/{{ Auth::user()->id }}">My Tickets
+                                                        <li><a href="/mytickets">My Tickets
                                                                 (3)</a></li>
                                                         <li @yield('action_org')>
                                                             @if(!Auth::user()->isOrganizer())
@@ -303,9 +302,6 @@
     <!-- Template Custom JavaScript File -->
     @yield('script')
     <script src="js/custom.js"></script>
-    <script src="{{asset('assets/global/plugins/ckeditor/ckeditor.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/global/plugins/bootstrap-markdown/lib/markdown.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript">
 
 </body>
 
