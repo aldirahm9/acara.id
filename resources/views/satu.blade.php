@@ -49,11 +49,12 @@
                                     <div class="tabbable-line tabbable-full-width">
                                         <div class="tab-content">
                                             <div class="tab-pane active">
+                                                 @foreach (Auth::user()->tickets as $ticket)
                                                 <div class="row">
                                                     <div class="col-md-4" style="text-align:center">
                                                         <ul class="list-unstyled profile-nav">
                                                             <li>
-                                                                <img src="../../img/biner.jpeg" width="200" alt="" />
+                                                                <img src="/storage/upload/{{$ticket->event->image}}" width="200">
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -61,16 +62,30 @@
                                                         <div class="row">
                                                             <div class="col-md-8 profile-info" style="text-align:center">
                                                                 <br>
-                                                                <h1 class="font-green sbold uppercase">BINER</h1>
+                                                                <h1 class="font-green sbold uppercase">{{$ticket->event->name}}</h1>
                                                                     <p>
-                                                                        <i class="fa fa-map-marker"></i> Kampus A, UNJ, Jakarta Timur
+                                                                        <i class="fa fa-map-marker"></i> {{$ticket->event->location}}
                                                                     <br>
-                                                                        <i class="fa fa-calendar"></i> 18 Januari 2010
-                                                                    <br>
-                                                                        <i class="fa fa-money"></i> Rp.80.000</p>
+                                                                    <i class="icon-calendar"></i>
+                                                                        {{  }}<br>
+                                                                    <i class="icon-time"></i>
+                                                                    {{
+                                                                    DateTime::createFromFormat('H:i:s', $ticket->event->timeStart)->format('H:i')
+                                                                    }}
+                                                                        {{$ticket->event->timeEnd != null ? ' s/d ' . DateTime::createFromFormat('H:i:s', $ticket->event->timeEnd)->format('H:i') : ''}}<br>
+                                                                    <i class="icon-money"></i> Rp {{
+                                                                number_format($ticket->price,2,',','.')
+                                                                }}<br>
                                                                 <div><br>
                                                                 <h5><strong>Status</strong></h5>
-                                                                <a class="btn btn-md btn-success">Approved</a></div>
+                                                                @if($ticket->getTicketStatus() == 1)
+                                                                <a class="btn btn-danger">Waiting Payment</a>
+                                                                @elseif($ticket->getTicketStatus() == 2)
+                                                                <a class="btn btn-warning">Waiting Approval</a>
+                                                                @elseif($ticket->getTicketStatus() == 3)
+                                                                <a class="btn btn-success">Approved</a>
+                                                                @endif
+                                                               </div>
                                                             </div>
                                                             <!--end col-md-8-->
                                                             <div class="col-md-4" style="text-align:center">
@@ -91,6 +106,7 @@
                                                             </div>
                                                             <!--end col-md-4-->
                                                         </div>
+                                                        @endforeach
                                                         <!--end row-->
                                                     </div>
                                                 </div>
