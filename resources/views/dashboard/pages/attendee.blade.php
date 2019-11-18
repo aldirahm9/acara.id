@@ -83,7 +83,7 @@
 
                                         <li>
                                             {!! Form::open(['route'=> ['user.ticket.remove','user'=>
-                                            $user->id,'ticket'=>$ticket->id],
+                                            Hashids::connection(\App\User::class)->encode($user->id),'ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],
                                             'style'=>'display:none','method'=>'POST','id'=>'approve'.$user->id . 't' .
                                             $ticket->id]) !!}
                                             {!! Form::close() !!}
@@ -95,7 +95,7 @@
 
                                         <li>
                                             {!! Form::open(['route'=> ['user.ticket.remove','user'=>
-                                            $user->id,'ticket'=>$ticket->id],
+                                            Hashids::connection(\App\User::class)->encode($user->id),'ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],
                                             'style'=>'display:none','method'=>'POST','id'=>'decline'.$user->id . 't' .
                                             $ticket->id]) !!}
                                             {!! Form::close() !!}
@@ -104,12 +104,12 @@
                                                     document.getElementById('decline' + {{$user->id}} +'t'+ {{$ticket->id}}).submit();">
                                                 <i class="icon-docs"></i> Decline Payment </a>
                                         </li>
-                                        
+
 
 
                                         <li>
                                             {!! Form::open(['route'=> ['user.ticket.remove','user'=>
-                                            $user->id,'ticket'=>$ticket->id],
+                                            Hashids::connection(\App\User::class)->encode($user->id),'ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],
                                             'style'=>'display:none','method'=>'POST','id'=>'remove'.$user->id . 't' .
                                             $ticket->id]) !!}
                                             {!! Form::close() !!}

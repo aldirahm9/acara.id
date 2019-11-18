@@ -68,7 +68,7 @@ class OrganizerController extends Controller
      */
     public function show(Organizer $organizer)
     {
-        
+
         return view('attendee/pages/org_profile', ["organizer"=>$organizer]);
     }
 
@@ -92,7 +92,32 @@ class OrganizerController extends Controller
      */
     public function update(Request $request, Organizer $organizer)
     {
-        //
+        // dd($request);
+        $this->validate(request(), [
+            'picture' => 'mimes:jpeg,jpg,png|max:1000'
+        ]);
+        if($request->picture != null) {
+            $picture= null;
+            if($request->picture != null) {
+                $picture = $request->name. '.png';
+                $request->file('picture')->storeAs('public/upload', $picture);
+            }
+            $organizer->update([
+                'name'=>$request->name,
+                'description' => $request->description,
+                'picture'=> $picture
+            ]);
+
+        } else {
+                $organizer->update([
+                    'name'=>$request->name,
+                    'description' => $request->description
+                ]);
+
+        }
+
+
+        return redirect('dashboard/organizer');
     }
 
     /**

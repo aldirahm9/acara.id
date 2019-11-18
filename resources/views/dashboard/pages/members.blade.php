@@ -91,7 +91,7 @@ $user = Auth::user()
                                             <ul class="dropdown-menu pull-left" role="menu">
                                                 @if($member->isOrganizerAdmin())
                                                 <li>
-                                                    {!! Form::open(['route'=> ['revoke.admin','user'=> $member->id], 'style'=>'display:none','method'=>'POST','id'=>'revoke'.$member->id]) !!}
+                                                    {!! Form::open(['route'=> ['revoke.admin','user'=> Hashids::connection(\App\User::class)->encode($member->id)], 'style'=>'display:none','method'=>'POST','id'=>'revoke'.$member->id]) !!}
                                                     {!! Form::close() !!}
                                                     <a onclick="event.preventDefault();
                                                     document.getElementById('revoke' + {{$member->id}}).submit();">
@@ -99,7 +99,7 @@ $user = Auth::user()
                                                 </li>
                                                 @elseif($member->isMemberOf($user->organizer->id))
                                                 <li>
-                                                    {!! Form::open(['route'=> ['set.admin','user'=> $member->id], 'style'=>'display:none','method'=>'POST','id'=>'set'.$member->id]) !!}
+                                                    {!! Form::open(['route'=> ['set.admin','user'=> Hashids::connection(\App\User::class)->encode($member->id)], 'style'=>'display:none','method'=>'POST','id'=>'set'.$member->id]) !!}
                                                     {!! Form::close() !!}
                                                     <a onclick="event.preventDefault();
                                                     document.getElementById('set' + {{$member->id}}).submit();">
@@ -107,7 +107,7 @@ $user = Auth::user()
                                                 </li>
                                                 @endif
                                                 <li>
-                                                        {!! Form::open(['route'=> ['kick','user'=> $member->id], 'style'=>'display:none','method'=>'POST','id'=>'kick'.$member->id]) !!}
+                                                        {!! Form::open(['route'=> ['kick','user'=> Hashids::connection(\App\User::class)->encode($member->id)], 'style'=>'display:none','method'=>'POST','id'=>'kick'.$member->id]) !!}
                                                         {!! Form::close() !!}
                                                 <a onclick="event.preventDefault();
                                                 document.getElementById('kick' + {{$member->id}}).submit();">

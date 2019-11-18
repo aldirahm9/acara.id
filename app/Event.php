@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Traits\Hashidable;
 
 class Event extends Model
 {
+    use Hashidable;
+
     protected $fillable = [
         'name', 'location', 'image', 'date', 'description', 'timeStart', 'timeEnd', 'organizer_id', 'feature_id'
     ];

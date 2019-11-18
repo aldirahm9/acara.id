@@ -14,7 +14,7 @@
             <ul class="page-breadcrumb">
                 <li>
                     <i class="fa fa-circle"></i>
-                    <a href="index-2.html">Dashboard</a>
+                    <a href="#">Dashboard</a>
                 </li>
             </ul>
         </div>

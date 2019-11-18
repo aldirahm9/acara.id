@@ -7,6 +7,7 @@
 @section('content')
 <div class="page-content-wrapper">
     <div class="page-content">
+            @include('dashboard/partials/_messages')
         <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
@@ -45,15 +46,19 @@
                     </thead>
                     <tbody>
                         @php $i=1 @endphp
+                        @foreach($event->tickets as $ticket)
+                        @foreach ($ticket->users()->wherePivot('checkin',1)->get() as $user)
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>Tris</td>
-                            <td>tris@tris.com</td>
-                            <td>082222222</td>
-                            <td>VVIP</td>
-                            <td>11-11-2010
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->phone}}</td>
+                            <td>{{$ticket->name}}</td>
+                            <td>{{DateTime::createFromFormat('Y-m-d H:i:s', $user->pivot->updated_at)->format('H:i:s')}}
                             </td>
                         </tr>
+                        @endforeach
+                        @endforeach
                     </tbody>
                 </table>
 
@@ -67,9 +72,9 @@
                         <div class="row">
                             <div class="col-md-12" style="text-align: center">
                                 {!! Form::open(['route' =>
-                                ['dashboard.event.checkin.post','event'=>$event->id],'method'=>
-                                'POST','style'=>'display:none']) !!}
-                                {!! Form::hidden('userid', null) !!}
+                                ['dashboard.event.checkin.post','event'=>Hashids::connection(\App\Event::class)->encode($event->id)],'method'=>
+                                'POST','style'=>'display:none','id'=>'scanForm']) !!}
+                                {!! Form::hidden('ticketuser', null,['id'=>'hiddenid']) !!}
                                 {!! Form::close() !!}
                                 <div id="scanner"></div>
                             </div>
@@ -123,12 +128,21 @@
     function onQRCodeScanned(scannedText) {
         $('#scan .close').click();
 
-        Swal.fire(
-            'anj',
-            scannedText,
-            'success'
-        );
+        Swal.fire({
+            title: 'Checkin',
+            text: scannedText,
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Checkin!'
+        }).then((result) => {
+            if (result.value) {
+                $('#hiddenid').val(scannedText);
+                $('#scanForm').submit()
+            }
+        });
 
+        ;
         console.log('scanned');
         jbScanner.stopScanning();
     }

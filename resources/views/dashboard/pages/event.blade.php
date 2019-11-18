@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-6" style="text-align:right">
             <br>
-        <a href="{{$event->id}}/edit" class="btn btn-large btn-info"><strong>Edit</strong></a>
+        <a href="{{route('dashboard.event.edit',['event' => Hashids::connection(\App\Event::class)->encode($event->id)])}}" class="btn btn-large btn-info"><strong>Edit</strong></a>
         </div><br><br><br>
 
         <div class="page-title"></div>

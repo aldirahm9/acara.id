@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-6" style="text-align:right">
                 <br>
-            <a href="organizer/{{$organizer->id}}/edit" class="btn btn-large btn-info"><strong>Edit</strong></a>
+            <a href="{{route('dashboard.organizer.edit',['organizer'=>Hashids::connection(\App\Organizer::class)->encode($organizer->id)])}}" class="btn btn-large btn-info"><strong>Edit</strong></a>
             </div><br><br><br>
 
             <div class="page-title"></div>
@@ -32,14 +32,10 @@
                                 <div>
                                     <div class="row">
                                         <div class="col-md-8 profile-info">
-                                            <h1 class="font-green sbold uppercase">DEFAULT FMIPA UNJ</h1>
-                                            <p> “Developing Future and Unyielding Learn of Technology” atau yang di singkat dengan DEFAULT merupakan kelompok studi yang bergerak di bidang pengembangan teknologi seperti pada bidang arsitektur, website, animasi, dan juga aplikasi. Kelompok studi ini di dirikan oleh angkatan pertama program studi ilmu komputer pada tahun 2013. </p>
-                                            <p>
-                                                <a href="javascript:;"> www.defaultunj.com </a>
-                                            </p>
-                                            <ul class="list-inline">
-                                                <li>
-                                                    <i class="fa fa-map-marker"></i>Rawamangun Muka, Jakarta Timur</li>
+                                            <h1 class="font-green sbold uppercase">{{$organizer->name}}</h1>
+                                            @markdown
+                                            {{$organizer->description}}
+                                            @endmarkdown
                                                 {{-- <li>
                                                     <i class="fa fa-calendar"></i> 18 January 2014 </li>
                                                 <li>

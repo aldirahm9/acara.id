@@ -44,7 +44,7 @@
                     </div>
                     <div class="portlet-body">
                         <!-- BEGIN FORM-->
-                        <form action="{{route('dashboard.event.store')}}" method="POST" id="form_sample_3" enctype="multipart/form-data"
+                        <form action="{{route('dashboard.event.update',['event'=>Hashids::connection(\App\Event::class)->encode($event->id)])}}" method="POST" id="form_sample_3" enctype="multipart/form-data"
                             data-parsley-validate="" class="form-horizontal">
                             {{csrf_field()}}
                             <div class="form-body">
@@ -53,14 +53,14 @@
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-7">
-                                        <input type="text" name="name" required="" class="form-control" value={{$event->name}} /> </div>
+                                        <input type="text" name="name" required="" class="form-control" value="{{$event->name}}"/> </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">Location
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-7">
-                                        <input type="text" name="location" required="" class="form-control" value={{$event->location}}>
+                                        <input type="text" name="location" required="" class="form-control" value="{{$event->location}}"">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -70,7 +70,8 @@
                                     <div class="col-md-3">
                                         <div class="input-group date date-picker" data-date-format="dd-mm-yyyy"
                                             data-date-start-date="+0d">
-                                    <input type="text" name="date" class="form-control" required="" value="{{$event->date}}">
+                                    <input type="text" name="date" class="form-control" required="" value="{{
+                                    DateTime::createFromFormat('Y-m-d', $event->date)->format('d-m-Y')}}">
                                             <span class="input-group-btn">
                                                 <button class="btn default" type="button">
                                                     <i class="fa fa-calendar"></i>
@@ -136,7 +137,7 @@
                                                 <span class="input-group-addon btn default btn-file">
                                                     <span class="fileinput-new"> Select file </span>
                                                     <span class="fileinput-exists"> Change </span>
-                                                    <input type="file" required name="image"> </span>
+                                                    <input type="file"  name="image"> </span>
                                                 <a href="javascript:;"
                                                     class="input-group-addon btn red fileinput-exists"
                                                     data-dismiss="fileinput"> Remove </a>
@@ -150,7 +151,7 @@
                                     </label>
                                     <div class="col-md-9">
                                         <textarea name="description" data-provide="markdown" rows="10" required
-                                    data-error-container="#editor_error" aria-valuetext="{{$event->description}}"></textarea>
+                                    data-error-container="#editor_error" aria-valuetext="{{$event->description}}">{{$event->description}}</textarea>
                                         <div id="editor_error"> </div>
                                     </div>
                                 </div>
@@ -160,7 +161,25 @@
                                         <div class="mt-repeater">
                                             <div data-repeater-list="payment">
                                                 <div data-repeater-item class="row">
+                                                    @if($event->paymentMethods->first() == null)
+                                                    {!! Form::hidden('paymentId', null ) !!}
+                                                    <div class="col-md-2">
+                                                            <label class="control-label">Bank</label>
+                                                        <input type="text" class="form-control" name="bank" /> </div>
+                                                        <div class="col-md-3">
+                                                            <label class="control-label">Account Name</label>
+                                                            <input type="text" class="form-control" name="bankAccountName" /> </div>
+                                                         <div class="col-md-4">
+                                                            <label class="control-label">Number</label>
+                                                         <input type="text" class="form-control" name="bankAccountNumber" /> </div>
+                                                        <div class="col-md-1">
+                                                            <label class="control-label">&nbsp;</label>
+                                                            <a href="javascript:;" class="btn btn-danger" data-repeater-delete><i class="fa fa-close"></i>
+                                                            </a>
+                                                        </div>
+                                                    @else
                                                     @foreach ($event->paymentMethods as $pay)
+                                                    {!! Form::hidden('paymentId', $pay->id ) !!}
                                                     <div class="col-md-2">
                                                         <label class="control-label">Bank</label>
                                                     <input type="text" class="form-control" name="bank" value="{{$pay->bank}}"/> </div>
@@ -176,6 +195,7 @@
                                                         </a>
                                                     </div>
                                                     @endforeach
+                                                    @endif
                                                 </div>
                                             </div>
                                             <hr>

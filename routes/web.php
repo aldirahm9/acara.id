@@ -26,10 +26,11 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['middleware' => ['organizer']], function () {
         Route::get('dashboard', "DashboardController@index")->name('dashboard');
-        Route::get('dashboard/organizer', 'DashboardController@organizer')->name('dashboard.member.organizer');
-        Route::get('dashboard/organizer/{organizer}/edit', "OrganizerController@edit");
+        Route::get('dashboard/organizer', 'DashboardController@organizer')->name('dashboard.organizer');
+        Route::get('dashboard/organizer/{organizer}/edit', "OrganizerController@edit")->name('dashboard.organizer.edit');
+        Route::post('dashboard/organizer/{organizer}/edit', "OrganizerController@update")->name('dashboard.organizer.update');
 
-        // TODO: 3 dibawah ini harusnya post
+
         Route::post('dashboard/member/kick/{user}', 'MemberController@kick')->name('kick');
         Route::post('dashboard/member/revoke/{user}', 'MemberController@revokeAdmin')->name('revoke.admin');
         Route::post('dashboard/member/admin/{user}', 'MemberController@setAdmin')->name('set.admin');
@@ -41,6 +42,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('dashboard/event/store', 'EventController@store')->name('dashboard.event.store');
         Route::get('dashboard/event/{event}', 'EventController@show')->name('dashboard.event.show');
         Route::get('dashboard/event/{event}/edit', 'EventController@edit')->name('dashboard.event.edit');
+        Route::post('dashboard/event/{event}/edit', 'EventController@update')->name('dashboard.event.update');
         Route::get('dashboard/event/{event}/attendee', 'EventController@show_attendee')->name('dashboard.event.attendee.index');
 
         Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
@@ -49,7 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('dashboard/ticket/{ticket}/attendee/{user}/remove', 'TicketController@removeAttendee')->name('user.ticket.remove');
         Route::post('dashboard/ticket/{ticket}/attendee/{user}/approve', 'TicketController@approveAttendee')->name('user.ticket.approve');
         Route::post('dashboard/ticket/{ticket}/attendee/{user}/decline', 'TicketController@declineAttendee')->name('user.ticket.decline');
-        Route::post('dashboard/ticket/{ticket}/attendee/checkin', 'TicketController@postCheckin')->name('dashboard.event.checkin.post');
+        Route::post('dashboard/event/{event}/attendee/checkin', 'TicketController@postCheckin')->name('dashboard.event.checkin.post');
         Route::get('dashboard/event/{event}/checkin', 'TicketController@indexCheckin')->name('dashboard.event.checkin.index');
     });
 

@@ -6,7 +6,11 @@ use App\Ticket;
 use Illuminate\Http\Request;
 use App\Event;
 use App\User;
+use Hashids;
 use Auth;
+use Log;
+use DateTime;
+use Session;
 
 class TicketController extends Controller
 {
@@ -60,7 +64,7 @@ class TicketController extends Controller
             'event_id' => $event->id
 
         ]);
-        return redirect('dashboard/event/' . $event->id . 'ticket');
+        return redirect('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($event->id) . 'ticket');
     }
 
     /**
@@ -84,20 +88,20 @@ class TicketController extends Controller
     {
         $ticket->users->where('id',$user->id)->first()->pivot->approved = 1;
         $ticket->users->where('id',$user->id)->first()->pivot->save();
-        return redirect('/dashboard/event/' . $ticket->event->id . '/attendee');
+        return redirect('/dashboard/event/' . Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/attendee');
     }
 
     public function declineAttendee(Ticket $ticket, User $user)
     {
         $ticket->users->where('id',$user->id)->first()->pivot->receipt = null;
         $ticket->users->where('id',$user->id)->first()->pivot->save();
-        return redirect('/dashboard/event/' . $ticket->event->id . '/attendee');
+        return redirect('/dashboard/event/' . Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/attendee');
     }
 
     public function removeAttendee(Ticket $ticket, User $user)
     {
         $ticket->users->where('id',$user->id)->first()->pivot->delete();
-        return redirect('/dashboard/event/' . $ticket->event->id . '/attendee');
+        return redirect('/dashboard/event/' . Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/attendee');
     }
 
 
@@ -109,13 +113,25 @@ class TicketController extends Controller
 
     public function postCheckin(Request $request, Event $event)
     {
+        // dd($event);
+        $checkedin = false;
         foreach($event->tickets as $ticket) {
-            if($ticket->users()->wherePivot('id',6)->first() != null)
-            $ticket->users()->wherePivot('id',6)->first()->pivot->checkin = 1;
+            if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first() != null) {
+                $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->pivot
+                ->update(['checkin'=>1,'updated_at' => DateTime::createFromFormat('Y-m-d H:i:s', \Carbon\Carbon::now('Asia/Bangkok'))->format('Y-m-d H:i:s')]);
+                $checkedin = true;
+            }
         }
-        $ticket->users->where('id',$request->userid)->first()->pivot->checkin = 1;
-        $ticket->users()->wherePivot('id',3)->first();
-        return redirect('dashboard/event/' . $ticket->event->id . '/checkin');
+        if($checkedin == false) {
+            Session::flash('failed','Gagal Checkin, Tiket tidak sesuai');
+            Log::info('failed');
+        }else {
+            Log::info('checkedin');
+            Session::flash('success','Berhasil Checkin');
+        }
+        // $ticket->users->where('id',$request->userid)->first()->pivot->checkin = 1;
+        // $ticket->users()->wherePivot('id',3)->first();
+        return redirect('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($event->id) . '/checkin');
     }
     /**
      * Show the form for editing the specified resource.

@@ -23,9 +23,36 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
 
         parent::boot();
+
+        Route::bind('user', function ($value, $route) {
+            return $this->getModel(\App\User::class, $value);
+        });
+
+        Route::bind('event', function ($value, $route) {
+            return $this->getModel(\App\Event::class, $value);
+        });
+
+        Route::bind('organizer', function ($value, $route) {
+            return $this->getModel(\App\Organizer::class, $value);
+        });
+
+        Route::bind('ticket', function ($value, $route) {
+            return $this->getModel(\App\Ticket::class, $value);
+        });
+
+        // Route::bind('ticketuser', function ($value, $route) {
+        //     return $this->getModel(\App\TicketUser::class, $value);
+        // });
+    }
+
+    private function getModel($model, $routeKey)
+    {
+    $id = \Hashids::connection($model)->decode($routeKey)[0] ?? null;
+    $modelInstance = resolve($model);
+
+    return  $modelInstance->findOrFail($id);
     }
 
     /**

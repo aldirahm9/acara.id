@@ -42,10 +42,10 @@
                                 <span class="username username-hide-on-mobile"> {{Auth::user()->name}} </span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
-                                <li>
+                                {{-- <li>
                                     <a href="page_user_profile_1.html">
                                         <i class="icon-user"></i> My Profile </a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a href="/">
                                         <i class="icon-home"></i> Landing Page </a>

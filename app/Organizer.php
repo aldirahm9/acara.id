@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Traits\Hashidable;
 
 class Organizer extends Model
 {
+    use Hashidable;
+
     protected $fillable = [
         'name', 'picture', 'description'
     ];

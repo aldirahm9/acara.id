@@ -36,7 +36,7 @@
                     </div>
                     <div class="portlet-body">
                         <!-- BEGIN FORM-->
-                        <form action="{{route('dashboard.event.store')}}" method="POST" id="form_sample_3" enctype="multipart/form-data"
+                        <form action="{{route('dashboard.organizer.update',['organizer'=>Hashids::connection(\App\Organizer::class)->encode($organizer->id)])}}" method="POST" id="form_sample_3" enctype="multipart/form-data"
                             data-parsley-validate="" class="form-horizontal">
                             {{csrf_field()}}
                             <div class="form-body">
@@ -63,7 +63,7 @@
                                                 <span class="input-group-addon btn default btn-file">
                                                     <span class="fileinput-new"> Select file </span>
                                                     <span class="fileinput-exists"> Change </span>
-                                                    <input type="file" required name="image"> </span>
+                                                    <input type="file"  name="image"> </span>
                                                 <a href="javascript:;"
                                                     class="input-group-addon btn red fileinput-exists"
                                                     data-dismiss="fileinput"> Remove </a>
@@ -77,7 +77,7 @@
                                     </label>
                                     <div class="col-md-9">
                                         <textarea name="description" data-provide="markdown" rows="10" required
-                                            data-error-container="#editor_error"></textarea>
+                                    data-error-container="#editor_error">{{$organizer->description}}</textarea>
                                         <div id="editor_error"> </div>
                                     </div>
                                 </div>

@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Http\Traits\Hashidable;
 use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
+    use Hashidable;
+    
     protected $fillable = [
         'name','price','limit','onsale', 'event_id'
     ];

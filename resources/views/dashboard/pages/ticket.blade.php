@@ -36,7 +36,7 @@
                 </a> <br><br>
                  <!-- responsive -->
                  <div id="responsive" class="modal fade" tabindex="-1" data-width="760">
-                     {!! Form::open(['route' => ['dashboard.event.ticket.store', $event->id], 'data-parsley-validate' => '','method' => 'POST']) !!}
+                     {!! Form::open(['route' => ['dashboard.event.ticket.store', 'event' => Hashids::connection(\App\Event::class)->encode($event->id)], 'data-parsley-validate' => '','method' => 'POST']) !!}
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                             <h4 class="modal-title"><b>Create New Ticket</b></h4>

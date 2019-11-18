@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Log;
 use DateTime;
+use Hashids;
 
 class EventController extends Controller
 {
@@ -43,7 +44,7 @@ class EventController extends Controller
         if(!$user->isOrganizerAdmin()) {
             return abort(401,'Unauthorized Action');
         }
-        Log::info($request->image);
+
         $this->validate($request, [
             'name' => 'required|max:255',
             'location' => 'required',
@@ -86,7 +87,7 @@ class EventController extends Controller
                 'event_id' => $event->id
             ]);
         }
-        return redirect('dashboard/event/' . $event->id);
+        return redirect('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($event->id));
     }
 
     /**
@@ -135,6 +136,76 @@ class EventController extends Controller
     public function update(Request $request, Event $event)
     {
         //NOTE: nanti untuk yang payment methodnya, delete semua dulu, baru save yang baru dari request
+        $user = Auth::user();
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'location' => 'required',
+            'date' => 'required',
+            'timeStart' => 'required',
+            'timeEnd' => '',
+            'image' => 'mimes:jpeg,jpg|max:1000',
+            'description' => 'required',
+        ]);
+        if($request->image != null) {
+            $fileName= null;
+            if($request->image != null) {
+                $fileName = $user->organizer->name . '-' . $request->name . '.jpg';
+                $request->file('image')->storeAs('public/upload', $fileName);
+            }
+
+            $dateLocale = DateTime::createFromFormat('d-m-Y', $request->date);
+
+            $dateToSave = $dateLocale->format('Y-m-d');
+
+            $event->update([
+                'name' => $request->name,
+                'location' => $request->location,
+                'date' => $dateToSave,
+                'timeStart' => $request->timeStart,
+                'timeEnd' => $request->timeEnd,
+                'image' => $fileName,
+                'description' => $request->description,
+                'organizer_id' => $user->organizer_id,
+                'finished' => 0
+            ]);
+        }else {
+            $dateLocale = DateTime::createFromFormat('d-m-Y', $request->date);
+
+            $dateToSave = $dateLocale->format('Y-m-d');
+
+            $event->update([
+                'name' => $request->name,
+                'location' => $request->location,
+                'date' => $dateToSave,
+                'timeStart' => $request->timeStart,
+                'timeEnd' => $request->timeEnd,
+                'description' => $request->description,
+                'organizer_id' => $user->organizer_id,
+                'finished' => 0
+            ]);
+        }
+
+
+        foreach($request->payment as $each) {
+            if($each['bank']==null) continue;
+            if($each['paymentId'] != null) {
+                $method = PaymentMethod::find($each->paymentId);
+                $method->update([
+                    'bank' => $each['bank'],
+                    'bankAccountName' => $each['bankAccountName'],
+                    'bankAccountNumber' => $each['bankAccountNumber'],
+                    'event_id' => $event->id
+                ]);
+            }else {
+                PaymentMethod::create([
+                    'bank' => $each['bank'],
+                    'bankAccountName' => $each['bankAccountName'],
+                    'bankAccountNumber' => $each['bankAccountNumber'],
+                    'event_id' => $event->id
+                ]);
+            }
+        }
+        return redirect('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($event->id));
     }
 
     /**
