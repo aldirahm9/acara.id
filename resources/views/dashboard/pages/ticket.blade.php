@@ -94,55 +94,6 @@
                                         </div>
                                     </div>
                                 @endforeach
-
-                                {{-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                    <div class="mt-card-item">
-                                        <div class="mt-card-avatar mt-overlay-1">
-                                            <img src="{{asset('img/ticket.jpg')}}"/>
-                                        </div>
-                                        <div class="mt-card-content">
-                                            <h3 class="mt-card-name">Yellow Ticket</h3>
-                                            <p class="mt-card-desc font-grey-mint">
-                                                <ul style="text-align:left;">
-                                                    <li><b style="color:green">Approved :</b><br>12</li>
-                                                    <li><b style="color:red">Need Approval : </b><br>100</li>
-                                                </ul>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                    <div class="mt-card-item">
-                                        <div class="mt-card-avatar mt-overlay-1">
-                                            <img src="{{asset('img/ticket.jpg')}}"/>
-                                        </div>
-                                        <div class="mt-card-content">
-                                            <h3 class="mt-card-name">Red Ticket</h3>
-                                            <p class="mt-card-desc font-grey-mint">
-                                                <ul style="text-align:left;">
-                                                    <li><b style="color:green">Approved :</b><br>12</li>
-                                                    <li><b style="color:red">Need Approval : </b><br>100</li>
-                                                </ul>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                    <div class="mt-card-item">
-                                        <div class="mt-card-avatar mt-overlay-1">
-                                            <img src="{{asset('img/ticket.jpg')}}"/>
-                                        </div>
-                                        <div class="mt-card-content">
-                                            <h3 class="mt-card-name">Green Ticket</h3>
-                                            <p class="mt-card-desc font-grey-mint">
-                                                <ul style="text-align:left;">
-                                                    <li><b style="color:green">Approved :</b><br>12</li>
-                                                    <li><b style="color:red">Need Approval : </b><br>100</li>
-                                                </ul>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
                         </div>
                     </div>

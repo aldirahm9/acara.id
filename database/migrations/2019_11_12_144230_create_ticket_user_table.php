@@ -20,7 +20,8 @@ class CreateTicketUserTable extends Migration
             $table->unsignedBigInteger('ticket_id');
             $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete('cascade');
             $table->boolean('approved')->nullable();
-            $table->string('receipt');
+            $table->string('receipt')->nullable();
+            $table->boolean('checkin')->nullable();
             $table->timestamps();
         });
     }

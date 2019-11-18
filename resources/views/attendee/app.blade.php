@@ -101,7 +101,7 @@
                                             <a href="/contact">Contact </a>
                                         </li>
                                         <li class="dropdown @yield('action_acc')">
-                                            <a href="javascript:;" class="thumbnail"><img src="../../img/acc.png" ><i
+                                            <a href="javascript:;"><img src="../../img/acc.png" width="25"><i
                                                     class="icon-angle-down"></i></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="/login">Login</a></li>
@@ -196,8 +196,8 @@
                             class="btn btn-rounded btn-large btn-success"><i class="icon-check" style="color:azure"></i>
                             Accept</button>
 
-                        <button onclick="event.preventDefault();
-                        document.getElementById('declineForm').submit();" type="submit"
+                                <button onclick="event.preventDefault();
+                                document.getElementById('declineForm').submit();" type="submit"
                             class="btn btn-rounded btn-large btn-danger"><i class="icon-remove-sign"
                                 style="color:azure"></i> Decline</button>
                         {!! Form::open(['route'=>

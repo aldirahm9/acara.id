@@ -10,15 +10,15 @@ class Ticket extends Model
         'name','price','limit','onsale', 'event_id'
     ];
 
-    public function user() {
-        return $this->belongsToMany('App\User')->withPivot('approved','receipt')->withTimestamps();
+    public function users() {
+        return $this->belongsToMany('App\User')->withPivot('approved','receipt','checkin')->withTimestamps();
     }
 
     public function event() {
         return $this->belongsTo('App\Event');
     }
 
-    public function getStatus()
+    public function getTicketStatus()
     {
         if($this->pivot->receipt == null) {
             return 1;   //NOTE: 1 itu dia belom ngasih bukti

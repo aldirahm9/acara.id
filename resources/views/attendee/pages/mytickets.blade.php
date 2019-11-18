@@ -42,7 +42,7 @@
                                 <h6 style="color:steelblue"><strong>{{$ticket->event->name}}</strong></h6>
                                 <a><i class="icon-home"></i> {{$ticket->event->location}}</a><br>
                                 <a><i class="icon-calendar"></i>
-                                    {{DateTime::createFromFormat('Y-m-d', $ticket->event->date)->format('l, d-m-Y')}}</a><br>
+                                    {{  }}</a><br>
                                 <a><i class="icon-time"></i> {{
                                 DateTime::createFromFormat('H:i:s', $ticket->event->timeStart)->format('H:i')
                                 }}
@@ -51,11 +51,11 @@
                             number_format($ticket->price,2,',','.')
                             }}</a><br><br>
                                 <a><strong>Status</strong></a><br>
-                                @if($ticket->getStatus() == 1)
+                                @if($ticket->getTicketStatus() == 1)
                                 <a class="btn btn-danger">Waiting Payment</a>
-                                @elseif($ticket->getStatus() == 2)
+                                @elseif($ticket->getTicketStatus() == 2)
                                 <a class="btn btn-warning">Waiting Approval</a>
-                                @elseif($ticket->getStatus() == 3)
+                                @elseif($ticket->getTicketStatus() == 3)
                                 <a class="btn btn-success">Approved</a>
                                 @endif
                             </div>
@@ -66,7 +66,7 @@
                                 <a class="btn btn-large btn-primary" data-toggle="modal" data-target="#upload">Upload
                                     Your Receipt Payment <i class="icon-upload" style="color:honeydew"></i></a><br><br>
                                 @endif
-                                @if($ticket->getStatus() == 3)
+                                @if($ticket->getTicketStatus() == 3)
                                 <a class="btn btn-large btn-success" data-toggle="modal" data-target="#qrcode">See
                                     Tickets <i class="icon-ticket" style="color:honeydew"></i></a>
                                 @endif
