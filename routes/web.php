@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/createOrganizer', 'OrganizerController@store')->name('organizer.store');
     Route::get('/mytickets', 'TicketController@mytickets')->name('mytickets');
     Route::post('/mytickets/{ticketuser}/uploadreceipt', 'TicketController@uploadReceipt')->name('attendee.upload.receipt');
+    Route::post('/mytickets/{ticket}/book', 'TicketController@bookTicket')->name('attendee.book.ticket');
 
 
     Route::post('invitation/accept', 'MemberController@accept')->name('member.invite.accept');

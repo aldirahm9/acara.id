@@ -64,7 +64,7 @@
                                                         <div class="col-md-8 profile-info" style="text-align:center">
                                                             <br>
                                                             <h1 class="font-green sbold uppercase">
-                                                                {{$ticket->event->name}}</h1>
+                                                            {{$ticket->event->name}} - {{$ticket->name}}</h1>
                                                             <p>
                                                                 <i class="fa fa-map-marker"></i>
                                                                 {{$ticket->event->location}}
@@ -159,7 +159,7 @@
                                                     </h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Please transfer the payment to one of this account:</p>
+                                                    <p>Please transfer the payment (Rp {{number_format($ticket->price,2,',','.')}}) to one of this account:</p>
                                                     <table class="table">
                                                         <thead class="thead-dark">
                                                             <tr>

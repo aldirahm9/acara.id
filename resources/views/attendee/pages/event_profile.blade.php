@@ -6,6 +6,7 @@
 <link href="../assets/apps/css/ticket.min.css" rel="stylesheet" type="text/css" />
 <link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
 <link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{{asset('sweetalert2/sweetalert2.min.css')}}">
 @endsection
 
 @section('content')
@@ -21,7 +22,7 @@
                         <div class="container">
                             <!-- BEGIN PAGE TITLE -->
                             <div class="page-title">
-                                <h1>BINER Description
+                                <h1>Event Description
                                 </h1>
                             </div>
                             <!-- END PAGE TITLE -->
@@ -34,15 +35,15 @@
                             <!-- BEGIN PAGE BREADCRUMBS -->
                             <ul class="page-breadcrumb breadcrumb">
                                 <li>
-                                    <a href="index-2.html">Home</a>
+                                    <a href="/">Home</a>
                                     <i class="fa fa-circle"></i>
                                 </li>
                                 <li>
-                                    <a href="#">Event</a>
+                                    <a href="/event">Event</a>
                                     <i class="fa fa-circle"></i>
                                 </li>
                                 <li>
-                                    <span>Event Detail</span>
+                                    <span>Event Description</span>
                                 </li>
                             </ul>
                             <!-- END PAGE BREADCRUMBS -->
@@ -56,29 +57,31 @@
                                                     <div class="col-md-3">
                                                         <ul class="list-unstyled profile-nav">
                                                             <li>
-                                                                <img src="../../img/biner.jpeg" class="img-responsive pic-bordered" alt="" />
+                                                                <img src="{{asset('storage/upload/'.$event->image)}}" class="img-responsive pic-bordered" alt="" />
                                                             </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="row">
                                                             <div class="col-md-8 profile-info">
-                                                                <h1 class="font-green sbold uppercase" style="text-align:center">BINER</h1>
-                                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam
-                                                                tincidunt erat volutpat. </p>
-                                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam
-                                                                        tincidunt erat volutpat. </p>
-                                                                <p>
-                                                                    <a href="javascript:;"> www.mywebsite.com </a>
-                                                                </p>
+                                                                <h1 class="font-green sbold uppercase" style="text-align:center">{{$event->name}}</h1>
+                                                                @markdown
+                                                                {{$event->description}}
+                                                                @endmarkdown
                                                                 <ul class="list-inline">
                                                                     <li>
-                                                                        <i class="fa fa-map-marker"></i> Kampus A, UNJ, Jakarta Timur </li>
+                                                                        <i class="fa fa-map-marker"></i> {{$event->location}} </li>
                                                                     <li>
-                                                                        <i class="fa fa-calendar"></i> 18 Januari 2010 </li>
+                                                                        <i class="fa fa-calendar"></i> {{DateTime::createFromFormat('Y-m-d',$event->date)->format('l, d F Y')}} </li>
+                                                                    <li>
+                                                                        @if($event->tickets->count() >1)
+                                                                        <i class="fa fa-money"></i> Rp {{number_format($event->tickets->sortBy('price')->first()->price,2,',','.')}} - Rp {{number_format($event->tickets->sortBy('price')->last()->price,2,',','.')}} </li>
+                                                                        @else
+                                                                        <i class="fa fa-money"></i> Rp {{number_format($event->tickets->first()->price,2,',','.')}} </li>
+                                                                        @endif
                                                                 </ul>
                                                                 <div style="text-align:center">
-                                                                <a class="btn btn-md btn-success" data-target="#buy" data-toggle="modal"><i class="icon-plus"></i>&nbsp;Buy Ticket</a></div>
+                                                                <a class="btn btn-md btn-success" data-target="#buy" data-toggle="modal"><i class="icon-plus"></i>&nbsp;Book Ticket</a></div>
                                                             </div>
                                                             <!--end col-md-8-->
                                                             <div class="col-md-2">
@@ -88,17 +91,17 @@
                                                                         <div class="portlet light profile-sidebar-portlet ">
                                                                             <!-- SIDEBAR USERPIC -->
                                                                             <div class="profile-userpic">
-                                                                                <img src="../../img/default.png" class="img-responsive" alt=""> </div>
+                                                                                <img src="{{asset('storage/upload/'.$event->organizer->image)}}" class="img-responsive" alt=""> </div>
                                                                             <!-- END SIDEBAR USERPIC -->
                                                                             <!-- SIDEBAR USER TITLE -->
                                                                             <div class="profile-usertitle">
-                                                                                <div class="profile-usertitle-name"> Default UNJ </div>
+                                                                                <div class="profile-usertitle-name"> {{$event->organizer->name}} </div>
                                                                             </div>
                                                                             <!-- END SIDEBAR USER TITLE -->
                                                                             <!-- SIDEBAR BUTTONS -->
                                                                             <div class="profile-userbuttons">
-                                                                                <button type="button" class="btn btn-circle green btn-sm">Follow</button>
-                                                                                <button type="button" class="btn btn-circle red btn-sm" href="">Visit</button>
+                                                                                {{-- <button type="button" class="btn btn-circle green btn-sm">Follow</button>
+                                                                                <button type="button" class="btn btn-circle red btn-sm" href="">Visit</button> --}}
                                                                             </div>
                                                                             <!-- END SIDEBAR BUTTONS -->
 
@@ -134,32 +137,26 @@
             <h4 class="modal-title"><strong>Select Ticket</strong></h4>
         </div>
             <div class="modal-body">
+            @foreach($event->tickets as $ticket)
             <div class="row" style="text-align:center">
                 <div class="col-md-4">
-                    <a style="color:black">Early Bird</a>
+                    <a style="color:black">{{$ticket->name}}</a>
                 </div>
                 <div class="col-md-4">
-                    <a style="color:black">Rp100.000</a>
+                    <a style="color:black">Rp {{number_format($ticket->price,2,',','.')}}</a>
                 </div>
                 <div class="col-md-4">
-                    <a href="/mytickets" class="btn blue">Choose</a>
-                    <form action="">
-                    </form>
+                    @if($ticket->limit != null && $ticket->users->count() == $ticket->limit)
+                    <a href="javascript:;" class="btn red">Habis</a>
+                    @else
+                    <a href="" onclick="event.preventDefault();buy('ticket' + {{$ticket->id}})" class="btn blue">Choose</a>
+                    {!! Form::open(['route' =>['attendee.book.ticket','ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],
+                        'id'=>'ticket'.$ticket->id,'style'=>'display:none']) !!}
+                    {!! Form::close() !!}
+                    @endif
                 </div>
             </div><br>
-            <div class="row" style="text-align:center">
-                <div class="col-md-4">
-                    <a style="color:black">Early Bird</a>
-                </div>
-                <div class="col-md-4">
-                    <a style="color:black">Rp100.000</a>
-                </div>
-                <div class="col-md-4">
-                    <a href="/mytickets" class="btn blue">Choose</a>
-                    <form action="">
-                    </form>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="modal-footer">
             <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
@@ -167,8 +164,27 @@
     </div>
 @endsection
 
-@section('style')
+@section('script')
 <script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
 <script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
 <script src="../assets/pages/scripts/ui-extended-modals.min.js" type="text/javascript"></script>
+<script src="{{asset('sweetalert2/sweetalert2.all.min.js')}}" type="text/javascript"></script>
+<script>
+function buy(form) {
+
+    $('#buy .close').click();
+    Swal.fire({
+            title: 'Booking',
+            text: 'Are you sure ?',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Book!'
+        }).then((result) => {
+            if (result.value) {
+                $('#' + form).submit();
+            }
+        });
+}</script>
 @endsection

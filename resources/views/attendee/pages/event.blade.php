@@ -31,7 +31,7 @@
                             <!-- BEGIN PAGE BREADCRUMBS -->
                             <ul class="page-breadcrumb breadcrumb">
                                 <li>
-                                    <a href="index-2.html">Home</a>
+                                    <a href="/">Home</a>
                                     <i class="fa fa-circle"></i>
                                 </li>
                                 <li>
@@ -50,35 +50,41 @@
                                         <div class="col-lg-12">
                                             <div class="row">
                                                 <div style="text-align:center"><h2><strong>Coming Events</h2></div><br>
+                                                    @foreach($events as $event)
                                                 <div class="col-sm-3">
                                                     <div class="blog-post-sm bordered blog-container">
                                                         <div class="blog-img-thumb">
                                                             <a href="javascript:;">
-                                                                <img src="../assets/pages/img/page_general_search/1.jpg" />
+                                                            <img src="{{asset('storage/upload/'.$event->image)}}" />
                                                             </a>
                                                         </div>
                                                         <div class="blog-post-content">
                                                             <h2 class="blog-title blog-post-title">
-                                                                <a href="javascript:;">BINER</a>
+                                                                <a href="javascript:;">{{$event->name}}</a>
                                                             </h2>
-                                                            <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
+                                                            <div class="blog-post-desc">
+                                                                @markdown
+                                                                {{$event->description}}
+                                                                @endmarkdown
+                                                            </div>
                                                             <div class="blog-post-foot">
                                                                 <div class="blog-post-meta">
                                                                     <i class="icon-calendar font-blue"></i>
-                                                                    <a href="javascript:;">Oct 24, 2015</a>
+                                                                    <a href="javascript:;">{{DateTime::createFromFormat('Y-m-d',$event->date)->format('l, d F Y')}}</a>
                                                                 </div>
                                                                 <div class="blog-post-meta">
                                                                     <i class="icon-home font-blue"></i>
-                                                                    <a href="javascript:;">Kampus A, UNJ</a>
+                                                                    <a href="javascript:;">{{$event->location}}</a>
                                                                 </div><br><br>
                                                                 <div style="text-align:center">
-                                                                    <a class="btn btn-info" href="/event/1">See All</a>
+                                                                    <a class="btn btn-info" href="{{route('attendee.event.show',['event'=>Hashids::connection(\App\Event::class)->encode($event->id)])}}">See More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3">
+                                                @endforeach
+                                                {{-- <div class="col-sm-3">
                                                     <div class="blog-post-sm bordered blog-container">
                                                         <div class="blog-img-thumb">
                                                             <a href="javascript:;">
@@ -162,9 +168,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
-                                            <div class="row">
+                                            {{-- <div class="row">
                                                     <div style="text-align:center"><h2><strong>Coming Events</h2></div><br>
                                                     <div class="col-sm-3">
                                                         <div class="blog-post-sm bordered blog-container">
@@ -278,9 +284,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
 
-                                                <div class="row">
+                                                {{-- <div class="row">
                                                         <div style="text-align:center"><h2><strong>Coming Events</h2></div><br>
                                                         <div class="col-sm-3">
                                                             <div class="blog-post-sm bordered blog-container">
@@ -394,7 +400,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                         </div>
                                     </div>
                                 </div>

@@ -154,6 +154,14 @@ class TicketController extends Controller
 
         return redirect('mytickets');
     }
+
+    public function bookTicket(Ticket $ticket)
+    {
+        if($ticket->limit != null && $ticket->limit == $ticket->users->count()) return back();
+        $user = Auth::user();
+        $user->tickets()->attach($ticket->id);
+        return redirect('mytickets');
+    }
     /**
      * Show the form for editing the specified resource.
      *
