@@ -1,178 +1,113 @@
 @extends('attendee/partials/app')
 
+@section('title')
+| Create Organization
+@endsection
+
 @section('style')
-<link href="../assets/pages/css/profile-2.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
 <div class="page-wrapper-row full-height">
-        <div class="page-wrapper-middle">
-            <!-- BEGIN CONTAINER -->
-            <div class="page-container">
-                <!-- BEGIN CONTENT -->
-                <div class="page-content-wrapper">
-                    <!-- BEGIN CONTENT BODY -->
-                    <!-- BEGIN PAGE HEAD-->
-                    <div class="page-head">
-                        <div class="container">
-                            <!-- BEGIN PAGE TITLE -->
-                            <div class="page-title">
-                                <h1>My Ticket
-                                </h1>
-                            </div>
-                            <!-- END PAGE TITLE -->
+    <div class="page-wrapper-middle">
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <!-- BEGIN PAGE HEAD-->
+                <div class="page-head">
+                    <div class="container">
+                        <!-- BEGIN PAGE TITLE -->
+                        <div class="page-title">
+                            <h1>Organization
+                            </h1>
                         </div>
+                        <!-- END PAGE TITLE -->
                     </div>
-                    <!-- END PAGE HEAD-->
-                    <!-- BEGIN PAGE CONTENT BODY -->
-                    <div class="page-content">
-                        <div class="container">
-                            <!-- BEGIN PAGE BREADCRUMBS -->
-                            <ul class="page-breadcrumb breadcrumb">
-                                <li>
-                                    <a href="index-2.html">Home</a>
-                                    <i class="fa fa-circle"></i>
-                                </li>
-                                <li>
-                                    <a href="#">Event</a>
-                                    <i class="fa fa-circle"></i>
-                                </li>
-                                <li>
-                                    <span>My Ticket</span>
-                                </li>
-                            </ul>
-                            <!-- END PAGE BREADCRUMBS -->
-                            <!-- BEGIN PAGE CONTENT INNER -->
-                            <div class="page-content-inner">
-                                <div class="profile">
-                                    <div class="tabbable-line tabbable-full-width">
-                                        <div class="tab-content">
-                                            <div class="tab-pane active">
-                                                 @foreach (Auth::user()->tickets as $ticket)
-                                                <div class="row">
-                                                    <div class="col-md-4" style="text-align:center">
-                                                        <ul class="list-unstyled profile-nav">
-                                                            <li>
-                                                                <img src="/storage/upload/{{$ticket->event->image}}" width="200">
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="row">
-                                                            <div class="col-md-8 profile-info" style="text-align:center">
-                                                                <br>
-                                                                <h1 class="font-green sbold uppercase">{{$ticket->event->name}}</h1>
-                                                                    <p>
-                                                                        <i class="fa fa-map-marker"></i> {{$ticket->event->location}}
-                                                                    <br>
-                                                                    <i class="icon-calendar"></i>
-                                                                        {{  }}<br>
-                                                                    <i class="icon-time"></i>
-                                                                    {{
-                                                                    DateTime::createFromFormat('H:i:s', $ticket->event->timeStart)->format('H:i')
-                                                                    }}
-                                                                        {{$ticket->event->timeEnd != null ? ' s/d ' . DateTime::createFromFormat('H:i:s', $ticket->event->timeEnd)->format('H:i') : ''}}<br>
-                                                                    <i class="icon-money"></i> Rp {{
-                                                                number_format($ticket->price,2,',','.')
-                                                                }}<br>
-                                                                <div><br>
-                                                                <h5><strong>Status</strong></h5>
-                                                                @if($ticket->getTicketStatus() == 1)
-                                                                <a class="btn btn-danger">Waiting Payment</a>
-                                                                @elseif($ticket->getTicketStatus() == 2)
-                                                                <a class="btn btn-warning">Waiting Approval</a>
-                                                                @elseif($ticket->getTicketStatus() == 3)
-                                                                <a class="btn btn-success">Approved</a>
-                                                                @endif
-                                                               </div>
-                                                            </div>
-                                                            <!--end col-md-8-->
-                                                            <div class="col-md-4" style="text-align:center">
-                                                                <!-- BEGIN PROFILE SIDEBAR -->
-                                                                <div class="profile-sidebar">
-                                                                        <!-- PORTLET MAIN -->
-                                                                        <div class="portlet light profile-sidebar-portlet ">
-                                                                            <!-- SIDEBAR BUTTONS -->
-                                                                            <div class="profile-userbuttons">
-                                                                                <br>
-                                                                                <a data-toggle="modal" href="#upload" class="btn btn-circle green btn-md"> <i class="fa fa-upload"></i> Upload Receipt Payment</a><br><br>
-                                                                                <a class="btn btn-circle blue btn-md" data-toggle="modal" href="#qrcode"> <i class="fa fa-ticket"></i> See Ticket</a>
-                                                                            </div>
-                                                                            <!-- END SIDEBAR BUTTONS -->
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-md-4-->
-                                                        </div>
-                                                        @endforeach
-                                                        <!--end row-->
-                                                    </div>
+                </div>
+                <!-- END PAGE HEAD-->
+                <!-- BEGIN PAGE CONTENT BODY -->
+                <div class="page-content">
+                    <div class="container">
+                        <!-- BEGIN PAGE BREADCRUMBS -->
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <a href="index-2.html">Home</a>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <a href="#">Organization Dashboard</a>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span>Create Organization</span>
+                            </li>
+                        </ul>
+                <!-- END PAGE BREADCRUMBS -->
+                        <div class="col-md-12">
+                            <!-- BEGIN EXTRAS PORTLET-->
+                            <div class="portlet light form-fit ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-settings font-dark"></i>
+                                        <span class="caption-subject font-dark sbold uppercase">Create New Organization</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body form">
+                                    <!-- BEGIN FORM-->
+                                    <form method="POST" action="{{route('organizer.store')}}" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                                        @csrf
+                                        <div class="form-body">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">Name</label>
+                                                <div class="col-md-10">
+                                                    <textarea class="wysihtml5 form-control" rows="1" type="text" name="name" id="name"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group last">
+                                                <label class="control-label col-md-2">Description</label>
+                                                <div class="col-md-10">
+                                                    <textarea name="content" name="description" id="description" data-provide="markdown" rows="10"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">Image</label>
+                                                <div class="col-md-10">
+                                                    <input type="file" name="picture" id="picture">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <button type="submit" class="btn red">
+                                                        <i class="fa fa-check"></i> Submit</button>
+                                                    <button type="button" class="btn grey-salsa btn-outline">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- END FORM-->
                                 </div>
                             </div>
-                            <!-- END PAGE CONTENT INNER -->
+                            <!-- END EXTRAS PORTLET-->
                         </div>
                     </div>
-                    <!-- END PAGE CONTENT BODY -->
-                    <!-- END CONTENT BODY -->
                 </div>
-                <!-- END CONTENT -->
+                <!-- END PAGE CONTENT INNER -->
             </div>
-            <!-- END CONTAINER -->
         </div>
+        <!-- END PAGE CONTENT BODY -->
+        <!-- END CONTENT BODY -->
     </div>
+</div>
 
-    <!--modal -->
-    <div class="modal fade" id="qrcode" tabindex="-1" role="basic" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">See Ticket</h4>
-                    </div>
-                    <div class="modal-body" style="text-align:center">
-                            <img src="../../img/qr.png" width="250">
-                        </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-
-        <!--modal -->
-    <div class="modal fade" id="upload" tabindex="-1" role="basic" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Upload Your Receipt
-                                Payment</h4>
-                    </div>
-                    <div class="modal-body">
-                            <p>Please transfer the payment to <strong>Mandiri</strong> with account name of <strong>Trisna
-                                    Hastuti P.N</strong> and account number <strong>0495868605</strong> </p>
-                            <input type="file" class="btn btn-color" />
-                         </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn green">Save changes</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
 @endsection
 
-@section('style')
-<script src="../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-<script src="../assets/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
+@section('script')
+<script src="{{asset('assets/global/plugins/bootstrap-markdown/lib/markdown.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/components-editors.min.js')}}" type="text/javascript"></script>
 @endsection

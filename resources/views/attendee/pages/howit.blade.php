@@ -1,72 +1,93 @@
-@extends('attendee/app')
+@extends('attendee/partials/app')
 
-@section('title')
-| How It Works
-@endsection
-
-@section('action_how')
-class="active"
+@section('style')
+<link href="../assets/pages/css/blog.min.css" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
-<section id="inner-headline">
-        <div class="container">
-          <div class="row">
-            <div class="span4">
-              <div class="inner-heading">
-                <h2>How It Works</h2>
-              </div>
-            </div>
-            <div class="span8">
-              <ul class="breadcrumb">
-                <li><a href="index.html">Home</a> <i class="icon-angle-right"></i></li>
-                <li class="active">How It Works</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="content">
-        <div class="container">
-          <div class="row">
-            <div class="span6">
-              <article class="noborder">
-                <div class="top-wrapper">
-                  <div class="post-heading">
-                    <h4><a href="#">For Attendee</a></h4>
-                  </div>
-                  <!-- start flexslider -->
-                  <div class="portfolio-detail">
-                    <img src="img/works/full/image-01-full.jpg" alt="" />
-                  </div>
-                  <!-- end flexslider -->
-                </div>
-
-                <p>
-                  Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius
-                  ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed.
-                </p>
-
-              </article>
-
-            </div>
-
-            <div class="span6">
-              <aside class="right-sidebar">
-                <div class="widget">
-                    <div class="post-heading">
-                            <h4><a href="#">For Organizer</a></h4>
-                          </div>
+<div class="page-wrapper-row full-height">
+        <div class="page-wrapper-middle">
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN CONTENT BODY -->
+                    <!-- BEGIN PAGE HEAD-->
+                    <div class="page-head">
+                        <div class="container">
+                            <!-- BEGIN PAGE TITLE -->
+                            <div class="page-title">
+                                <h1>How It Works
+                                </h1>
+                            </div>
+                            <!-- END PAGE TITLE -->
                         </div>
-
-                        <p>
-                          Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius
-                          ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed.
-                        </p>
                     </div>
-              </aside>
+                    <!-- END PAGE HEAD-->
+                    <!-- BEGIN PAGE CONTENT BODY -->
+                    <div class="page-content">
+                        <div class="container">
+                            <!-- BEGIN PAGE BREADCRUMBS -->
+                            <ul class="page-breadcrumb breadcrumb">
+                                <li>
+                                    <a href="index-2.html">Home</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span>How It Works</span>
+                                </li>
+                            </ul>
+                            <!-- END PAGE BREADCRUMBS -->
+                            <!-- BEGIN PAGE CONTENT INNER -->
+                            <div class="page-content-inner">
+                                <div class="blog-page blog-content-1">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="blog-post-sm bordered blog-container">
+                                                            <div class="blog-img-thumb">
+                                                                <a href="javascript:;">
+                                                                    <img src="../img/attendee.jpg" />
+                                                                </a>
+                                                            </div>
+                                                            <div class="blog-post-content">
+                                                                <h2 class="blog-title blog-post-title">
+                                                                    <a href="javascript:;">For Attendee</a>
+                                                                </h2>
+                                                                <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="blog-post-sm bordered blog-container">
+                                                            <div class="blog-img-thumb">
+                                                                <a href="javascript:;">
+                                                                    <img src="../img/organizer.jpeg" />
+                                                                </a>
+                                                            </div>
+                                                            <div class="blog-post-content">
+                                                                <h2 class="blog-title blog-post-title">
+                                                                    <a href="javascript:;">For Organizer</a>
+                                                                </h2>
+                                                                <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                     </div>
+                                    </div>
+                                </div>
+                            <!-- END PAGE CONTENT INNER -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PAGE CONTENT BODY -->
+                    <!-- END CONTENT BODY -->
+                </div>
+                <!-- END CONTENT -->
             </div>
-          </div>
-      </section>
+        </div>
+    </div>
+</div>
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Event;
 
 
 
@@ -25,5 +26,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    
+
+    public function show ()
+    {
+        $event = Event::all();
+        return view('attendee/pages/index', ['event' => $event]);
+    }
+
+
 }

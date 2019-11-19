@@ -47,9 +47,9 @@
                             <div class="page-content-inner">
                                 <div class="profile">
                                     <div class="tabbable-line tabbable-full-width">
+                                        @foreach (Auth::user()->tickets as $ticket)
                                         <div class="tab-content">
                                             <div class="tab-pane active">
-                                                 @foreach (Auth::user()->tickets as $ticket)
                                                 <div class="row">
                                                     <div class="col-md-4" style="text-align:center">
                                                         <ul class="list-unstyled profile-nav">
@@ -92,9 +92,12 @@
                                                                         <div class="portlet light profile-sidebar-portlet ">
                                                                             <!-- SIDEBAR BUTTONS -->
                                                                             <div class="profile-userbuttons">
-                                                                                <br>
-                                                                                <a data-toggle="modal" href="#upload" class="btn btn-circle green btn-md"> <i class="fa fa-upload"></i> Upload Receipt Payment</a><br><br>
+                                                                                <br><br>
+                                                                                @if($ticket->getTicketStatus() == 1)
+                                                                                <a data-toggle="modal" href="#upload" class="btn btn-circle green btn-md"> <i class="fa fa-upload"></i> Upload Receipt Payment</a>
+                                                                                @else
                                                                                 <a class="btn btn-circle blue btn-md" data-toggle="modal" href="#qrcode"> <i class="fa fa-ticket"></i> See Ticket</a>
+                                                                                @endif
                                                                             </div>
                                                                             <!-- END SIDEBAR BUTTONS -->
 
@@ -103,12 +106,12 @@
                                                             </div>
                                                             <!--end col-md-4-->
                                                         </div>
-                                                        @endforeach
                                                         <!--end row-->
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -150,12 +153,36 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Upload Your Receipt
-                                Payment</h4>
+                        <h4 class="modal-title"><strong>Upload Your Receipt Payment</strong></h4>
                     </div>
                     <div class="modal-body">
-                            <p>Please transfer the payment to <strong>Mandiri</strong> with account name of <strong>Trisna
-                                    Hastuti P.N</strong> and account number <strong>0495868605</strong> </p>
+                            <p>Please transfer the payment to one of this account:</p>
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                    <th scope="col">Bank Name</th>
+                                    <th scope="col">Acoount Name</th>
+                                    <th scope="col">Number</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Mandiri</td>
+                                        <td>Trisna Hastuti Puspita</td>
+                                        <td>0495868405</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BNI</td>
+                                        <td>Trisna Hastuti</td>
+                                        <td>0495868405</td>
+                                    </tr>
+                                   <tr>
+                                        <td>BCA</td>
+                                        <td>Trisna Puspita</td>
+                                        <td>0495868405</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             <input type="file" class="btn btn-color" />
                          </div>
                     <div class="modal-footer">
