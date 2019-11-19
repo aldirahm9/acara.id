@@ -23,7 +23,7 @@
         <h1 class="page-title" style="color:steelblue"> <b>Hello, {{Auth::user()->name}}!</b></h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
-        <div class="portlet-body">
+        {{-- <div class="portlet-body">
             <div class="mt-element-card mt-element-overlay">
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -100,7 +100,7 @@
                         </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     <!-- END CONTENT BODY -->
     </div>
 </div>

@@ -10,7 +10,7 @@ class Event extends Model
     use Hashidable;
 
     protected $fillable = [
-        'name', 'location', 'image', 'date', 'description', 'timeStart', 'timeEnd', 'organizer_id', 'feature_id'
+        'name', 'location', 'image', 'date', 'description', 'timeStart', 'timeEnd', 'organizer_id', 'feature_id','approved'
     ];
 
     public function tickets()

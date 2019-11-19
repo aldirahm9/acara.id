@@ -27,6 +27,7 @@ class CreateEventsTable extends Migration
             // $table->unsignedBigInteger('feature_id');
             // $table->foreign('feature_id')->references('id')->on('feature_groups');  //features_group
             $table->boolean('finished')->nullable();
+            $table->boolean('approved')->nullable();
             $table->timestamps();
         });
     }

@@ -45,9 +45,15 @@
                 {{-- @foreach(Auth::user()->organizer->events->where('finished',0) as $event) --}}
                 @foreach(Auth::user()->organizer->events as $each)
                 <li class="nav-item {{ (request()->is('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($each->id) . '*')) ? 'active' : '' }} ">
+                    @if($each->approved != 1)
+                    <a href="javascript:;" onclick="event.preventDefault();alert('Event not yet approved');" class="nav-link ">
+                        <span class="title">{{$each->name}}</span>
+                    </a>
+                    @else
                     <a href="{{route('dashboard.event.show',['event' => Hashids::connection(\App\Event::class)->encode($each->id)])}}" class="nav-link ">
                         <span class="title">{{$each->name}}</span>
                     </a>
+                    @endif
                 </li>
                 @endforeach
 
@@ -154,63 +160,25 @@
         <li class="heading">
             <h3 class="uppercase">ADMIN</h3>
         </li>
-        <li class="nav-item  ">
-            <a href="#" class="nav-link nav-toggle">
+        <li class="nav-item {{ request()->routeIs('dashboard.user*') ? 'active' : '' }} ">
+            <a href="{{route('dashboard.user.index')}}" class="nav-link nav-toggle">
                 <i class="icon-diamond"></i>
                 <span class="title">USERS</span>
             </a>
         </li>
-        <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
+        <li class="nav-item  {{ request()->routeIs('dashboard.event*') ? 'active' : '' }}">
+            <a href="{{route('dashboard.event.index')}}" class="nav-link nav-toggle">
                 <i class="icon-puzzle"></i>
                 <span class="title">Events</span>
-                <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-
-                <li class="nav-item  ">
-                    <a href="components_bootstrap_multiselect_dropdown.html" class="nav-link ">
-                        <span class="title">BINER 4.0</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="components_bootstrap_select_splitter.html" class="nav-link ">
-                        <span class="title">PELANGI</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="components_clipboard.html" class="nav-link ">
-                        <span class="title">....</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="components_typeahead.html" class="nav-link ">
-                        <span class="title">Create Event</span>
-                    </a>
-                </li>
-
-
-            </ul>
         </li>
-        <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
+        <li class="nav-item {{ request()->routeIs('dashboard.organizer*') ? 'active' : '' }} ">
+            <a href="{{route('dashboard.organizer.index')}}" class="nav-link nav-toggle">
                 <i class="icon-settings"></i>
                 <span class="title">Organizers</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
 
-                <li class="nav-item  ">
-                    <a href="form_fileupload.html" class="nav-link ">
-                        <span class="title">Multiple File Upload</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="form_dropzone.html" class="nav-link ">
-                        <span class="title">Dropzone File Upload</span>
-                    </a>
-                </li>
-            </ul>
+            </a>
+
         </li>
         @endif
         {{-- !SECTION  --}}

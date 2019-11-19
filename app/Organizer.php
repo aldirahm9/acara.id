@@ -15,7 +15,7 @@ class Organizer extends Model
 
     public function members()
     {
-        return $this->hasMany('App\User')->withPivot(['accepted','admin']);
+        return $this->hasMany('App\User');
     }
 
     public function events()

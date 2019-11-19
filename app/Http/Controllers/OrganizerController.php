@@ -15,7 +15,8 @@ class OrganizerController extends Controller
      */
     public function index()
     {
-        //
+        $organizers = Organizer::all();
+        return view('dashboard/pages/organizers',['organizers'=>$organizers]);
     }
 
     /**
@@ -128,6 +129,7 @@ class OrganizerController extends Controller
      */
     public function destroy(Organizer $organizer)
     {
-        //
+        $organizer->delete();
+        return redirect('dashboard/organizers');
     }
 }

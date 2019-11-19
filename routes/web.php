@@ -60,6 +60,18 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/event/{event}/checkin', 'TicketController@indexCheckin')->name('dashboard.event.checkin.index');
     });
 
+
+    Route::group(['middleware' => ['admin']], function () {
+        Route::get('dashboard/users', 'UserController@index')->name('dashboard.user.index');
+        Route::post('dashboard/users/{user}/delete', 'UserController@destroy')->name('delete.user');
+
+        Route::get('dashboard/organizers', 'OrganizerController@index')->name('dashboard.organizer.index');
+        Route::post('dashboard/organizers/{organizer}', 'OrganizerController@destroy')->name('delete.organizer');
+
+        Route::get('dashboard/events', 'eventController@index')->name('dashboard.event.index');
+        Route::post('dashboard/events/{event}/delete', 'eventController@adminDestroy')->name('delete.event');
+        Route::post('dashboard/events/{event}/approve', 'eventController@approve')->name('approve.event');
+    });
     Route::get('logout', 'Auth\LoginController@logout');
 
 

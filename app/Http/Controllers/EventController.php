@@ -19,7 +19,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::all();
+        return view('dashboard/pages/events',['events'=>$events]);
     }
 
     /**
@@ -219,6 +220,21 @@ class EventController extends Controller
         // dd('masuk');
         $event->delete();
         return redirect('dashboard');
+    }
+
+    public function adminDestroy(Event $event)
+    {
+        // dd('masuk');
+        $event->delete();
+        return redirect('dashboard/events');
+    }
+
+    public function approve(Event $event)
+    {
+        $event->update([
+            'approved'=>1
+        ]);
+        return redirect('dashboard/events');
     }
 
     public function finish(Event $event)
