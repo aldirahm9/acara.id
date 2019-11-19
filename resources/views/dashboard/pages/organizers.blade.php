@@ -70,7 +70,7 @@ $user = Auth::user()
                                             <ul class="dropdown-menu pull-left" role="menu">
                                                 <li>
                                                     {!! Form::open(['route'=> ['delete.organizer','organizer'=>
-                                                    Hashids::connection(\App\Event::class)->encode($organizer->id)],
+                                                    Hashids::connection(\App\Organizer::class)->encode($organizer->id)],
                                                     'style'=>'display:none','method'=>'POST','id'=>'delete'.$organizer->id])
                                                     !!}
                                                     {!! Form::close() !!}

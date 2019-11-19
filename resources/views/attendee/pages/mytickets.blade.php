@@ -89,9 +89,9 @@
                     <div class="modal-body" style="text-align:center">
                         {{-- <img src="../../img/qr.png" width="250"> --}}
                         {{-- {{QrCode::}} --}}
-                        <p>{{Hashids::connection('ticketuser')->encode($ticket->pivot->id)}}</p>
-                        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate($ticket->pivot->id)) !!} ">
-                        {{-- <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate(Hashids::connection('ticketuser')->encode($ticket->pivot->id))) !!} "> --}}
+                        {{-- <p>{{Hashids::connection('ticketuser')->encode($ticket->pivot->id)}}</p> --}}
+                        {{-- <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate($ticket->pivot->id)) !!} "> --}}
+                        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(250)->generate(Hashids::connection('ticketuser')->encode($ticket->pivot->id))) !!} ">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
