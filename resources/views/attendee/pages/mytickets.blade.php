@@ -1,128 +1,217 @@
-@extends('attendee/app')
+@extends('attendee/partials/app')
 
-@section('title')
-| My Tickets
+@section('style')
+<link href="../assets/pages/css/profile-2.min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
-<section id="inner-headline">
-    <div class="container">
-        <div class="row">
-            <div class="span4">
-                <div class="inner-heading">
-                    <h2>My Tickets</h2>
+<div class="page-wrapper-row full-height">
+    <div class="page-wrapper-middle">
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <!-- BEGIN PAGE HEAD-->
+                <div class="page-head">
+                    <div class="container">
+                        <!-- BEGIN PAGE TITLE -->
+                        <div class="page-title">
+                            <h1>My Tickets
+                            </h1>
+                        </div>
+                        <!-- END PAGE TITLE -->
+                    </div>
                 </div>
+                <!-- END PAGE HEAD-->
+                <!-- BEGIN PAGE CONTENT BODY -->
+                <div class="page-content">
+                    <div class="container">
+                        <!-- BEGIN PAGE BREADCRUMBS -->
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <a href="index-2.html">Home</a>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <a href="#">Event</a>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span>My Tickets</span>
+                            </li>
+                        </ul>
+                        <!-- END PAGE BREADCRUMBS -->
+                        <!-- BEGIN PAGE CONTENT INNER -->
+                        <div class="page-content-inner">
+                            <div class="profile">
+                                <div class="tabbable-line tabbable-full-width">
+                                    @foreach (Auth::user()->tickets as $ticket)
+                                    <div class="tab-content">
+                                        <div class="tab-pane active">
+                                            <div class="row">
+                                                <div class="col-md-4" style="text-align:center">
+                                                    <ul class="list-unstyled profile-nav">
+                                                        <li>
+                                                            <img src="/storage/upload/{{$ticket->event->image}}"
+                                                                width="200">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-md-8 profile-info" style="text-align:center">
+                                                            <br>
+                                                            <h1 class="font-green sbold uppercase">
+                                                                {{$ticket->event->name}}</h1>
+                                                            <p>
+                                                                <i class="fa fa-map-marker"></i>
+                                                                {{$ticket->event->location}}
+                                                                <br>
+                                                                <i class="fa fa-calendar"></i>
+                                                                {{
+                                                                DateTime::createFromFormat('Y-m-d', $ticket->event->date)->format('l, d F Y')}}
+                                                                <br>
+                                                                <i class="fa fa-clock-o"></i> {{
+                                                                    DateTime::createFromFormat('H:i:s', $ticket->event->timeStart)->format('H:i')
+                                                                    }}
+                                                                {{$ticket->event->timeEnd != null ? ' s/d ' . DateTime::createFromFormat('H:i:s', $ticket->event->timeEnd)->format('H:i') : ''}}<br>
+                                                                <i class="fa fa-money"></i> Rp {{
+                                                                number_format($ticket->price,2,',','.')
+                                                                }}<br>
+                                                                <div><br>
+                                                                    <h5><strong>Status</strong></h5>
+                                                                    @if($ticket->getTicketStatus() == 1)
+                                                                    <a class="btn btn-danger">Waiting Payment</a>
+                                                                    @elseif($ticket->getTicketStatus() == 2)
+                                                                    <a class="btn btn-warning">Waiting Approval</a>
+                                                                    @elseif($ticket->getTicketStatus() == 3)
+                                                                    <a class="btn btn-success">Approved</a>
+                                                                    @endif
+                                                                </div>
+                                                        </div>
+                                                        <!--end col-md-8-->
+                                                        <div class="col-md-4" style="text-align:center">
+                                                            <!-- BEGIN PROFILE SIDEBAR -->
+                                                            <div class="profile-sidebar">
+                                                                <!-- PORTLET MAIN -->
+                                                                <div class="portlet light profile-sidebar-portlet ">
+                                                                    <!-- SIDEBAR BUTTONS -->
+                                                                    <div class="profile-userbuttons">
+                                                                        <br><br>
+                                                                        @if($ticket->getTicketStatus() < 3)
+                                                                        <a data-toggle="modal" href="{{'#upload'. $ticket->pivot->id}}"
+                                                                            class="btn btn-circle green btn-md"> <i
+                                                                                class="fa fa-upload"></i> Upload Receipt
+                                                                            Payment</a>
+                                                                        @else
+                                                                        <a class="btn btn-circle blue btn-md"
+                                                                            data-toggle="modal" href="{{'#qrcode' . $ticket->pivot->id}}"> <i
+                                                                                class="fa fa-ticket"></i> See Ticket</a>
+                                                                        @endif
+                                                                    </div>
+                                                                    <!-- END SIDEBAR BUTTONS -->
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--end col-md-4-->
+                                                    </div>
+                                                    <!--end row-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--modal -->
+                                    <div class="modal fade" id="{{'qrcode'.$ticket->pivot->id}}" tabindex="-1" role="basic" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true"></button>
+                                                    <h4 class="modal-title">{{$ticket->event->name . ' ' . $ticket->name}} Ticket</h4>
+                                                </div>
+                                                <div class="modal-body" style="text-align:center">
+                                                        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(250)->generate(Hashids::connection('ticketuser')->encode($ticket->pivot->id))) !!} ">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn dark btn-outline"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+
+
+
+                                    <!--modal -->
+                                    <div class="modal fade" id="{{'upload'. $ticket->pivot->id}}" tabindex="-1" role="basic" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true"></button>
+                                                    <h4 class="modal-title"><strong>Upload Your Receipt Payment</strong>
+                                                    </h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Please transfer the payment to one of this account:</p>
+                                                    <table class="table">
+                                                        <thead class="thead-dark">
+                                                            <tr>
+                                                                <th scope="col">Bank Name</th>
+                                                                <th scope="col">Acoount Name</th>
+                                                                <th scope="col">Number</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach($ticket->event->paymentMethods as $pay)
+                                                            <tr>
+                                                                <td>{{$pay->bank}}</td>
+                                                                <td>{{$pay->bankAccountName}}</td>
+                                                                <td>{{$pay->bankAccountNumber}}</td>
+                                                            </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                    {!! Form::open(['route'=>['attendee.upload.receipt','ticketuser'=>Hashids::connection('ticketuser')->encode($ticket->pivot->id)],'method'=>'POST','enctype'=>'multipart/form-data']) !!}
+                                                    <input type="file" name="receipt" required class="btn btn-color" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn dark btn-outline"
+                                                        data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn green">Save</button>
+                                                    {!! Form::close() !!}
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END PAGE CONTENT INNER -->
+                    </div>
+                </div>
+                <!-- END PAGE CONTENT BODY -->
+                <!-- END CONTENT BODY -->
             </div>
-            <div class="span8">
-                <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a> <i class="icon-angle-right"></i></li>
-                    <li><a href="#">Account</a> <i class="icon-angle-right"></i></li>
-                    <li class="active">My Tickets</li>
-                </ul>
-            </div>
+            <!-- END CONTENT -->
         </div>
+        <!-- END CONTAINER -->
     </div>
-</section>
-
-  <section id="content">
-        <div class="container">
-
-        @foreach (Auth::user()->tickets as $ticket)
-        <div class="row">
-            <div class="span12">
-                <div class="cta-box1">
-                    <div class="row">
-                        <div class="span4">
-                            <div class="img-border">
-                                <img src="/storage/upload/{{$ticket->event->image}}" width="200">
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <div class="cta-text" style="text-align:center">
-                                <h6 style="color:steelblue"><strong>{{$ticket->event->name . ' ' . $ticket->name}}</strong></h6>
-                                <a><i class="icon-home"></i> {{$ticket->event->location}}</a><br>
-                                <a><i class="icon-calendar"></i></a><br>
-                                <a><i class="icon-time"></i> {{
-                                DateTime::createFromFormat('H:i:s', $ticket->event->timeStart)->format('H:i')
-                                }}
-                                    {{$ticket->event->timeEnd != null ? ' s/d ' . DateTime::createFromFormat('H:i:s', $ticket->event->timeEnd)->format('H:i') : ''}}</a><br>
-                                <a><i class="icon-money"></i> Rp {{
-                            number_format($ticket->price,2,',','.')
-                            }}</a><br><br>
-                                <a><strong>Status</strong></a><br>
-                                @if($ticket->getTicketStatus() == 1)
-                                <a class="btn btn-danger">Waiting Payment</a>
-                                @elseif($ticket->getTicketStatus() == 2)
-                                <a class="btn btn-warning">Waiting Approval</a>
-                                @elseif($ticket->getTicketStatus() == 3)
-                                <a class="btn btn-success">Approved</a>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="span4" style="text-align:center">
-                            <div class="cta-btn1">
-                                @if($ticket->getTicketStatus() < 3)
-                                <a class="btn btn-large btn-primary" data-toggle="modal" data-target="#upload">Upload
-                                    Your Receipt Payment <i class="icon-upload" style="color:honeydew"></i></a><br><br>
-                                @endif
-                                @if($ticket->getTicketStatus() == 3)
-                                <a class="btn btn-large btn-success" data-toggle="modal" data-target="{{'#qrcode'.$ticket->pivot->id}}">See
-                                    Tickets <i class="icon-ticket" style="color:honeydew"></i></a>
-
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        @if($ticket->getTicketStatus()==3)
-        <!-- Modal -->
-        <div class="modal fade" id="{{'qrcode'.$ticket->pivot->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title" id="exampleModalLabel" style="text-align:center">{{$ticket->event->name . ' ' . $ticket->name}} Ticket</h6>
-                    </div>
-                    <div class="modal-body" style="text-align:center">
-                        {{-- <img src="../../img/qr.png" width="250"> --}}
-                        {{-- {{QrCode::}} --}}
-                        {{-- <p>{{Hashids::connection('ticketuser')->encode($ticket->pivot->id)}}</p> --}}
-                        {{-- <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate($ticket->pivot->id)) !!} "> --}}
-                        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(250)->generate(Hashids::connection('ticketuser')->encode($ticket->pivot->id))) !!} ">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endif
-        @endforeach
+</div>
 
 
-        <!-- Modal -->
-        <div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title" id="exampleModalLabel" style="text-align:center"> Upload Your Receipt
-                            Payment</h6>
-                    </div>
-                    <div class="modal-body" style="text-align:center">
-                        <p>Please transfer the payment to <strong>Mandiri</strong> with account name of <strong>Trisna
-                                Hastuti P.N</strong> and account number <strong>0495868605</strong> </p>
-                        <input type="file" class="btn btn-color" />
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        @endsection
+@endsection
+
+@section('style')
+<script src="../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="../assets/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
+@endsection

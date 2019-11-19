@@ -163,8 +163,8 @@
                 <div class="modal-content">
                     @if(!Auth::user()->hasInvitation())
                     <div class="modal-header" style="text-align:center;">
-                        <h5 class="modal-title" id="exampleModalLongTitle" style="color:dimgrey">Organizer Dashboard
-                        </h5>
+                        <h3 class="modal-title" id="exampleModalLongTitle" style="color:dimgrey"><strong>Organizer Dashboard</strong>
+                        </h3>
                         </button>
                     </div>
                     <div class="modal-body" style="text-align:center;">

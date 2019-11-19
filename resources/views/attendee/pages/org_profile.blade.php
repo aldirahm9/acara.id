@@ -1,82 +1,202 @@
-@extends('attendee/app')
+@extends('attendee/partials/app')
 
-@section('title')
-| Default Profile
+@section('style')
+<link href="../assets/pages/css/blog.min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/pages/css/profile-2.min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/apps/css/ticket.min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+<link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
-<section id="inner-headline">
-    <div class="container">
-        <div class="row">
-            <div class="span4">
-                <div class="inner-heading">
-                    <h2>Organizer Profile</h2>
-                </div>
-                </div>
-            <div class="span8">
-                <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a> <i class="icon-angle-right"></i></li>
-                    <li><a href="index.html">Event</a> <i class="icon-angle-right"></i></li>
-                    <li><a href="index.html">Event Profile</a> <i class="icon-angle-right"></i></li>
-                    <li class="active">Organizer Profile</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="content">
-    <div class="container">
-        <div class="row team">
-            <div class="span2">
-              <div class="team-box">
-              <a class="thumbnail"><img src="../../img/default.png" alt="" width="200"/></a>
-                <div class="roles aligncenter">
-                    <p class="lead"><strong>DEFAULT</strong></p><br>
-                    <a href="" class="btn btn-success">Follow</a>
-                </div>
-              </div>
-            </div>
-            <div class="span6">
-                <h6>Description</h6>
-                <p>“Developing Future and Unyielding Learn of Technology” atau yang di singkat dengan DEFAULT merupakan kelompok studi yang bergerak di bidang pengembangan teknologi seperti pada bidang arsitektur, website, animasi, dan juga aplikasi. Kelompok studi ini di dirikan oleh angkatan pertama program studi ilmu komputer pada tahun 2013.</p><br>
-                <p>“Developing Future and Unyielding Learn of Technology” atau yang di singkat dengan DEFAULT merupakan kelompok studi yang bergerak di bidang pengembangan teknologi seperti pada bidang arsitektur, website, animasi, dan juga aplikasi. Kelompok studi ini di dirikan oleh angkatan pertama program studi ilmu komputer pada tahun 2013.</p><br>
-                <p>“Developing Future and Unyielding Learn of Technology” atau yang di singkat dengan DEFAULT merupakan kelompok studi yang bergerak di bidang pengembangan teknologi seperti pada bidang arsitektur, website, animasi, dan juga aplikasi. Kelompok studi ini di dirikan oleh angkatan pertama program studi ilmu komputer pada tahun 2013.</p><br>
-                <p><i class="icon-map-marker"></i>  Kampus A, UNJ, Rawamangun Muka, Jakarta Timur</p>
-                <a style="color:steelblue"><i class="font-icon-globe_line"></i>  www.defaultunj.com</a>
-            </div>
-            <div class="span4">
-                <h6>Events held by Default</h6>
-                <div class="row team">
-                        <div class="span2">
-                          <div class="team-box">
-                            <a href="/biner" class="thumbnail"><img src="../../img/biner.jpeg" alt=""/></a>
-                            <div class="roles aligncenter">
-                              <p class="lead"><strong>BINER UNJ</strong></p>
-                              <a><i class="icon-home"></i> Kampus A, Rawamangun Muka</a><br>
-                              <a><i class="icon-calendar"></i> Sabtu, 13/11/2019</a><br>
-                              <a><i class="icon-time"></i> 09.00 s/d 12.00</a><br><br>
-                              <a href="/biner"><strong>>>See All<<</strong></a>
+<div class="page-wrapper-row full-height">
+        <div class="page-wrapper-middle">
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN CONTENT BODY -->
+                    <!-- BEGIN PAGE HEAD-->
+                    <div class="page-head">
+                        <div class="container">
+                            <!-- BEGIN PAGE TITLE -->
+                            <div class="page-title">
+                                <h1>Default UNJ Description
+                                </h1>
                             </div>
-                          </div>
+                            <!-- END PAGE TITLE -->
                         </div>
-                        <div class="span2">
-                            <div class="team-box">
-                              <a href="/biner" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
-                              <div class="roles aligncenter">
-                                <p class="lead"><strong>BINER UNJ</strong></p>
-                                <a><i class="icon-home"></i> Kampus A, Rawamangun Muka</a><br>
-                                <a><i class="icon-calendar"></i> Sabtu, 13/11/2019</a><br>
-                                <a><i class="icon-time"></i> 09.00 s/d 12.00</a><br><br>
-                                <a href=""><strong>>>See All<<</strong></a>
-                              </div>
+                    </div>
+                    <!-- END PAGE HEAD-->
+                    <!-- BEGIN PAGE CONTENT BODY -->
+                    <div class="page-content">
+                        <div class="container">
+                            <!-- BEGIN PAGE BREADCRUMBS -->
+                            <ul class="page-breadcrumb breadcrumb">
+                                <li>
+                                    <a href="index-2.html">Home</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <a href="#">Event</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span>Organizer Detail</span>
+                                </li>
+                            </ul>
+                            <!-- END PAGE BREADCRUMBS -->
+                            <!-- BEGIN PAGE CONTENT INNER -->
+                            <div class="page-content-inner">
+                                <div class="profile">
+                                    <div class="tabbable-line tabbable-full-width">
+                                        <div class="tab-content">
+                                            <div class="tab-pane active">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <!-- BEGIN PROFILE SIDEBAR -->
+                                                        <div class="profile-sidebar">
+                                                                <!-- PORTLET MAIN -->
+                                                                <div class="portlet light profile-sidebar-portlet ">
+                                                                    <!-- SIDEBAR USERPIC -->
+                                                                    <div class="profile-userpic">
+                                                                        <img src="../../img/default.png" class="img-responsive" alt=""> </div>
+                                                                    <!-- END SIDEBAR USERPIC -->
+                                                                    <!-- SIDEBAR USER TITLE -->
+                                                                    <div class="profile-usertitle">
+                                                                        <div class="profile-usertitle-name"> Default UNJ </div>
+                                                                    </div>
+                                                                    <!-- END SIDEBAR USER TITLE -->
+                                                                    <!-- SIDEBAR BUTTONS -->
+                                                                    <div class="profile-userbuttons">
+                                                                        <button type="button" class="btn btn-circle green btn-sm">Follow</button>
+                                                                    </div>
+                                                                    <!-- END SIDEBAR BUTTONS -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- END PROFILE SIDEBAR -->
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <div class="row">
+                                                            <div class="profile-info">
+                                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam
+                                                                tincidunt erat volutpat. </p>
+                                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam
+                                                                        tincidunt erat volutpat. </p>
+                                                                <p>
+                                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam
+                                                                tincidunt erat volutpat. </p>
+                                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam
+                                                                tincidunt erat volutpat.
+                                                                </p>
+                                                                <a href="javascript:;"> www.mywebsite.com </a>
+                                                                </p>
+                                                                <ul class="list-inline">
+                                                                    <li>
+                                                                        <i class="fa fa-map-marker"></i> Kampus A, UNJ, Jakarta Timur </li>
+                                                                    <li>
+                                                                        <i class="fa fa-calendar"></i> 18 Januari 2010 </li>
+                                                                </ul>
+                                                            </div>
+                                                            <!--end col-md-8-->
+                                                            <!--end col-md-4-->
+                                                        </div>
+                                                        <!--end row-->
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4"><h3>&nbsp; &nbsp; <strong>Events held by Default UNJ</strong></h3></div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="col-sm-3 blog-page blog-content-1">
+                                                            <div class="blog-post-sm bordered blog-container">
+                                                                <div class="blog-img-thumb">
+                                                                    <a href="javascript:;">
+                                                                        <img src="../img/attendee.jpg" />
+                                                                    </a>
+                                                                </div>
+                                                                <div class="blog-post-content">
+                                                                    <h2 class="blog-title blog-post-title">
+                                                                        <a href="javascript:;">BINER</a>
+                                                                    </h2>
+                                                                    <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
+                                                                    <a href=""><strong>See More</strong></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3 blog-page blog-content-1">
+                                                            <div class="blog-post-sm bordered blog-container">
+                                                                <div class="blog-img-thumb">
+                                                                    <a href="javascript:;">
+                                                                        <img src="../img/organizer.jpeg" />
+                                                                    </a>
+                                                                </div>
+                                                                <div class="blog-post-content">
+                                                                    <h2 class="blog-title blog-post-title">
+                                                                        <a href="javascript:;">BINER UNJ</a>
+                                                                    </h2>
+                                                                    <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
+                                                                    <a href=""><strong>See More</strong></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3 blog-page blog-content-1">
+                                                                <div class="blog-post-sm bordered blog-container">
+                                                                    <div class="blog-img-thumb">
+                                                                        <a href="javascript:;">
+                                                                            <img src="../img/attendee.jpg" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="blog-post-content">
+                                                                        <h2 class="blog-title blog-post-title">
+                                                                            <a href="javascript:;">BINER</a>
+                                                                        </h2>
+                                                                        <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
+                                                                        <a href=""><strong>See More</strong></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3 blog-page blog-content-1">
+                                                                <div class="blog-post-sm bordered blog-container">
+                                                                    <div class="blog-img-thumb">
+                                                                        <a href="javascript:;">
+                                                                            <img src="../img/organizer.jpeg" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="blog-post-content">
+                                                                        <h2 class="blog-title blog-post-title">
+                                                                            <a href="javascript:;">BINER UNJ</a>
+                                                                        </h2>
+                                                                        <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
+                                                                        <a href=""><strong>See More</strong></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                      </div>
-
+                            <!-- END PAGE CONTENT INNER -->
+                        </div>
+                    </div>
+                    <!-- END PAGE CONTENT BODY -->
+                    <!-- END CONTENT BODY -->
+                </div>
+                <!-- END CONTENT -->
             </div>
-
+            <!-- END CONTAINER -->
         </div>
     </div>
-</section>
+@endsection
+
+@section('style')
+<script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+<script src="../assets/pages/scripts/ui-extended-modals.min.js" type="text/javascript"></script>
 @endsection

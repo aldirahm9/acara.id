@@ -87,9 +87,7 @@ Route::get('/satu', function () {
     return view('satu');
 });
 
-Route::get('/', function () {
-    return view('attendee/pages/index');
-});
+Route::get('/', 'HomeController@show');
 
 Route::get('/howit', function () {
     return view('attendee/pages/howit');
