@@ -40,18 +40,24 @@ class="active"
           <h4>Coming Events</h4>
         </div>
 
+        @foreach ($events as $event)
+
         <div class="span3">
-          <div class="team-box">
-            <a href="/event/1" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
-            <div class="roles aligncenter">
-              <p class="lead"><strong>BINER UNJ</strong></p>
-              <a><i class="icon-home"></i> Kampus A, Rawamangun Muka</a><br>
-              <a><i class="icon-calendar"></i> Sabtu, 13/11/2019</a><br>
-              <a><i class="icon-time"></i> 09.00 s/d 12.00</a><br><br>
-              <a href="/event/1"><strong>>>See All<<</strong></a>
+            <div class="team-box">
+                <a href="{{route('attendee.event.show',['event'=>Hashids::connection(\App\Event::class)->encode($event->id)])}}" class="thumbnail"><img src="{{asset('storage/upload'.$event->image)}}" alt="" style/></a>
+                <div class="roles aligncenter">
+                    <p class="lead"><strong>{{$event->name}}</strong></p>
+                    <a><i class="icon-home"></i> {{$event->location}}</a><br>
+                    <a><i class="icon-calendar"></i>{{DateTime::createFromFormat('Y-m-d', $event->date)->format('l, d-m-Y')}}</a><br>
+                    <a><i class="icon-time"></i>{{DateTime::createFromFormat('H:i:s', $event->timeStart)->format('H:i')
+                    }}
+                    {{$event->timeEnd != null ? ' - ' . DateTime::createFromFormat('H:i:s', $event->timeEnd)->format('H:i') : ''}}</a><br><br>
+                    <a href="{{route('attendee.event.show',['event'=>Hashids::connection(\App\Event::class)->encode($event->id)])}}"><strong>>>See All<<</strong></a>
+                </div>
             </div>
-          </div>
         </div>
+        @endforeach
+
         <div class="span3">
             <div class="team-box">
               <a href="/event/1" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
@@ -76,7 +82,7 @@ class="active"
               </div>
             </div>
           </div>
-          <div class="span3">
+          {{-- <div class="span3">
             <div class="team-box">
               <a href="#" class="thumbnail"><img src="../../img/biner.jpeg" alt="" style/></a>
               <div class="roles aligncenter">
@@ -87,15 +93,16 @@ class="active"
                 <a href=""><strong>>>See All<<</strong></a>
               </div>
             </div>
-          </div>
+          </div> --}}
       </div>
       <div class="row" style="text-align:center">
         <a href="" ><h6>>>See All<<</h6></a>
       </div>
 
+      @auth
       <div class="row team">
         <div class="span12">
-          <h4>Events By Following Organizer</h4>
+          <h4>Events By Followed Organizer</h4>
         </div>
 
         <div class="span3">
@@ -150,7 +157,7 @@ class="active"
       <div class="row" style="text-align:center">
         <a href="" ><h6>>>See All<<</h6></a>
       </div>
-
+    @endauth
       <div class="row team">
         <div class="span12">
           <h4>Popular Events</h4>

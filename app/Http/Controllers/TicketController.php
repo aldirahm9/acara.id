@@ -113,12 +113,13 @@ class TicketController extends Controller
 
     public function postCheckin(Request $request, Event $event)
     {
-        // dd($event);
+
         $checkedin = false;
         foreach($event->tickets as $ticket) {
             if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first() != null) {
                 $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->pivot
                 ->update(['checkin'=>1,'updated_at' => DateTime::createFromFormat('Y-m-d H:i:s', \Carbon\Carbon::now('Asia/Bangkok'))->format('Y-m-d H:i:s')]);
+                Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
                 $checkedin = true;
             }
         }
@@ -127,7 +128,6 @@ class TicketController extends Controller
             Log::info('failed');
         }else {
             Log::info('checkedin');
-            Session::flash('success','Berhasil Checkin');
         }
         // $ticket->users->where('id',$request->userid)->first()->pivot->checkin = 1;
         // $ticket->users()->wherePivot('id',3)->first();

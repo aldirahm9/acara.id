@@ -10,14 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+
+
 Route::group(['middleware' => ['auth']], function () {
 
 
     Route::get('/createOrganizer', 'OrganizerController@create')->name('organizer.create');
     Route::post('/createOrganizer', 'OrganizerController@store')->name('organizer.store');
     Route::get('/mytickets', 'TicketController@mytickets')->name('mytickets');
-    Route::get('/event/{event}', 'EventController@show1')->name('attendee.event.show');
-    Route::get('/organizer/{organizer}', 'OrganizerController@show')->name('attendee.organizer.show ');
 
 
     Route::post('invitation/accept', 'MemberController@accept')->name('member.invite.accept');
@@ -40,6 +43,8 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('dashboard/event/create', 'EventController@create')->name('dashboard.event.create');
         Route::post('dashboard/event/store', 'EventController@store')->name('dashboard.event.store');
+        Route::post('dashboard/event/{event}/remove', 'EventController@destroy')->name('dashboard.event.remove');
+        Route::post('dashboard/event/{event}/finish', 'EventController@finish')->name('dashboard.event.finish');
         Route::get('dashboard/event/{event}', 'EventController@show')->name('dashboard.event.show');
         Route::get('dashboard/event/{event}/edit', 'EventController@edit')->name('dashboard.event.edit');
         Route::post('dashboard/event/{event}/edit', 'EventController@update')->name('dashboard.event.update');
@@ -60,6 +65,12 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
+Route::get('/event/{event}', 'EventController@show1')->name('attendee.event.show');
+Route::get('/organizer/{organizer}', 'OrganizerController@show')->name('attendee.organizer.show');
+Route::get('/event', 'AttendeePagesController@event')->name('attendee.event');
+
+
+
 Route::get('/satu', function () {
     return view('satu');
 });
@@ -72,9 +83,6 @@ Route::get('/howit', function () {
     return view('attendee/pages/howit');
 });
 
-Route::get('/event', function () {
-    return view('attendee/pages/event');
-});
 
 Route::get('/contact', function () {
     return view('attendee/pages/contact');

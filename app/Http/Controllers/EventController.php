@@ -110,9 +110,9 @@ class EventController extends Controller
         return view('dashboard/pages/attendee', ['event'=>$event]);
     }
 
-    public function show1()
+    public function show1(Event $event)
     {
-        return view('attendee/pages/event_profile');
+        return view('attendee/pages/event_profile',['event'=>$event]);
     }
 
     /**
@@ -216,6 +216,16 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        // dd('masuk');
+        $event->delete();
+        return redirect('dashboard');
+    }
+
+    public function finish(Event $event)
+    {
+        $event->update([
+            'finished' => 1
+        ]);
+        return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id));
     }
 }

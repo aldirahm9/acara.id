@@ -39,10 +39,9 @@
                         </div>
                         <div class="span4">
                             <div class="cta-text" style="text-align:center">
-                                <h6 style="color:steelblue"><strong>{{$ticket->event->name}}</strong></h6>
+                                <h6 style="color:steelblue"><strong>{{$ticket->event->name . ' ' . $ticket->name}}</strong></h6>
                                 <a><i class="icon-home"></i> {{$ticket->event->location}}</a><br>
-                                <a><i class="icon-calendar"></i>
-                                    {{  }}</a><br>
+                                <a><i class="icon-calendar"></i></a><br>
                                 <a><i class="icon-time"></i> {{
                                 DateTime::createFromFormat('H:i:s', $ticket->event->timeStart)->format('H:i')
                                 }}
@@ -62,13 +61,14 @@
                         </div>
                         <div class="span4" style="text-align:center">
                             <div class="cta-btn1">
-                                @if($ticket->getStatus() < 3)
+                                @if($ticket->getTicketStatus() < 3)
                                 <a class="btn btn-large btn-primary" data-toggle="modal" data-target="#upload">Upload
                                     Your Receipt Payment <i class="icon-upload" style="color:honeydew"></i></a><br><br>
                                 @endif
                                 @if($ticket->getTicketStatus() == 3)
-                                <a class="btn btn-large btn-success" data-toggle="modal" data-target="#qrcode">See
+                                <a class="btn btn-large btn-success" data-toggle="modal" data-target="{{'#qrcode'.$ticket->pivot->id}}">See
                                     Tickets <i class="icon-ticket" style="color:honeydew"></i></a>
+
                                 @endif
                             </div>
                         </div>
@@ -76,18 +76,22 @@
                 </div>
             </div>
         </div>
-        @endforeach
 
+        @if($ticket->getTicketStatus()==3)
         <!-- Modal -->
-        <div class="modal fade" id="qrcode" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="{{'qrcode'.$ticket->pivot->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h6 class="modal-title" id="exampleModalLabel" style="text-align:center">BINER UNJ Ticket</h6>
+                        <h6 class="modal-title" id="exampleModalLabel" style="text-align:center">{{$ticket->event->name . ' ' . $ticket->name}} Ticket</h6>
                     </div>
                     <div class="modal-body" style="text-align:center">
-                        <img src="../../img/qr.png" width="250">
+                        {{-- <img src="../../img/qr.png" width="250"> --}}
+                        {{-- {{QrCode::}} --}}
+                        <p>{{Hashids::connection('ticketuser')->encode($ticket->pivot->id)}}</p>
+                        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate($ticket->pivot->id)) !!} ">
+                        {{-- <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate(Hashids::connection('ticketuser')->encode($ticket->pivot->id))) !!} "> --}}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -95,6 +99,9 @@
                 </div>
             </div>
         </div>
+        @endif
+        @endforeach
+
 
         <!-- Modal -->
         <div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
