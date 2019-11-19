@@ -133,6 +133,27 @@ class TicketController extends Controller
         // $ticket->users()->wherePivot('id',3)->first();
         return redirect('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($event->id) . '/checkin');
     }
+
+    public function uploadReceipt(Request $request,$ticketuser)
+    {
+        $this->validate($request, [
+            'receipt' => 'required|mimes:jpeg,jpg|max:1000',
+        ]);
+
+        $fileName= null;
+
+        $pivotId=Hashids::connection('ticketuser')->decode($ticketuser)[0];
+        $user = Auth::user();
+        $fileName = $request->receipt->getClientOriginalName().'-bukti-'.$user->name . '-' . $pivotId . '.jpg';
+        $request->file('receipt')->storeAs('public/upload', $fileName);
+
+
+        $user->tickets()->wherePivot('id',$pivotId)->first()->pivot->update([
+            'receipt' => $fileName
+        ]);
+
+        return redirect('mytickets');
+    }
     /**
      * Show the form for editing the specified resource.
      *
