@@ -141,7 +141,7 @@
             <h4 class="modal-title"><strong>Select Ticket</strong></h4>
         </div>
             <div class="modal-body">
-            @foreach($event->tickets as $ticket)
+            @foreach($event->tickets->where('onsale',1) as $ticket)
             <div class="row" style="text-align:center">
                 <div class="col-md-4">
                     <a style="color:black">{{$ticket->name}}</a>

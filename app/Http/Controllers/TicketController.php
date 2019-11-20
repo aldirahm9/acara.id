@@ -64,7 +64,7 @@ class TicketController extends Controller
             'event_id' => $event->id
 
         ]);
-        return redirect('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($event->id) . 'ticket');
+        return redirect('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($event->id) . '/ticket');
     }
 
     /**
