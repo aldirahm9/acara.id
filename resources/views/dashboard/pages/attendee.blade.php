@@ -82,40 +82,37 @@
                                     <ul class="dropdown-menu pull-left" role="menu">
 
                                         <li>
-                                            {!! Form::open(['route'=> ['user.ticket.remove','user'=>
-                                            Hashids::connection(\App\User::class)->encode($user->id),'ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],
-                                            'style'=>'display:none','method'=>'POST','id'=>'approve'.$user->id . 't' .
-                                            $ticket->id]) !!}
+                                            {!! Form::open(['route'=> ['user.ticket.approve', 'event'=>Hashids::connection(\App\Event::class)->encode($event->id),
+                                            'ticket'=>Hashids::connection('ticketuser')->encode($user->pivot->id)],
+                                            'style'=>'display:none','method'=>'POST','id'=>'approve'.$user->pivot->id]) !!}
                                             {!! Form::close() !!}
                                             <a
                                                 onclick="event.preventDefault();
-                                                    document.getElementById('approve' + {{$user->id}} +'t'+ {{$ticket->id}}).submit();">
+                                                    document.getElementById('approve' + {{$user->pivot->id}}).submit();">
                                                 <i class="icon-docs"></i> Approve Payment </a>
                                         </li>
-
+                                        @if($user->getTicketStatus()>1)
                                         <li>
-                                            {!! Form::open(['route'=> ['user.ticket.remove','user'=>
-                                            Hashids::connection(\App\User::class)->encode($user->id),'ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],
-                                            'style'=>'display:none','method'=>'POST','id'=>'decline'.$user->id . 't' .
-                                            $ticket->id]) !!}
+                                            {!! Form::open(['route'=> ['user.ticket.decline', 'event'=>Hashids::connection(\App\Event::class)->encode($event->id),
+                                            'ticket'=>Hashids::connection('ticketuser')->encode($user->pivot->id)],
+                                            'style'=>'display:none','method'=>'POST','id'=>'decline'.$user->pivot->id]) !!}
                                             {!! Form::close() !!}
                                             <a
                                                 onclick="event.preventDefault();
-                                                    document.getElementById('decline' + {{$user->id}} +'t'+ {{$ticket->id}}).submit();">
+                                                    document.getElementById('decline' + {{$user->pivot->id}}).submit();">
                                                 <i class="icon-docs"></i> Decline Payment </a>
                                         </li>
-
+                                        @endif
 
 
                                         <li>
-                                            {!! Form::open(['route'=> ['user.ticket.remove','user'=>
-                                            Hashids::connection(\App\User::class)->encode($user->id),'ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],
-                                            'style'=>'display:none','method'=>'POST','id'=>'remove'.$user->id . 't' .
-                                            $ticket->id]) !!}
+                                            {!! Form::open(['route'=> ['user.ticket.remove', 'event'=>Hashids::connection(\App\Event::class)->encode($event->id),
+                                            'ticket'=>Hashids::connection('ticketuser')->encode($user->pivot->id)],
+                                            'style'=>'display:none','method'=>'POST','id'=>'remove'.$user->pivot->id]) !!}
                                             {!! Form::close() !!}
                                             <a
                                                 onclick="event.preventDefault();
-                                                    document.getElementById('remove' + {{$user->id}} +'t'+ {{$ticket->id}}).submit();">
+                                                    document.getElementById('remove' + {{$user->pivot->id}}).submit();">
                                                 <i class="icon-docs"></i> Remove </a>
                                         </li>
                                     </ul>

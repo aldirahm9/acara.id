@@ -55,9 +55,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
         Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');
         Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');
-        Route::post('dashboard/ticket/{ticket}/attendee/{user}/remove', 'TicketController@removeAttendee')->name('user.ticket.remove');
-        Route::post('dashboard/ticket/{ticket}/attendee/{user}/approve', 'TicketController@approveAttendee')->name('user.ticket.approve');
-        Route::post('dashboard/ticket/{ticket}/attendee/{user}/decline', 'TicketController@declineAttendee')->name('user.ticket.decline');
+        Route::post('dashboard/event/{event}/{ticketuser}/remove', 'TicketController@removeAttendee')->name('user.ticket.remove');
+        Route::post('dashboard/event/{event}/{ticketuser}/approve', 'TicketController@approveAttendee')->name('user.ticket.approve');
+        Route::post('dashboard/event/{event}/{ticketuser}/decline', 'TicketController@declineAttendee')->name('user.ticket.decline');
         Route::post('dashboard/event/{event}/attendee/checkin', 'TicketController@postCheckin')->name('dashboard.event.checkin.post');
         Route::get('dashboard/event/{event}/checkin', 'TicketController@indexCheckin')->name('dashboard.event.checkin.index');
     });
