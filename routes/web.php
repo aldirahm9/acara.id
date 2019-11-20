@@ -55,6 +55,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
         Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');
         Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');
+        Route::post('dashboard/event/ticket/{ticket}', 'TicketController@onsale')->name('dashboard.event.ticket.onsale');
+        Route::post('dashboard/event/ticket/{ticket}', 'TicketController@offsale')->name('dashboard.event.ticket.offsale');
         Route::post('dashboard/event/{event}/{ticketuser}/remove', 'TicketController@removeAttendee')->name('user.ticket.remove');
         Route::post('dashboard/event/{event}/{ticketuser}/approve', 'TicketController@approveAttendee')->name('user.ticket.approve');
         Route::post('dashboard/event/{event}/{ticketuser}/decline', 'TicketController@declineAttendee')->name('user.ticket.decline');
