@@ -55,11 +55,11 @@
                                                         <i class="fa fa-ticket"></i> My Tickets </a>
                                                 </li>
                                                 <li>
-                                                    @if(!Auth::user()->isOrganizer())
+                                                    @if(Auth::user()->isOrganizer() || Auth::user()->isAdmin())
+                                                    <a href="{{route('dashboard')}}"><i class="icon-home"></i> Organizer Dashboard</a>
+                                                    @else
                                                     <a data-toggle="modal" data-target="#exampleModalCenter"
                                                         href=""><i class="icon-home"></i>Organizer Dashboard</a>
-                                                    @else
-                                                    <a href="{{route('dashboard')}}"><i class="icon-home"></i> Organizer Dashboard</a>
                                                     @endif
                                                 </li>
                                             </ul>

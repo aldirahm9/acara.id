@@ -41,7 +41,7 @@
                                         <div class="desc">
                                             <span> We are at our very best, and we are happiest, when we are fully engaged in work we enjoy on the journey toward the goal we've established for ourselves. </span>
                                         </div>
-                                        <div style="text-align:center"><a href=""><strong>See More</strong></a></div>
+                                    <div style="text-align:center"><a href="{{route('attendee.event.show',['event'=> Hashids::connection(\App\Event::class)->encode($event->id)])}}"><strong>See More</strong></a></div>
                                     </div>
                                 </div>
                             </div>

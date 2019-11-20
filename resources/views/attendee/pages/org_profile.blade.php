@@ -22,7 +22,7 @@
                         <div class="container">
                             <!-- BEGIN PAGE TITLE -->
                             <div class="page-title">
-                                <h1>Default UNJ Description
+                                <h1>Organizer Description
                                 </h1>
                             </div>
                             <!-- END PAGE TITLE -->
@@ -61,16 +61,16 @@
                                                                 <div class="portlet light profile-sidebar-portlet ">
                                                                     <!-- SIDEBAR USERPIC -->
                                                                     <div class="profile-userpic">
-                                                                        <img src="../../img/default.png" class="img-responsive" alt=""> </div>
+                                                                        <img src="{{asset('storage/upload/'.$organizer->image)}}" class="img-responsive" alt=""> </div>
                                                                     <!-- END SIDEBAR USERPIC -->
                                                                     <!-- SIDEBAR USER TITLE -->
                                                                     <div class="profile-usertitle">
-                                                                        <div class="profile-usertitle-name"> Default UNJ </div>
+                                                                        <div class="profile-usertitle-name"> {{$organizer->name}} </div>
                                                                     </div>
                                                                     <!-- END SIDEBAR USER TITLE -->
                                                                     <!-- SIDEBAR BUTTONS -->
                                                                     <div class="profile-userbuttons">
-                                                                        <button type="button" class="btn btn-circle green btn-sm">Follow</button>
+                                                                        {{-- <button type="button" class="btn btn-circle green btn-sm">Follow</button> --}}
                                                                     </div>
                                                                     <!-- END SIDEBAR BUTTONS -->
                                                             </div>
@@ -80,24 +80,9 @@
                                                     <div class="col-md-9">
                                                         <div class="row">
                                                             <div class="profile-info">
-                                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam
-                                                                tincidunt erat volutpat. </p>
-                                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam
-                                                                        tincidunt erat volutpat. </p>
-                                                                <p>
-                                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam
-                                                                tincidunt erat volutpat. </p>
-                                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam
-                                                                tincidunt erat volutpat.
-                                                                </p>
-                                                                <a href="javascript:;"> www.mywebsite.com </a>
-                                                                </p>
-                                                                <ul class="list-inline">
-                                                                    <li>
-                                                                        <i class="fa fa-map-marker"></i> Kampus A, UNJ, Jakarta Timur </li>
-                                                                    <li>
-                                                                        <i class="fa fa-calendar"></i> 18 Januari 2010 </li>
-                                                                </ul>
+                                                               @markdown
+                                                               {{$organizer->description}}
+                                                               @endmarkdown
                                                             </div>
                                                             <!--end col-md-8-->
                                                             <!--end col-md-4-->
@@ -106,27 +91,30 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-4"><h3>&nbsp; &nbsp; <strong>Events held by Default UNJ</strong></h3></div>
+                                                    <div class="col-md-4"><h3>&nbsp; &nbsp; <strong>Events held by {{$organizer->name}}</strong></h3></div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-lg-12">
+                                                        {{-- {{dd($organizer->events->take(4))}} --}}
+                                                        @foreach($organizer->events->take(4) as $event)
                                                         <div class="col-sm-3 blog-page blog-content-1">
                                                             <div class="blog-post-sm bordered blog-container">
                                                                 <div class="blog-img-thumb">
                                                                     <a href="javascript:;">
-                                                                        <img src="../img/attendee.jpg" />
+                                                                        <img src="{{asset('storage/upload/'.$event->image)}}" />
                                                                     </a>
                                                                 </div>
                                                                 <div class="blog-post-content">
                                                                     <h2 class="blog-title blog-post-title">
-                                                                        <a href="javascript:;">BINER</a>
+                                                                        <a href="javascript:;">{{$event->name}}</a>
                                                                     </h2>
                                                                     <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                    <a href=""><strong>See More</strong></a>
+                                                                    <a href="{{route('attendee.event.show',['event'=> Hashids::connection(\App\Event::class)->encode($event->id)])}}"><strong>See More</strong></a>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @endforeach
                                                         <div class="col-sm-3 blog-page blog-content-1">
                                                             <div class="blog-post-sm bordered blog-container">
                                                                 <div class="blog-img-thumb">
