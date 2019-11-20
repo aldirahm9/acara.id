@@ -29,11 +29,6 @@
                             </div>
                             <!-- END CONTENT HEADER -->
                             <!-- BEGIN MEMBERS SUCCESS STORIES -->
-                            <div class="row margin-bottom-40 stories-header" data-auto-height="true">
-                                <div class="col-md-12">
-                                    <h1>Coming Events</h1>
-                                </div>
-                            </div>
                             @foreach($event as $event)
                             <div class="row margin-bottom-20 stories-cont">
                                 <div class="col-lg-3 col-md-6">
@@ -53,7 +48,7 @@
                             @endforeach
                             <div class="row margin-bottom-40 stories-footer">
                                 <div class="col-md-12">
-                                    <button type="button" class="btn btn-danger">SEE MORE STORIES</button>
+                                    <button type="button" class="btn btn-danger">SEE MORE EVENTS</button>
                                 </div>
                             </div>
                             <!-- END MEMBERS SUCCESS STORIES -->
