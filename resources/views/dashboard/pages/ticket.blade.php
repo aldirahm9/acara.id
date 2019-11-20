@@ -94,6 +94,10 @@
                                         @else
                                         <li><b>Status : </b><br><span style="color:red">OFF SALE</span></li>
                                         @endif
+                                        <span>
+                                            <a href="" class="btn green">On Sale</a>&nbsp;
+                                            <a href="" class="btn red">Off Sale</a>&nbsp;
+                                            <a href="" class="btn blue">Edit</a></span>
                                     </ul>
                                 </p>
                             </div>
