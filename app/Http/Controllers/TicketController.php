@@ -84,23 +84,51 @@ class TicketController extends Controller
         return view('attendee/pages/mytickets');
     }
 
-    public function approveAttendee(Ticket $ticket, User $user)
+    public function approveAttendee(Event $event,$ticketuser)
     {
-        $ticket->users->where('id',$user->id)->first()->pivot->approved = 1;
-        $ticket->users->where('id',$user->id)->first()->pivot->save();
+        foreach($event->tickets as $ticket) {
+            if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first() != null) {
+                $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first()->pivot
+                ->update(['approved'=>1]);
+                // Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
+
+            }
+        }
+        // $ticket->users->where('id',$user->id)->first()->pivot->update([
+        //     'approved'=>1
+        // ]);
+        // $ticket->users->where('id',$user->id)->first()->pivot->save();
         return redirect('/dashboard/event/' . Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/attendee');
     }
 
-    public function declineAttendee(Ticket $ticket, User $user)
+    public function declineAttendee(Event $event,$ticketuser)
     {
-        $ticket->users->where('id',$user->id)->first()->pivot->receipt = null;
-        $ticket->users->where('id',$user->id)->first()->pivot->save();
+        foreach($event->tickets as $ticket) {
+            if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first() != null) {
+                $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first()->pivot
+                ->update(['receipt'=>null]);
+                // Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
+
+            }
+        }
+        // $ticket->users->where('id',$user->id)->first()->pivot->update([
+        //     'receipt'=>null
+        // ]);
+        // $ticket->users->where('id',$user->id)->first()->pivot->save();
         return redirect('/dashboard/event/' . Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/attendee');
     }
 
-    public function removeAttendee(Ticket $ticket, User $user)
+    public function removeAttendee(Event $event,$ticketuser)
     {
-        $ticket->users->where('id',$user->id)->first()->pivot->delete();
+        foreach($event->tickets as $ticket) {
+            if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first() != null) {
+                $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first()->pivot
+                ->delete();
+                // Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
+
+            }
+        }
+        // $ticket->users->where('id',$user->id)->first()->pivot->delete();
         return redirect('/dashboard/event/' . Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/attendee');
     }
 
