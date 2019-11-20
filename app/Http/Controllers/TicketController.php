@@ -86,14 +86,14 @@ class TicketController extends Controller
 
     public function onsale(Ticket $ticket)
     {
-        $ticket->update(['onsale',1]);
-        return redirect('dashobard/event/'.Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/ticket');
+        $ticket->update(['onsale'=>1]);
+        return redirect('dashboard/event/'.Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/ticket');
     }
 
     public function offsale(Ticket $ticket)
     {
-        $ticket->update(['onsale',0]);
-        return redirect('dashobard/event/'.Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/ticket');
+        $ticket->update(['onsale'=>0]);
+        return redirect('dashboard/event/'.Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/ticket');
     }
 
     public function approveAttendee(Event $event,$ticketuser)
