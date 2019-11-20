@@ -33,13 +33,14 @@
                             <div class="row margin-bottom-20 stories-cont">
                                 <div class="col-lg-3 col-md-6">
                                     <div class="portlet light">
-                                        <div class="photo">
-                                        <img src="/storage/upload//{{$event->image}}" alt="" class="img-responsive" /> </div>
+                                        <div>
+                                        <img src="/storage/upload/{{$event->image}}" alt="" class="img-responsive" /> </div>
                                         <div class="title">
+                                            <br>
                                             <span> {{$event->name}} </span>
                                         </div>
                                         <div class="desc">
-                                            <span> We are at our very best, and we are happiest, when we are fully engaged in work we enjoy on the journey toward the goal we've established for ourselves. </span>
+                                            <span> {{$event->description}}...... </span>
                                         </div>
                                     <div style="text-align:center"><a href="{{route('attendee.event.show',['event'=> Hashids::connection(\App\Event::class)->encode($event->id)])}}"><strong>See More</strong></a></div>
                                     </div>
@@ -48,7 +49,7 @@
                             @endforeach
                             <div class="row margin-bottom-40 stories-footer">
                                 <div class="col-md-12">
-                                    <button type="button" class="btn btn-danger">SEE MORE EVENTS</button>
+                                    <a href="/event" class="btn btn-danger">SEE MORE EVENTS</a>
                                 </div>
                             </div>
                             <!-- END MEMBERS SUCCESS STORIES -->

@@ -89,9 +89,13 @@
                                                                 <div class="profile-sidebar">
                                                                         <!-- PORTLET MAIN -->
                                                                         <div class="portlet light profile-sidebar-portlet ">
+
+                                                                            <!-- SIDEBAR USER TITLE -->
+                                                                            <h3 class="font-green sbold uppercase" style="text-align:center">Organizer</h3>
+                                                                            <!-- END SIDEBAR USER TITLE -->
                                                                             <!-- SIDEBAR USERPIC -->
-                                                                            <div class="profile-userpic">
-                                                                                <img src="{{asset('storage/upload/'.$event->organizer->image)}}" class="img-responsive" alt=""> </div>
+                                                                            <div class="profile-usertitle">
+                                                                            <img src="/storage/upload/{{$event->organizer->picture}}"width="100"> </div>
                                                                             <!-- END SIDEBAR USERPIC -->
                                                                             <!-- SIDEBAR USER TITLE -->
                                                                             <div class="profile-usertitle">
@@ -100,8 +104,8 @@
                                                                             <!-- END SIDEBAR USER TITLE -->
                                                                             <!-- SIDEBAR BUTTONS -->
                                                                             <div class="profile-userbuttons">
-                                                                                {{-- <button type="button" class="btn btn-circle green btn-sm">Follow</button>
-                                                                                <button type="button" class="btn btn-circle red btn-sm" href="">Visit</button> --}}
+                                                                                {{-- <button type="button" class="btn btn-circle green btn-sm">Follow</button> --}}
+                                                                                <a href="{{route('attendee.organizer.show',['organizer'=>Hashids::connection(\App\Organizer::class)->encode($event->organizer->id)])}}" type="button" class="btn btn-circle red btn-sm" href="">Visit</a>
                                                                             </div>
                                                                             <!-- END SIDEBAR BUTTONS -->
 

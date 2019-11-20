@@ -35,11 +35,7 @@
                                     <i class="fa fa-circle"></i>
                                 </li>
                                 <li>
-                                    <a href="#">Pages</a>
-                                    <i class="fa fa-circle"></i>
-                                </li>
-                                <li>
-                                    <span>General</span>
+                                    <span>Event</span>
                                 </li>
                             </ul>
                             <!-- END PAGE BREADCRUMBS -->
@@ -53,9 +49,9 @@
                                                     @foreach($events as $event)
                                                 <div class="col-sm-3">
                                                     <div class="blog-post-sm bordered blog-container">
-                                                        <div class="blog-img-thumb">
+                                                        <div style="text-align:center; background-color:white">
                                                             <a href="javascript:;">
-                                                            <img src="{{asset('storage/upload/'.$event->image)}}" />
+                                                            <img src="{{asset('storage/upload/'.$event->image)}}" width="250" height="300"/>
                                                             </a>
                                                         </div>
                                                         <div class="blog-post-content">
@@ -84,336 +80,20 @@
                                                     </div>
                                                 </div>
                                                 @endforeach
-                                                {{-- <div class="col-sm-3">
-                                                    <div class="blog-post-sm bordered blog-container">
-                                                        <div class="blog-img-thumb">
-                                                            <a href="javascript:;">
-                                                                <img src="../assets/pages/img/page_general_search/02.jpg" />
-                                                            </a>
-                                                        </div>
-                                                        <div class="blog-post-content">
-                                                            <h2 class="blog-title blog-post-title">
-                                                                <a href="javascript:;">BINER</a>
-                                                            </h2>
-                                                            <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                            <div class="blog-post-foot">
-                                                                <div class="blog-post-meta">
-                                                                    <i class="icon-calendar font-blue"></i>
-                                                                    <a href="javascript:;">Oct 24, 2015</a>
-                                                                </div>
-                                                                <div class="blog-post-meta">
-                                                                    <i class="icon-home font-blue"></i>
-                                                                    <a href="javascript:;">Kampus A, UNJ</a>
-                                                                </div><br><br>
-                                                                <div style="text-align:center">
-                                                                    <a class="btn btn-info" href="">See All</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="blog-post-sm bordered blog-container">
-                                                        <div class="blog-img-thumb">
-                                                            <a href="javascript:;">
-                                                                <img src="../assets/pages/img/page_general_search/2.jpg" />
-                                                            </a>
-                                                        </div>
-                                                        <div class="blog-post-content">
-                                                            <h2 class="blog-title blog-post-title">
-                                                                <a href="javascript:;">BINER</a>
-                                                            </h2>
-                                                            <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                            <div class="blog-post-foot">
-                                                                <div class="blog-post-meta">
-                                                                    <i class="icon-calendar font-blue"></i>
-                                                                    <a href="javascript:;">Oct 24, 2015</a>
-                                                                </div>
-                                                                <div class="blog-post-meta">
-                                                                    <i class="icon-home font-blue"></i>
-                                                                    <a href="javascript:;">Kampus A, UNJ</a>
-                                                                </div><br><br>
-                                                                <div style="text-align:center">
-                                                                    <a class="btn btn-info" href="">See All</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="blog-post-sm bordered blog-container">
-                                                        <div class="blog-img-thumb">
-                                                            <a href="javascript:;">
-                                                                <img src="../assets/pages/img/page_general_search/03.jpg" />
-                                                            </a>
-                                                        </div>
-                                                        <div class="blog-post-content">
-                                                            <h2 class="blog-title blog-post-title">
-                                                                <a href="javascript:;">BINER</a>
-                                                            </h2>
-                                                            <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                            <div class="blog-post-foot">
-                                                                <div class="blog-post-meta">
-                                                                    <i class="icon-calendar font-blue"></i>
-                                                                    <a href="javascript:;">Oct 24, 2015</a>
-                                                                </div>
-                                                                <div class="blog-post-meta">
-                                                                    <i class="icon-home font-blue"></i>
-                                                                    <a href="javascript:;">Kampus A, UNJ</a>
-                                                                </div><br><br>
-                                                                <div style="text-align:center">
-                                                                    <a class="btn btn-info" href="">See All</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> --}}
-
-                                            {{-- <div class="row">
-                                                    <div style="text-align:center"><h2><strong>Coming Events</h2></div><br>
-                                                    <div class="col-sm-3">
-                                                        <div class="blog-post-sm bordered blog-container">
-                                                            <div class="blog-img-thumb">
-                                                                <a href="javascript:;">
-                                                                    <img src="../assets/pages/img/page_general_search/1.jpg" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="blog-post-content">
-                                                                <h2 class="blog-title blog-post-title">
-                                                                    <a href="javascript:;">BINER</a>
-                                                                </h2>
-                                                                <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                <div class="blog-post-foot">
-                                                                    <div class="blog-post-meta">
-                                                                        <i class="icon-calendar font-blue"></i>
-                                                                        <a href="javascript:;">Oct 24, 2015</a>
-                                                                    </div>
-                                                                    <div class="blog-post-meta">
-                                                                        <i class="icon-home font-blue"></i>
-                                                                        <a href="javascript:;">Kampus A, UNJ</a>
-                                                                    </div><br><br>
-                                                                    <div style="text-align:center">
-                                                                        <a class="btn btn-info" href="">See All</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <div class="blog-post-sm bordered blog-container">
-                                                            <div class="blog-img-thumb">
-                                                                <a href="javascript:;">
-                                                                    <img src="../assets/pages/img/page_general_search/02.jpg" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="blog-post-content">
-                                                                <h2 class="blog-title blog-post-title">
-                                                                    <a href="javascript:;">BINER</a>
-                                                                </h2>
-                                                                <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                <div class="blog-post-foot">
-                                                                    <div class="blog-post-meta">
-                                                                        <i class="icon-calendar font-blue"></i>
-                                                                        <a href="javascript:;">Oct 24, 2015</a>
-                                                                    </div>
-                                                                    <div class="blog-post-meta">
-                                                                        <i class="icon-home font-blue"></i>
-                                                                        <a href="javascript:;">Kampus A, UNJ</a>
-                                                                    </div><br><br>
-                                                                    <div style="text-align:center">
-                                                                        <a class="btn btn-info" href="">See All</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <div class="blog-post-sm bordered blog-container">
-                                                            <div class="blog-img-thumb">
-                                                                <a href="javascript:;">
-                                                                    <img src="../assets/pages/img/page_general_search/2.jpg" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="blog-post-content">
-                                                                <h2 class="blog-title blog-post-title">
-                                                                    <a href="javascript:;">BINER</a>
-                                                                </h2>
-                                                                <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                <div class="blog-post-foot">
-                                                                    <div class="blog-post-meta">
-                                                                        <i class="icon-calendar font-blue"></i>
-                                                                        <a href="javascript:;">Oct 24, 2015</a>
-                                                                    </div>
-                                                                    <div class="blog-post-meta">
-                                                                        <i class="icon-home font-blue"></i>
-                                                                        <a href="javascript:;">Kampus A, UNJ</a>
-                                                                    </div><br><br>
-                                                                    <div style="text-align:center">
-                                                                        <a class="btn btn-info" href="">See All</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <div class="blog-post-sm bordered blog-container">
-                                                            <div class="blog-img-thumb">
-                                                                <a href="javascript:;">
-                                                                    <img src="../assets/pages/img/page_general_search/03.jpg" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="blog-post-content">
-                                                                <h2 class="blog-title blog-post-title">
-                                                                    <a href="javascript:;">BINER</a>
-                                                                </h2>
-                                                                <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                <div class="blog-post-foot">
-                                                                    <div class="blog-post-meta">
-                                                                        <i class="icon-calendar font-blue"></i>
-                                                                        <a href="javascript:;">Oct 24, 2015</a>
-                                                                    </div>
-                                                                    <div class="blog-post-meta">
-                                                                        <i class="icon-home font-blue"></i>
-                                                                        <a href="javascript:;">Kampus A, UNJ</a>
-                                                                    </div><br><br>
-                                                                    <div style="text-align:center">
-                                                                        <a class="btn btn-info" href="">See All</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
-
-                                                {{-- <div class="row">
-                                                        <div style="text-align:center"><h2><strong>Coming Events</h2></div><br>
-                                                        <div class="col-sm-3">
-                                                            <div class="blog-post-sm bordered blog-container">
-                                                                <div class="blog-img-thumb">
-                                                                    <a href="javascript:;">
-                                                                        <img src="../assets/pages/img/page_general_search/1.jpg" />
-                                                                    </a>
-                                                                </div>
-                                                                <div class="blog-post-content">
-                                                                    <h2 class="blog-title blog-post-title">
-                                                                        <a href="javascript:;">BINER</a>
-                                                                    </h2>
-                                                                    <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                    <div class="blog-post-foot">
-                                                                        <div class="blog-post-meta">
-                                                                            <i class="icon-calendar font-blue"></i>
-                                                                            <a href="javascript:;">Oct 24, 2015</a>
-                                                                        </div>
-                                                                        <div class="blog-post-meta">
-                                                                            <i class="icon-home font-blue"></i>
-                                                                            <a href="javascript:;">Kampus A, UNJ</a>
-                                                                        </div><br><br>
-                                                                        <div style="text-align:center">
-                                                                            <a class="btn btn-info" href="">See All</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-3">
-                                                            <div class="blog-post-sm bordered blog-container">
-                                                                <div class="blog-img-thumb">
-                                                                    <a href="javascript:;">
-                                                                        <img src="../assets/pages/img/page_general_search/02.jpg" />
-                                                                    </a>
-                                                                </div>
-                                                                <div class="blog-post-content">
-                                                                    <h2 class="blog-title blog-post-title">
-                                                                        <a href="javascript:;">BINER</a>
-                                                                    </h2>
-                                                                    <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                    <div class="blog-post-foot">
-                                                                        <div class="blog-post-meta">
-                                                                            <i class="icon-calendar font-blue"></i>
-                                                                            <a href="javascript:;">Oct 24, 2015</a>
-                                                                        </div>
-                                                                        <div class="blog-post-meta">
-                                                                            <i class="icon-home font-blue"></i>
-                                                                            <a href="javascript:;">Kampus A, UNJ</a>
-                                                                        </div><br><br>
-                                                                        <div style="text-align:center">
-                                                                            <a class="btn btn-info" href="">See All</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-3">
-                                                            <div class="blog-post-sm bordered blog-container">
-                                                                <div class="blog-img-thumb">
-                                                                    <a href="javascript:;">
-                                                                        <img src="../assets/pages/img/page_general_search/2.jpg" />
-                                                                    </a>
-                                                                </div>
-                                                                <div class="blog-post-content">
-                                                                    <h2 class="blog-title blog-post-title">
-                                                                        <a href="javascript:;">BINER</a>
-                                                                    </h2>
-                                                                    <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                    <div class="blog-post-foot">
-                                                                        <div class="blog-post-meta">
-                                                                            <i class="icon-calendar font-blue"></i>
-                                                                            <a href="javascript:;">Oct 24, 2015</a>
-                                                                        </div>
-                                                                        <div class="blog-post-meta">
-                                                                            <i class="icon-home font-blue"></i>
-                                                                            <a href="javascript:;">Kampus A, UNJ</a>
-                                                                        </div><br><br>
-                                                                        <div style="text-align:center">
-                                                                            <a class="btn btn-info" href="">See All</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-3">
-                                                            <div class="blog-post-sm bordered blog-container">
-                                                                <div class="blog-img-thumb">
-                                                                    <a href="javascript:;">
-                                                                        <img src="../assets/pages/img/page_general_search/03.jpg" />
-                                                                    </a>
-                                                                </div>
-                                                                <div class="blog-post-content">
-                                                                    <h2 class="blog-title blog-post-title">
-                                                                        <a href="javascript:;">BINER</a>
-                                                                    </h2>
-                                                                    <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                    <div class="blog-post-foot">
-                                                                        <div class="blog-post-meta">
-                                                                            <i class="icon-calendar font-blue"></i>
-                                                                            <a href="javascript:;">Oct 24, 2015</a>
-                                                                        </div>
-                                                                        <div class="blog-post-meta">
-                                                                            <i class="icon-home font-blue"></i>
-                                                                            <a href="javascript:;">Kampus A, UNJ</a>
-                                                                        </div><br><br>
-                                                                        <div style="text-align:center">
-                                                                            <a class="btn btn-info" href="">See All</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> --}}
+                                           </div>
                                         </div>
                                     </div>
-                                </div>
                             <!-- END PAGE CONTENT INNER -->
+                                </div>
                             </div>
                         </div>
-                    </div>
                     <!-- END PAGE CONTENT BODY -->
                     <!-- END CONTENT BODY -->
-                </div>
+                 </div>
                 <!-- END CONTENT -->
+                </div>
             </div>
-        </div>
+         </div>
     </div>
 </div>
 @endsection

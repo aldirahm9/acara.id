@@ -33,7 +33,7 @@
     <body class="login">
         <!-- BEGIN LOGO -->
         <div class="logo">
-            <a href="index-2.html">
+            <a href="/">
                 <img src="../../img/logooo.png" width="200" /> </a>
         </div>
         <!-- END LOGO -->
