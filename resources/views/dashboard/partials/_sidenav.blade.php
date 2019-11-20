@@ -166,8 +166,8 @@
                 <span class="title">USERS</span>
             </a>
         </li>
-        <li class="nav-item  {{ request()->routeIs('dashboard.event*') ? 'active' : '' }}">
-            <a href="{{route('dashboard.event.index')}}" class="nav-link nav-toggle">
+        <li class="nav-item  {{ request()->routeIs('dashboard.admin.event*') ? 'active' : '' }}">
+            <a href="{{route('dashboard.admin.event.index')}}" class="nav-link nav-toggle">
                 <i class="icon-puzzle"></i>
                 <span class="title">Events</span>
             </a>

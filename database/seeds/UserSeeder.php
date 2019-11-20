@@ -1,5 +1,6 @@
 <?php
 
+use App\PaymentMethod;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -75,6 +76,13 @@ class UserSeeder extends Seeder
             'organizer_id' => $default->id
         ]);
 
+        $method = PaymentMethod::create([
+            'bank' => 'Mandiri',
+            'bankAccountName'=> 'Aldi',
+            'bankAccountNumber'=> 38572052,
+            'event_id'=>$biner->id
+        ]);
+
         $ticket = App\Ticket::create([
             'name' => 'VVIP',
             'price' => 50000,
@@ -82,6 +90,7 @@ class UserSeeder extends Seeder
             'onsale' => 1,
             'event_id' =>$biner->id
         ]);
+
 
         $ticket->users()->attach($apid->id);
         $ticket->users()->attach($admin->id,['receipt' => 'bukti.jpg']);

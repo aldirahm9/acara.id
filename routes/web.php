@@ -70,7 +70,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/organizers', 'OrganizerController@index')->name('dashboard.organizer.index');
         Route::post('dashboard/organizers/{organizer}', 'OrganizerController@destroy')->name('delete.organizer');
 
-        Route::get('dashboard/events', 'eventController@index')->name('dashboard.event.index');
+        Route::get('dashboard/events', 'eventController@index')->name('dashboard.admin.event.index');
         Route::post('dashboard/events/{event}/delete', 'eventController@adminDestroy')->name('delete.event');
         Route::post('dashboard/events/{event}/approve', 'eventController@approve')->name('approve.event');
     });
