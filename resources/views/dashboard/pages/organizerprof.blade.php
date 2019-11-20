@@ -1,7 +1,7 @@
 @extends('dashboard/app')
 
 @section('title')
- | DEFAULT
+ | {{$organizer->name}}
 @endsection
 
 @section('content')
@@ -27,12 +27,12 @@
                             <div class="row">
                                 <div class="col-md-3" style="text-align:center;">
                                     <p style="color:white">aaaaaa</p>
-                                    <img src="{{asset('img/default.png')}}" width="50%"/>
+                                <img src="/storage/upload/{{$organizer->picture}}" width="50%"/>
                                 </div>
                                 <div>
-                                    <div class="row">
+                                    <div class="row" style="text-align:center">
                                         <div class="col-md-8 profile-info">
-                                            <h1 class="font-green sbold uppercase">{{$organizer->name}}</h1>
+                                            <h3 class="font-green sbold uppercase">{{$organizer->name}}</h3>
                                             @markdown
                                             {{$organizer->description}}
                                             @endmarkdown

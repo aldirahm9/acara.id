@@ -61,7 +61,7 @@
                                                                 <div class="portlet light profile-sidebar-portlet ">
                                                                     <!-- SIDEBAR USERPIC -->
                                                                     <div class="profile-userpic">
-                                                                        <img src="{{asset('storage/upload/'.$organizer->image)}}" class="img-responsive" alt=""> </div>
+                                                                        <img src="{{asset('storage/upload/'.$organizer->picture)}}" class="img-responsive" alt=""> </div>
                                                                     <!-- END SIDEBAR USERPIC -->
                                                                     <!-- SIDEBAR USER TITLE -->
                                                                     <div class="profile-usertitle">
@@ -115,54 +115,6 @@
                                                             </div>
                                                         </div>
                                                         @endforeach
-                                                        <div class="col-sm-3 blog-page blog-content-1">
-                                                            <div class="blog-post-sm bordered blog-container">
-                                                                <div class="blog-img-thumb">
-                                                                    <a href="javascript:;">
-                                                                        <img src="../img/organizer.jpeg" />
-                                                                    </a>
-                                                                </div>
-                                                                <div class="blog-post-content">
-                                                                    <h2 class="blog-title blog-post-title">
-                                                                        <a href="javascript:;">BINER UNJ</a>
-                                                                    </h2>
-                                                                    <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                    <a href=""><strong>See More</strong></a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-3 blog-page blog-content-1">
-                                                                <div class="blog-post-sm bordered blog-container">
-                                                                    <div class="blog-img-thumb">
-                                                                        <a href="javascript:;">
-                                                                            <img src="../img/attendee.jpg" />
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="blog-post-content">
-                                                                        <h2 class="blog-title blog-post-title">
-                                                                            <a href="javascript:;">BINER</a>
-                                                                        </h2>
-                                                                        <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                        <a href=""><strong>See More</strong></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-3 blog-page blog-content-1">
-                                                                <div class="blog-post-sm bordered blog-container">
-                                                                    <div class="blog-img-thumb">
-                                                                        <a href="javascript:;">
-                                                                            <img src="../img/organizer.jpeg" />
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="blog-post-content">
-                                                                        <h2 class="blog-title blog-post-title">
-                                                                            <a href="javascript:;">BINER UNJ</a>
-                                                                        </h2>
-                                                                        <p class="blog-post-desc"> Lorem ipsum dolor sit amet adipiscing elit, sed diam nonummy </p>
-                                                                        <a href=""><strong>See More</strong></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                     </div>
                                                 </div>
                                             </div>

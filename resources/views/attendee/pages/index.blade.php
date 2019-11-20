@@ -29,8 +29,8 @@
                             </div>
                             <!-- END CONTENT HEADER -->
                             <!-- BEGIN MEMBERS SUCCESS STORIES -->
-                            @foreach($event as $event)
                             <div class="row margin-bottom-20 stories-cont">
+                            @foreach($event as $event)
                                 <div class="col-lg-3 col-md-6">
                                     <div class="portlet light">
                                         <div>
@@ -45,8 +45,8 @@
                                     <div style="text-align:center"><a href="{{route('attendee.event.show',['event'=> Hashids::connection(\App\Event::class)->encode($event->id)])}}"><strong>See More</strong></a></div>
                                     </div>
                                 </div>
-                            </div>
                             @endforeach
+                            </div>
                             <div class="row margin-bottom-40 stories-footer">
                                 <div class="col-md-12">
                                     <a href="/event" class="btn btn-danger">SEE MORE EVENTS</a>

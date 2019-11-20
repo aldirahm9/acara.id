@@ -127,7 +127,7 @@
                                     </label>
                                     <div class="col-md-4">
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <img src="/storage/upload/{{$event->image}}" alt="">
+                                        <img src="/storage/upload/{{$event->image}}" width="150"><br><br>
                                             <div class="input-group input-large">
                                                 <div class="form-control uneditable-input input-fixed input-medium"
                                                     data-trigger="fileinput">
@@ -169,7 +169,7 @@
                                                         <div class="col-md-3">
                                                             <label class="control-label">Account Name</label>
                                                             <input type="text" class="form-control" name="bankAccountName" /> </div>
-                                                         <div class="col-md-4">
+                                                         <div class="col-md-5">
                                                             <label class="control-label">Number</label>
                                                          <input type="text" class="form-control" name="bankAccountNumber" /> </div>
                                                         <div class="col-md-1">
@@ -183,7 +183,7 @@
                                                     <div class="col-md-2">
                                                         <label class="control-label">Bank</label>
                                                     <input type="text" class="form-control" name="bank" value="{{$pay->bank}}"/> </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-5">
                                                         <label class="control-label">Account Name</label>
                                                         <input type="text" class="form-control" name="bankAccountName" value="{{$pay->bankAccountName}}"/> </div>
                                                      <div class="col-md-4">

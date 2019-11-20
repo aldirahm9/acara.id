@@ -17,7 +17,7 @@ class CreateOrganizersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('picture');
-            $table->string('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }
