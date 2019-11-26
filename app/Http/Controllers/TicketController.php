@@ -202,6 +202,20 @@ public function mytickets()
         $user->tickets()->attach($ticket->id);
         return redirect('mytickets');
     }
+
+    public function feedback($ticketuser,Request $request)
+    {
+        $pivotId = Hashids::connection('ticketuser')->decode($ticketuser)[0];
+        Auth::user()->tickets()->wherePivot('id',$pivotId)->first()->pivot->update([
+            'feedback' => $request->feedback
+        ]);
+        return redirect('mytickets');
+    }
+
+    public function indexFeedback(Event $event)
+    {
+        return view('dashboard/pages/feedback',['event'=>$event]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

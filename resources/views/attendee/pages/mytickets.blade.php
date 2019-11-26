@@ -88,6 +88,8 @@
                                                                     <a class="btn btn-warning">Waiting Approval</a>
                                                                     @elseif($ticket->getTicketStatus() == 3)
                                                                     <a class="btn btn-success">Approved</a>
+                                                                    @elseif($ticket->getTicketStatus() == 4)
+                                                                    <a class="btn btn-success">Checked In</a>
                                                                     @endif
                                                                 </div>
                                                         </div>
@@ -109,6 +111,13 @@
                                                                         <a class="btn btn-circle blue btn-md"
                                                                             data-toggle="modal" href="{{'#qrcode' . $ticket->pivot->id}}"> <i
                                                                                 class="fa fa-ticket"></i> See Ticket</a>
+                                                                        @endif
+                                                                        @if($ticket->getTicketStatus() == 4)
+                                                                        <br>
+                                                                        <br>
+                                                                        <a class="btn btn-circle green btn-md"
+                                                                            data-toggle="modal" href="{{'#feedback' . $ticket->pivot->id}}"> <i
+                                                                                class="fa fa-ticket"></i> Feedback Event</a>
                                                                         @endif
                                                                     </div>
                                                                     <!-- END SIDEBAR BUTTONS -->
@@ -185,6 +194,39 @@
                                                     <button type="button" class="btn dark btn-outline"
                                                         data-dismiss="modal">Close</button>
                                                     <button type="submit" class="btn green">Save</button>
+                                                    {!! Form::close() !!}
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+
+
+                                    <!--modal -->
+                                    <div class="modal fade" id="{{'feedback'. $ticket->pivot->id}}" tabindex="-1" role="basic" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true"></button>
+                                                    <h4 class="modal-title"><strong>Feedback to {{$ticket->event->name}}</strong>
+                                                    </h4>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    {!! Form::open(['route'=>['attendee.feedback','ticketuser'=>Hashids::connection('ticketuser')->encode($ticket->pivot->id)],'method'=>'POST']) !!}
+                                                    <div class="form-group">
+                                                      <label for="feedback">Your feedback:</label>
+                                                      <textarea name="feedback" class="form-control"cols="50" rows="5"></textarea>
+                                                      <small id="helpId" class="text-muted">Only the latest feedback is saved.</small>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn dark btn-outline"
+                                                        data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn green">Send</button>
                                                     {!! Form::close() !!}
                                                 </div>
                                             </div>

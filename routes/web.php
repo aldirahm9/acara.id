@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/mytickets', 'TicketController@mytickets')->name('mytickets');
     Route::post('/mytickets/{ticketuser}/uploadreceipt', 'TicketController@uploadReceipt')->name('attendee.upload.receipt');
     Route::post('/mytickets/{ticket}/book', 'TicketController@bookTicket')->name('attendee.book.ticket');
+    Route::post('/mytickets/{ticketuser}/feedback', 'TicketController@feedback')->name('attendee.feedback');
 
 
     Route::post('invitation/accept', 'MemberController@accept')->name('member.invite.accept');
@@ -64,6 +65,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('dashboard/event/{event}/{ticketuser}/decline', 'TicketController@declineAttendee')->name('user.ticket.decline');
         Route::post('dashboard/event/{event}/attendee/checkin', 'TicketController@postCheckin')->name('dashboard.event.checkin.post');
         Route::get('dashboard/event/{event}/checkin', 'TicketController@indexCheckin')->name('dashboard.event.checkin.index');
+        Route::get('dashboard/event/{event}/feedback', 'TicketController@indexFeedback')->name('dashboard.event.feedback.index');
     });
 
 

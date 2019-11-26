@@ -22,6 +22,7 @@ class CreateTicketUserTable extends Migration
             $table->boolean('approved')->nullable();
             $table->string('receipt')->nullable();
             $table->boolean('checkin')->nullable();
+            $table->text('feedback')->nullable();
             $table->timestamps();
         });
     }

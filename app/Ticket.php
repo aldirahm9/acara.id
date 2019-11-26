@@ -14,7 +14,7 @@ class Ticket extends Model
     ];
 
     public function users() {
-        return $this->belongsToMany('App\User')->withPivot('approved','receipt','checkin','id')->withTimestamps();
+        return $this->belongsToMany('App\User')->withPivot('approved','receipt','checkin','id','feedback')->withTimestamps();
     }
 
     public function event() {
@@ -23,7 +23,10 @@ class Ticket extends Model
 
     public function getTicketStatus()
     {
-        if($this->pivot->approved == 1) {
+        if($this->pivot->checkin == 1) {
+            return 4;
+        }
+        elseif($this->pivot->approved == 1) {
             return 3;
         }elseif($this->pivot->receipt !=null) {
             return 2;
