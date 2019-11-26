@@ -60,10 +60,11 @@
                             </td>
                             {{-- TODO: bikin show modal yang nunjukin bukti bayar--}}
                             @if($user->pivot->receipt!= null)
-                            <td><a class="label label-medium label-info" data-toggle="modal" href="#receipt">Transfer Receipt</a></td>
+                            <td><a class="label label-medium label-info" data-toggle="modal" href="{{'#receipt' . $user->pivot->id}}">Transfer Receipt</a></td>
                             @else
                             <td>Waiting for receipt</td>
                             @endif
+
                             @if($user->getTicketStatus() == 3)
                             <td ><span class="label label-medium label-success"> Approved </span></td>
                             @elseif($user->getTicketStatus() ==2)
@@ -120,27 +121,28 @@
                                 </div>
                             </td>
                         </tr>
+                        <div id="{{'receipt' . $user->pivot->id}}" class="modal fade" tabindex="-1" data-width="760">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                    <h4 class="modal-title"><b>See Receipt</b></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                            <div class="col-md-12" style="text-align: center">
+                                                <img src="{{asset('storage/upload/' . $user->pivot->receipt)}}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+                                    </div>
+                            </div>
                         @endforeach
                         @endforeach
                     </tbody>
                 </table>
                 <!-- responsive -->
-                <div id="receipt" class="modal fade" tabindex="-1" data-width="760">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                            <h4 class="modal-title"><b>See Receipt</b></h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                    <div class="col-md-12" style="text-align: center">
-                                        <img src="/../../img/receipt.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
-                            </div>
-                    </div>
+
                     <!--End Modal-->
             </div>
         </div>

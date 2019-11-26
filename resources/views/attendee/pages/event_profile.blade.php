@@ -73,15 +73,20 @@
                                                                         <i class="fa fa-map-marker"></i> {{$event->location}} </li>
                                                                     <li>
                                                                         <i class="fa fa-calendar"></i> {{DateTime::createFromFormat('Y-m-d',$event->date)->format('l, d F Y')}} </li>
+                                                                        @if($event->tickets->first() !=null)
                                                                     <li>
                                                                         @if($event->tickets->count() >1)
                                                                         <i class="fa fa-money"></i> Rp {{number_format($event->tickets->sortBy('price')->first()->price,2,',','.')}} - Rp {{number_format($event->tickets->sortBy('price')->last()->price,2,',','.')}} </li>
                                                                         @else
                                                                         <i class="fa fa-money"></i> Rp {{number_format($event->tickets->first()->price,2,',','.')}} </li>
                                                                         @endif
+                                                                        @endif
                                                                 </ul>
                                                                 <div style="text-align:center">
+                                                                        @if($event->tickets->first() !=null)
                                                                 <a class="btn btn-md btn-success" data-target="#buy" data-toggle="modal"><i class="icon-plus"></i>&nbsp;Book Ticket</a></div>
+                                                                @endif
+                                                                <a class="btn btn-md btn-danger" >Unavailable</a></div>
                                                             </div>
                                                             <!--end col-md-8-->
                                                             <div class="col-md-2">

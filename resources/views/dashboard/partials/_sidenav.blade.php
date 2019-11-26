@@ -86,7 +86,7 @@
 
             </ul>
         </li>
-        <li class="nav-item  ">
+        {{-- <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-settings"></i>
                 <span class="title">Settings</span>
@@ -105,7 +105,7 @@
                     </a>
                 </li>
             </ul> --}}
-        </li>
+        </li> --}}
 
         @if(request()->routeIs('dashboard.event*') && !request()->routeIs('dashboard.event.create'))
 
@@ -132,13 +132,13 @@
             </a>
         </li>
 
-        <li class="nav-item  ">
+        {{-- <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-settings"></i>
                 <span class="title">Setting</span>
-                {{-- <span class="arrow"></span> --}}
+                <span class="arrow"></span>
             </a>
-            {{-- <ul class="sub-menu">
+            <ul class="sub-menu">
 
                 <li class="nav-item  ">
                     <a href="form_fileupload.html" class="nav-link ">

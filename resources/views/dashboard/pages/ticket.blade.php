@@ -98,15 +98,15 @@
                                             @if($ticket->onsale == 1)
                                             {!! Form::open(['route'=>['dashboard.event.ticket.offsale','ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],'id'=>'off'.$ticket->id,'style'=>'display:none']) !!}
                                             {!! Form::close() !!}
-                                            {!! Form::open(['route'=>['dashboard.event.ticket.onsale','ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],'id'=>'on'.$ticket->id,'style'=>'display:none']) !!}
-                                            {!! Form::close() !!}
                                             <a href="#" onclick="event.preventDefault();
                                                     document.getElementById('off' + {{$ticket->id}}).submit();" class="btn red">Off Sale</a>&nbsp;
                                             @else
+                                            {!! Form::open(['route'=>['dashboard.event.ticket.onsale','ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],'id'=>'on'.$ticket->id,'style'=>'display:none']) !!}
+                                            {!! Form::close() !!}
                                             <a href="#" onclick="event.preventDefault();
                                             document.getElementById('on' + {{$ticket->id}}).submit();" class="btn green">On Sale</a>&nbsp;
                                             @endif
-                                            <a href="" class="btn blue">Edit</a></span>
+                                        <a href="{{route('dashboard.event.ticket.edit',['ticket'=> Hashids::connection(\App\Ticket::class)->encode($ticket->id)])}}" class="btn blue">Edit</a></span>
                                     </ul>
                                 </p>
                             </div>

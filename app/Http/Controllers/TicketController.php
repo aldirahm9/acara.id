@@ -79,7 +79,7 @@ class TicketController extends Controller
         // return view('attendee/pages/mytickets', compact('user'));
     }
 
-    public function mytickets()
+public function mytickets()
     {
         return view('attendee/pages/mytickets');
     }
@@ -210,7 +210,8 @@ class TicketController extends Controller
      */
     public function edit(Ticket $ticket)
     {
-        //
+
+        return view('dashboard/pages/edit_ticket',['ticket'=>$ticket,'event'=>$ticket->event]);
     }
 
     /**
@@ -222,7 +223,8 @@ class TicketController extends Controller
      */
     public function update(Request $request, Ticket $ticket)
     {
-        //
+        $ticket->update($request->all());
+        return redirect('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/ticket');
     }
 
     /**

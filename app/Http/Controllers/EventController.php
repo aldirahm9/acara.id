@@ -52,7 +52,7 @@ class EventController extends Controller
             'date' => 'required',
             'timeStart' => 'required',
             'timeEnd' => '',
-            'image' => 'required|mimes:jpeg,jpg|max:1000',
+            'image' => 'required|mimes:jpeg,jpg,png|max:1000',
             'description' => 'required',
         ]);
 
@@ -144,7 +144,7 @@ class EventController extends Controller
             'date' => 'required',
             'timeStart' => 'required',
             'timeEnd' => '',
-            'image' => 'mimes:jpeg,jpg|max:1000',
+            'image' => 'mimes:jpeg,jpg,png|max:1000',
             'description' => 'required',
         ]);
         if($request->image != null) {
@@ -190,7 +190,7 @@ class EventController extends Controller
         foreach($request->payment as $each) {
             if($each['bank']==null) continue;
             if($each['paymentId'] != null) {
-                $method = PaymentMethod::find($each->paymentId);
+                $method = PaymentMethod::find($each['paymentId']);
                 $method->update([
                     'bank' => $each['bank'],
                     'bankAccountName' => $each['bankAccountName'],
