@@ -43,7 +43,7 @@
                     <tbody>
                         @php $i=1 @endphp
                         @foreach($event->tickets as $ticket)
-                        @foreach($ticket->users as $user)
+                        @foreach($ticket->users()->wherePivot('feedback','!=',null)->get() as $user)
                         <tr>
                             <td>{{ $i++ }}</td>
                             <td>{{$user->name}}</td>

@@ -90,6 +90,8 @@ Route::get('/organizer/{organizer}', 'OrganizerController@show')->name('attendee
 Route::get('/event', 'AttendeePagesController@event')->name('attendee.event');
 
 
+Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
+Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/satu', function () {
     return view('satu');

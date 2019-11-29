@@ -44,6 +44,7 @@
                     <span></span>
                 </label>
                 <button type="submit" class="btn green pull-right"> {{ __('Login') }}</button>
+                <a href="redirect" class="btn green pull-right"> Login with Google</a>
             </div>
         </form>
         <!-- END LOGIN FORM -->

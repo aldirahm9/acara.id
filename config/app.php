@@ -228,6 +228,7 @@ return [
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];
