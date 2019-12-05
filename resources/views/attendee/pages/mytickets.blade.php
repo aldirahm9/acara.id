@@ -54,7 +54,7 @@
                                                 <div class="col-md-4" style="text-align:center">
                                                     <ul class="list-unstyled profile-nav">
                                                         <li>
-                                                            <img src="/storage/upload/{{$ticket->event->image}}"
+                                                            <img src="{{asset('/storage/upload/'.$ticket->event->image)}}"
                                                                 width="200">
                                                         </li>
                                                     </ul>
@@ -254,6 +254,6 @@
 @endsection
 
 @section('style')
-<script src="../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-<script src="../assets/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
+<script src="{{asset('../assets/global/plugins/jquery-ui/jquery-ui.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('../assets/pages/scripts/ui-modals.min.js')}}" type="text/javascript"></script>
 @endsection

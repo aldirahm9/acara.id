@@ -100,7 +100,7 @@
                                                                             <!-- END SIDEBAR USER TITLE -->
                                                                             <!-- SIDEBAR USERPIC -->
                                                                             <div class="profile-usertitle">
-                                                                            <img src="/storage/upload/{{$event->organizer->picture}}"width="100"> </div>
+                                                                            <img src="{{asset('/storage/upload/' .$event->organizer->picture)}}"width="100"> </div>
                                                                             <!-- END SIDEBAR USERPIC -->
                                                                             <!-- SIDEBAR USER TITLE -->
                                                                             <div class="profile-usertitle">
@@ -174,9 +174,9 @@
 @endsection
 
 @section('script')
-<script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
-<script src="../assets/pages/scripts/ui-extended-modals.min.js" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/ui-extended-modals.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('sweetalert2/sweetalert2.all.min.js')}}" type="text/javascript"></script>
 <script>
 function buy(form) {

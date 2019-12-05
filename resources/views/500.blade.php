@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
 Version: 4.7.5
 Author: KeenThemes
@@ -19,7 +19,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--<![endif]-->
     <!-- BEGIN HEAD -->
 
-    
+
 <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_1/page_system_500_2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jan 2018 07:53:30 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -64,19 +64,19 @@ License: You must have a valid license purchased only from themeforest(the above
         </div>
         <!--[if lt IE 9]>
 <script src="../assets/global/plugins/respond.min.js"></script>
-<script src="../assets/global/plugins/excanvas.min.js"></script> 
-<script src="../assets/global/plugins/ie8.fix.min.js"></script> 
+<script src="../assets/global/plugins/excanvas.min.js"></script>
+<script src="../assets/global/plugins/ie8.fix.min.js"></script>
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
-        <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-        <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
-        <script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-        <script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-        <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <script src="{{asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/global/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <script src="{{asset('../assets/global/scripts/app.min.js')}}" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->

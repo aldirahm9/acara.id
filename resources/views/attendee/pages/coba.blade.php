@@ -30,7 +30,7 @@
         <div class="row team">
             <div class="span3">
               <div class="team-box">
-              <a href="/biner" class="thumbnail"><img src="../../img/default.png" alt="" width="100"/></a>
+              <a href="/biner" class="thumbnail"><img src="{{asset('img/default.png')}}" alt="" width="100"/></a>
                 <div class="roles aligncenter">
                     <p class="lead"><strong>DEFAULT</strong></p><br>
                     <a href="" class="btn btn-success">Follow</a>

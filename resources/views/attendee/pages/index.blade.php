@@ -34,7 +34,7 @@
                                 <div class="col-lg-3 col-md-6">
                                     <div class="portlet light">
                                         <div>
-                                        <img src="/storage/upload/{{$event->image}}" alt="" class="img-responsive" /> </div>
+                                        <img src="{{asset('/storage/upload/'.$event->image)}}" alt="" class="img-responsive" /> </div>
                                         <div class="title">
                                             <br>
                                             <span> {{$event->name}} </span>

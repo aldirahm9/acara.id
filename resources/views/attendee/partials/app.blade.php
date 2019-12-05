@@ -14,7 +14,7 @@
                             <!-- BEGIN LOGO -->
                             <div class="page-logo">
                                 <a href="index-2.html">
-                                    <img src="../../img/logo.png" class="logo-default" width="150">
+                                    <img src="{{asset('img/logo.png')}}" class="logo-default" width="150">
                                 </a>
                             </div>
                             <!-- END LOGO -->
@@ -29,7 +29,7 @@
                                     @guest
                                     <li class="dropdown dropdown-user dropdown-dark">
                                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                            <img alt="" class="img-circle" src="/../../img/acc-1.png"><span><i class="fa fa-arrow-down"></i></span>
+                                            <img alt="" class="img-circle" src="{{asset('img/acc-1.png')}}"><span><i class="fa fa-arrow-down"></i></span>
 
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-default">
@@ -46,7 +46,7 @@
                                     @else
                                     <li class="dropdown dropdown-user dropdown-dark">
                                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                                <img alt="" class="img-circle" src="/../../img/acc-1.png">
+                                                <img alt="" class="img-circle" src="{{asset('img/acc-1.png')}}">
                                             <span class="username username-hide-mobile">{{Auth::user()->name}}</span>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-default">
