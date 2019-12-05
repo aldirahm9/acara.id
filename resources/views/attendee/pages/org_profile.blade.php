@@ -1,12 +1,12 @@
 @extends('attendee/partials/app')
 
 @section('style')
-<link href="../assets/pages/css/blog.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/pages/css/profile-2.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/apps/css/ticket.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/pages/css/blog.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/pages/css/profile-2.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/pages/css/profile.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/apps/css/ticket.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')

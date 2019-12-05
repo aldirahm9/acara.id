@@ -27,7 +27,7 @@
                             <div class="row">
                                 <div class="col-md-3" style="text-align:center;">
                                     <p style="color:white">aaaaaa</p>
-                                <img src="/storage/upload/{{$organizer->picture}}" width="50%"/>
+                                <img src="{{asset('/storage/upload/'.$organizer->picture)}}" width="50%"/>
                                 </div>
                                 <div>
                                     <div class="row" style="text-align:center">

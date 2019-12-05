@@ -127,7 +127,7 @@
                                     </label>
                                     <div class="col-md-4">
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <img src="/storage/upload/{{$event->image}}" width="150"><br><br>
+                                        <img src="{{asset('/storage/upload/'.$event->image)}}" width="150"><br><br>
                                             <div class="input-group input-large">
                                                 <div class="form-control uneditable-input input-fixed input-medium"
                                                     data-trigger="fileinput">

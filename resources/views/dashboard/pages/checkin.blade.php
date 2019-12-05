@@ -98,8 +98,8 @@
 <link href="{{asset('../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css')}}" rel="stylesheet"
     type="text/css" />
 <link href="{{asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
-<link href="/../../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
-<link href="/../../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet"
+<link href="{{asset('assets/global/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css')}}" rel="stylesheet"
     type="text/css" />
 <link rel="stylesheet" href="{{asset('sweetalert2/sweetalert2.min.css')}}">
 @endsection
@@ -116,11 +116,11 @@
 {{-- <script src="{{asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js')}}" type="text/javascript">
 </script> --}}
 {{-- <script src="{{asset('assets/pages/scripts/ui-sweetalert.min.js')}}" type="text/javascript"></script> --}}
-<script src="/../../assets/global/scripts/datatable.js" type="text/javascript"></script>
-<script src="/../../assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
-<script src="/../../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript">
+<script src="{{asset('assets/global/scripts/datatable.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript">
 </script>
-<script src="/../../assets/pages/scripts/table-datatables-buttons.min.js" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/table-datatables-buttons.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('sweetalert2/sweetalert2.all.min.js')}}" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="{{asset('js/qrscanner/jsqrscanner.nocache.js')}}"></script>

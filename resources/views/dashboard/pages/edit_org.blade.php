@@ -53,7 +53,7 @@
                                     </label>
                                     <div class="col-md-4">
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <img src="/storage/upload/{{$organizer->picture}}" alt="" width="100">
+                                            <img src="{{asset('/storage/upload/'.$organizer->picture)}}" alt="" width="100">
                                             <div class="input-group input-large">
                                                 <div class="form-control uneditable-input input-fixed input-medium"
                                                     data-trigger="fileinput">

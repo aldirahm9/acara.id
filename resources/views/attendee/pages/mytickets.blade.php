@@ -1,8 +1,8 @@
 @extends('attendee/partials/app')
 
 @section('style')
-<link href="../assets/pages/css/profile-2.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/pages/css/profile-2.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/pages/css/profile.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')

@@ -175,8 +175,8 @@ $user = Auth::user()
 
 
 @section('script')
-<script src="../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-<script src="../assets/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/jquery-ui/jquery-ui.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/ui-modals.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/pages/scripts/table-datatables-managed.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/global/scripts/datatable.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
