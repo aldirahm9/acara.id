@@ -33,9 +33,7 @@
                                     <div class="row" style="text-align:center">
                                         <div class="col-md-8 profile-info">
                                             <h3 class="font-green sbold uppercase">{{$organizer->name}}</h3>
-                                            @markdown
-                                            {{$organizer->description}}
-                                            @endmarkdown
+                                            @markdown{{$organizer->description}}@endmarkdown
                                                 {{-- <li>
                                                     <i class="fa fa-calendar"></i> 18 January 2014 </li>
                                                 <li>

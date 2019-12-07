@@ -39,9 +39,7 @@
                                 <div class="row">
                                     <div class="col-md-8 profile-info">
                                         <h1 class="font-green sbold uppercase">{{$event->name}}</h1>
-                                        @markdown
-                                        {{$event->description}}
-                                        @endmarkdown
+                                        @markdown{{$event->description}}@endmarkdown
                                         {{-- <p> “Developing Future and Unyielding Learn of Technology” atau yang di singkat dengan DEFAULT merupakan kelompok studi yang bergerak di bidang pengembangan teknologi seperti pada bidang arsitektur, website, animasi, dan juga aplikasi. Kelompok studi ini di dirikan oleh angkatan pertama program studi ilmu komputer pada tahun 2013. </p>
                                         <p>
                                             <a href="javascript:;"> www.defaultunj.com </a>

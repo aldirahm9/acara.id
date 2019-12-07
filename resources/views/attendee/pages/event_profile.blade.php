@@ -65,9 +65,7 @@
                                                         <div class="row">
                                                             <div class="col-md-8 profile-info">
                                                                 <h1 class="font-green sbold uppercase" style="text-align:center">{{$event->name}}</h1>
-                                                                @markdown
-                                                                {{$event->description}}
-                                                                @endmarkdown
+                                                                @markdown{{$event->description}}@endmarkdown
                                                                 <ul class="list-inline">
                                                                     <li>
                                                                         <i class="fa fa-map-marker"></i> {{$event->location}} </li>
