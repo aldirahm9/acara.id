@@ -102,6 +102,11 @@
 <link href="{{asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css')}}" rel="stylesheet"
     type="text/css" />
 <link rel="stylesheet" href="{{asset('sweetalert2/sweetalert2.min.css')}}">
+<style>
+.qrPreviewVideo {
+    max-width:100%;
+    max-height:100%;
+}</style>
 @endsection
 
 @section('script')
