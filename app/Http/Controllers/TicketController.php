@@ -177,7 +177,7 @@ public function mytickets()
     public function uploadReceipt(Request $request,$ticketuser)
     {
         $this->validate($request, [
-            'receipt' => 'required|mimes:jpeg,jpg|max:1000',
+            'receipt' => 'required|mimes:jpeg,jpg,png|max:10000',
         ]);
 
         $fileName= null;

@@ -48,7 +48,7 @@
                                                         <div class="blog-post-sm bordered blog-container">
                                                             <div class="blog-img-thumb">
                                                                 <a href="javascript:;">
-                                                                    <img src="{{asset('../img/attendee.jpg')}}" />
+                                                                    <img src="{{asset('img/attendee.jpg')}}" />
                                                                 </a>
                                                             </div>
                                                             <div class="blog-post-content">
@@ -63,7 +63,7 @@
                                                         <div class="blog-post-sm bordered blog-container">
                                                             <div class="blog-img-thumb">
                                                                 <a href="javascript:;">
-                                                                    <img src="{{asset('../img/organizer.jpeg')}}" />
+                                                                    <img src="{{asset('img/organizer.jpeg')}}" />
                                                                 </a>
                                                             </div>
                                                             <div class="blog-post-content">

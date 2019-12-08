@@ -17,7 +17,7 @@
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a href="/"><img src="{{asset('img/logooo.png')}}" alt="logo" class="logo-default" width="130" /> </a>
-                    {{-- <a href="index-2.html"><img src="{{asset('../../img/a.png')}}" alt="logo" class="logo-default" width="28" /> </a> <h3 style="color:#4694CA"><b>acara.id</b></h3> --}}
+                    {{-- <a href="index-2.html"><img src="{{asset('img/a.png')}}" alt="logo" class="logo-default" width="28" /> </a> <h3 style="color:#4694CA"><b>acara.id</b></h3> --}}
                     </a>
                     <div class="menu-toggler sidebar-toggler">
                         <span></span>

@@ -83,8 +83,9 @@
                                                                 <div style="text-align:center">
                                                                         @if($event->tickets->first() !=null)
                                                                 <a class="btn btn-md btn-success" data-target="#buy" data-toggle="modal"><i class="icon-plus"></i>&nbsp;Book Ticket</a></div>
-                                                                @endif
+                                                                @else
                                                                 <a class="btn btn-md btn-danger" >Unavailable</a></div>
+                                                                @endif
                                                             </div>
                                                             <!--end col-md-8-->
                                                             <div class="col-md-2">

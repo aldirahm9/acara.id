@@ -27,6 +27,7 @@
                 <!-- END PAGE HEAD-->
                 <!-- BEGIN PAGE CONTENT BODY -->
                 <div class="page-content">
+                        @include('dashboard/partials/_messages')
                     <div class="container">
                         <!-- BEGIN PAGE BREADCRUMBS -->
                         <ul class="page-breadcrumb breadcrumb">
@@ -254,6 +255,6 @@
 @endsection
 
 @section('style')
-<script src="{{asset('../assets/global/plugins/jquery-ui/jquery-ui.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('../assets/pages/scripts/ui-modals.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/jquery-ui/jquery-ui.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/ui-modals.min.js')}}" type="text/javascript"></script>
 @endsection

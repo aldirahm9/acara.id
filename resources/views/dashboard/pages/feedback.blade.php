@@ -65,21 +65,21 @@
 @endsection
 
 @section('style')
-<link href="{{asset('../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('script')
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="{{asset('../../assets/global/scripts/datatable.js')}}" type="text/javascript"></script>
-<script src="{{asset('../../assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('../../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}"
+<script src="{{asset('assets/global/scripts/datatable.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}"
     type="text/javascript"></script>
-<script src="{{asset('../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"
+<script src="{{asset('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"
     type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
-<script src="{{asset('../../assets/pages/scripts/table-datatables-buttons.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/table-datatables-buttons.min.js')}}" type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="{{asset('assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js')}}" type="text/javascript"></script>
