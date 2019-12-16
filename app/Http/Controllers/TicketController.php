@@ -6,6 +6,7 @@ use App\Ticket;
 use Illuminate\Http\Request;
 use App\Event;
 use App\User;
+use App\EventFeedback;
 use Hashids;
 use Auth;
 use Log;
@@ -208,6 +209,7 @@ public function mytickets()
         $pivotId = Hashids::connection('ticketuser')->decode($ticketuser)[0];
         Auth::user()->tickets()->wherePivot('id',$pivotId)->first()->pivot->update([
             'feedback' => $request->feedback
+            // 'rating' =>$request ->rating
         ]);
         return redirect('mytickets');
     }

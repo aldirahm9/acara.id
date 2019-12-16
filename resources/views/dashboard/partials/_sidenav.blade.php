@@ -105,7 +105,7 @@
                     </a>
                 </li>
             </ul> --}}
-        </li> --}}
+        </li>
 
         @if(request()->routeIs('dashboard.event*') && !request()->routeIs('dashboard.event.create'))
 
@@ -118,6 +118,28 @@
                 <span class="title">Ticket</span>
             </a>
         </li>
+
+        <li class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-tasks"></i>
+                    <span class="title ">Backlog</span>
+                     <span class="arrow{{-- {{request()->routeIs('dashboard.backlog*') ? 'open' : ''}} --}}"></span>
+                </a>
+
+                <ul class="sub-menu"{{-- {{request()->routeIs('dashboard.backlog*') ? 'style=display:block;' : ''}}--}}>
+                    {{-- TODO: pisahin event yang udah finished sama belom --}}
+                    {{-- @foreach(Auth::user()->organizer->events->where('finished',0) as $event) --}}
+
+                    <li class="nav-item{{-- {{ (request()->is('dashboard/event/create')) ? 'active' : '' }} --}}">
+                        <a href="{{--{{route('dashboard.event.create')}}--}}" class="nav-link ">
+                            <i class="fa fa-plus"></i><span class="title">New Jobdesk</span>
+                        </a>
+                    </li>
+                </ul>
+        </li>
+
+
+
         <li class="nav-item {{ request()->routeIs('dashboard.event.attendee*') ? 'active' : '' }} ">
             <a href="{{route('dashboard.event.attendee.index', ['event' => Hashids::connection(\App\Event::class)->encode($event->id)])}}" class="nav-link nav-toggle">
                 <i class="icon-user"></i>
