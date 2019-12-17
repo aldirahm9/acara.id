@@ -66,6 +66,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('dashboard/event/{event}/attendee/checkin', 'TicketController@postCheckin')->name('dashboard.event.checkin.post');
         Route::get('dashboard/event/{event}/checkin', 'TicketController@indexCheckin')->name('dashboard.event.checkin.index');
         Route::get('dashboard/event/{event}/feedback', 'TicketController@indexFeedback')->name('dashboard.event.feedback.index');
+
+        Route::get('dashboard/event/{event}/div/division', 'DivisionController@show')->name('dashboard.event.division.show');
     });
 
 

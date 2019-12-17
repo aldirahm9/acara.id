@@ -155,31 +155,28 @@
         </li>
 
         <li class="nav-item {{ request()->routeIs('dashboard.event.feedback*') ? 'active' : '' }} ">
+            
             <a href="{{route('dashboard.event.feedback.index', ['event' => Hashids::connection(\App\Event::class)->encode($event->id)])}}" class="nav-link nav-toggle">
                 <i class="icon-check"></i>
                 <span class="title">Feedback</span>
             </a>
         </li>
 
-        {{-- <li class="nav-item  ">
+        <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-settings"></i>
-                <span class="title">Setting</span>
+                <span class="title">Division</span>
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
 
                 <li class="nav-item  ">
-                    <a href="form_fileupload.html" class="nav-link ">
-                        <span class="title">Multiple File Upload</span>
+                    <a href="{{route('dashboard.event.division.show', ['event' => Hashids::connection(\App\Event::class)->encode($event->id)])}}" class="nav-link ">
+                        <span class="title">Sie Acara</span>
                     </a>
                 </li>
-                <li class="nav-item  ">
-                    <a href="form_dropzone.html" class="nav-link ">
-                        <span class="title">Dropzone File Upload</span>
-                    </a>
-                </li>
-            </ul> --}}
+
+            </ul>
         </li>
         @endif
         @endif
