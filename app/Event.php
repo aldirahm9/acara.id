@@ -9,6 +9,8 @@ class Event extends Model
 {
     use Hashidable;
 
+
+    //TES WEBHOOK
     protected $fillable = [
         'name', 'location', 'image', 'date', 'description', 'timeStart', 'timeEnd', 'organizer_id', 'feature_id','approved'
     ];
