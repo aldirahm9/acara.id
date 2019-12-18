@@ -72,6 +72,20 @@
             <button type="submit" id="register-submit-btn" class="btn green pull-right"> Sign Up </button>
         </div>
     </form>
+
+    <div>
+        <p> Already have an account?&nbsp;
+            <a href="/login" id="register-btn"> Login here </a>
+        </p>
+    </div>
+    <div class="login-options">
+        <h4>Or login with</h4>
+        <ul class="social-icons">
+            <li>
+                <a class="googleplus" data-original-title="Goole Plus" href="redirect"> </a>
+            </li>
+        </ul>
+    </div>
     <!-- END LOGIN FORM -->
 </div>
 @endsection
