@@ -1,113 +1,109 @@
-@extends('attendee/partials/app')
-
-@section('title')
-| Create Organization
-@endsection
+@extends('dashboard/app')
 
 @section('style')
-<link href="{{asset('assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/pages/css/profile-2.min.css')}}" rel="stylesheet" type="text/css" />type="text/css" />
+@endsection
+
+@section('title')
+| BINER
 @endsection
 
 @section('content')
-<div class="page-wrapper-row full-height">
-    <div class="page-wrapper-middle">
-        <!-- BEGIN CONTAINER -->
-        <div class="page-container">
-            <!-- BEGIN CONTENT -->
-            <div class="page-content-wrapper">
-                <!-- BEGIN CONTENT BODY -->
-                <!-- BEGIN PAGE HEAD-->
-                <div class="page-head">
-                    <div class="container">
-                        <!-- BEGIN PAGE TITLE -->
-                        <div class="page-title">
-                            <h1>Organization
-                            </h1>
-                        </div>
-                        <!-- END PAGE TITLE -->
-                    </div>
-                </div>
-                <!-- END PAGE HEAD-->
-                <!-- BEGIN PAGE CONTENT BODY -->
-                <div class="page-content">
-                    <div class="container">
-                        <!-- BEGIN PAGE BREADCRUMBS -->
-                        <ul class="page-breadcrumb breadcrumb">
-                            <li>
-                                <a href="index-2.html">Home</a>
-                                <i class="fa fa-circle"></i>
-                            </li>
-                            <li>
-                                <a href="#">Organization Dashboard</a>
-                                <i class="fa fa-circle"></i>
-                            </li>
-                            <li>
-                                <span>Create Organization</span>
-                            </li>
-                        </ul>
-                <!-- END PAGE BREADCRUMBS -->
-                        <div class="col-md-12">
-                            <!-- BEGIN EXTRAS PORTLET-->
-                            <div class="portlet light form-fit ">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-settings font-dark"></i>
-                                        <span class="caption-subject font-dark sbold uppercase">Create New Organization</span>
-                                    </div>
-                                </div>
-                                <div class="portlet-body form">
-                                    <!-- BEGIN FORM-->
-                                    <form method="POST" action="{{route('organizer.store')}}" enctype="multipart/form-data" class="form-horizontal form-bordered">
-                                        @csrf
-                                        <div class="form-body">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-2">Name</label>
-                                                <div class="col-md-10">
-                                                    <textarea class="wysihtml5 form-control" rows="1" type="text" name="name" id="name"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group last">
-                                                <label class="control-label col-md-2">Description</label>
-                                                <div class="col-md-10">
-                                                    <textarea name="content" name="description" id="description" data-provide="markdown" rows="10"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-2">Image</label>
-                                                <div class="col-md-10">
-                                                    <input type="file" name="picture" id="picture">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-actions">
-                                            <div class="row">
-                                                <div class="col-md-offset-2 col-md-10">
-                                                    <button type="submit" class="btn red">
-                                                        <i class="fa fa-check"></i> Submit</button>
-                                                    <button type="button" class="btn grey-salsa btn-outline">Cancel</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <!-- END FORM-->
-                                </div>
+<div class="page-content-wrapper">
+    <!-- BEGIN CONTENT BODY -->
+<div class="page-content">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="col-md-6">
+            <h1 style="color:steelblue"><strong>Event Profile</strong></h1>
+        </div>
+        <div class="col-md-6" style="text-align:right">
+            <br>
+        <a href="" class="btn blue">Edit</a>
+        {{-- <a href="{{route('dashboard.event.edit',['event' => Hashids::connection(\App\Event::class)->encode($event->id)])}}" class="btn btn-large btn-info"><strong>Edit</strong></a> --}}
+        {{-- <a href="javascript:;" onclick="event.preventDefault();$('#finishForm').submit()"class="btn btn-large btn-warning"><strong>Finish</strong></a>
+        {!! Form::open(['route'=> ['dashboard.event.finish','event'=>Hashids::connection(\App\Event::class)->encode($event->id)],'method'=>'POST','id'=>'finishForm','style'=>'display:none']) !!}
+        {!! Form::close() !!} --}}
+
+        <a href="" class="btn red">Delete</a>
+
+        {{-- <a href="javascript:;" onclick="event.preventDefault();$('#removeForm').submit()"class="btn btn-large btn-danger"><strong>Delete</strong></a>
+        {!! Form::open(['route'=> ['dashboard.event.remove','event'=>Hashids::connection(\App\Event::class)->encode($event->id)],'method'=>'POST','id'=>'removeForm','style'=>'display:none']) !!}
+        {!! Form::close() !!} --}}
+        </div><br><br><br>
+
+        <div class="page-title"></div>
+        <!-- END PAGE TITLE-->
+        <!-- END PAGE HEADER-->
+        <div class="profile">
+            <div class="tabbable-line tabbable-full-width">
+                <div class="tab-content">
+                    <div class="tab-pane active">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="list-unstyled profile-nav">
+                                    <li>
+                                        <img src="{{asset('storage/upload/' . $event->image)}}" class="img-responsive pic-bordered" alt="" />
+                                    </li>
+                                </ul>
                             </div>
-                            <!-- END EXTRAS PORTLET-->
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col-md-8 profile-info">
+                                        <h1 class="font-green sbold uppercase">{{$event->name}}</h1>
+                                        @markdown{{$event->description}}@endmarkdown
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <i class="fa fa-map-marker"></i>{{$event->location}}</li>
+                                            <li>
+                                                <i
+                                                    class="fa fa-calendar"></i>{{DateTime::createFromFormat('Y-m-d', $event->date)->format('d-m-Y')}}
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-clock-o"></i>{{
+                                                DateTime::createFromFormat('H:i:s', $event->timeStart)->format('H:i')
+                                                }}
+                                                {{$event->timeEnd != null ? ' - ' . DateTime::createFromFormat('H:i:s', $event->timeEnd)->format('H:i') : ''}}
+                                            </li>
+                                            @foreach ($event->paymentMethods as $method)
+                                            <li>
+                                                <i class="fa fa-credit-card"></i> {{$method->bank}}
+                                                {{$method->bankAccountNumber}} a/n {{$method->bankAccountName}}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                        <!--end col-md-8-->
+                                        <div class="col-md-4">
+                                        <div class="portlet sale-summary">
+                                            <div class="portlet-title">
+                                                <div class="caption font-navy sbold"> Status &nbsp;
+                                                    <span class="label label-whote">Published</span>
+                                                        <span class="label label-success">Published</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="portlet-body">
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <span> Unpublish this event
+                                                        </span>&nbsp;
+                                                        <a href="" class="btn red">Hide</a>
+                                                    </li>
+                                                    <li>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end col-md-4-->
+                                </div>
+                                <!--end row-->
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- END PAGE CONTENT INNER -->
             </div>
         </div>
-        <!-- END PAGE CONTENT BODY -->
-        <!-- END CONTENT BODY -->
     </div>
 </div>
-
-@endsection
-
-@section('script')
-<script src="{{asset('assets/global/plugins/bootstrap-markdown/lib/markdown.js')}}" type="text/javascript"></script>
-<script src="{{asset('assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript"></script>
-<script src="{{asset('assets/pages/scripts/components-editors.min.js')}}" type="text/javascript"></script>
+<!-- END CONTENT BODY -->
 @endsection

@@ -33,14 +33,14 @@
                             @foreach($event as $event)
                                 <div class="col-lg-3 col-md-6">
                                     <div class="portlet light">
-                                        <div>
-                                        <img src="{{asset('/storage/upload/'.$event->image)}}" alt="" class="img-responsive" /> </div>
+                                        <div style="text-align:center">
+                                        <img src="{{asset('/storage/upload/'.$event->image)}}" alt="" height="210" width="180" /> </div>
                                         <div class="title">
                                             <br>
                                             <span> {{$event->name}} </span>
-                                        </div>
-                                        <div class="desc">
-                                            <span> {{$event->description}}...... </span>
+                                        </div><br>
+                                        <div class="desc1">
+                                            <span> {{$event->description}}</span>
                                         </div>
                                     <div style="text-align:center"><a href="{{route('attendee.event.show',['event'=> Hashids::connection(\App\Event::class)->encode($event->id)])}}"><strong>See More</strong></a></div>
                                     </div>

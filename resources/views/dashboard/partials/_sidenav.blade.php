@@ -155,16 +155,16 @@
         </li>
 
         <li class="nav-item {{ request()->routeIs('dashboard.event.feedback*') ? 'active' : '' }} ">
-            
+
             <a href="{{route('dashboard.event.feedback.index', ['event' => Hashids::connection(\App\Event::class)->encode($event->id)])}}" class="nav-link nav-toggle">
-                <i class="icon-check"></i>
+                <i class="fa fa-thumbs-o-up"></i>
                 <span class="title">Feedback</span>
             </a>
         </li>
 
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-settings"></i>
+                <i class="fa fa-group"></i>
                 <span class="title">Division</span>
                 <span class="arrow"></span>
             </a>
