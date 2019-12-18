@@ -68,7 +68,7 @@
         </div>
         <br>
         <div class="form-actions">
-            <button id="register-back-btn" type="button" class="btn grey-salsa btn-outline"> Back </button>
+            <button id="register-back-btn" href="{{ url()->previous() }}" type="button" class="btn grey-salsa btn-outline"> Back </button>
             <button type="submit" id="register-submit-btn" class="btn green pull-right"> Sign Up </button>
         </div>
     </form>

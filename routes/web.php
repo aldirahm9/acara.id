@@ -99,31 +99,21 @@ Route::get('/event', 'AttendeePagesController@event')->name('attendee.event');
 
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
 Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
+Route::post('/register_google', 'Auth\LoginController@registerGoogle')->name('register.google');
 
-Route::get('/satu', function () {
-    return view('satu');
-});
 
 Route::get('/', 'HomeController@show');
 
-Route::get('/howit', function () {
-    return view('attendee/pages/howit');
-});
+Route::get('/howit', 'RouteController@howit');
 
 
-Route::get('/contact', function () {
-    return view('attendee/pages/contact');
-});
+Route::get('/contact', 'RouteController@contact');
 
 
 Auth::routes();
 
-Route::get('/404', function() {
-    return view('404');
-});
+Route::get('/404', 'RouteController@err404');
 
-Route::get('/500', function() {
-    return view('500');
-});
+Route::get('/500', 'RouteController@err500');
 
 // Route::get('/home', 'HomeController@index')->name('home');
