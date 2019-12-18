@@ -119,25 +119,6 @@
             </a>
         </li>
 
-        <li class="nav-item">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="fa fa-tasks"></i>
-                    <span class="title ">Backlog</span>
-                     <span class="arrow{{-- {{request()->routeIs('dashboard.backlog*') ? 'open' : ''}} --}}"></span>
-                </a>
-
-                <ul class="sub-menu"{{-- {{request()->routeIs('dashboard.backlog*') ? 'style=display:block;' : ''}}--}}>
-                    {{-- TODO: pisahin event yang udah finished sama belom --}}
-                    {{-- @foreach(Auth::user()->organizer->events->where('finished',0) as $event) --}}
-
-                    <li class="nav-item{{-- {{ (request()->is('dashboard/event/create')) ? 'active' : '' }} --}}">
-                        <a href="{{--{{route('dashboard.event.create')}}--}}" class="nav-link ">
-                            <i class="fa fa-plus"></i><span class="title">New Jobdesk</span>
-                        </a>
-                    </li>
-                </ul>
-        </li>
-
 
 
         <li class="nav-item {{ request()->routeIs('dashboard.event.attendee*') ? 'active' : '' }} ">
@@ -162,7 +143,7 @@
             </a>
         </li>
 
-        <li class="nav-item  ">
+        <li class="nav-item  {{ request()->routeIs('dashboard.event.division*') ? 'active' : '' }}">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="fa fa-group"></i>
                 <span class="title">Division</span>
@@ -170,7 +151,7 @@
             </a>
             <ul class="sub-menu">
 
-                <li class="nav-item  ">
+                <li class="nav-item {{ (request()->is('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($event->id) . '/div/*')) ? 'active' : '' }}" >
                     <a href="{{route('dashboard.event.division.show', ['event' => Hashids::connection(\App\Event::class)->encode($event->id)])}}" class="nav-link ">
                         <span class="title">Sie Acara</span>
                     </a>

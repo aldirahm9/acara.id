@@ -12,7 +12,12 @@
 */
 
 
+Route::get('mailable', function () {
+    $ticket = App\Ticket::find(2);
+    $user = App\User::find(5);
 
+    return new App\Mail\TicketMail($ticket,$user);
+});
 
 
 Route::group(['middleware' => ['auth']], function () {
