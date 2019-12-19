@@ -99,15 +99,15 @@ public function mytickets()
         return redirect('dashboard/event/'.Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/ticket');
     }
 
-    public function approveAttendee(Event $event,$ticketuser)
+    public function approveAttendee(Event $event,$ticketuserid)
     {
         foreach($event->tickets as $ticket) {
-            if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first() != null) {
-                $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first()->pivot
-                ->update(['approved'=>1]);
+            if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuserid)[0])->first() != null) {
+                $ticketuser = $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuserid)[0])->first();
+                $ticketuser->pivot->update(['approved'=>1]);
                 // Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
-                $user = $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first();
-                Mail::to('aldi.rahmansyah99@gmail.com')->send(new TicketMail($ticket,$user));
+                $user = $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuserid)[0])->first();
+                Mail::to($user)->queue(new TicketMail($ticket,$user,$ticket->pivot->id);
 
             }
         }
@@ -209,9 +209,15 @@ public function mytickets()
 
     public function bookTicket(Ticket $ticket)
     {
-        if($ticket->limit != null && $ticket->limit == $ticket->users->count()) return back();
+        if($ticket->limit != null && $ticket->limit == $ticket->users->count()) {
+            return back();
+        }
         $user = Auth::user();
-        $user->tickets()->attach($ticket->id);
+        if($ticket->price == 0 ) {
+            $user->tickets()->attach($ticket->id,['approved'=>1]);
+        }else {
+            $user->tickets()->attach($ticket->id);
+        }
         return redirect('mytickets');
     }
 

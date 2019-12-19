@@ -143,6 +143,7 @@
             <h4 class="modal-title"><strong>Select Ticket</strong></h4>
         </div>
             <div class="modal-body">
+                <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible1="1">
             @foreach($event->tickets->where('onsale',1) as $ticket)
             <div class="row" style="text-align:center">
                 <div class="col-md-4">
@@ -163,6 +164,7 @@
                 </div>
             </div><br>
             @endforeach
+                </div>
         </div>
         <div class="modal-footer">
             <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>

@@ -40,7 +40,7 @@
                                             <span> {{$event->name}} </span>
                                         </div><br>
                                         <div class="desc1">
-                                            <span> {{$event->description}}</span>
+                                            @markdown{{$event->description}}@endmarkdown
                                         </div>
                                     <div style="text-align:center"><a href="{{route('attendee.event.show',['event'=> Hashids::connection(\App\Event::class)->encode($event->id)])}}"><strong>See More</strong></a></div>
                                     </div>
