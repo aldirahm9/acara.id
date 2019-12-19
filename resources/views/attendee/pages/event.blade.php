@@ -51,15 +51,15 @@
                                                     <div class="blog-post-sm bordered blog-container">
                                                         <div style="text-align:center; background-color:white">
                                                             <a href="javascript:;">
-                                                            <img src="{{asset('storage/upload/'.$event->image)}}" width="250" height="300"/>
+                                                            <img src="{{asset('storage/upload/'.$event->image)}}" width="200" height="300" style="padding:10px"/>
                                                             </a>
                                                         </div>
                                                         <div class="blog-post-content">
-                                                            <h2 class="blog-title blog-post-title">
+                                                            <h2 class="blog-title blog-post-title" style="text-align:center">
                                                                 <a href="javascript:;">{{$event->name}}</a>
                                                             </h2>
-                                                            <div class="blog-post-desc">
-                                                                @markdown{{$event->description}}@endmarkdown
+                                                            <div class="blog-post-desc1">
+                                                                {{$event->description}}
                                                             </div>
                                                             <div class="blog-post-foot">
                                                                 <div class="blog-post-meta">
