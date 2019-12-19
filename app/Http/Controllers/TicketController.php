@@ -6,10 +6,13 @@ use App\Ticket;
 use Illuminate\Http\Request;
 use App\Event;
 use App\User;
+use App\EventFeedback;
+use App\Mail\TicketMail;
 use Hashids;
 use Auth;
 use Log;
 use DateTime;
+use Illuminate\Support\Facades\Mail;
 use Session;
 
 class TicketController extends Controller
@@ -103,6 +106,8 @@ public function mytickets()
                 $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first()->pivot
                 ->update(['approved'=>1]);
                 // Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
+                $user = $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first();
+                Mail::to('aldi.rahmansyah99@gmail.com')->send(new TicketMail($ticket,$user));
 
             }
         }
@@ -157,10 +162,17 @@ public function mytickets()
         $checkedin = false;
         foreach($event->tickets as $ticket) {
             if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first() != null) {
-                $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->pivot
-                ->update(['checkin'=>1,'updated_at' => DateTime::createFromFormat('Y-m-d H:i:s', \Carbon\Carbon::now('Asia/Bangkok'))->format('Y-m-d H:i:s')]);
-                Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
-                $checkedin = true;
+                if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->pivot->checkin == 1) {
+                    $checkedin = true;
+                    Session::flash('success','Checkin sudah dilakukan ' . $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
+
+                }else {
+
+                    $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->pivot
+                    ->update(['checkin'=>1,'updated_at' => DateTime::createFromFormat('Y-m-d H:i:s', \Carbon\Carbon::now('Asia/Bangkok'))->format('Y-m-d H:i:s')]);
+                    Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
+                    $checkedin = true;
+                }
             }
         }
         if($checkedin == false) {
@@ -208,6 +220,7 @@ public function mytickets()
         $pivotId = Hashids::connection('ticketuser')->decode($ticketuser)[0];
         Auth::user()->tickets()->wherePivot('id',$pivotId)->first()->pivot->update([
             'feedback' => $request->feedback
+            // 'rating' =>$request ->rating
         ]);
         return redirect('mytickets');
     }

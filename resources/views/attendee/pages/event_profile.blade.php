@@ -57,7 +57,7 @@
                                                     <div class="col-md-3">
                                                         <ul class="list-unstyled profile-nav">
                                                             <li>
-                                                                <img src="{{asset('storage/upload/'.$event->image)}}" class="img-responsive pic-bordered" alt="" />
+                                                                <img src="{{asset('storage/upload/'.$event->image)}}" class="img-responsive pic-bordered" alt="" height=""/>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -65,21 +65,19 @@
                                                         <div class="row">
                                                             <div class="col-md-8 profile-info">
                                                                 <h1 class="font-green sbold uppercase" style="text-align:center">{{$event->name}}</h1>
-                                                                @markdown{{$event->description}}@endmarkdown
-                                                                <ul class="list-inline">
-                                                                    <li>
-                                                                        <i class="fa fa-map-marker"></i> {{$event->location}} </li>
-                                                                    <li>
-                                                                        <i class="fa fa-calendar"></i> {{DateTime::createFromFormat('Y-m-d',$event->date)->format('l, d F Y')}} </li>
+                                                               <p> @markdown{{$event->description}}@endmarkdown</p>
+                                                                    <a>
+                                                                        <i class="fa fa-map-marker"></i> {{$event->location}} </a><br><br>
+                                                                    <a>
+                                                                        <i class="fa fa-calendar"></i> {{DateTime::createFromFormat('Y-m-d',$event->date)->format('l, d F Y')}} </a><br><br>
                                                                         @if($event->tickets->first() !=null)
-                                                                    <li>
+                                                                    <a>
                                                                         @if($event->tickets->count() >1)
-                                                                        <i class="fa fa-money"></i> Rp {{number_format($event->tickets->sortBy('price')->first()->price,2,',','.')}} - Rp {{number_format($event->tickets->sortBy('price')->last()->price,2,',','.')}} </li>
+                                                                        <i class="fa fa-money"></i> Rp {{number_format($event->tickets->sortBy('price')->first()->price,2,',','.')}} - Rp {{number_format($event->tickets->sortBy('price')->last()->price,2,',','.')}} </a><br><br>
                                                                         @else
-                                                                        <i class="fa fa-money"></i> Rp {{number_format($event->tickets->first()->price,2,',','.')}} </li>
+                                                                        <i class="fa fa-money"></i> Rp {{number_format($event->tickets->first()->price,2,',','.')}} </a><br><br>
                                                                         @endif
                                                                         @endif
-                                                                </ul>
                                                                 <div style="text-align:center">
                                                                         @if($event->tickets->first() !=null)
                                                                 <a class="btn btn-md btn-success" data-target="#buy" data-toggle="modal"><i class="icon-plus"></i>&nbsp;Book Ticket</a></div>

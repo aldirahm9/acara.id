@@ -106,7 +106,7 @@
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<!-- Logo -->
 								<tr>
-									<td bgcolor="#ffffff" class="p30-15 img-center" style="padding: 30px; border-radius: 20px 20px 0px 0px; font-size:0pt; line-height:0pt; text-align:center;"><a href="#" target="_blank"><img src="img/logo.png" width="146" editable="true" border="0" alt="" /></a></td>
+									<td bgcolor="#ffffff" class="p30-15 img-center" style="padding: 30px; border-radius: 20px 20px 0px 0px; font-size:0pt; line-height:0pt; text-align:center;"><a href="#" target="_blank"><img src="{{$message->embed(asset('/img/logo.png'))}}" width="146" editable="true" border="0" alt="" /></a></td>
 								</tr>
 								<!-- END Logo -->
 								<!-- Nav -->
@@ -147,7 +147,7 @@
 											<td>
 												<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#dde8fd">
 													<tr>
-														<td class="fluid-img"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="images/free_white_blue.jpg" width="650" height="162" editable="true" border="0" alt="" /></td>
+														<td class="fluid-img"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="{{$message->embed(asset('/images/free_white_blue.jpg'))}}" width="650" height="162" editable="true" border="0" alt="" /></td>
 													</tr>
 													<tr>
 														<td class="p0-15" style="padding: 0px 30px;">
@@ -201,7 +201,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="fluid-img"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="images/free_blue_white.jpg" width="650" height="160" editable="true" border="0" alt="" /></td>
+											<td class="fluid-img"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="{{$message->embed(asset('/images/free_blue_white.jpg'))}}" width="650" height="160" editable="true" border="0" alt="" /></td>
 										</tr>
 									</table>
 								</layout>
@@ -223,7 +223,7 @@
 																				<th class="column" width="80"style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
 																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																						<tr>
-																							<td class="img" valign="top" width="80"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="img/qr.png" width="140" editable="true" border="0" alt="" /></td>
+																							<td class="img" valign="top" width="80"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="{{$message->embed(asset('/img/qr.png'))}}" width="140" editable="true" border="0" alt="" /></td>
 																						</tr>
 																					</table>
 																				</th>
@@ -275,9 +275,9 @@
 												<td class="m-padder2 pb30" align="center"style="padding-bottom:30px;">
 													<table class="center" border="0" cellspacing="0" cellpadding="0"style="text-align:center;">
 														<tr>
-															<td class="img" width="40"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/ico4_gplus.png" width="26" height="26" editable="true" border="0" alt="" /></a></td>
-															<td class="img" width="40"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/ico4_instagram.png" width="26" height="26" editable="true" border="0" alt="" /></a></td>
-															<td class="img" width="26"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/ico4_rss.png" width="26" height="26" editable="true" border="0" alt="" /></a></td>
+															<td class="img" width="40"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{$message->embed(asset('/images/ico4_gplus.png'))}}" width="26" height="26" editable="true" border="0" alt="" /></a></td>
+															<td class="img" width="40"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{$message->embed(asset('/images/ico4_instagram.png'))}}" width="26" height="26" editable="true" border="0" alt="" /></a></td>
+															<td class="img" width="26"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{$message->embed(asset('/images/ico4_rss.png'))}}" width="26" height="26" editable="true" border="0" alt="" /></a></td>
 														</tr>
 													</table>
 												</td>

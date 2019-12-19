@@ -44,7 +44,25 @@
                     <span></span>
                 </label>
                 <button type="submit" class="btn green pull-right"> {{ __('Login') }}</button>
-                <a href="redirect" class="btn green pull-right"> Login with Google</a>
+                {{-- <a href="redirect" class="btn green pull-right"> Login with Google</a> --}}
+            </div>
+            <div class="login-options">
+                <h4>Or login with</h4>
+                <ul class="social-icons">
+                    <li>
+                        <a class="googleplus" data-original-title="Goole Plus" href="redirect"> </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="forget-password">
+                <h4>Forgot your password ?</h4>
+                <p> no worries, click
+                    <a href=" " id="forget-password"> here </a> to reset your password. </p>
+            </div>
+            <div class="create-account">
+                <p> Don't have an account yet ?&nbsp;
+                    <a href="/register" id="register-btn"> Create an account </a>
+                </p>
             </div>
         </form>
         <!-- END LOGIN FORM -->
