@@ -106,7 +106,7 @@
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<!-- Logo -->
 								<tr>
-									<td bgcolor="#ffffff" class="p30-15 img-center" style="padding: 30px; border-radius: 20px 20px 0px 0px; font-size:0pt; line-height:0pt; text-align:center;"><a href="#" target="_blank"><img src="{{$message->embed(asset('/img/logo.png'))}}" width="146" editable="true" border="0" alt="" /></a></td>
+									<td bgcolor="#ffffff" class="p30-15 img-center" style="padding: 30px; border-radius: 20px 20px 0px 0px; font-size:0pt; line-height:0pt; text-align:center;"><img src="{{$message->embed('http://localhost:8000/img/logo.png')}}" width="146" editable="true" border="0" alt="" /></td>
 								</tr>
 								<!-- END Logo -->
 								<!-- Nav -->
@@ -127,7 +127,7 @@
 											<td class="p30-15-0" style="padding: 25px 15px 0px;" bgcolor="#ffffff">
 												<table width="100%" border="0" cellspacing="0" cellpadding="0">
 													<tr>
-														<td class="h6-center"style="color:#000000; font-family:'Playfair Display', Times, 'Times New Roman', serif; font-size:32px; line-height:36px; text-align:center; padding-bottom:20px;"><multiline>Hallo, Aldi!</multiline></td>
+														<td class="h6-center"style="color:#000000; font-family:'Playfair Display', Times, 'Times New Roman', serif; font-size:32px; line-height:36px; text-align:center; padding-bottom:20px;"><multiline>Hallo, {{$user->name}}!</multiline></td>
 													</tr>
 													<tr>
 														<td class="text-center"style="color:#5d5c5c; font-family:'Raleway', Arial,sans-serif; font-size:13px; line-height:22px; text-align:center;"><multiline>Selamat! Pembayaran tiketmu sudah diterima.
@@ -147,13 +147,13 @@
 											<td>
 												<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#dde8fd">
 													<tr>
-														<td class="fluid-img"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="{{$message->embed(asset('/images/free_white_blue.jpg'))}}" width="650" height="162" editable="true" border="0" alt="" /></td>
+														<td class="fluid-img"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="{{$message->embed('http://localhost:8000/images/free_white_blue.jpg')}}" width="650" height="162" editable="true" border="0" alt="" /></td>
 													</tr>
 													<tr>
 														<td class="p0-15" style="padding: 0px 30px;">
 															<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																<tr>
-																	<td class="h2-center"style="color:#000000; font-family:'Playfair Display', Times, 'Times New Roman', serif; font-size:32px; line-height:36px; text-align:center; padding-bottom:10px;"><multiline>BINER</multiline></td>
+																	<td class="h2-center"style="color:#000000; font-family:'Playfair Display', Times, 'Times New Roman', serif; font-size:32px; line-height:36px; text-align:center; padding-bottom:10px;"><multiline>{{$ticket->event->name}}</multiline></td>
 																</tr>
 																<tr>
 																	<td class="pb40"style="padding-bottom:10px;">
@@ -165,13 +165,13 @@
 																							<th class="column-top" width="60"style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top;">
 																								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																									<tr>
-																										<td class="date"style="color:#000000; font-family:'Raleway', Arial,sans-serif; font-size:12px; line-height:16px; text-align:left; padding-bottom:6px;"><multiline>September</multiline></td>
+																										<td class="date"style="color:#000000; font-family:'Raleway', Arial,sans-serif; font-size:12px; line-height:16px; text-align:left; padding-bottom:6px;"><multiline>{{DateTime::createFromFormat('Y-m-d', $ticket->event->date)->format('F')}}</multiline></td>
 																									</tr>
 					 																				<tr>
-																										<td class="day"style="color:#1e52bd; font-family:'Raleway', Arial,sans-serif; font-size:40px; line-height:44px; text-align:left; font-weight:bold;"><multiline>17</multiline></td>
+																										<td class="day"style="color:#1e52bd; font-family:'Raleway', Arial,sans-serif; font-size:40px; line-height:44px; text-align:left; font-weight:bold;"><multiline>{{DateTime::createFromFormat('Y-m-d', $ticket->event->date)->format('d')}}</multiline></td>
                                                                                                     </tr>
                                                                                                     <tr>
-                                                                                                        <td class="date"style="color:#000000; font-family:'Raleway', Arial,sans-serif; font-size:12px; line-height:16px; text-align:left; padding-top:6px;"><multiline>2019</multiline></td>
+                                                                                                        <td class="date"style="color:#000000; font-family:'Raleway', Arial,sans-serif; font-size:12px; line-height:16px; text-align:left; padding-top:6px;"><multiline>{{DateTime::createFromFormat('Y-m-d', $ticket->event->date)->format('Y')}}</multiline></td>
                                                                                                     </tr>
 																								</table>
 																							</th>
@@ -179,10 +179,10 @@
 																							<th class="column-top"style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
 																								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																									<tr>
-																										<td class="h5-black black"style="font-family:'Raleway', Arial,sans-serif; font-size:14px; line-height:18px; text-align:left; padding-bottom:15px;font-weight:bold; color:#000000;"><multiline>08.00 s.d. 10.00</multiline></td>
+																										<td class="h5-black black"style="font-family:'Raleway', Arial,sans-serif; font-size:14px; line-height:18px; text-align:left; padding-bottom:15px;font-weight:bold; color:#000000;"><multiline>{{DateTime::createFromFormat('H:i:s', $ticket->event->timeStart)->format('H:i') . ' '}} {{$ticket->event->timeEnd != null ? ' - ' . DateTime::createFromFormat('H:i:s', $ticket->event->timeEnd)->format('H:i') : ''}}</multiline></td>
 																									</tr>
 																									<tr>
-																										<td class="text black"style="font-family:'Raleway', Arial,sans-serif; font-size:14px; line-height:22px; text-align:left; color:#000000;"><multiline>Gedung Dewi Sartika UNJ</multiline></td>
+																										<td class="text black"style="font-family:'Raleway', Arial,sans-serif; font-size:14px; line-height:22px; text-align:left; color:#000000;"><multiline>{{$ticket->event->location}}</multiline></td>
 																									</tr>
 																								</table>
 																							</th>
@@ -201,7 +201,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="fluid-img"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="{{$message->embed(asset('/images/free_blue_white.jpg'))}}" width="650" height="160" editable="true" border="0" alt="" /></td>
+											<td class="fluid-img img"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="{{$message->embed('http://localhost:8000/images/free_blue_white.jpg')}}" width="650" height="160" editable="true" border="0" alt="" /></td>
 										</tr>
 									</table>
 								</layout>
@@ -223,7 +223,7 @@
 																				<th class="column" width="80"style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
 																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																						<tr>
-																							<td class="img" valign="top" width="80"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="{{$message->embed(asset('/img/qr.png'))}}" width="140" editable="true" border="0" alt="" /></td>
+																							{{-- <td class="img" valign="top" width="80"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="{{$message->embed('http://localhost:8000/img/qr.png')}}" width="140" editable="true" border="0" alt="" /></td> --}}
 																						</tr>
 																					</table>
 																				</th>
@@ -275,9 +275,9 @@
 												<td class="m-padder2 pb30" align="center"style="padding-bottom:30px;">
 													<table class="center" border="0" cellspacing="0" cellpadding="0"style="text-align:center;">
 														<tr>
-															<td class="img" width="40"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{$message->embed(asset('/images/ico4_gplus.png'))}}" width="26" height="26" editable="true" border="0" alt="" /></a></td>
-															<td class="img" width="40"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{$message->embed(asset('/images/ico4_instagram.png'))}}" width="26" height="26" editable="true" border="0" alt="" /></a></td>
-															<td class="img" width="26"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{$message->embed(asset('/images/ico4_rss.png'))}}" width="26" height="26" editable="true" border="0" alt="" /></a></td>
+															<td class="img" width="40"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{$message->embed('http://localhost:8000/images/ico4_gplus.png')}}" width="26" height="26" editable="true" border="0" alt="" /></a></td>
+															<td class="img" width="40"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{$message->embed('http://localhost:8000/images/ico4_instagram.png')}}" width="26" height="26" editable="true" border="0" alt="" /></a></td>
+															<td class="img" width="26"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{$message->embed('http://localhost:8000/images/ico4_rss.png')}}" width="26" height="26" editable="true" border="0" alt="" /></a></td>
 														</tr>
 													</table>
 												</td>
