@@ -243,35 +243,35 @@
                                                                   <span>No rating</span>
                                                                 </label>
 
-                                                                <input type="radio" name="r_input" id="r_input_1">
+                                                                <input type="radio" name="r_input" id="r_input_1" value=1>
                                                                 <label for="r_input_1" class="r-radio">
                                                                   <svg aria-hidden="true" focusable="false">
                                                                     <use xlink:href="#star"/>
                                                                   </svg>
                                                                   <span>1 Star</span>
                                                                 </label>
-                                                                <input type="radio" name="r_input" id="r_input_1">
+                                                                <input type="radio" name="r_input" id="r_input_1" value=2>
                                                                 <label for="r_input_1" class="r-radio">
                                                                   <svg aria-hidden="true" focusable="false">
                                                                     <use xlink:href="#star"/>
                                                                   </svg>
                                                                   <span>2 Star</span>
                                                                 </label>
-                                                                <input type="radio" name="r_input" id="r_input_1">
+                                                                <input type="radio" name="r_input" id="r_input_1" value=3>
                                                                 <label for="r_input_1" class="r-radio">
                                                                   <svg aria-hidden="true" focusable="false">
                                                                     <use xlink:href="#star"/>
                                                                   </svg>
                                                                   <span>3 Star</span>
                                                                 </label>
-                                                                <input type="radio" name="r_input" id="r_input_1">
+                                                                <input type="radio" name="r_input" id="r_input_1" value=4>
                                                                 <label for="r_input_1" class="r-radio">
                                                                   <svg aria-hidden="true" focusable="false">
                                                                     <use xlink:href="#star"/>
                                                                   </svg>
                                                                   <span>4 Star</span>
                                                                 </label>
-                                                                <input type="radio" name="r_input" id="r_input_1">
+                                                                <input type="radio" name="r_input" id="r_input_1" value=5>
                                                                 <label for="r_input_1" class="r-radio">
                                                                   <svg aria-hidden="true" focusable="false">
                                                                     <use xlink:href="#star"/>

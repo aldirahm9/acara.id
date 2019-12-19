@@ -208,9 +208,11 @@ public function mytickets()
     {
         $pivotId = Hashids::connection('ticketuser')->decode($ticketuser)[0];
         Auth::user()->tickets()->wherePivot('id',$pivotId)->first()->pivot->update([
-            'feedback' => $request->feedback
-            // 'rating' =>$request ->rating
+            'feedback' => $request->feedback,
+            'rating' =>$request ->r_input
         ]);
+        // dd($pivotId);
+        Session::flash('success', 'Feedback anda sudah diterima');
         return redirect('mytickets');
     }
 
