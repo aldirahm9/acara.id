@@ -22,9 +22,9 @@ class DivisionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Event $event)
     {
-        //
+        return view('dashboard/pages/create_division', ['event'=>$event]);
     }
 
     /**

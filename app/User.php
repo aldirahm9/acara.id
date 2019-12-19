@@ -43,6 +43,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Ticket')->withPivot('approved','receipt','checkin','id','feedback','rating')->withTimestamps();
     }
 
+    public function divisions() {
+        return $this->belongsToMany('App\Division')->withTimestamps();
+    }
+
     public function organizer() {
         return $this->belongsTo('App\Organizer');
     }
