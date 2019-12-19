@@ -38,6 +38,7 @@
                             <th> No </th>
                             <th> Nama </th>
                             <th> Feedback </th>
+                            <th> Rating </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +49,9 @@
                             <td>{{ $i++ }}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->pivot->feedback}}</td>
+                            <td>@for ($x=0;$x<$user->pivot->rating;$x++)
+                                    *
+                            @endfor</td>
                         </tr>
                         @endforeach
                         @endforeach

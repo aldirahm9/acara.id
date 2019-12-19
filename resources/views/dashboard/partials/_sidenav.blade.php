@@ -156,8 +156,13 @@
                         <span class="title">Sie Acara</span>
                     </a>
                 </li>
-
+                <li class="nav-item {{ (request()->is('dashboard/event/{event}/creatediv' . Hashids::connection(\App\Event::class)->encode($event->id) . '/div/*')) ? 'active' : '' }} ">
+                        <a href="{{route('dashboard.event.division.create')}}" class="nav-link ">
+                            <i class="fa fa-plus"></i><span class="title">New Division</span>
+                        </a>
+                </li>
             </ul>
+
         </li>
         @endif
         @endif

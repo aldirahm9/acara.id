@@ -4,8 +4,8 @@
 <link href="{{asset('assets/pages/css/profile-2.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('assets/pages/css/profile.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('assets/pages/css/radio--rating.css')}}" rel="stylesheet"/>
-<link href="{{asset('assets/pages/css/--demo-only--.css')}}" rel="stylesheet"/>
-<link href="{{asset('assets/pages/css/--shared--.css')}}" rel="stylesheet"/>
+{{-- <link href="{{asset('assets/pages/css/--demo-only--.css')}}" rel="stylesheet"/>
+<link href="{{asset('assets/pages/css/--shared--.css')}}" rel="stylesheet"/> --}}
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none;">
     <symbol id="star"><g transform="scale(0.03125 0.03125)"><path d="M896 384l-313.5-40.781-134.5-279.219-134.531 279.219-313.469 40.781 230.469 208.875-59.469 303.063 277-148.812 277.062 148.812-59.562-303.063 230.5-208.875z" /></g></symbol>
     <symbol viewBox="0 0 18 18" id="no_rating"><g transform="scale(0.017578125 0.017578125)"><path d="M512 56.889c-251.362 0-455.111 203.749-455.111 455.111s203.749 455.111 455.111 455.111 455.111-203.749 455.111-455.111-203.749-455.111-455.111-455.111zM170.667 512c0-73.639 23.666-141.694 63.472-197.527l475.388 475.388c-55.833 39.806-123.888 63.472-197.527 63.472-188.222 0-341.333-153.111-341.333-341.333zM789.861 709.527l-475.388-475.388c55.833-39.806 123.888-63.472 197.527-63.472 188.222 0 341.333 153.111 341.333 341.333 0 73.639-23.666 141.694-63.472 197.527z" /></g></symbol>
@@ -229,49 +229,49 @@
                                                       <textarea name="feedback" class="form-control"cols="50" rows="5"></textarea>
                                                       <small id="helpId" class="text-muted">Only the latest feedback is saved.</small>
                                                     </div>
-                                                    {{-- <div class="form-group">
+                                                        <div class="form-group">
                                                         <fieldset class="r-radios">
                                                                 <legend>
                                                                   Rating
                                                                 </legend>
 
                                                                 <input type="radio" name="r_input" id="r_input_0" checked>
-                                                                <label for="r_input_0" class="r-radio r-radio--none">
+                                                                <label for="r_input_0" class="hidden">
                                                                   <svg aria-hidden="true" focusable="false">
                                                                     <use xlink:href="#no_rating"/>
                                                                   </svg>
                                                                   <span>No rating</span>
                                                                 </label>
 
-                                                                <input type="radio" name="r_input" id="r_input_1">
+                                                                <input type="radio" name="r_input" id="r_input_1" value=1>
                                                                 <label for="r_input_1" class="r-radio">
                                                                   <svg aria-hidden="true" focusable="false">
                                                                     <use xlink:href="#star"/>
                                                                   </svg>
                                                                   <span>1 Star</span>
                                                                 </label>
-                                                                <input type="radio" name="r_input" id="r_input_1">
+                                                                <input type="radio" name="r_input" id="r_input_1" value=2>
                                                                 <label for="r_input_1" class="r-radio">
                                                                   <svg aria-hidden="true" focusable="false">
                                                                     <use xlink:href="#star"/>
                                                                   </svg>
                                                                   <span>2 Star</span>
                                                                 </label>
-                                                                <input type="radio" name="r_input" id="r_input_1">
+                                                                <input type="radio" name="r_input" id="r_input_1" value=3>
                                                                 <label for="r_input_1" class="r-radio">
                                                                   <svg aria-hidden="true" focusable="false">
                                                                     <use xlink:href="#star"/>
                                                                   </svg>
                                                                   <span>3 Star</span>
                                                                 </label>
-                                                                <input type="radio" name="r_input" id="r_input_1">
+                                                                <input type="radio" name="r_input" id="r_input_1" value=4>
                                                                 <label for="r_input_1" class="r-radio">
                                                                   <svg aria-hidden="true" focusable="false">
                                                                     <use xlink:href="#star"/>
                                                                   </svg>
                                                                   <span>4 Star</span>
                                                                 </label>
-                                                                <input type="radio" name="r_input" id="r_input_1">
+                                                                <input type="radio" name="r_input" id="r_input_1" value=5>
                                                                 <label for="r_input_1" class="r-radio">
                                                                   <svg aria-hidden="true" focusable="false">
                                                                     <use xlink:href="#star"/>
@@ -281,7 +281,8 @@
 
                                                                 <!-- add more stars here! -->
                                                               </fieldset>
-                                                </div> --}}
+                                                    </div>
+                                                </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn dark btn-outline"
                                                         data-dismiss="modal">Close</button>

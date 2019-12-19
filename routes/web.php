@@ -68,6 +68,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/event/{event}/feedback', 'TicketController@indexFeedback')->name('dashboard.event.feedback.index');
 
         Route::get('dashboard/event/{event}/div/division', 'DivisionController@show')->name('dashboard.event.division.show');
+        Route::get('dashboard/event/{event}/creatediv', 'DivisionController@create')->name('dashboard.event.division.create');
     });
 
 
