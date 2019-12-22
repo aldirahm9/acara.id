@@ -112,4 +112,6 @@ Route::get('/404', 'RouteController@err404');
 
 Route::get('/500', 'RouteController@err500');
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/coba', function(){
+    return view('satu');
+});

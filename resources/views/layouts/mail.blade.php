@@ -17,9 +17,9 @@
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="x-apple-disable-message-reformatting" />
     <!--[if !mso]><!-->
-   	<link href="https://fonts.googleapis.com/css?family=Kreon:400,700|Playfair+Display:400,400i,700,700i|Raleway:400,400i,700,700i|Roboto:400,400i,700,700i" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet" />
     <!--<![endif]-->
-	<title>Email Template</title>
+	<title>Email</title>
 	<!--[if gte mso 9]>
 	<style type="text/css" media="all">
 		sup { font-size: 100% !important; }
@@ -29,47 +29,27 @@
 
 	<style type="text/css" media="screen">
 		/* Linked Styles */
-		body { padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#1e52bd; -webkit-text-size-adjust:none }
-		a { color:#000001; text-decoration:none }
+		body { padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#001736; -webkit-text-size-adjust:none }
+		a { color:#66c7ff; text-decoration:none }
 		p { padding:0 !important; margin:0 !important }
 		img { -ms-interpolation-mode: bicubic; /* Allow smoother rendering of resized image in Internet Explorer */ }
 		.mcnPreviewText { display: none !important; }
-		.text-footer2 a { color: #ffffff; }
+
 
 		/* Mobile styles */
 		@media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
 			.mobile-shell { width: 100% !important; min-width: 100% !important; }
 
+			.text-header,
 			.m-center { text-align: center !important; }
-			.m-left { text-align: left !important; margin-right: auto !important; }
 
 			.center { margin: 0 auto !important; }
-			.content2 { padding: 8px 15px 12px !important; }
-			.t-left { float: left !important; margin-right: 30px !important; }
-			.t-left-2  { float: left !important; }
+			.container { padding: 20px 10px !important }
 
 			.td { width: 100% !important; min-width: 100% !important; }
 
-			.content { padding: 30px 15px !important; }
-			.section { padding: 30px 15px 0px !important; }
-
 			.m-br-15 { height: 15px !important; }
-			.mpb5 { padding-bottom: 5px !important; }
-			.mpb15 { padding-bottom: 15px !important; }
-			.mpb20 { padding-bottom: 20px !important; }
-			.mpb30 { padding-bottom: 30px !important; }
-			.mp30 { padding-bottom: 30px !important; }
-			.m-padder { padding: 0px 15px !important; }
-			.m-padder2 { padding-left: 15px !important; padding-right: 15px !important; }
-			.p70 { padding: 30px 0px !important; }
-			.pt70 { padding-top: 30px !important; }
-			.p0-15 { padding: 0px 15px !important; }
 			.p30-15 { padding: 30px 15px !important; }
-			.p30-15-0 { padding: 30px 15px 0px 15px !important; }
-			.p0-15-30 { padding: 0px 15px 30px 15px !important; }
-
-
-			.text-footer { text-align: center !important; }
 
 			.m-td,
 			.m-hide { display: none !important; width: 0 !important; height: 0 !important; font-size: 0 !important; line-height: 0 !important; min-height: 0 !important; }
@@ -79,172 +59,62 @@
 			.fluid-img img { width: 100% !important; max-width: 100% !important; height: auto !important; }
 
 			.column,
-			.column-dir,
 			.column-top,
 			.column-empty,
-			.column-top-30,
-			.column-top-60,
 			.column-empty2,
-			.column-bottom { float: left !important; width: 100% !important; display: block !important; }
+			.column-dir-top { float: left !important; width: 100% !important; display: block !important; }
 
-			.column-empty { padding-bottom: 15px !important; }
+			.column-empty { padding-bottom: 10px !important; }
 			.column-empty2 { padding-bottom: 30px !important; }
 
 			.content-spacing { width: 15px !important; }
 		}
 	</style>
 </head>
-<body class="body"style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#1e52bd; -webkit-text-size-adjust:none;">
-	<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#1e52bd">
+<body class="body" style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#001736; -webkit-text-size-adjust:none;">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
 		<tr>
 			<td align="center" valign="top">
-				<!-- Main -->
 				<table width="650" border="0" cellspacing="0" cellpadding="0" class="mobile-shell">
 					<tr>
-						<td class="td" style="width:650px; min-width:650px; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
+						<td class="td container" style="width:650px; min-width:650px; font-size:0pt; line-height:0pt; margin:0; font-weight:normal; padding:55px 0px;">
 							<!-- Header -->
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<!-- Logo -->
 								<tr>
-									<td bgcolor="#ffffff" class="p30-15 img-center" style="padding: 30px; border-radius: 20px 20px 0px 0px; font-size:0pt; line-height:0pt; text-align:center;"><a href="#" target="_blank"><img src="img/logo.png" width="146" editable="true" border="0" alt="" /></a></td>
-								</tr>
-								<!-- END Logo -->
-								<!-- Nav -->
-								<tr>
-									<td class="text-nav-white" bgcolor="#1e52bd"style="color:#ffffff; font-family:'Roboto', Arial, sans-serif; font-size:12px; line-height:22px; text-align:center; text-transform:uppercase; padding:12px 0px;">
-										<multiline>
-										</multiline>
+									<td class="p30-15" style="padding: 0px 30px 30px 30px;">
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<th class="column-top" width="145" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top;">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td class="img m-center" style="font-size:0pt; line-height:0pt; text-align:left;"><img src="img/logo.png" width="131" editable="true" border="0" alt="" /></td>
+														</tr>
+													</table>
+												</th>
+											</tr>
+										</table>
 									</td>
 								</tr>
-								<!-- END Nav -->
 							</table>
-                            <!-- END Header -->
+							<!-- END Header -->
 
-								<!-- Section 1 -->
-								<layout label='Section 1'>
-									<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ebebeb">
-										<tr>
-											<td class="p30-15-0" style="padding: 25px 15px 0px;" bgcolor="#ffffff">
-												<table width="100%" border="0" cellspacing="0" cellpadding="0">
-													<tr>
-														<td class="h6-center"style="color:#000000; font-family:'Playfair Display', Times, 'Times New Roman', serif; font-size:32px; line-height:36px; text-align:center; padding-bottom:20px;"><multiline>Hallo, Aldi!</multiline></td>
-													</tr>
-													<tr>
-														<td class="text-center"style="color:#5d5c5c; font-family:'Raleway', Arial,sans-serif; font-size:13px; line-height:22px; text-align:center;"><multiline>Selamat! Pembayaran tiketmu sudah diterima.
-                                                            <br>Jangan lupa untuk datang pada acara</multiline></td>
-													</tr>
-												</table>
-											</td>
-										</tr>
-									</table>
-								</layout>
-								<!-- END Section 1 -->
-
-								<!-- Section 2 -->
-								<layout label='Section 2'>
+							<repeater>
+								<!-- Intro -->
+								<layout label='Intro'>
 									<table width="100%" border="0" cellspacing="0" cellpadding="0">
 										<tr>
-											<td>
-												<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#dde8fd">
-													<tr>
-														<td class="fluid-img"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="images/free_white_blue.jpg" width="650" height="162" editable="true" border="0" alt="" /></td>
-													</tr>
-													<tr>
-														<td class="p0-15" style="padding: 0px 30px;">
-															<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																<tr>
-																	<td class="h2-center"style="color:#000000; font-family:'Playfair Display', Times, 'Times New Roman', serif; font-size:32px; line-height:36px; text-align:center; padding-bottom:10px;"><multiline>BINER</multiline></td>
-																</tr>
-																<tr>
-																	<td class="pb40"style="padding-bottom:10px;">
-																		<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																			<tr>
-																				<td>
-																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																						<tr>
-																							<th class="column-top" width="60"style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top;">
-																								<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																									<tr>
-																										<td class="date"style="color:#000000; font-family:'Raleway', Arial,sans-serif; font-size:12px; line-height:16px; text-align:left; padding-bottom:6px;"><multiline>September</multiline></td>
-																									</tr>
-					 																				<tr>
-																										<td class="day"style="color:#1e52bd; font-family:'Raleway', Arial,sans-serif; font-size:40px; line-height:44px; text-align:left; font-weight:bold;"><multiline>17</multiline></td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td class="date"style="color:#000000; font-family:'Raleway', Arial,sans-serif; font-size:12px; line-height:16px; text-align:left; padding-top:6px;"><multiline>2019</multiline></td>
-                                                                                                    </tr>
-																								</table>
-																							</th>
-																							<th class="column-empty" width="10"style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; direction:ltr;"></th>
-																							<th class="column-top"style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
-																								<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																									<tr>
-																										<td class="h5-black black"style="font-family:'Raleway', Arial,sans-serif; font-size:14px; line-height:18px; text-align:left; padding-bottom:15px;font-weight:bold; color:#000000;"><multiline>08.00 s.d. 10.00</multiline></td>
-																									</tr>
-																									<tr>
-																										<td class="text black"style="font-family:'Raleway', Arial,sans-serif; font-size:14px; line-height:22px; text-align:left; color:#000000;"><multiline>Gedung Dewi Sartika UNJ</multiline></td>
-																									</tr>
-																								</table>
-																							</th>
-																							</th>
-																						</tr>
-																					</table>
-																				</td>
-																			</tr>
-																		</table>
-																	</td>
-																</tr>
-															</table>
-														</td>
-													</tr>
-												</table>
-											</td>
-										</tr>
-										<tr>
-											<td class="fluid-img"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="images/free_blue_white.jpg" width="650" height="160" editable="true" border="0" alt="" /></td>
-										</tr>
-									</table>
-								</layout>
-								<!-- END Section 2 -->
-
-								<!-- Section 3 -->
-								<layout label='Section 3'>
-									<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ebebeb">
-										<tr>
-											<td class="p0-15-30" style="padding: 0px 30px 10px 30px;" bgcolor="#ffffff">
+											<td style="padding-bottom: 10px;">
 												<table width="100%" border="0" cellspacing="0" cellpadding="0">
 													<tr>
-														<td class="pb30"style="padding-bottom:30px;">
+														<td class="tbrr p30-15" style="padding: 30px 30px; border-radius:26px 26px 0px 0px;" bgcolor="#EFF2F7">
 															<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																<tr>
-																	<td>
-																		<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																			<tr>
-																				<th class="column" width="80"style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
-																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																						<tr>
-																							<td class="img" valign="top" width="80"style="font-size:0pt; line-height:0pt; text-align:left;"><img src="img/qr.png" width="140" editable="true" border="0" alt="" /></td>
-																						</tr>
-																					</table>
-																				</th>
-																				<th class="column-empty" width="30"style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; direction:ltr;"></th>
-																				<th class="column"style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
-																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																						<tr>
-																							<td>
-																								<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																									<tr>
-																										<td class="h5-black black"style="font-family:'Raleway', Arial,sans-serif; font-size:14px; line-height:18px; text-align:left; font-weight:bold; color:#000000;"><multiline>Silahkan gunakan QR Code pada attachment untuk checkin pada saat event.
-                                                                                                        </multiline></td>
-																									</tr>
-																								</table>
-																							</td>
-																						</tr>
-																					</table>
-																				</th>
-																			</tr>
-																		</table>
-																	</td>
+																	<td class="h1 pb25" style="color:#034488
+                                                                    ; font-family:'Muli', Arial,sans-serif; font-size:25px; line-height:46px; text-align:center; padding-bottom:5px;"><multiline><strong>Hallo, @yield('username')</strong></multiline></td>
+																</tr>
+																<tr>
+																	<td class="text-center pb25" style="color:#034488
+                                                                    ; font-family:'Muli', Arial,sans-serif; font-size:16px; line-height:30px; text-align:center; padding-bottom:5px;"><multiline>Selamat! Pembayaran tiketmu sudah diterima<span class="m-hide"><br /></span>Jangan lupa datang pada acara</multiline></td>
 																</tr>
 															</table>
 														</td>
@@ -254,35 +124,90 @@
 										</tr>
 									</table>
 								</layout>
-								<!-- END Section 3 -->
+								<!-- END Intro -->
 
-								<!-- Blue Padder -->
-								<layout label='White Padder'>
-									<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#dde8fd">
+								<!-- Article / Full Width Image + Title + Copy + Button -->
+								<layout label='Article / Full Width Image + Title + Copy + Button'>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
 										<tr>
-											<td class="img mp30" style="padding-top: 50px; font-size:0pt; line-height:0pt; text-align:left;"><multiline></multiline></td>
+											<td style="padding-bottom: 10px;">
+												<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#EFF2F7">
+													<tr>
+														<td class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:center;"><img src="img/attendee.jpg" height="300" editable="true" border="0" alt="" /></td>
+													</tr>
+													<tr>
+														<td class="p30-15" style="padding: 30px 30px;">
+															<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td class="h3 pb20" style="color:#034488; font-family:'Muli', Arial,sans-serif; font-size:25px; line-height:32px; text-align:left; padding-bottom:10px;"><multiline><strong>@yield('event')</strong> </multiline></td>
+																</tr>
+																<tr>
+																	<td class="text pb20" style="color:#034488; font-family:Arial,sans-serif; font-size:16px; line-height:26px; text-align:left; padding-bottom:0px;"><multiline> &nbsp; <span><img src="{{$message->embed('http://localhost:8000/img/calendar.png')}}" width="18px" alt=""></span>
+                                                                        @yield('date') <br> &nbsp; <span><img width="18px" src="{{$message->embed('http://localhost:8000/img/clock.png')}}" alt=""></span>  @yield('time') <br> &nbsp; <span><img width="18px" src="{{$message->embed('http://localhost:8000/img/map.png')}}" alt=""></span> @yield('place') </multiline></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</td>
 										</tr>
 									</table>
 								</layout>
-								<!-- END Blue Padder -->
+								<!-- END Article / Full Width Image + Title + Copy + Button -->
+
+								<!-- Article / Image On The Left - Copy On The Right -->
+								<layout label='Article / Image On The Left - Copy On The Right'>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#EFF2F7">
+										<tr>
+											<td class="p30-15" style="padding: 10px 30px;">
+												<table width="100%" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<th class="column-top" width="280" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top;">
+															<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td class="h4 pb20" style="color:#034488; font-family:'Muli', Arial,sans-serif; font-size:16px; line-height:28px; text-align:center; padding-bottom:10px;"><multiline><strong>Silakan gunakan QR Code pada attachment untuk checkin pada saat event.</strong></multiline></td>
+																</tr>
+															</table>
+														</th>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</layout>
+								<!-- END Article / Image On The Left - Copy On The Right -->
+
+
+							</repeater>
 
 							<!-- Footer -->
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
-									<td class="p30-15-0" bgcolor="#ffffff" style="border-radius: 0px 0px 20px 20px; padding: 70px 30px 0px 30px;">
+									<td class="p30-15 bbrr" style="padding: 50px 30px; border-radius:0px 0px 26px 26px;" bgcolor="#0e264b">
 										<table width="100%" border="0" cellspacing="0" cellpadding="0">
-										 	<tr>
-												<td class="m-padder2 pb30" align="center"style="padding-bottom:30px;">
-													<table class="center" border="0" cellspacing="0" cellpadding="0"style="text-align:center;">
+											<tr>
+												<td align="center" style="padding-bottom: 30px;">
+													<table border="0" cellspacing="0" cellpadding="0">
 														<tr>
-															<td class="img" width="40"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/ico4_gplus.png" width="26" height="26" editable="true" border="0" alt="" /></a></td>
-															<td class="img" width="40"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/ico4_instagram.png" width="26" height="26" editable="true" border="0" alt="" /></a></td>
-															<td class="img" width="26"style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/ico4_rss.png" width="26" height="26" editable="true" border="0" alt="" /></a></td>
+															<td class="img" width="55" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/ico_facebook.jpg" width="38" height="38" editable="true" border="0" alt="" /></a></td>
+															<td class="img" width="55" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/ico_twitter.jpg" width="38" height="38" editable="true" border="0" alt="" /></a></td>
+															<td class="img" width="55" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/ico_instagram.jpg" width="38" height="38" editable="true" border="0" alt="" /></a></td>
 														</tr>
 													</table>
 												</td>
 											</tr>
+											<tr>
+												<td class="text-footer1 pb10" style="color:#c1cddc; font-family:'Muli', Arial,sans-serif; font-size:16px; line-height:20px; text-align:center; padding-bottom:10px;"><multiline>acara.id</multiline></td>
+											</tr>
+											{{-- <tr>
+												<td class="text-footer2" style="color:#8297b3; font-family:'Muli', Arial,sans-serif; font-size:12px; line-height:26px; text-align:center;"><multiline>East Pixel Bld. 99, Creative City 9000, <br />Republic of Design</multiline></td>
+											</tr> --}}
 										</table>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-footer3 p30-15" style="padding: 40px 30px 0px 30px; color:#475c77; font-family:'Muli', Arial,sans-serif; font-size:12px; line-height:18px; text-align:center;">
+										<unsubscribe class="link2-u" style="color:#475c77; text-decoration:underline;">Unsubscribe from this mailing list.</unsubscribe>
 									</td>
 								</tr>
 							</table>
@@ -290,8 +215,6 @@
 						</td>
 					</tr>
 				</table>
-				<!-- END Main -->
-
 			</td>
 		</tr>
 	</table>
