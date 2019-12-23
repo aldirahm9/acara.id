@@ -30,7 +30,7 @@ class RouteController extends Controller
         $ticket = Ticket::find(2);
         $user = User::find(5);
 
-        return new TicketMail($ticket,$user);
+        return new TicketMail($ticket,$user,3);
     }
 
 }

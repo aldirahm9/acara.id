@@ -34,15 +34,14 @@
                                 <div class="col-lg-3 col-md-6">
                                     <div class="portlet light">
                                         <div style="text-align:center">
-                                        <img src="{{asset('/storage/upload/'.$event->image)}}" alt="" height="210" width="180" /> </div>
+                                        <img src="{{asset('/storage/upload/'.$event->image)}}" alt="" height="210" width="180" onclick="window.location='{{route('attendee.event.show',['event'=> Hashids::connection(\App\Event::class)->encode($event->id)])}}'" style="cursor:pointer" /> </div>
                                         <div class="title">
                                             <br>
-                                            <span> {{$event->name}} </span>
+                                            <span onclick="window.location='{{route('attendee.event.show',['event'=> Hashids::connection(\App\Event::class)->encode($event->id)])}}'" style="cursor:pointer"> {{$event->name}} </a>
                                         </div><br>
-                                        <div class="desc1">
-                                            @markdown{{$event->description}}@endmarkdown
-                                        </div>
-                                    <div style="text-align:center"><a href="{{route('attendee.event.show',['event'=> Hashids::connection(\App\Event::class)->encode($event->id)])}}"><strong>See More</strong></a></div>
+                                            {{-- @markdown{{$event->description}}@endmarkdown --}}
+
+                                    {{-- <div style="text-align:center"><a href="{{route('attendee.event.show',['event'=> Hashids::connection(\App\Event::class)->encode($event->id)])}}"><strong>See More</strong></a></div> --}}
                                     </div>
                                 </div>
                             @endforeach
