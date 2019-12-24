@@ -78,7 +78,7 @@ class EventController extends Controller
             'finished' => 0
         ]);
 
-
+        if ($request->payment !=null ){
         foreach($request->payment as $each) {
             if($each['bank']==null) continue;
             $method = PaymentMethod::create([
@@ -88,6 +88,7 @@ class EventController extends Controller
                 'event_id' => $event->id
             ]);
         }
+    }
         return redirect('dashboard/event/create');
     }
 

@@ -39,4 +39,9 @@ class Event extends Model
     {
         return $this->hasMany('App\PaymentMethod');
     }
+
+    public function divisions()
+    {
+        return $this->hasMany('App\Division');
+    }
 }

@@ -4,9 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class deadline extends Model
+class Deadline extends Model
 {
     protected $fillable = [
-        'date', 'divison_id',
+        'date', 'division_id',
     ];
+
+    public function division()
+    {
+        return $this->belongsTo('App\Division');
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany('App\Job');
+    }
 }

@@ -150,12 +150,15 @@
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
-
+                @foreach($event->divisions as $each)
                 <li class="nav-item {{ (request()->is('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($event->id) . '/div/*')) ? 'active' : '' }}" >
-                    <a href="{{route('dashboard.event.division.show', ['event' => Hashids::connection(\App\Event::class)->encode($event->id)])}}" class="nav-link ">
-                        <span class="title">Sie Acara</span>
+                    <a href="{{route('dashboard.event.division.show', ['event' => Hashids::connection(\App\Event::class)->encode($event->id),
+                    'division' => Hashids::connection(\App\Division::class)->encode($each->id)])}}" class="nav-link ">
+                        <span class="title">{{$each->name}}</span>
                     </a>
                 </li>
+                @endforeach
+
                 <li class="nav-item {{ (request()->is('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($event->id) . '/creatediv')) ? 'active' : '' }} ">
                         <a href="{{route('dashboard.event.division.create', ['event' => Hashids::connection(\App\Event::class)->encode($event->id)])}}" class="nav-link ">
                             <i class="fa fa-plus"></i><span class="title">New Division</span>

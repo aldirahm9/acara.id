@@ -67,8 +67,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/event/{event}/checkin', 'TicketController@indexCheckin')->name('dashboard.event.checkin.index');
         Route::get('dashboard/event/{event}/feedback', 'TicketController@indexFeedback')->name('dashboard.event.feedback.index');
 
-        Route::get('dashboard/event/{event}/div/division', 'DivisionController@show')->name('dashboard.event.division.show');
+        Route::get('dashboard/event/{event}/div/{division}', 'DivisionController@show')->name('dashboard.event.division.show');
+        Route::post('dashboard/event/{event}/creatediv', 'DivisionController@store')->name('dashboard.event.division.store');
         Route::get('dashboard/event/{event}/creatediv', 'DivisionController@create')->name('dashboard.event.division.create');
+        Route::post('dashboard/event/{event}/div/{division}/createjob', 'DivisionController@jobs_store')->name('dashboard.event.division.jobs.store');
+
     });
 
 
@@ -112,6 +115,6 @@ Route::get('/404', 'RouteController@err404');
 
 Route::get('/500', 'RouteController@err500');
 
-Route::get('/coba', function(){
-    return view('satu');
-});
+// Route::get('/coba', function(){
+//     return view('satu');
+// });

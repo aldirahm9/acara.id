@@ -13,4 +13,14 @@ class division extends Model
     public function users() {
         return $this->belongsToMany('App\User')->withTimestamps();
     }
+
+    public function event()
+    {
+        return $this->belongsTo('App\Event');
+    }
+
+    public function deadlines()
+    {
+        return $this->hasMany('App\Deadline');
+    }
 }
