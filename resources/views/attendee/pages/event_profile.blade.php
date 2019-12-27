@@ -57,7 +57,7 @@
                                                     <div class="col-md-3">
                                                         <ul class="list-unstyled profile-nav">
                                                             <li>
-                                                                <img src="{{asset('storage/upload/'.$event->image)}}" class="img-responsive pic-bordered" alt="" height=""/>
+                                                                <img src="{{asset('storage/upload/'.$event->image)}}" class="img-responsive pic-bordered" alt="" height="430" width="430"/>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -97,7 +97,7 @@
                                                                             <!-- END SIDEBAR USER TITLE -->
                                                                             <!-- SIDEBAR USERPIC -->
                                                                             <div class="profile-usertitle">
-                                                                            <img src="{{asset('/storage/upload/' .$event->organizer->picture)}}"width="100"> </div>
+                                                                            <img src="{{asset('/storage/upload/' .$event->organizer->picture)}}" height="210" width="180"> </div>
                                                                             <!-- END SIDEBAR USERPIC -->
                                                                             <!-- SIDEBAR USER TITLE -->
                                                                             <div class="profile-usertitle">
