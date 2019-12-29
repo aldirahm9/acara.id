@@ -52,6 +52,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/event/{event}/edit', 'EventController@edit')->name('dashboard.event.edit');
         Route::post('dashboard/event/{event}/edit', 'EventController@update')->name('dashboard.event.update');
         Route::get('dashboard/event/{event}/attendee', 'EventController@show_attendee')->name('dashboard.event.attendee.index');
+        Route::post('dashboard/event/{event}/publish', 'EventController@setPublish')->name('dashboard.event.publish');
+        Route::post('dashboard/event/{event}/hide', 'EventController@setHidden')->name('dashboard.event.hide');
 
         Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
         Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');

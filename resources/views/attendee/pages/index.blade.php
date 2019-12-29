@@ -30,7 +30,7 @@
                             <!-- END CONTENT HEADER -->
                             <!-- BEGIN MEMBERS SUCCESS STORIES -->
                             <div class="row margin-bottom-20 stories-cont">
-                            @foreach($event->take(4) as $event)
+                            @foreach($event->where('publish',1)->take(4) as $event)
                                 <div class="col-lg-3 col-md-6">
                                     <div class="portlet light">
                                         <div style="text-align:center">
