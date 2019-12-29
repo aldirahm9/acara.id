@@ -65,8 +65,8 @@
                                         </ul>
                                     </div>
                                     <!--end col-md-8-->
-                                    {!! Form::open(['route'=> ['hide','user'=> Hashids::connection(\App\User::class)->encode($member->id)], 'style'=>'display:none','method'=>'POST','id'=>'hide']) !!}
-                                    {!! Form::close() !!}
+                                    {{-- {!! Form::open(['route'=> ['hide','user'=> Hashids::connection(\App\User::class)->encode($event->id)], 'style'=>'display:none','method'=>'POST','id'=>'hide']) !!}
+                                    {!! Form::close() !!} --}}
                                     @if($event->publish == 1)
                                     <div class="col-md-4">
                                         <div class="portlet sale-summary">
@@ -81,9 +81,9 @@
                                                     <li>
                                                         <span> Unpublish this event
                                                         </span>&nbsp;
-                                                        <a onclick="event.preventDefault();
+                                                        {{-- <a onclick="event.preventDefault();
                                                         document.getElementById('hide').submit();">
-                                                             Hide </a>
+                                                             Hide </a> --}}
                                                     </li>
                                                 </ul>
                                             </div>

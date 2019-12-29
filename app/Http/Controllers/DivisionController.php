@@ -178,4 +178,12 @@ class DivisionController extends Controller
     {
         //
     }
+
+    public function jobUpdate(Division $division, Job $job)
+    {
+        $job->update([
+            'publish' => 0
+        ]);
+        return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id) .'/div/' . Hashids::connection(\App\Division::class)->encode($division->id));
+    }
 }

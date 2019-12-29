@@ -1,7 +1,7 @@
 @extends('dashboard/app')
 
 @section('title')
-| Dashboard
+| {{$division->name}}
 @endsection
 
 @section('content')
@@ -22,7 +22,15 @@
                 </li>
                 <li>
                     <i class="fa fa-circle"></i>
+                    <a href="#">{{$event->name}}</a>
+                </li>
+                <li>
+                    <i class="fa fa-circle"></i>
                     <a href="#">Division</a>
+                </li>
+                <li>
+                    <i class="fa fa-circle"></i>
+                    <a href="#">{{$division->name}}</a>
                 </li>
             </ul>
         </div>

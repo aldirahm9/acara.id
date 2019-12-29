@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Log;
 use DateTime;
+use Faker\Calculator\Ean;
 use Hashids;
 
 class EventController extends Controller
