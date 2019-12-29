@@ -83,7 +83,7 @@
                                                     <li>
                                                         <span> Unpublish this event
                                                         </span>&nbsp;
-                                                        <a href="" class="btn green" onclick="event.preventDefault();
+                                                        <a href="" class="btn red" onclick="event.preventDefault();
                                                         document.getElementById('hide').submit();">
                                                              Hide </a>
                                                     </li>
