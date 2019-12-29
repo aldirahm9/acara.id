@@ -57,7 +57,7 @@
                                                     <div class="col-md-3">
                                                         <ul class="list-unstyled profile-nav">
                                                             <li>
-                                                                <img src="{{asset('storage/upload/'.$event->image)}}" class="img-responsive pic-bordered" alt="" height="430" width="430"/>
+                                                                <img src="{{asset('storage/upload/'.$event->image)}}" class="img-responsive pic-bordered" alt="" height="200" width="300"/>
                                                             </li>
                                                         </ul>
                                                     </div>

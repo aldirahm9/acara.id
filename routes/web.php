@@ -101,7 +101,7 @@ Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 Route::post('/register_google', 'Auth\LoginController@registerGoogle')->name('register.google');
 
 
-Route::get('/', 'HomeController@show');
+Route::get('/', 'HomeController@show')->name('index');
 
 Route::get('/howit', 'RouteController@howit');
 

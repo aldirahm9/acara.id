@@ -1,7 +1,7 @@
 @extends('dashboard/app')
 
 @section('title')
-| BINER
+| {{$event->name}}
 @endsection
 
 @section('content')
@@ -65,6 +65,9 @@
                                         </ul>
                                     </div>
                                     <!--end col-md-8-->
+                                    {!! Form::open(['route'=> ['hide','user'=> Hashids::connection(\App\User::class)->encode($member->id)], 'style'=>'display:none','method'=>'POST','id'=>'hide']) !!}
+                                    {!! Form::close() !!}
+                                    @if($event->publish == 1)
                                     <div class="col-md-4">
                                         <div class="portlet sale-summary">
                                             <div class="portlet-title">
@@ -78,14 +81,15 @@
                                                     <li>
                                                         <span> Unpublish this event
                                                         </span>&nbsp;
-                                                        <a href="" class="btn red">Hide</a>
-                                                    </li>
-                                                    <li>
+                                                        <a onclick="event.preventDefault();
+                                                        document.getElementById('hide').submit();">
+                                                             Hide </a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
+                                    @else
                                     <!--end col-md-4-->
                                     <!--end col-md-8-->
                                     <div class="col-md-4">
@@ -93,14 +97,14 @@
                                             <div class="portlet-title">
                                                 <div class="caption font-navy sbold"> Status &nbsp;
                                                     <span class="label label-whote">Publish</span>
-                                                        <span class="label label-danger">Hide</span>
+                                                        <span class="label label-danger">Hidden</span>
                                                 </div>
                                             </div>
                                             <div class="portlet-body">
                                                 <ul class="list-unstyled">
                                                     <li>
                                                         <span> Publish this event
-                                                        </span>&nbsp; 
+                                                        </span>&nbsp;
                                                         <a href="" class="btn green">Publish</a>
                                                     </li>
                                                     <li>
@@ -109,6 +113,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
                                     <!--end col-md-4-->
                                 </div>
                                 <!--end row-->

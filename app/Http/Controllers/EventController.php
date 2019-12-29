@@ -245,4 +245,19 @@ class EventController extends Controller
         ]);
         return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id));
     }
+
+    public function setPublish(Event $event)
+    {
+        $event->update([
+            'publish' => 1
+        ]);
+        return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id));
+    }
+    public function setHidden(Event $event)
+    {
+        $event->update([
+            'publish' => 0
+        ]);
+        return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id));
+    }
 }
