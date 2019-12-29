@@ -46,7 +46,7 @@
                                         <div class="col-lg-12">
                                             <div class="row">
                                                 <div style="text-align:center"><h2><strong>Coming Events</h2></div><br>
-                                                    @foreach($events as $event)
+                                                    @foreach($events->where('publish',1) as $event)
                                                 <div class="col-sm-3">
                                                     <div class="blog-post-sm bordered blog-container">
                                                         <div style="text-align:center; background-color:white">

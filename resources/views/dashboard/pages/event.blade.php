@@ -65,8 +65,10 @@
                                         </ul>
                                     </div>
                                     <!--end col-md-8-->
-                                    {{-- {!! Form::open(['route'=> ['hide','user'=> Hashids::connection(\App\User::class)->encode($event->id)], 'style'=>'display:none','method'=>'POST','id'=>'hide']) !!}
-                                    {!! Form::close() !!} --}}
+                                    {!! Form::open(['route'=> ['dashboard.event.hide','event'=> Hashids::connection(\App\Event::class)->encode($event->id)], 'style'=>'display:none','method'=>'POST','id'=>'hide']) !!}
+                                    {!! Form::close() !!}
+                                    {!! Form::open(['route'=> ['dashboard.event.publish','event'=> Hashids::connection(\App\Event::class)->encode($event->id)], 'style'=>'display:none','method'=>'POST','id'=>'publish']) !!}
+                                    {!! Form::close() !!}
                                     @if($event->publish == 1)
                                     <div class="col-md-4">
                                         <div class="portlet sale-summary">
@@ -81,7 +83,11 @@
                                                     <li>
                                                         <span> Unpublish this event
                                                         </span>&nbsp;
+<<<<<<< HEAD
                                                         {{-- <a onclick="event.preventDefault();
+=======
+                                                        <a class="btn green" onclick="event.preventDefault();
+>>>>>>> c48070cd641d9ae38e759cb84f7e13cbf3e1aa4f
                                                         document.getElementById('hide').submit();">
                                                              Hide </a> --}}
                                                     </li>
@@ -105,7 +111,9 @@
                                                     <li>
                                                         <span> Publish this event
                                                         </span>&nbsp;
-                                                        <a href="" class="btn green">Publish</a>
+                                                        <a href="" class="btn green" onclick="event.preventDefault();
+                                                        document.getElementById('publish').submit();">
+                                                             Publish </a>
                                                     </li>
                                                     <li>
                                                     </li>
