@@ -146,7 +146,7 @@
         <li class="nav-item  {{ request()->routeIs('dashboard.event.division*') ? 'active' : '' }}">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="fa fa-group"></i>
-                <span class="title">Division</span>
+                <span class="title">Division (Under Development)</span>
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
