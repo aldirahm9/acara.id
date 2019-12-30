@@ -23,7 +23,7 @@
                             <!-- BEGIN CONTENT HEADER -->
                             <div class="row margin-bottom-40 about-header">
                                 <div class="col-md-12">
-                                    <h1>Welcome to <strong>acara.id</strong></h1>
+                                    <h1>Welcome to <strong>acaraID</strong></h1>
                                     <h2>Get ready for great events!</h2>
                                 </div>
                             </div>
