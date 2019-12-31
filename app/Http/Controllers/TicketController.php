@@ -212,6 +212,8 @@ public function mytickets()
         $user = Auth::user();
         if($ticket->price == 0 ) {
             $user->tickets()->attach($ticket->id,['approved'=>1]);
+            $pivotId = $user->tickets()->where('ticket_id',$ticket->id)->orderBy('ticket_user.created_at','desc')->first()->pivot->id;
+            Mail::to($user)->queue(new TicketMail($ticket,$user,$pivotId));
         }else {
             $user->tickets()->attach($ticket->id);
         }
