@@ -107,7 +107,7 @@ public function mytickets()
                 $ticketuser->pivot->update(['approved'=>1]);
                 // Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
                 $user = $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuserid)[0])->first();
-                Mail::to($user)->queue(new TicketMail($ticket,$user,$ticket->pivot->id));
+                Mail::to($user)->queue(new TicketMail($ticket,$user,$ticketuserid));
 
             }
         }
