@@ -39,7 +39,7 @@ class TicketMail extends Mailable
         return $this->subject('Your ticket for ' . $this->ticket->event->name)
                     ->view('mail.ticket')
                     ->attachData(QrCode::format('png')->size(250)->generate(Hashids::connection('ticketuser')
-                    ->encode($this->ticket->users()->wherePivot('id',$this->ticketuser))),'Ticket_'.$this->ticket->event->name . '_'. $this->user->name . '.png',
+                    ->encode($this->ticketuser)),'Ticket_'.$this->ticket->event->name . '_'. $this->user->name . '.png',
                 ['mime'=> 'application/png']);
     }
 }
