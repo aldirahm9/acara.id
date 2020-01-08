@@ -138,8 +138,8 @@
                                 <div class="md-checkbox-list">
                                     @foreach ($each->jobs as $item)
                                     <div class="md-checkbox">
-                                        <input type="checkbox" id="checkbox1" class="md-check">
-                                        <label for="checkbox1">
+                                    <input type="checkbox" id="checkbox_{{$item->id}}" class="md-check">
+                                        <label for="checkbox_{{$item->id}}">
                                             <span></span>
                                             <span class="check"></span>
                                             <span class="box"></span>{{$item->name}}</label>
