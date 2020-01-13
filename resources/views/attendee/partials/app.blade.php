@@ -14,7 +14,7 @@
                             <!-- BEGIN LOGO -->
                             <div class="page-logo">
                             <a href="{{route('index')}}">
-                                    <img src="{{asset('img/logo.png')}}" class="logo-default" width="150">
+                                    <img src="{{asset('img/logo1.png')}}" class="logo-default" width="150">
                                 </a>
                             </div>
                             <!-- END LOGO -->
@@ -136,7 +136,7 @@
                                 <div class="subscribe-form">
                                     <form action="javascript:;">
                                         <div class="input-group">
-                                            <input type="text" placeholder="mail@email.com" class="form-control">
+                                            <input type="text" placeholder="info@acaraid.com" class="form-control">
                                             <span class="input-group-btn">
                                                 <button class="btn" type="submit">Submit</button>
                                             </span>
@@ -147,19 +147,19 @@
                             <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
                                 <h2>Follow Us On</h2>
                                 <ul class="social-icons">
-                                    <li>
+                                    {{-- <li>
                                         <a href="javascript:;" data-original-title="twitter" class="twitter"></a>
-                                    </li>
+                                    </li> --}}
                                     <li>
-                                        <a href="javascript:;" data-original-title="instagram" class="instagram"></a>
+                                        <a href="https://instagram.com/acara_id?igshid=ckvwe0sltpnc" data-original-title="instagram" class="instagram"></a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
                                 <h2>Contacts</h2>
-                                <address class="margin-bottom-40"> Phone: 085555555
+                                <address class="margin-bottom-40"> Phone: -
                                     <br> Email:
-                                    <a href="mailto:info@metronic.com">info@acara.d</a>
+                                    <a href="mailto:info@metronic.com">info@acaraid.com</a>
                                 </address>
                             </div>
                         </div>
