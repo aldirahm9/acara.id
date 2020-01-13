@@ -115,6 +115,8 @@
                                                                             class="btn btn-circle green btn-md"> <i
                                                                                 class="fa fa-upload"></i> Upload Receipt
                                                                             Payment</a>
+                                                                        <br><br>
+                                                                        <a class="btn btn-circle green btn-md" data-toggle="modal" href="{{'#receipt' . $ticket->pivot->id}}">View Receipt</a>
                                                                         @else
                                                                         <a class="btn btn-circle blue btn-md"
                                                                             data-toggle="modal" href="{{'#qrcode' . $ticket->pivot->id}}"> <i
@@ -209,6 +211,23 @@
                                         </div>
                                         <!-- /.modal-dialog -->
                                     </div>
+
+                                    <div id="{{'receipt' . $ticket->pivot->id}}" class="modal fade" tabindex="-1" data-width="760" aria-hidden="true">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                <h4 class="modal-title"><b>See Receipt</b></h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                        <div class="col-md-12" style="text-align: center">
+                                                            <img src="{{asset('storage/upload/' . $ticket->pivot->receipt)}}" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+                                                </div>
+                                        </div>
 
 
                                     <!--modal -->
