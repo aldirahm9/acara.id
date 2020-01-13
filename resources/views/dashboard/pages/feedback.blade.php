@@ -1,7 +1,7 @@
 @extends('dashboard/app')
 
 @section('title')
-| BINER - Attendee
+| {{$event->name}} - Attendee
 @endsection
 
 @section('content')

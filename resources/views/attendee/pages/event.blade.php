@@ -59,7 +59,7 @@
                                                                 <a href="javascript:;">{{$event->name}}</a>
                                                             </h2>
                                                             <div class="blog-post-desc1">
-                                                                {{$event->description}}
+                                                                @markdown{{$event->description}}@endmarkdown
                                                             </div>
                                                             <div class="blog-post-foot">
                                                                 <div class="blog-post-meta">

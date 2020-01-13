@@ -1,16 +1,17 @@
 @extends('dashboard/app')
 
 @section('title')
-| BINER - ticket
+| {{$event->name}} - ticket
 @endsection
 
 @section('content')
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
+            @include('dashboard/partials/_messages')
         <!-- BEGIN PAGE HEADER-->
         <!--  BEGIN PAGE BAR -->
-        <div class="page-bar">
+        {{-- <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
                     <a href="index-2.html">Dashboard</a>
@@ -27,9 +28,9 @@
                 <li><a>Ticket</a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
         <!--  END PAGE BAR -->
-        <h1 class="page-title" style="color:steelblue"><strong>Tickets On BINER</strong></h1>
+        <h1 class="page-title" style="color:steelblue"><strong>Tickets On {{$event->name}}</strong></h1>
         <!-- END PAGE TITLE-->
         <a class="btn btn-lg green" data-toggle="modal" href="#responsive"> Create Ticket
             <i class="fa fa-plus"></i>
@@ -99,7 +100,7 @@
                                             {!! Form::open(['route'=>['dashboard.event.ticket.offsale','ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],'id'=>'off'.$ticket->id,'style'=>'display:none']) !!}
                                             {!! Form::close() !!}
                                             <a href="#" onclick="event.preventDefault();
-                                                    document.getElementById('off' + {{$ticket->id}}).submit();" class="btn red">Off Sale</a>&nbsp;
+                                                    document.getElementById('off' + {{$ticket->id}}).submit();" class="btn yellow">Off Sale</a>&nbsp;
                                             @else
                                             {!! Form::open(['route'=>['dashboard.event.ticket.onsale','ticket'=>Hashids::connection(\App\Ticket::class)->encode($ticket->id)],'id'=>'on'.$ticket->id,'style'=>'display:none']) !!}
                                             {!! Form::close() !!}
@@ -107,6 +108,8 @@
                                             document.getElementById('on' + {{$ticket->id}}).submit();" class="btn green">On Sale</a>&nbsp;
                                             @endif
                                         <a href="{{route('dashboard.event.ticket.edit',['ticket'=> Hashids::connection(\App\Ticket::class)->encode($ticket->id)])}}" class="btn blue">Edit</a></span>
+                                        <a href="{{route('dashboard.event.ticket.delete',['ticket'=> Hashids::connection(\App\Ticket::class)->encode($ticket->id)])}}" onclick="return confirm('Are you sure?');"class="btn red">Delete</a></span>
+
                                     </ul>
                                 </p>
                             </div>

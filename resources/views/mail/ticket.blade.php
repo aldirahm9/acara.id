@@ -19,3 +19,7 @@
 @section('place')
 {{$ticket->event->location}}
 @endsection
+
+@section('img')
+"{{$message->embed('http://www.acaraid.com/public/img/' . $ticket->event->image)}}"
+@endsection

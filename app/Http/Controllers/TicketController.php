@@ -214,7 +214,7 @@ public function mytickets()
         if($ticket->price == 0 ) {
             $user->tickets()->attach($ticket->id,['approved'=>1]);
             $pivotId = $user->tickets()->where('ticket_id',$ticket->id)->orderBy('ticket_user.created_at','desc')->first()->pivot->id;
-            Mail::to($user)->queue(new TicketMail($ticket,$user,$pivotId));
+            Mail::to($user)->send(new TicketMail($ticket,$user,$pivotId));
         }else {
             $user->tickets()->attach($ticket->id);
         }
@@ -270,6 +270,11 @@ public function mytickets()
      */
     public function destroy(Ticket $ticket)
     {
-        //
+        if($ticket->users->first() == null) {
+            $ticket->delete();
+        } else {
+            Session::flash('failed','Failed to delete because the ticket is already booked');
+        }
+        return redirect('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/ticket');
     }
 }

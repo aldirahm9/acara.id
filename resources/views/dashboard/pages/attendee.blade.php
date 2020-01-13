@@ -1,7 +1,7 @@
 @extends('dashboard/app')
 
 @section('title')
-| BINER - Attendee
+| {{$event->name}} - Attendee
 @endsection
 
 @section('content')
@@ -60,90 +60,110 @@
                             </td>
                             {{-- TODO: bikin show modal yang nunjukin bukti bayar--}}
                             @if($user->pivot->receipt!= null)
-                            <td><a class="label label-medium label-info" data-toggle="modal" href="{{'#receipt' . $user->pivot->id}}">Transfer Receipt</a></td>
+                            <td><a class="label label-medium label-info" data-toggle="modal"
+                                    href="{{'#receipt' . $user->pivot->id}}">Transfer Receipt</a></td>
                             @else
                             <td>Waiting for receipt</td>
                             @endif
 
-                            @if($user->getTicketStatus() == 3)
-                            <td ><span class="label label-medium label-success"> Approved </span></td>
+                            @if($user->getTicketStatus() ==4)
+                            <td><span class="label label-medium label-success"> Checked In </span></td>
+                            @elseif($user->getTicketStatus() == 3)
+                            <td><span class="label label-medium label-success"> Approved </span></td>
                             @elseif($user->getTicketStatus() ==2)
                             <td><span class="label label-medium label-warning"> Waiting for Approval </span></td>
                             @elseif($user->getTicketStatus() == 1)
                             <td><span class="label label-medium label-danger">Waiting for Payment</span></td>
                             @endif
                             <td style="text-align: left">
-                                <div class="btn-group">
-                                    @if($user->getTicketStatus() !=3)
+                                    @if($user->getTicketStatus() != 4)
+                                <div class="btn-toolbar">
                                     <button class="btn btn-xs green dropdown-toggle" type="button"
                                         data-toggle="dropdown" aria-expanded="false"> Actions
                                         <i class="fa fa-angle-down"></i>
                                     </button>
                                     {{-- TODO: tambahin alert confirm --}}
-                                    <ul class="dropdown-menu pull-left" role="menu">
+                                    <ul class="dropdown-menu pull-left" style="position:relative!important" role="menu">
 
-                                        <li>
-                                            {!! Form::open(['route'=> ['user.ticket.approve', 'event'=>Hashids::connection(\App\Event::class)->encode($event->id),
+                                        @if($user->getTicketStatus() < 3) <li>
+                                            {!! Form::open(['route'=> ['user.ticket.approve',
+                                            'event'=>Hashids::connection(\App\Event::class)->encode($event->id),
                                             'ticket'=>Hashids::connection('ticketuser')->encode($user->pivot->id)],
-                                            'style'=>'display:none','method'=>'POST','id'=>'approve'.$user->pivot->id]) !!}
+                                            'style'=>'display:none','method'=>'POST','id'=>'approve'.$user->pivot->id])
+                                            !!}
                                             {!! Form::close() !!}
                                             <a
                                                 onclick="event.preventDefault();
                                                     document.getElementById('approve' + {{$user->pivot->id}}).submit();">
                                                 <i class="icon-docs"></i> Approve Payment </a>
-                                        </li>
-                                        @if($user->getTicketStatus()>1)
-                                        <li>
-                                            {!! Form::open(['route'=> ['user.ticket.decline', 'event'=>Hashids::connection(\App\Event::class)->encode($event->id),
-                                            'ticket'=>Hashids::connection('ticketuser')->encode($user->pivot->id)],
-                                            'style'=>'display:none','method'=>'POST','id'=>'decline'.$user->pivot->id]) !!}
-                                            {!! Form::close() !!}
-                                            <a
-                                                onclick="event.preventDefault();
+                                            </li>
+
+                                            <li>
+                                                {!! Form::open(['route'=> ['user.ticket.decline',
+                                                'event'=>Hashids::connection(\App\Event::class)->encode($event->id),
+                                                'ticket'=>Hashids::connection('ticketuser')->encode($user->pivot->id)],
+                                                'style'=>'display:none','method'=>'POST','id'=>'decline'.$user->pivot->id])
+                                                !!}
+                                                {!! Form::close() !!}
+                                                <a
+                                                    onclick="event.preventDefault();
                                                     document.getElementById('decline' + {{$user->pivot->id}}).submit();">
-                                                <i class="icon-docs"></i> Decline Payment </a>
-                                        </li>
-                                        @endif
-
-
-                                        <li>
-                                            {!! Form::open(['route'=> ['user.ticket.remove', 'event'=>Hashids::connection(\App\Event::class)->encode($event->id),
-                                            'ticket'=>Hashids::connection('ticketuser')->encode($user->pivot->id)],
-                                            'style'=>'display:none','method'=>'POST','id'=>'remove'.$user->pivot->id]) !!}
-                                            {!! Form::close() !!}
-                                            <a
-                                                onclick="event.preventDefault();
+                                                    <i class="icon-docs"></i> Decline Payment </a>
+                                            </li>
+                                            @endif
+                                            @if($user->getTicketStatus() ==3)
+                                            <li>
+                                                {!! Form::open(['route' =>
+                                                ['dashboard.event.checkin.post','event'=>Hashids::connection(\App\Event::class)->encode($event->id)],'method'=>
+                                                'POST','style'=>'display:none','id'=>'checkin'.$user->pivot->id]) !!}
+                                                {!! Form::hidden('ticketuser', $user->pivot->id,['id'=>'hiddenid']) !!}
+                                                {!! Form::close() !!}
+                                                <a
+                                                    onclick="event.preventDefault();
+                                                        document.getElementById('checkin' + {{$user->pivot->id}}).submit();">
+                                                    <i class="icon-docs"></i> Check In </a>
+                                                </li>
+                                                @endif
+                                            <li>
+                                                {!! Form::open(['route'=> ['user.ticket.remove',
+                                                'event'=>Hashids::connection(\App\Event::class)->encode($event->id),
+                                                'ticket'=>Hashids::connection('ticketuser')->encode($user->pivot->id)],
+                                                'style'=>'display:none','method'=>'POST','id'=>'remove'.$user->pivot->id])
+                                                !!}
+                                                {!! Form::close() !!}
+                                                <a
+                                                    onclick="event.preventDefault();
                                                     document.getElementById('remove' + {{$user->pivot->id}}).submit();">
-                                                <i class="icon-docs"></i> Remove </a>
-                                        </li>
-                                    </ul>
+                                                    <i class="icon-docs"></i> Remove </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     @endif
-                                </div>
                             </td>
                         </tr>
                         <div id="{{'receipt' . $user->pivot->id}}" class="modal fade" tabindex="-1" data-width="760">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                    <h4 class="modal-title"><b>See Receipt</b></h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                            <div class="col-md-12" style="text-align: center">
-                                                <img src="{{asset('storage/upload/' . $user->pivot->receipt)}}" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
-                                    </div>
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title"><b>See Receipt</b></h4>
                             </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12" style="text-align: center">
+                                        <img src="{{asset('storage/upload/' . $user->pivot->receipt)}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+                            </div>
+                        </div>
                         @endforeach
                         @endforeach
                     </tbody>
                 </table>
                 <!-- responsive -->
 
-                    <!--End Modal-->
+                <!--End Modal-->
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -153,8 +173,10 @@
 @endsection
 
 @section('style')
-<link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}" rel="stylesheet"
+    type="text/css" />
+<link href="{{asset('assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css')}}" rel="stylesheet"
+    type="text/css" />
 <link href="{{asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
@@ -169,7 +191,8 @@
 <!-- END PAGE LEVEL PLUGINS -->
 <script src="{{asset('assets/pages/scripts/table-datatables-buttons.min.js')}}" type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="{{asset('assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')}}" type="text/javascript">
+</script>
 <script src="{{asset('assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js')}}" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <script src="{{asset('assets/pages/scripts/ui-extended-modals.min.js')}}" type="text/javascript"></script>

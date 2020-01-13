@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth']], function () {
         // Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');
         Route::post('dashboard/event/ticket/{ticket}/onsale', 'TicketController@onsale')->name('dashboard.event.ticket.onsale');
         Route::get('dashboard/event/ticket/{ticket}/edit', 'TicketController@edit')->name('dashboard.event.ticket.edit');
+        Route::get('dashboard/event/ticket/{ticket}/delete', 'TicketController@destroy')->name('dashboard.event.ticket.delete');
         Route::post('dashboard/event/ticket/{ticket}/update', 'TicketController@update')->name('dashboard.event.ticket.update');
         Route::post('dashboard/event/ticket/{ticket}/offsale', 'TicketController@offsale')->name('dashboard.event.ticket.offsale');
         Route::post('dashboard/event/{event}/{ticketuser}/remove', 'TicketController@removeAttendee')->name('user.ticket.remove');
@@ -105,10 +106,10 @@ Route::post('/register_google', 'Auth\LoginController@registerGoogle')->name('re
 
 Route::get('/', 'HomeController@show')->name('index');
 
-Route::get('/howit', 'RouteController@howit');
+Route::get('/howit', 'RouteController@howit')->name('howit');
 
 
-Route::get('/contact', 'RouteController@contact');
+Route::get('/contact', 'RouteController@contact')->name('contact');
 
 
 Auth::routes();
