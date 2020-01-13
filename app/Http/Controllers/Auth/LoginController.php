@@ -75,16 +75,32 @@ class LoginController extends Controller
             // log them in
             auth()->login($existingUser, true);
         } else {
-            // create a new user
-            $newUser                  = new User;
-            $newUser->name            = $user->name;
-            $newUser->email           = $user->email;
-            $newUser->google_id       = $user->id;
-            $newUser->role            = 0;
-            $newUser->email_verified_at = Carbon::now();
-            $newUser->save();
-            auth()->login($newUser, true);
+            // create a new
+
+            return view('auth/register_google',['user' => $user]);
+
+            // $newUser                  = new User;
+            // $newUser->name            = $user->name;
+            // $newUser->email           = $user->email;
+            // $newUser->google_id       = $user->id;
+            // $newUser->role            = 0;
+            // $newUser->email_verified_at = Carbon::now();
+            // $newUser->save();
+            // auth()->login($newUser, true);
         }
+        return redirect()->to('/');
+    }
+
+    public function registerGoogle(Request $request) {
+        $newUser                  = new User;
+        $newUser->name            = $request->name;
+        $newUser->email           = $request->email;
+        $newUser->google_id       = $request->google_id;
+        $newUser->phone           = $request->phone;
+        $newUser->role            = 0;
+        $newUser->email_verified_at = Carbon::now();
+        $newUser->save();
+        auth()->login($newUser, true);
         return redirect()->to('/');
     }
 }

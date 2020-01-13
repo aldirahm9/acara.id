@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Log;
 use DateTime;
+use Faker\Calculator\Ean;
 use Hashids;
 
 class EventController extends Controller
@@ -78,7 +79,7 @@ class EventController extends Controller
             'finished' => 0
         ]);
 
-
+        if ($request->payment !=null ){
         foreach($request->payment as $each) {
             if($each['bank']==null) continue;
             $method = PaymentMethod::create([
@@ -88,6 +89,7 @@ class EventController extends Controller
                 'event_id' => $event->id
             ]);
         }
+    }
         return redirect('dashboard/event/create');
     }
 
@@ -241,6 +243,21 @@ class EventController extends Controller
     {
         $event->update([
             'finished' => 1
+        ]);
+        return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id));
+    }
+
+    public function setPublish(Event $event)
+    {
+        $event->update([
+            'publish' => 1
+        ]);
+        return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id));
+    }
+    public function setHidden(Event $event)
+    {
+        $event->update([
+            'publish' => 0
         ]);
         return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id));
     }

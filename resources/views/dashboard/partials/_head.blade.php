@@ -1,8 +1,8 @@
 <meta charset="utf-8" />
-<title>acara.id @yield('title')</title>
+<title>acaraID @yield('title')</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport" />
-<meta content="Preview page of Metronic Admin Theme #1 for blank page layout" name="description" />
+<meta content="AcaraID is an event organizer provider to organize your event" name="description" />
 <meta content="" name="author" />
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />

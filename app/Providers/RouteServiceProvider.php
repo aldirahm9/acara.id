@@ -42,6 +42,10 @@ class RouteServiceProvider extends ServiceProvider
             return $this->getModel(\App\Ticket::class, $value);
         });
 
+        Route::bind('division', function ($value, $route) {
+            return $this->getModel(\App\Division::class, $value);
+        });
+
         // Route::bind('ticketuser', function ($value, $route) {
         //     return $this->getModel(\App\TicketUser::class, $value);
         // });

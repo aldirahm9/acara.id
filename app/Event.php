@@ -12,7 +12,7 @@ class Event extends Model
 
     //TES WEBHOOK
     protected $fillable = [
-        'name', 'location', 'image', 'date', 'description', 'timeStart', 'timeEnd', 'organizer_id', 'feature_id','approved'
+        'name', 'location', 'image', 'date', 'description', 'timeStart', 'timeEnd', 'organizer_id', 'feature_id', 'approved', 'publish'
     ];
 
     public function tickets()
@@ -38,5 +38,10 @@ class Event extends Model
     public function paymentMethods()
     {
         return $this->hasMany('App\PaymentMethod');
+    }
+
+    public function divisions()
+    {
+        return $this->hasMany('App\Division');
     }
 }

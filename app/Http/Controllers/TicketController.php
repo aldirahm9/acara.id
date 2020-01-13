@@ -6,10 +6,13 @@ use App\Ticket;
 use Illuminate\Http\Request;
 use App\Event;
 use App\User;
+use App\EventFeedback;
+use App\Mail\TicketMail;
 use Hashids;
 use Auth;
 use Log;
 use DateTime;
+use Illuminate\Support\Facades\Mail;
 use Session;
 
 class TicketController extends Controller
@@ -96,20 +99,20 @@ public function mytickets()
         return redirect('dashboard/event/'.Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/ticket');
     }
 
-    public function approveAttendee(Event $event,$ticketuser)
+    public function approveAttendee(Event $event,$ticketuserid)
     {
         foreach($event->tickets as $ticket) {
-            if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first() != null) {
-                $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuser)[0])->first()->pivot
-                ->update(['approved'=>1]);
+            if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuserid)[0])->first() != null) {
+                $ticketuser = $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuserid)[0])->first();
+                $ticketuser->pivot->update(['approved'=>1]);
                 // Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
+                $user = $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuserid)[0])->first();
+                // TODO: change to queue
+                Mail::to($user)->send(new TicketMail($ticket,$user,$ticketuserid));
 
             }
         }
-        // $ticket->users->where('id',$user->id)->first()->pivot->update([
-        //     'approved'=>1
-        // ]);
-        // $ticket->users->where('id',$user->id)->first()->pivot->save();
+
         return redirect('/dashboard/event/' . Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/attendee');
     }
 
@@ -157,10 +160,17 @@ public function mytickets()
         $checkedin = false;
         foreach($event->tickets as $ticket) {
             if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first() != null) {
-                $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->pivot
-                ->update(['checkin'=>1,'updated_at' => DateTime::createFromFormat('Y-m-d H:i:s', \Carbon\Carbon::now('Asia/Bangkok'))->format('Y-m-d H:i:s')]);
-                Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
-                $checkedin = true;
+                if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->pivot->checkin == 1) {
+                    $checkedin = true;
+                    Session::flash('success','Checkin sudah dilakukan ' . $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
+
+                }else {
+
+                    $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->pivot
+                    ->update(['checkin'=>1,'updated_at' => DateTime::createFromFormat('Y-m-d H:i:s', \Carbon\Carbon::now('Asia/Bangkok'))->format('Y-m-d H:i:s')]);
+                    Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
+                    $checkedin = true;
+                }
             }
         }
         if($checkedin == false) {
@@ -197,9 +207,17 @@ public function mytickets()
 
     public function bookTicket(Ticket $ticket)
     {
-        if($ticket->limit != null && $ticket->limit == $ticket->users->count()) return back();
+        if($ticket->limit != null && $ticket->limit == $ticket->users->count()) {
+            return back();
+        }
         $user = Auth::user();
-        $user->tickets()->attach($ticket->id);
+        if($ticket->price == 0 ) {
+            $user->tickets()->attach($ticket->id,['approved'=>1]);
+            $pivotId = $user->tickets()->where('ticket_id',$ticket->id)->orderBy('ticket_user.created_at','desc')->first()->pivot->id;
+            Mail::to($user)->queue(new TicketMail($ticket,$user,$pivotId));
+        }else {
+            $user->tickets()->attach($ticket->id);
+        }
         return redirect('mytickets');
     }
 
@@ -207,8 +225,11 @@ public function mytickets()
     {
         $pivotId = Hashids::connection('ticketuser')->decode($ticketuser)[0];
         Auth::user()->tickets()->wherePivot('id',$pivotId)->first()->pivot->update([
-            'feedback' => $request->feedback
+            'feedback' => $request->feedback,
+            'rating' =>$request ->r_input
         ]);
+        // dd($pivotId);
+        Session::flash('success', 'Feedback anda sudah diterima');
         return redirect('mytickets');
     }
 

@@ -1,7 +1,7 @@
 @extends('dashboard/app')
 
 @section('title')
-| BINER
+| {{$event->name}}
 @endsection
 
 @section('content')
@@ -32,18 +32,18 @@
                 <div class="tab-content">
                     <div class="tab-pane active">
                         <div class="row">
-                            <div class="col-md-3" style="text-align:left;">
-                                <img src="{{asset('storage/upload/' . $event->image)}}" width="80%"/>
+                            <div class="col-md-3">
+                                <ul class="list-unstyled profile-nav">
+                                    <li>
+                                        <img src="{{asset('storage/upload/' . $event->image)}}" class="img-responsive pic-bordered" alt="" />
+                                    </li>
+                                </ul>
                             </div>
-                            <div>
+                            <div class="col-md-9">
                                 <div class="row">
                                     <div class="col-md-8 profile-info">
                                         <h1 class="font-green sbold uppercase">{{$event->name}}</h1>
                                         @markdown{{$event->description}}@endmarkdown
-                                        {{-- <p> “Developing Future and Unyielding Learn of Technology” atau yang di singkat dengan DEFAULT merupakan kelompok studi yang bergerak di bidang pengembangan teknologi seperti pada bidang arsitektur, website, animasi, dan juga aplikasi. Kelompok studi ini di dirikan oleh angkatan pertama program studi ilmu komputer pada tahun 2013. </p>
-                                        <p>
-                                            <a href="javascript:;"> www.defaultunj.com </a>
-                                        </p> --}}
                                         <ul class="list-unstyled">
                                             <li>
                                                 <i class="fa fa-map-marker"></i>{{$event->location}}</li>
@@ -62,17 +62,62 @@
                                                 <i class="fa fa-credit-card"></i> {{$method->bank}}
                                                 {{$method->bankAccountNumber}} a/n {{$method->bankAccountName}}</li>
                                             @endforeach
-                                            {{-- <li>
-                                                <i class="fa fa-calendar"></i> 18 January 2014 </li>
-                                            <li>
-                                                <i class="fa fa-briefcase"></i> Design </li>
-                                            <li>
-                                                <i class="fa fa-star"></i> Top Seller </li>
-                                            <li>
-                                                <i class="fa fa-heart"></i> BASE Jumping </li> --}}
                                         </ul>
                                     </div>
                                     <!--end col-md-8-->
+                                    {!! Form::open(['route'=> ['dashboard.event.hide','event'=> Hashids::connection(\App\Event::class)->encode($event->id)], 'style'=>'display:none','method'=>'POST','id'=>'hide']) !!}
+                                    {!! Form::close() !!}
+                                    {!! Form::open(['route'=> ['dashboard.event.publish','event'=> Hashids::connection(\App\Event::class)->encode($event->id)], 'style'=>'display:none','method'=>'POST','id'=>'publish']) !!}
+                                    {!! Form::close() !!}
+                                    @if($event->publish == 1)
+                                    <div class="col-md-4">
+                                        <div class="portlet sale-summary">
+                                            <div class="portlet-title">
+                                                <div class="caption font-navy sbold"> Status &nbsp;
+                                                    <span class="label label-whote">Published</span>
+                                                        <span class="label label-success">Published</span>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <span> Unpublish this event
+                                                        </span>&nbsp;
+                                                        <a class="btn red" onclick="event.preventDefault();
+                                                        document.getElementById('hide').submit();">
+                                                             Hide </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @else
+                                    <!--end col-md-4-->
+                                    <!--end col-md-8-->
+                                    <div class="col-md-4">
+                                        <div class="portlet sale-summary">
+                                            <div class="portlet-title">
+                                                <div class="caption font-navy sbold"> Status &nbsp;
+                                                    <span class="label label-whote">Publish</span>
+                                                        <span class="label label-danger">Hidden</span>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <span> Publish this event
+                                                        </span>&nbsp;
+                                                        <a href="" class="btn green" onclick="event.preventDefault();
+                                                        document.getElementById('publish').submit();">
+                                                             Publish </a>
+                                                    </li>
+                                                    <li>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
                                     <!--end col-md-4-->
                                 </div>
                                 <!--end row-->
@@ -85,5 +130,9 @@
     </div>
 </div>
 <!-- END CONTENT BODY -->
+@endsection
+
+@section('style')
+<link href="{{asset('assets/pages/css/profile-2.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 

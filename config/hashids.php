@@ -59,6 +59,11 @@ return [
             'length' => 4,
         ],
 
+        \App\Division::class => [
+            'salt' => \App\Division::class.'your-DiV1SION-string',
+            'length' => 4,
+        ],
+
         'ticketuser'::class => [
             'salt' => 'In1UNtuKTicketU$3R',
             'length' => 8,

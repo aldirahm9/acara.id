@@ -13,7 +13,7 @@
                         <div class="container">
                             <!-- BEGIN LOGO -->
                             <div class="page-logo">
-                                <a href="index-2.html">
+                            <a href="{{route('index')}}">
                                     <img src="{{asset('img/logo.png')}}" class="logo-default" width="150">
                                 </a>
                             </div>

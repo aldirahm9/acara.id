@@ -12,7 +12,7 @@
 */
 
 
-
+Route::get('mailable', 'RouteController@mailable');
 
 
 Route::group(['middleware' => ['auth']], function () {
@@ -52,6 +52,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/event/{event}/edit', 'EventController@edit')->name('dashboard.event.edit');
         Route::post('dashboard/event/{event}/edit', 'EventController@update')->name('dashboard.event.update');
         Route::get('dashboard/event/{event}/attendee', 'EventController@show_attendee')->name('dashboard.event.attendee.index');
+        Route::post('dashboard/event/{event}/publish', 'EventController@setPublish')->name('dashboard.event.publish');
+        Route::post('dashboard/event/{event}/hide', 'EventController@setHidden')->name('dashboard.event.hide');
 
         Route::get('dashboard/event/{event}/ticket', 'TicketController@index')->name('dashboard.event.ticket.index');
         Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');
@@ -66,6 +68,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('dashboard/event/{event}/attendee/checkin', 'TicketController@postCheckin')->name('dashboard.event.checkin.post');
         Route::get('dashboard/event/{event}/checkin', 'TicketController@indexCheckin')->name('dashboard.event.checkin.index');
         Route::get('dashboard/event/{event}/feedback', 'TicketController@indexFeedback')->name('dashboard.event.feedback.index');
+
+        Route::get('dashboard/event/{event}/div/{division}', 'DivisionController@show')->name('dashboard.event.division.show');
+        Route::post('dashboard/event/{event}/creatediv', 'DivisionController@store')->name('dashboard.event.division.store');
+        Route::get('dashboard/event/{event}/creatediv', 'DivisionController@create')->name('dashboard.event.division.create');
+        Route::post('dashboard/event/{event}/div/{division}/createjob', 'DivisionController@jobs_store')->name('dashboard.event.division.jobs.store');
+
     });
 
 
@@ -92,31 +100,23 @@ Route::get('/event', 'AttendeePagesController@event')->name('attendee.event');
 
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
 Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
-
-Route::get('/satu', function () {
-    return view('satu');
-});
-
-Route::get('/', 'HomeController@show');
-
-Route::get('/howit', function () {
-    return view('attendee/pages/howit');
-});
+Route::post('/register_google', 'Auth\LoginController@registerGoogle')->name('register.google');
 
 
-Route::get('/contact', function () {
-    return view('attendee/pages/contact');
-});
+Route::get('/', 'HomeController@show')->name('index');
+
+Route::get('/howit', 'RouteController@howit');
+
+
+Route::get('/contact', 'RouteController@contact');
 
 
 Auth::routes();
 
-Route::get('/404', function() {
-    return view('404');
-});
+Route::get('/404', 'RouteController@err404');
 
-Route::get('/500', function() {
-    return view('500');
-});
+Route::get('/500', 'RouteController@err500');
 
-// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/coba', function(){
+//     return view('satu');
+// });
