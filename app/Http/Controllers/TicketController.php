@@ -108,7 +108,7 @@ public function mytickets()
                 // Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
                 $user = $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuserid)[0])->first();
                 // TODO: change to queue
-                Mail::to($user)->send(new TicketMail($ticket,$user,$ticketuserid));
+                Mail::to($user)->queue(new TicketMail($ticket,$user,$ticketuserid));
 
             }
         }
@@ -214,7 +214,7 @@ public function mytickets()
         if($ticket->price == 0 ) {
             $user->tickets()->attach($ticket->id,['approved'=>1]);
             $pivotId = $user->tickets()->where('ticket_id',$ticket->id)->orderBy('ticket_user.created_at','desc')->first()->pivot->id;
-            Mail::to($user)->send(new TicketMail($ticket,$user,$pivotId));
+            Mail::to($user)->queue(new TicketMail($ticket,$user,$pivotId));
         }else {
             $user->tickets()->attach($ticket->id);
         }
