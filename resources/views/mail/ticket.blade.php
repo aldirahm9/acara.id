@@ -21,5 +21,5 @@
 @endsection
 
 @section('img')
-"{{$message->embed('http://www.acaraid.com/public/img/attendee.jpg' . str_replace(' ', '%20', $ticket->event->image))}}"
+"{{$message->embed('http://www.acaraid.com/public/img/' . str_replace(' ', '%20', $ticket->event->image))}}"
 @endsection
