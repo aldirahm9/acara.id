@@ -1,7 +1,7 @@
 @extends('dashboard/app')
 
 @section('title')
-| BINER - Check In
+| {{$event->name}} - Check In
 @endsection
 
 @section('content')
