@@ -29,6 +29,7 @@
                             </div>
                             <!-- END CONTENT HEADER -->
                             <!-- BEGIN MEMBERS SUCCESS STORIES -->
+                            <h2 style="text-align: center">Our Top Event</h2>
                             <div class="row margin-bottom-20 stories-cont">
                             @foreach($event->where('publish',1)->take(4) as $event)
                                 <div class="col-lg-3 col-md-6">
