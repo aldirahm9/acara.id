@@ -8,6 +8,7 @@
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
+            @include('dashboard/partials/_messages')
         <!-- BEGIN PAGE HEADER-->
         <div class="col-md-6">
             <h1 style="color:steelblue"><strong>Event Profile</strong></h1>
