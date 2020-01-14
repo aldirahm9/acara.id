@@ -149,7 +149,7 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-md-12" style="text-align: center">
-                                        <img src="{{asset('storage/upload/' . $user->pivot->receipt)}}" alt="">
+                                        <img src="{{asset('storage/upload/' . $user->pivot->receipt)}}" alt="" width="50%">
                                     </div>
                                 </div>
                             </div>
