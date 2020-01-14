@@ -150,11 +150,12 @@ class EventController extends Controller
             'description' => 'required',
         ]);
         if($request->image != null) {
+    
             $fileName= null;
-            if($request->image != null) {
-                $fileName = $user->organizer->name . '-' . $request->name . '.jpg';
-                $request->file('image')->storeAs('public/upload', $fileName);
-            }
+
+            $fileName = $user->organizer->name . '-' . $request->name . '.jpg';
+            $request->file('image')->storeAs('public/upload', $fileName);
+
 
             $dateLocale = DateTime::createFromFormat('d-m-Y', $request->date);
 
