@@ -116,7 +116,7 @@
                                                                                 class="fa fa-upload"></i> Upload Receipt
                                                                             Payment</a>
                                                                         <br><br>
-                                                                        <a class="btn btn-circle green btn-md" data-toggle="modal" href="{{'#receipt' . $ticket->pivot->id}}">View Receipt</a>
+                                                                        {{-- <a class="btn btn-circle green btn-md" data-toggle="modal" href="{{'#receipt' . $ticket->pivot->id}}">View Receipt</a> --}}
                                                                         @else
                                                                         <a class="btn btn-circle blue btn-md"
                                                                             data-toggle="modal" href="{{'#qrcode' . $ticket->pivot->id}}"> <i
