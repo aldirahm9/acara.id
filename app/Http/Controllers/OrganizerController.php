@@ -127,9 +127,9 @@ class OrganizerController extends Controller
      * @param  \App\Organizer  $organizer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Organizer $organizer)
-    {
-        $organizer->delete();
-        return redirect('dashboard/organizers');
-    }
+    // public function destroy(Organizer $organizer)
+    // {
+    //     $organizer->delete();
+    //     return redirect('dashboard/organizers');
+    // }
 }

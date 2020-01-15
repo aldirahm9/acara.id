@@ -87,7 +87,7 @@ $user = Auth::user()
                                                         <i class="icon-docs"></i> Approve Event </a>
                                                 </li>
                                                 @endif
-                                                <li>
+                                                {{-- <li>
                                                     {!! Form::open(['route'=> ['delete.event','event'=>
                                                     Hashids::connection(\App\Event::class)->encode($event->id)],
                                                     'style'=>'display:none','method'=>'POST','id'=>'delete'.$event->id])
@@ -97,7 +97,7 @@ $user = Auth::user()
                                                         onclick="event.preventDefault();
                                                             document.getElementById('delete' + {{$event->id}}).submit();">
                                                         <i class="icon-docs"></i> Delete Event </a>
-                                                </li>
+                                                </li> --}}
 
                                                 {{-- <li class="divider"> </li>
                                                 <li>

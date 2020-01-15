@@ -8,7 +8,7 @@
 <div class="page-content-wrapper">
     <div class="page-content">
             @include('dashboard/partials/_messages')
-        <div class="page-bar">
+        {{-- <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
                     <a href="index-2.html">Event</a>
@@ -18,7 +18,7 @@
                     <a href="index-2.html">Checkin</a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
         <h1 class="page-title" style="color:steelblue"><strong>Checkin {{$event->name}}</strong></h1>
         <div style="text-align:center">
             <a data-toggle="modal" href="#scan" onClick="jbScanner.resumeScanning()" class="btn btn-lg green"><i
@@ -28,7 +28,7 @@
 
         <div class="portlet box green">
             <div class="portlet-title">
-                <div class="caption">
+            <div class="caption">
                     <i class="fa fa-globe"></i>Attendee</div>
                 <div class="tools"> </div>
             </div>

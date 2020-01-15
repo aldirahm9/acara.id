@@ -150,7 +150,7 @@ class EventController extends Controller
             'description' => 'required',
         ]);
         if($request->image != null) {
-    
+
             $fileName= null;
 
             $fileName = $user->organizer->name . '-' . $request->name . '.jpg';
@@ -218,19 +218,19 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
-    {
-        // dd('masuk');
-        $event->delete();
-        return redirect('dashboard');
-    }
+    // public function destroy(Event $event)
+    // {
+    //     // dd('masuk');
+    //     $event->delete();
+    //     return redirect('dashboard');
+    // }
 
-    public function adminDestroy(Event $event)
-    {
-        // dd('masuk');
-        $event->delete();
-        return redirect('dashboard/events');
-    }
+    // public function adminDestroy(Event $event)
+    // {
+    //     // dd('masuk');
+    //     $event->delete();
+    //     return redirect('dashboard/events');
+    // }
 
     public function approve(Event $event)
     {
