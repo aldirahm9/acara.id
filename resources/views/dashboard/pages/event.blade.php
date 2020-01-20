@@ -8,6 +8,7 @@
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
+            @include('dashboard/partials/_messages')
         <!-- BEGIN PAGE HEADER-->
         <div class="col-md-6">
             <h1 style="color:steelblue"><strong>Event Profile</strong></h1>
@@ -19,9 +20,9 @@
         {!! Form::open(['route'=> ['dashboard.event.finish','event'=>Hashids::connection(\App\Event::class)->encode($event->id)],'method'=>'POST','id'=>'finishForm','style'=>'display:none']) !!}
         {!! Form::close() !!} --}}
 
-        <a href="javascript:;" onclick="event.preventDefault();$('#removeForm').submit()"class="btn btn-large btn-danger"><strong>Delete</strong></a>
+        {{-- <a href="javascript:;" onclick="event.preventDefault();$('#removeForm').submit()"class="btn btn-large btn-danger"><strong>Delete</strong></a>
         {!! Form::open(['route'=> ['dashboard.event.remove','event'=>Hashids::connection(\App\Event::class)->encode($event->id)],'method'=>'POST','id'=>'removeForm','style'=>'display:none']) !!}
-        {!! Form::close() !!}
+        {!! Form::close() !!} --}}
         </div><br><br><br>
 
         <div class="page-title"></div>

@@ -14,7 +14,7 @@
                             <!-- BEGIN LOGO -->
                             <div class="page-logo">
                             <a href="{{route('index')}}">
-                                    <img src="{{asset('img/logo1.png')}}" class="logo-default" width="150">
+                                    <img src="{{asset('img/logo.png')}}" class="logo-default" width="150">
                                 </a>
                             </div>
                             <!-- END LOGO -->
@@ -89,22 +89,22 @@
                             <!-- BEGIN MEGA MENU -->
                             <div class="hor-menu  ">
                                 <ul class="nav navbar-nav">
-                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown {{ request()->routeIs('index') ? 'active' : '' }}">
                                         <a href="/"> Home
                                             <span class="arrow"></span>
                                         </a>
                                     </li>
-                                    <li aria-haspopup="true" class="menu-dropdown mega-menu-dropdown  ">
+                                    <li aria-haspopup="true" class="menu-dropdown mega-menu-dropdown  {{ request()->routeIs('howit') ? 'active' : '' }}">
                                         <a href="/howit"> How It Works
                                             <span class="arrow"></span>
                                         </a>
                                         </li>
-                                        <li aria-haspopup="true" class="menu-dropdown mega-menu-dropdown  ">
+                                        <li aria-haspopup="true" class="menu-dropdown mega-menu-dropdown {{ request()->routeIs('attendee.event*') ? 'active' : '' }} ">
                                         <a href="/event"> Event
                                             <span class="arrow"></span>
                                         </a>
                                         </li>
-                                        <li aria-haspopup="true" class="menu-dropdown mega-menu-dropdown  ">
+                                        <li aria-haspopup="true" class="menu-dropdown mega-menu-dropdown  {{ request()->routeIs('contact') ? 'active' : '' }}">
                                         <a href="/contact"> Contact
                                             <span class="arrow"></span>
                                         </a>

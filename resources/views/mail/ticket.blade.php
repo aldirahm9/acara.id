@@ -19,3 +19,7 @@
 @section('place')
 {{$ticket->event->location}}
 @endsection
+
+@section('img')
+"{{$message->embed('http://www.acaraid.com/public/storage/upload/' . str_replace(' ', '%20', $ticket->event->image))}}"
+@endsection

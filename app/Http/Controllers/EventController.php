@@ -150,11 +150,12 @@ class EventController extends Controller
             'description' => 'required',
         ]);
         if($request->image != null) {
+
             $fileName= null;
-            if($request->image != null) {
-                $fileName = $user->organizer->name . '-' . $request->name . '.jpg';
-                $request->file('image')->storeAs('public/upload', $fileName);
-            }
+
+            $fileName = $user->organizer->name . '-' . $request->name . '.jpg';
+            $request->file('image')->storeAs('public/upload', $fileName);
+
 
             $dateLocale = DateTime::createFromFormat('d-m-Y', $request->date);
 
@@ -217,19 +218,19 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
-    {
-        // dd('masuk');
-        $event->delete();
-        return redirect('dashboard');
-    }
+    // public function destroy(Event $event)
+    // {
+    //     // dd('masuk');
+    //     $event->delete();
+    //     return redirect('dashboard');
+    // }
 
-    public function adminDestroy(Event $event)
-    {
-        // dd('masuk');
-        $event->delete();
-        return redirect('dashboard/events');
-    }
+    // public function adminDestroy(Event $event)
+    // {
+    //     // dd('masuk');
+    //     $event->delete();
+    //     return redirect('dashboard/events');
+    // }
 
     public function approve(Event $event)
     {

@@ -133,7 +133,7 @@
 											<td style="padding-bottom: 10px;">
 												<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#EFF2F7">
 													<tr>
-														<td class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:center;"><img src="{{$message->embed('http://www.acaraid.com/public/img/attendee.jpg')}}" height="300" editable="true" border="0" alt="" /></td>
+														<td class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:center;"><img src=@yield('img') height="300" editable="true" border="0" alt="" /></td>
 													</tr>
 													<tr>
 														<td class="p30-15" style="padding: 30px 30px;">

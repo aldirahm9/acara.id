@@ -34,7 +34,7 @@
         <!-- BEGIN LOGO -->
         <div class="logo">
             <a href="/">
-                <img src="{{asset('img/logooo.png')}}" width="200" /> </a>
+                <img src="{{asset('img/logo.png')}}" width="200" /> </a>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->

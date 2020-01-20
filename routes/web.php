@@ -46,8 +46,8 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('dashboard/event/create', 'EventController@create')->name('dashboard.event.create');
         Route::post('dashboard/event/store', 'EventController@store')->name('dashboard.event.store');
-        Route::post('dashboard/event/{event}/remove', 'EventController@destroy')->name('dashboard.event.remove');
-        Route::post('dashboard/event/{event}/finish', 'EventController@finish')->name('dashboard.event.finish');
+        // Route::post('dashboard/event/{event}/remove', 'EventController@destroy')->name('dashboard.event.remove');
+        // Route::post('dashboard/event/{event}/finish', 'EventController@finish')->name('dashboard.event.finish');
         Route::get('dashboard/event/{event}', 'EventController@show')->name('dashboard.event.show');
         Route::get('dashboard/event/{event}/edit', 'EventController@edit')->name('dashboard.event.edit');
         Route::post('dashboard/event/{event}/edit', 'EventController@update')->name('dashboard.event.update');
@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth']], function () {
         // Route::post('dashboard/event/{event}/ticket', 'TicketController@store')->name('dashboard.event.ticket.store');
         Route::post('dashboard/event/ticket/{ticket}/onsale', 'TicketController@onsale')->name('dashboard.event.ticket.onsale');
         Route::get('dashboard/event/ticket/{ticket}/edit', 'TicketController@edit')->name('dashboard.event.ticket.edit');
+        Route::get('dashboard/event/ticket/{ticket}/delete', 'TicketController@destroy')->name('dashboard.event.ticket.delete');
         Route::post('dashboard/event/ticket/{ticket}/update', 'TicketController@update')->name('dashboard.event.ticket.update');
         Route::post('dashboard/event/ticket/{ticket}/offsale', 'TicketController@offsale')->name('dashboard.event.ticket.offsale');
         Route::post('dashboard/event/{event}/{ticketuser}/remove', 'TicketController@removeAttendee')->name('user.ticket.remove');
@@ -79,13 +80,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['middleware' => ['admin']], function () {
         Route::get('dashboard/users', 'UserController@index')->name('dashboard.user.index');
-        Route::post('dashboard/users/{user}/delete', 'UserController@destroy')->name('delete.user');
+        // Route::post('dashboard/users/{user}/delete', 'UserController@destroy')->name('delete.user');
 
         Route::get('dashboard/organizers', 'OrganizerController@index')->name('dashboard.organizer.index');
-        Route::post('dashboard/organizers/{organizer}', 'OrganizerController@destroy')->name('delete.organizer');
+        // Route::post('dashboard/organizers/{organizer}', 'OrganizerController@destroy')->name('delete.organizer');
 
         Route::get('dashboard/events', 'EventController@index')->name('dashboard.admin.event.index');
-        Route::post('dashboard/events/{event}/delete', 'EventController@adminDestroy')->name('delete.event');
+        // Route::post('dashboard/events/{event}/delete', 'EventController@adminDestroy')->name('delete.event');
         Route::post('dashboard/events/{event}/approve', 'EventController@approve')->name('approve.event');
     });
     Route::get('logout', 'Auth\LoginController@logout');
@@ -105,10 +106,10 @@ Route::post('/register_google', 'Auth\LoginController@registerGoogle')->name('re
 
 Route::get('/', 'HomeController@show')->name('index');
 
-Route::get('/howit', 'RouteController@howit');
+Route::get('/howit', 'RouteController@howit')->name('howit');
 
 
-Route::get('/contact', 'RouteController@contact');
+Route::get('/contact', 'RouteController@contact')->name('contact');
 
 
 Auth::routes();
@@ -116,6 +117,10 @@ Auth::routes();
 Route::get('/404', 'RouteController@err404');
 
 Route::get('/500', 'RouteController@err500');
+
+// Route::get('qrcode', function () {
+//     return view('qrcode');
+// });
 
 // Route::get('/coba', function(){
 //     return view('satu');

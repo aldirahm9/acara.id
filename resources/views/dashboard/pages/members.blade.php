@@ -82,13 +82,13 @@ $user = Auth::user()
                                     </td>
                                     @if(Auth::user()->isOrganizerAdmin())
                                     <td>
-                                        <div class="btn-group">
+                                        <div class="btn-toolbar">
                                             <button class="btn btn-xs green dropdown-toggle" type="button"
                                                 data-toggle="dropdown" aria-expanded="false"> Actions
                                                 <i class="fa fa-angle-down"></i>
                                             </button>
                                             {{-- TODO: tambahin alert confirm --}}
-                                            <ul class="dropdown-menu pull-left" role="menu">
+                                            <ul class="dropdown-menu pull-left" role="menu" style="position: relative!important">
                                                 @if($member->isOrganizerAdmin())
                                                 <li>
                                                     {!! Form::open(['route'=> ['revoke.admin','user'=> Hashids::connection(\App\User::class)->encode($member->id)], 'style'=>'display:none','method'=>'POST','id'=>'revoke'.$member->id]) !!}

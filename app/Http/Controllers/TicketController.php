@@ -108,7 +108,7 @@ public function mytickets()
                 // Session::flash('success','Berhasil Checkin '. $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
                 $user = $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($ticketuserid)[0])->first();
                 // TODO: change to queue
-                Mail::to($user)->send(new TicketMail($ticket,$user,$ticketuserid));
+                Mail::to($user)->queue(new TicketMail($ticket,$user,$ticketuserid));
 
             }
         }
@@ -270,6 +270,11 @@ public function mytickets()
      */
     public function destroy(Ticket $ticket)
     {
-        //
+        if($ticket->users->first() == null) {
+            $ticket->delete();
+        } else {
+            Session::flash('failed','Failed to delete because the ticket is already booked');
+        }
+        return redirect('dashboard/event/' . Hashids::connection(\App\Event::class)->encode($ticket->event->id) . '/ticket');
     }
 }

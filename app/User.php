@@ -110,7 +110,10 @@ class User extends Authenticatable
 
     public function getTicketStatus()
     {
-        if($this->pivot->approved == 1) {
+        if($this->pivot->checkin == 1) {
+            return 4;
+        }
+        elseif($this->pivot->approved == 1) {
             return 3;
         }elseif($this->pivot->receipt !=null) {
             return 2;
