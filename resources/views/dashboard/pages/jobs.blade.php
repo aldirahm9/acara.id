@@ -132,7 +132,7 @@
                         </div>
                     </div>
                     <div class="portlet-body form">
-                        <form role="form">
+                        <form role ="form">
                             <div class="form-group form-md-checkboxes">
                                 <label>{{$division->name}}</label>
                                 <div class="md-checkbox-list">

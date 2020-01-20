@@ -61,7 +61,7 @@ class DivisionController extends Controller
             'event_id' => $event->id
 
         ]);
-        return redirect('dashboard/event/ '. Hashids::connection(\App\Event::class)->encode($event->id) .'/creatediv');
+        return redirect('dashboard/event/ '. Hashids::connection(\App\Event::class)->encode($event->id) .'/div/'. Hashids::connection(\App\Division::class)->encode($division->id)  );
     }
 
     public function jobs_store(Request $request, Event $event, Division $division)
@@ -101,6 +101,37 @@ class DivisionController extends Controller
         return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id) .'/div/' . Hashids::connection(\App\Division::class)->encode($division->id));
     }
     //, ['event'=>$event], ['division'=>$division]
+
+    public function jobUpdate(Division $division, Job $job, Request $request)
+    {
+
+        $user = Auth::user();
+        if(!$user->isOrganizerAdmin()) {
+            return abort(401,'Unauthorized Action');
+        }
+
+        $this->validate($request, [
+            'date' => 'required',
+        ]);
+        $dateLocale = DateTime::createFromFormat('d-m-Y', $request->date);
+
+        $dateToSave = $dateLocale->format('Y-m-d');
+
+        // dd($request);
+        if($request->tasks!=null){
+            foreach($request->tasks as $each) {
+                if($each['task']==null) continue;
+                if()
+                $job = Job::Update([
+                    'status' => 1,
+                    'overdue' => 0,
+
+                ]);
+                // dd($each['task_name']);
+            }
+        }
+        return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id) .'/div/' . Hashids::connection(\App\Division::class)->encode($division->id));
+    }
 
     /**
      * Display the specified resource.
@@ -177,13 +208,5 @@ class DivisionController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function jobUpdate(Division $division, Job $job)
-    {
-        $job->update([
-            'publish' => 0
-        ]);
-        return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id) .'/div/' . Hashids::connection(\App\Division::class)->encode($division->id));
     }
 }
