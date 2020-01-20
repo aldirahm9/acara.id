@@ -132,14 +132,17 @@
                         </div>
                     </div>
                     <div class="portlet-body form">
-                        <form role ="form">
+                        <form action="{{route('dashboard.event.division.jobs.update', ['event'=>Hashids::connection(\App\Event::class)->encode($event->id),'division'=>Hashids::connection(\App\Division::class)->encode($division->id), 'deadline' => $each->id])}}"
+                            method="POST" id="form_sample_3" enctype="multipart/form-data" data-parsley-validate=""
+                            class="form-horizontal">
+                            @csrf
                             <div class="form-group form-md-checkboxes">
                                 <label>{{$division->name}}</label>
                                 <div class="md-checkbox-list">
                                     @foreach ($each->jobs as $item)
                                     <div class="md-checkbox">
-                                    <input type="checkbox" id="checkbox_{{$item->id}}" class="md-check">
-                                        <label for="checkbox_{{$item->id}}">
+                                    <input type="checkbox" id="check_{{$item->id}}" name="check_{{$item->id}}"  value="1" {{$item->status == 1 ? 'checked' : ''}} class="md-check">
+                                        <label for="check_{{$item->id}}">
                                             <span></span>
                                             <span class="check"></span>
                                             <span class="box"></span>{{$item->name}}</label>
@@ -151,7 +154,7 @@
                                 <p style="color:gray">added by Aldi Rahmansyah</p>
                             </div>
                             <div class="form-actions noborder center">
-                                <button type="button" class="btn blue">Submit</button>
+                                <button type="submit" class="btn blue">Submit</button>
                                 <button type="button" class="btn default">Cancel</button>
                             </div>
                         </form>

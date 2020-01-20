@@ -7,6 +7,7 @@ use App\Event;
 use App\Division;
 use App\Job;
 use Auth;
+use Carbon\Carbon;
 use Hashids;
 use Log;
 use DateTime;
@@ -102,33 +103,38 @@ class DivisionController extends Controller
     }
     //, ['event'=>$event], ['division'=>$division]
 
-    public function jobUpdate(Division $division, Job $job, Request $request)
+    public function jobUpdate(Event $event,Division $division, Deadline $deadline, Request $request)
     {
+        // dd($request);
 
         $user = Auth::user();
         if(!$user->isOrganizerAdmin()) {
             return abort(401,'Unauthorized Action');
         }
 
-        $this->validate($request, [
-            'date' => 'required',
-        ]);
-        $dateLocale = DateTime::createFromFormat('d-m-Y', $request->date);
+        $datenow =  Carbon::now();
 
-        $dateToSave = $dateLocale->format('Y-m-d');
+        $deadlineDate = $deadline->date;
 
-        // dd($request);
-        if($request->tasks!=null){
-            foreach($request->tasks as $each) {
-                if($each['task']==null) continue;
-                if()
-                $job = Job::Update([
-                    'status' => 1,
-                    'overdue' => 0,
 
+
+        foreach($deadline->jobs as $ea) {
+            // dd($ea);
+            $job = Job::find($ea->id);
+
+            if($deadlineDate < $datenow) {
+                $job->update([
+                    'status' => ($request->input('check_' . $ea->id) == 1 ? 1 : 0),
+                    'overdue' => 1
                 ]);
-                // dd($each['task_name']);
+            }else {
+                $job->update([
+                    'status' => ($request->input('check_' . $ea->id) == 1 ? 1 : 0),
+                    'overdue' => 0
+                ]);
+
             }
+
         }
         return redirect('dashboard/event/'. Hashids::connection(\App\Event::class)->encode($event->id) .'/div/' . Hashids::connection(\App\Division::class)->encode($division->id));
     }

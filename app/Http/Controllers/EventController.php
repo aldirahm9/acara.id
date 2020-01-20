@@ -138,7 +138,6 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //NOTE: nanti untuk yang payment methodnya, delete semua dulu, baru save yang baru dari request
         $user = Auth::user();
         $this->validate($request, [
             'name' => 'required|max:255',

@@ -72,6 +72,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('dashboard/event/{event}/div/{division}', 'DivisionController@show')->name('dashboard.event.division.show');
         Route::post('dashboard/event/{event}/creatediv', 'DivisionController@store')->name('dashboard.event.division.store');
+        Route::post('dashboard/event/{event}/div/{division}/{deadline}', 'DivisionController@jobUpdate')->name('dashboard.event.division.jobs.update');
         Route::get('dashboard/event/{event}/creatediv', 'DivisionController@create')->name('dashboard.event.division.create');
         Route::post('dashboard/event/{event}/div/{division}/createjob', 'DivisionController@jobs_store')->name('dashboard.event.division.jobs.store');
 
