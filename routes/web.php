@@ -113,7 +113,7 @@ Route::get('/howit', 'RouteController@howit')->name('howit');
 Route::get('/contact', 'RouteController@contact')->name('contact');
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/404', 'RouteController@err404');
 
