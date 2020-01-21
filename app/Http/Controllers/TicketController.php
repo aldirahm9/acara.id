@@ -162,7 +162,7 @@ public function mytickets()
             if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first() != null) {
                 if($ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->pivot->checkin == 1) {
                     $checkedin = true;
-                    Session::flash('success','Checkin sudah dilakukan ' . $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
+                    Session::flash('failed','Checkin sudah dilakukan ' . $ticket->users()->wherePivot('id',Hashids::connection('ticketuser')->decode($request->ticketuser)[0])->first()->email);
 
                 }else {
 

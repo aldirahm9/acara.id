@@ -87,7 +87,7 @@
 												<th class="column-top" width="145" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top;">
 													<table width="100%" border="0" cellspacing="0" cellpadding="0">
 														<tr>
-															<td class="img m-center" style="font-size:0pt; line-height:0pt; text-align:left;"><img src="{{$message->embed('http://www.acaraid.com/public/img/logo.png')}}" width="131" editable="true" border="0" alt="" /></td>
+															<td class="img m-center" style="font-size:0pt; line-height:0pt; text-align:center;"><img src="{{$message->embed('http://www.acaraid.com/public/img/logo.png')}}" width="131" editable="true" border="0" alt="" /></td>
 														</tr>
 													</table>
 												</th>
@@ -97,12 +97,12 @@
 								</tr>
 							</table>
 							<!-- END Header -->
-
+                            
 							<repeater>
 								<!-- Intro -->
 								<layout label='Intro'>
 									<table width="100%" border="0" cellspacing="0" cellpadding="0">
-										<tr>
+										<tr>    
 											<td style="padding-bottom: 10px;">
 												<table width="100%" border="0" cellspacing="0" cellpadding="0">
 													<tr>
