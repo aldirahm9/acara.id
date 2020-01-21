@@ -116,7 +116,7 @@
                                                 {!! Form::open(['route' =>
                                                 ['dashboard.event.checkin.post','event'=>Hashids::connection(\App\Event::class)->encode($event->id)],'method'=>
                                                 'POST','style'=>'display:none','id'=>'checkin'.$user->pivot->id]) !!}
-                                                {!! Form::hidden('ticketuser', $user->pivot->id,['id'=>'hiddenid']) !!}
+                                                {!! Form::hidden('ticketuser', Hashids::connection('ticketuser')->encode($user->pivot->id),['id'=>'hiddenid']) !!}
                                                 {!! Form::close() !!}
                                                 <a
                                                     onclick="event.preventDefault();
