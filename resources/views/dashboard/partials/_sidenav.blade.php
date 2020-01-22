@@ -143,7 +143,7 @@
             </a>
         </li>
 
-        <li class="nav-item  {{ request()->routeIs('dashboard.event.division*') ? 'active' : '' }}">
+        {{-- <li class="nav-item  {{ request()->routeIs('dashboard.event.division*') ? 'active' : '' }}">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="fa fa-group"></i>
                 <span class="title">Division (Under Development)</span>
@@ -166,7 +166,7 @@
                 </li>
             </ul>
 
-        </li>
+        </li> --}}
         @endif
         @endif
         {{-- !SECTION  --}}
